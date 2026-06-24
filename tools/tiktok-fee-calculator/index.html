@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TikTok Shop Fee Calculator 2026 | DengTTSTools</title>
+<meta name="description" content="Free TikTok Shop fee calculator. Calculate base commission, AFFF platform fee, payment processing, and creator commission. See the real fee stack." />
+<meta name="keywords" content="tiktok shop fee calculator, tiktok shop commission, tiktok shop afff fee, tiktok payment processing" />
+<link rel="canonical" href="https://deng.zh.kg/tools/tiktok-fee-calculator/" />
+<meta property="og:title" content="TikTok Shop Fee Calculator 2026" />
+<meta property="og:url" content="https://deng.zh.kg/tools/tiktok-fee-calculator/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TikTok Shop Fee Calculator 2026",
+  "url": "https://deng.zh.kg/tools/tiktok-fee-calculator/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-mark">DT</span><span>DengTTSTools</span></a>
+    <nav class="main-nav">
+      <a href="/tools/tiktok-fee-calculator/" class="active">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/">Profit</a>
+      <a href="/tools/tiktok-vs-amazon/">vs Amazon FBA</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main class="calc-page container">
+  <span class="eyebrow">2026 fee structure</span>
+  <h1>TikTok Shop Fee Calculator</h1>
+  <p class="subtitle">The full fee stack. Not just the 8% commission TikTok shows in the dashboard.</p>
+
+  <div class="calc-layout">
+    <section class="calc-card">
+      <h2>Inputs</h2>
+
+      <div class="form-row">
+        <label for="salePrice">Sale price (USD)</label>
+        <input type="number" id="salePrice" value="29.99" step="0.01" min="0" />
+      </div>
+
+      <div class="form-row">
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="0.08" selected>Default / Beauty / Home / Toys (8%)</option>
+          <option value="0.05">Electronics / Auto (5%)</option>
+          <option value="0.10">Fashion (10%)</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="creatorRate">Creator / affiliate commission</label>
+        <input type="number" id="creatorRate" value="0" step="1" min="0" max="30" />
+        <div class="hint">Percentage of sale price. 0 if no creator. Max 30%.</div>
+      </div>
+
+      <div class="form-row">
+        <label for="isCrossBorder">Cross-border order</label>
+        <select id="isCrossBorder">
+          <option value="0" selected>No (domestic US)</option>
+          <option value="1">Yes (international)</option>
+        </select>
+        <div class="hint">Cross-border orders add ~1% in additional fees</div>
+      </div>
+
+      <div class="form-row">
+        <label for="shippingCharged">Shipping charged to buyer</label>
+        <input type="number" id="shippingCharged" value="0" step="0.01" min="0" />
+        <div class="hint">Set 0 if "free shipping" is baked into price</div>
+      </div>
+    </section>
+
+    <section class="calc-card">
+      <h2>Fee stack</h2>
+      <div class="result-row"><span class="label">Sale price (incl. shipping)</span><span class="value" id="r_total">$29.99</span></div>
+      <div class="result-row negative"><span class="label">− Base commission (TikTok)</span><span class="value" id="r_base">−$2.40</span></div>
+      <div class="result-row negative"><span class="label">− AFFF platform fee</span><span class="value" id="r_afff">−$0.60</span></div>
+      <div class="result-row negative"><span class="label">− Payment processing</span><span class="value" id="r_payment">−$0.54</span></div>
+      <div class="result-row negative"><span class="label">− Cross-border fee</span><span class="value" id="r_cross">−$0.00</span></div>
+      <div class="result-row negative"><span class="label">− Creator commission</span><span class="value" id="r_creator">−$0.00</span></div>
+      <div class="result-row"><span class="label">= TikTok payout</span><span class="value" id="r_payout">$26.45</span></div>
+      <div class="result-row highlight"><span class="label">Total TikTok take</span><span class="value" id="r_total_fee">$3.54 (11.8%)</span></div>
+
+      <p style="color:var(--ink-dim);font-size:.78rem;font-family:var(--font-data);margin-top:var(--s-4);line-height:1.5;">
+        Source: TikTok Shop Seller Center 2026 docs. Does not include returns, refunds, ad spend, or fulfillment shipping costs. Real fees vary by region, category, and seller status.
+      </p>
+    </section>
+  </div>
+
+  <section style="margin-top:var(--s-7);">
+    <div class="section-header">
+      <h2>What the 5 TikTok Shop fees actually are</h2>
+      <span class="section-tag">01 / explainer</span>
+    </div>
+    <div class="features" style="margin-top:var(--s-5);">
+      <div class="feature"><div class="icon">[ 01 ]</div><h3>Base commission</h3><p>5%–10% depending on category. The headline number TikTok shows. Electronics 5%, Fashion 10%, most others 8%. Charged on total sale price including shipping.</p></div>
+      <div class="feature"><div class="icon">[ 02 ]</div><h3>AFFF platform fee</h3><p>2% on every transaction. "Application Fund Fee" — TikTok's separate fee for hosting the listing infrastructure. Shown as a "platform fee" line item, not a commission.</p></div>
+      <div class="feature"><div class="icon">[ 03 ]</div><h3>Payment processing</h3><p>~1.8% paid to the payment processor (Stripe/Adyen). Min $0.30 per order. Shown as a separate line, not a commission.</p></div>
+      <div class="feature"><div class="icon">[ 04 ]</div><h3>Cross-border fee</h3><p>~1% on international orders. Applies when you sell to buyers outside your seller region (e.g. US-based seller shipping to a UK buyer).</p></div>
+      <div class="feature"><div class="icon">[ 05 ]</div><h3>Creator commission</h3><p>1%–30% (you set it). Paid to TikTok creators/affiliates who promote your product. Stacks ON TOP of all four fees above. Set to 0 if you don't use creators.</p></div>
+      <div class="feature"><div class="icon">[ 06 ]</div><h3>What's NOT included</h3><p>This calculator doesn't include: TikTok ad spend, return processing, fulfillment shipping, removal/disposal fees, or aged-inventory surcharges. Those vary widely by seller.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <h2>FAQ</h2>
+      <span class="section-tag">02 / questions</span>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is the 8% commission all TikTok takes?</summary>
+        <p>No. The 8% is the base commission only. Real TikTok Shop take-rate is closer to 12%–14% once you include AFFF, payment processing, and any cross-border fees. With creator commission added, it can go above 20%.</p>
+      </details>
+      <details>
+        <summary>What is the AFFF fee?</summary>
+        <p>Application Fund Fee — a 2% platform fee that TikTok charges on every transaction, separate from the base commission. It's listed as a "platform fee" on your statement, not a commission, which is why many sellers overlook it.</p>
+      </details>
+      <details>
+        <summary>Do I pay creator commission on top of everything?</summary>
+        <p>Yes. Creator commission is paid to TikTok influencers on top of the base commission, AFFF, and payment processing. If you set a 10% creator commission, you pay 10% to the creator AND the other ~12% in TikTok fees. Total fees on a $30 product with 10% creator commission: about $6.60 (22%).</p>
+      </details>
+      <details>
+        <summary>How do TikTok Shop fees compare to Amazon FBA?</summary>
+        <p>On headline commission: TikTok 8% vs Amazon 15% — TikTok wins. On total fee stack including all fees: TikTok ~12% vs Amazon ~35% (with placement, low-inventory, fulfillment) — TikTok still wins by a large margin. But Amazon includes Prime shipping and warehouse fulfillment in that fee. Use the side-by-side calculator for a true comparison.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 DengTTSTools. Independent tool — not affiliated with TikTok or ByteDance.</p>
+    <nav><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/privacy/">Privacy</a></nav>
+  </div>
+</footer>
+
+<script src="/assets/js/tiktok-fee-calculator.js"></script>
+</body>
+</html>

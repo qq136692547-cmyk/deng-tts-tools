@@ -1,0 +1,52 @@
+{
+  "version": "2026.06",
+  "source": "TikTok Shop Seller Center (public docs) + seller community reports (2025-2026). Fees evolve frequently — verify before pricing decisions.",
+  "lastUpdated": "2026-06-24",
+  "baseCommission": {
+    "default": 0.08,
+    "byCategory": {
+      "default": 0.08,
+      "electronics": 0.05,
+      "fashion": 0.10,
+      "beauty": 0.08,
+      "home": 0.08,
+      "fmcg": 0.08,
+      "toys": 0.08,
+      "sports": 0.08,
+      "auto": 0.05,
+      "jewelry": 0.08
+    },
+    "appliesTo": "Total sale price (including shipping)"
+  },
+  "paymentProcessingFee": {
+    "rate": 0.018,
+    "min": 0.30,
+    "appliesTo": "Order subtotal",
+    "note": "Charged by payment processor (e.g. Stripe, Adyen). TikTok Shop may add this on top of base commission."
+  },
+  "afffFundFee": {
+    "rate": 0.02,
+    "appliesTo": "Order subtotal",
+    "note": "Application Fund Fee — TikTok's separate platform fee for hosting the listing infrastructure. NOT the same as the 8% commission."
+  },
+  "crossBorderAdditionalFee": 0.01,
+  "creatorCommission": {
+    "min": 0.01,
+    "max": 0.30,
+    "default": 0.10,
+    "note": "Seller-set commission rate paid to TikTok creators/affiliates. Affiliate fee is ON TOP of the base 8% commission."
+  },
+  "shippingModels": {
+    "fully_managed": {
+      "label": "Fully managed (FBM→TikTok)",
+      "sellerResponsibility": "Ship bulk to TikTok consolidation warehouse",
+      "platformHandles": "Last-mile delivery to buyer"
+    },
+    "seller_managed": {
+      "label": "Seller managed (you ship to buyer)",
+      "sellerResponsibility": "End-to-end shipping including last-mile",
+      "platformHandles": "Listing, payment, dispute"
+    }
+  },
+  "disclaimer": "TikTok Shop fees change frequently. The 8% base commission, 1.8% payment processing, 2% AFFF, and 1-2% cross-border fees are consistent with public 2025-2026 documentation, but specific rates for your category and seller region may differ. Always confirm in TikTok Seller Center."
+}

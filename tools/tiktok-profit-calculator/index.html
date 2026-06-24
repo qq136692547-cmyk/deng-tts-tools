@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TikTok Shop Profit Calculator 2026 | DengTTSTools</title>
+<meta name="description" content="Free TikTok Shop profit calculator. Calculate net profit per unit after all TikTok fees, COGS, and shipping." />
+<link rel="canonical" href="https://deng.zh.kg/tools/tiktok-profit-calculator/" />
+<meta property="og:title" content="TikTok Shop Profit Calculator 2026" />
+<meta property="og:url" content="https://deng.zh.kg/tools/tiktok-profit-calculator/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-mark">DT</span><span>DengTTSTools</span></a>
+    <nav class="main-nav">
+      <a href="/tools/tiktok-fee-calculator/">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/" class="active">Profit</a>
+      <a href="/tools/tiktok-vs-amazon/">vs Amazon FBA</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main class="calc-page container">
+  <span class="eyebrow">2026 fee structure</span>
+  <h1>TikTok Shop Profit Calculator</h1>
+  <p class="subtitle">Real net profit per unit. After every TikTok fee, your COGS, and your shipping cost.</p>
+
+  <div class="calc-layout">
+    <section class="calc-card">
+      <h2>Inputs</h2>
+      <div class="form-row"><label>Sale price (USD)</label><input type="number" id="sale" value="29.99" step="0.01" /></div>
+      <div class="form-row"><label>Category</label>
+        <select id="cat">
+          <option value="0.08" selected>Default (8%)</option>
+          <option value="0.05">Electronics (5%)</option>
+          <option value="0.10">Fashion (10%)</option>
+        </select>
+      </div>
+      <div class="form-row"><label>Product cost (COGS)</label><input type="number" id="cogs" value="6.50" step="0.01" /></div>
+      <div class="form-row"><label>Shipping cost (per unit)</label><input type="number" id="ship" value="3.00" step="0.01" /></div>
+      <div class="form-row"><label>Creator commission (%)</label><input type="number" id="creator" value="0" step="1" min="0" max="30" /></div>
+      <div class="form-row"><label>TikTok ad spend (% of sale)</label><input type="number" id="ads" value="10" step="1" min="0" max="100" /></div>
+    </section>
+
+    <section class="calc-card">
+      <h2>Profit breakdown</h2>
+      <div class="result-row"><span class="label">Sale price</span><span class="value" id="r_sale">$29.99</span></div>
+      <div class="result-row negative"><span class="label">− TikTok fees (8% + AFFF + pay)</span><span class="value" id="r_tts_fees">−$3.54</span></div>
+      <div class="result-row negative"><span class="label">− Creator commission</span><span class="value" id="r_creator_fee">−$0.00</span></div>
+      <div class="result-row negative"><span class="label">− COGS</span><span class="value" id="r_cogs">−$6.50</span></div>
+      <div class="result-row negative"><span class="label">− Shipping</span><span class="value" id="r_ship">−$3.00</span></div>
+      <div class="result-row negative"><span class="label">− TikTok ad spend</span><span class="value" id="r_ads">−$3.00</span></div>
+      <div class="result-row highlight"><span class="label">Net profit per unit</span><span class="value" id="r_profit">$13.95</span></div>
+      <div class="result-row highlight"><span class="label">Margin · ROI</span><span class="value" id="r_roi">46.5% / 146.6%</span></div>
+    </section>
+  </div>
+
+  <section style="margin-top:var(--s-7);">
+    <div class="section-header">
+      <h2>Why TikTok Shop profit math is different</h2>
+      <span class="section-tag">01 / explainer</span>
+    </div>
+    <p style="color:var(--ink-soft);max-width:65ch;">Three things make TikTok Shop's profit math unique compared to Amazon or eBay:</p>
+    <div class="features" style="margin-top:var(--s-4);">
+      <div class="feature"><div class="icon">[ 01 ]</div><h3>Creator commission is the wildcard</h3><p>On Amazon or eBay, the marketplace is the only platform taking a cut. On TikTok, you can pay creators 1%–30% on top of TikTok's fees. A product that's profitable at 0% creator commission can flip negative at 25%.</p></div>
+      <div class="feature"><div class="icon">[ 02 ]</div><h3>Ad spend is higher</h3><p>TikTok Shop sellers typically spend 10%–20% of revenue on TikTok ads to drive traffic. Amazon sellers can usually get away with less because of organic search. Build ad spend into your unit economics.</p></div>
+      <div class="feature"><div class="icon">[ 03 ]</div><h3>Returns run higher</h3><p>TikTok's "try before you buy" culture means returns can run 15%–25%, vs Amazon's 5%–10%. Returns eat shipping both ways, and you usually eat the cost of damaged or used items.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 DengTTSTools. Independent tool — not affiliated with TikTok or ByteDance.</p>
+    <nav><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/privacy/">Privacy</a></nav>
+  </div>
+</footer>
+
+<script src="/assets/js/tiktok-profit-calculator.js"></script>
+</body>
+</html>
