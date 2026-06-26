@@ -19,7 +19,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href="/assets/css/site.css" />
 <style>
-  /* deng brand: cyan -> violet -> pink */
   body.home {
     --brand-1: #06B6D4;
     --brand-2: #EC4899;
@@ -70,40 +69,115 @@
       <a href="#how-it-works" class="btn btn-ghost">How it works</a>
     </div>
 
-    <div class="calc-window" aria-label="Sample TikTok Shop fee breakdown">
-      <div class="calc-titlebar">
-        <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="calc-name">TikTok Shop Calculator &middot; sample: $29.99 beauty</div>
-        <div class="calc-badge">Live</div>
+    <div class="calc-window" role="region" aria-label="TikTok Shop fee calculator demo">
+      <div class="demo-tabs-bar">
+        <div class="demo-traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+        <button class="demo-tab is-active" data-tab="calc">
+          <span>&gt;_</span> tiktok-fee-calc <span class="demo-tab-kbd"><span class="kbd">F</span></span>
+        </button>
+        <button class="demo-tab" data-tab="profit">
+          <span>&gt;_</span> profit-calc <span class="demo-tab-kbd"><span class="kbd">P</span></span>
+        </button>
+        <button class="demo-tab" data-tab="vs">
+          <span>&gt;_</span> vs-amazon <span class="demo-tab-kbd"><span class="kbd">V</span></span>
+        </button>
+        <span class="demo-pill">LIVE</span>
       </div>
-      <div class="calc-body">
-        <div class="calc-inputs">
-          <div class="calc-field">
-            <label>Sale price</label>
-            <div class="input"><span class="prefix">$</span><span>29.99</span></div>
+
+      <div class="demo-tabpanel is-active" data-panel="calc">
+        <div class="calc-body">
+          <div class="calc-inputs">
+            <div class="calc-field">
+              <label>Sale price</label>
+              <div class="input"><span class="prefix">$</span><span>29.99</span></div>
+            </div>
+            <div class="calc-field">
+              <label>COGS + shipping</label>
+              <div class="input"><span class="prefix">$</span><span>9.50</span></div>
+            </div>
+            <div class="calc-field">
+              <label>Category</label>
+              <div class="input"><span>Beauty (8%)</span></div>
+            </div>
+            <div class="calc-field">
+              <label>Creator commission</label>
+              <div class="input"><span>10%</span></div>
+            </div>
           </div>
-          <div class="calc-field">
-            <label>COGS + shipping</label>
-            <div class="input"><span class="prefix">$</span><span>9.50</span></div>
-          </div>
-          <div class="calc-field">
-            <label>Category</label>
-            <div class="input"><span>Beauty (8%)</span></div>
-          </div>
-          <div class="calc-field">
-            <label>Creator commission</label>
-            <div class="input"><span>10%</span></div>
+          <div class="calc-results">
+            <div class="calc-result-row"><span class="lbl">Base commission (8%)</span><span class="val">&minus;$2.40</span></div>
+            <div class="calc-result-row"><span class="lbl">AFFF platform fee (2%)</span><span class="val">&minus;$0.60</span></div>
+            <div class="calc-result-row"><span class="lbl">Payment processing (1.8%)</span><span class="val">&minus;$0.54</span></div>
+            <div class="calc-result-row"><span class="lbl">Creator commission (10%)</span><span class="val">&minus;$3.00</span></div>
+            <div class="calc-result-row"><span class="lbl">Cross-border / fixed</span><span class="val">&minus;$0.20</span></div>
+            <div class="calc-result-row"><span class="lbl">COGS + ship</span><span class="val">&minus;$9.50</span></div>
+            <div class="calc-result-row highlight"><span class="lbl">Net profit / unit</span><span class="val">$13.75</span></div>
           </div>
         </div>
-        <div class="calc-results">
-          <div class="calc-result-row"><span class="lbl">Base commission (8%)</span><span class="val">&minus;$2.40</span></div>
-          <div class="calc-result-row"><span class="lbl">AFFF platform fee (2%)</span><span class="val">&minus;$0.60</span></div>
-          <div class="calc-result-row"><span class="lbl">Payment processing (1.8%)</span><span class="val">&minus;$0.54</span></div>
-          <div class="calc-result-row"><span class="lbl">Creator commission (10%)</span><span class="val">&minus;$3.00</span></div>
-          <div class="calc-result-row"><span class="lbl">Cross-border / fixed fees</span><span class="val">&minus;$0.20</span></div>
-          <div class="calc-result-row"><span class="lbl">COGS + ship</span><span class="val">&minus;$9.50</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Net profit / unit</span><span class="val">$13.75</span></div>
+      </div>
+
+      <div class="demo-tabpanel" data-panel="profit" hidden>
+        <div class="calc-body" style="grid-template-columns: 1fr 1fr;">
+          <div style="padding:28px; background: rgba(0,0,0,0.3);">
+            <div class="calc-field" style="margin-bottom:6px"><span style="color:#06B6D4;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em">TikTok Shop</span></div>
+            <div class="calc-result-row" style="border-color:rgba(255,255,255,0.08)"><span class="lbl">Total TikTok fees</span><span class="val">&minus;$6.74</span></div>
+            <div class="calc-result-row"><span class="lbl">Net / unit</span><span class="val">$13.75</span></div>
+            <div class="calc-result-row"><span class="lbl">Margin</span><span class="val">45.8%</span></div>
+            <div class="calc-result-row"><span class="lbl">ROI</span><span class="val">145%</span></div>
+            <div class="calc-result-row"><span class="lbl">Per month (100u)</span><span class="val">$1,375</span></div>
+          </div>
+          <div style="padding:28px; background: rgba(0,0,0,0.2);">
+            <div class="calc-field" style="margin-bottom:6px"><span style="color:#EC4899;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em">TikTok Shop (no creator)</span></div>
+            <div class="calc-result-row" style="border-color:rgba(255,255,255,0.08)"><span class="lbl">Total TikTok fees</span><span class="val">&minus;$3.74</span></div>
+            <div class="calc-result-row"><span class="lbl">Net / unit</span><span class="val">$16.75</span></div>
+            <div class="calc-result-row"><span class="lbl">Margin</span><span class="val">55.9%</span></div>
+            <div class="calc-result-row"><span class="lbl">Per month (100u)</span><span class="val">$1,675</span></div>
+            <div class="calc-result-row"><span class="lbl">Creator cost</span><span class="val">&minus;$300/mo</span></div>
+          </div>
         </div>
+      </div>
+
+      <div class="demo-tabpanel" data-panel="vs" hidden>
+        <div style="padding: 24px 28px; font-family: var(--font-mono); font-size: 13px; line-height: 1.8; color: #fff;">
+<pre style="margin:0;color:#fff;font-family:var(--font-mono);font-size:13px;line-height:1.7"><span class="tok-com">// TikTok Shop vs Amazon FBA 鈥?same $29.99 product</span>
+<span class="tok-key">product</span> = <span class="tok-str">"$29.99 beauty"</span>
+<span class="tok-key">tiktok</span> = <span class="tok-pun">{</span>
+  <span class="tok-key">base</span>:         <span class="tok-fn">tiktok_commission</span>(<span class="tok-num">0.08</span>, product),
+  <span class="tok-key">afff</span>:         <span class="tok-fn">platform_fee</span>(<span class="tok-num">0.02</span>, product),
+  <span class="tok-key">payment</span>:      <span class="tok-fn">payment_processing</span>(<span class="tok-num">0.018</span>, product),
+  <span class="tok-key">creator</span>:      <span class="tok-fn">creator_commission</span>(<span class="tok-num">0.10</span>, product)
+<span class="tok-pun">}</span>
+<span class="tok-key">amazon</span> = <span class="tok-pun">{</span>
+  <span class="tok-key">referral</span>:     <span class="tok-fn">referral</span>(<span class="tok-num">0.15</span>, product),
+  <span class="tok-key">fba</span>:          <span class="tok-fn">fba_fulfillment</span>(size, weight),
+  <span class="tok-key">placement</span>:    <span class="tok-fn">inbound_placement</span>(fc),
+  <span class="tok-key">low_inv</span>:      <span class="tok-fn">lif</span>(days_of_cover)
+<span class="tok-pun">}</span>
+
+<span class="tok-com">// result: TikTok $13.75 net  vs  Amazon $10.62 net</span>
+<span class="tok-ok">&#10003; TikTok wins on raw margin for beauty in 2026</span>
+<span class="tok-ok">&#10003; Amazon wins on Prime reach &amp; buyer trust</span>
+<span class="tok-ok">&#10003; your call depends on audience + category</span></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="n"><span class="accent">$0</span></span>
+        <span class="l">always free &middot; no signup</span>
+      </div>
+      <div class="hero-stat">
+        <span class="n">4<span class="unit">fees</span></span>
+        <span class="l">the real TikTok stack</span>
+      </div>
+      <div class="hero-stat">
+        <span class="n">12<span class="unit">%</span></span>
+        <span class="l">real total &middot; not 8% headline</span>
+      </div>
+      <div class="hero-stat">
+        <span class="n">2026</span>
+        <span class="l">fee structure &middot; verified</span>
       </div>
     </div>
 
@@ -112,7 +186,7 @@
       <span class="dot-sep"></span>
       <span>Source: TikTok Shop Seller Center 2026 docs</span>
       <span class="dot-sep"></span>
-      <span>45.8% net margin</span>
+      <span>Press <span class="kbd">F</span> for fees, <span class="kbd">V</span> for vs-Amazon</span>
     </p>
   </div>
 </section>
@@ -275,5 +349,24 @@
     <span class="links"><a href="/privacy/">Privacy</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools">Source</a></span>
   </p>
 </footer>
+<script>
+(function(){
+  const tabs = document.querySelectorAll('.calc-window .demo-tab');
+  const panels = document.querySelectorAll('.calc-window .demo-tabpanel');
+  function activate(name) {
+    tabs.forEach(t => { t.classList.toggle('is-active', t.dataset.tab === name); });
+    panels.forEach(p => { const a = p.dataset.panel === name; p.classList.toggle('is-active', a); if (a) p.removeAttribute('hidden'); else p.setAttribute('hidden',''); });
+  }
+  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
+  const map = { f:'calc', p:'profit', v:'vs' };
+  document.addEventListener('keydown', e => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    const k = e.key.toLowerCase();
+    if (map[k] && document.querySelector('.calc-window')) { activate(map[k]); e.preventDefault(); }
+  });
+})();
+</script>
 </body>
 </html>
