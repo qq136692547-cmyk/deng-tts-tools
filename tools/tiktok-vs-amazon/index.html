@@ -27,46 +27,69 @@
   </div>
 </header>
 
-<main id="main" class="calc-page container">
-  <span class="eyebrow">side-by-side · 2026 fees</span>
-  <h1>TikTok Shop vs Amazon FBA</h1>
-  <p class="subtitle">Same product. Two platforms. Which one actually pays you more after all fees?</p>
+<main id="main" class="tool-calc">
+  <div class="container">
+    <div class="calc-window" role="region" aria-label="TikTok Shop vs Amazon FBA profit calculator">
+      <div class="demo-tabs-bar">
+        <div class="demo-traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+        <button class="demo-tab is-active" data-tab="calc" type="button">
+          <span>&gt;_</span> tiktok-vs-amazon <span class="demo-tab-kbd"><span class="kbd">V</span></span>
+        </button>
+        <span class="demo-pill">LIVE</span>
+      </div>
 
-  <div class="calc-layout">
-    <section class="calc-card">
-      <h2>Product inputs</h2>
-      <div class="form-row"><label>Sale price (USD)</label><input type="number" id="sale" value="29.99" step="0.01" /></div>
-      <div class="form-row"><label>Product cost (COGS)</label><input type="number" id="cogs" value="6.50" step="0.01" /></div>
-      <div class="form-row"><label>Shipping to Amazon FC (per unit)</label><input type="number" id="shipAmz" value="1.20" step="0.01" /></div>
-      <div class="form-row"><label>TikTok shipping (per unit)</label><input type="number" id="shipTts" value="3.00" step="0.01" /></div>
-      <div class="form-row"><label>TikTok creator commission (%)</label><input type="number" id="creator" value="0" step="1" min="0" max="30" /></div>
-      <div class="form-row"><label>Amazon ad spend (% of sale)</label><input type="number" id="adsAmz" value="10" step="1" min="0" max="100" /></div>
-      <div class="form-row"><label>TikTok ad spend (% of sale)</label><input type="number" id="adsTts" value="15" step="1" min="0" max="100" /></div>
-    </section>
+      <div class="demo-tabpanel is-active" data-panel="calc">
+        <div class="calc-body">
+          <div class="calc-inputs">
+            <div class="calc-field">
+              <label for="sale">Sale price</label>
+              <div class="input"><span class="prefix">$</span><input type="number" id="sale" value="29.99" step="0.01" min="0" /></div>
+            </div>
 
-    <section class="calc-card">
-      <h2>Side by side</h2>
-      <div class="result-row"><span class="label">Amazon FBA fees</span><span class="value" id="r_amz_fees">$9.78</span></div>
-      <div class="result-row"><span class="label">TikTok Shop fees</span><span class="value" id="r_tts_fees">$3.54</span></div>
-      <div class="result-row"><span class="label">Amazon net profit</span><span class="value" id="r_amz_profit">$10.11</span></div>
-      <div class="result-row"><span class="label">TikTok net profit</span><span class="value" id="r_tts_profit">$13.95</span></div>
-      <div class="result-row"><span class="label">Amazon margin</span><span class="value" id="r_amz_margin">33.7%</span></div>
-      <div class="result-row"><span class="label">TikTok margin</span><span class="value" id="r_tts_margin">46.5%</span></div>
-      <div class="result-row highlight"><span class="label">Winner</span><span class="value" id="r_winner">—</span></div>
-    </section>
+            <div class="calc-field">
+              <label for="cogs">Product cost</label>
+              <div class="input"><span class="prefix">$</span><input type="number" id="cogs" value="6.50" step="0.01" min="0" /></div>
+            </div>
+
+            <div class="calc-field">
+              <label for="shipAmz">Shipping to Amazon FC</label>
+              <div class="input"><span class="prefix">$</span><input type="number" id="shipAmz" value="1.20" step="0.01" min="0" /></div>
+            </div>
+
+            <div class="calc-field">
+              <label for="shipTts">TikTok shipping</label>
+              <div class="input"><span class="prefix">$</span><input type="number" id="shipTts" value="3.00" step="0.01" min="0" /></div>
+            </div>
+
+            <div class="calc-field">
+              <label for="creator">TikTok creator commission (%)</label>
+              <div class="input"><input type="number" id="creator" value="0" step="1" min="0" max="30" /></div>
+            </div>
+
+            <div class="calc-field">
+              <label for="adsAmz">Amazon ad spend (% of sale)</label>
+              <div class="input"><input type="number" id="adsAmz" value="10" step="1" min="0" max="100" /></div>
+            </div>
+
+            <div class="calc-field">
+              <label for="adsTts">TikTok ad spend (% of sale)</label>
+              <div class="input"><input type="number" id="adsTts" value="15" step="1" min="0" max="100" /></div>
+            </div>
+          </div>
+
+          <div class="calc-results">
+            <div class="calc-result-row"><span class="lbl">Amazon FBA fees</span><span class="val" id="r_amz_fees">$9.78</span></div>
+            <div class="calc-result-row"><span class="lbl">TikTok Shop fees</span><span class="val" id="r_tts_fees">$3.54</span></div>
+            <div class="calc-result-row"><span class="lbl">Amazon net profit</span><span class="val" id="r_amz_profit">$10.11</span></div>
+            <div class="calc-result-row"><span class="lbl">TikTok net profit</span><span class="val" id="r_tts_profit">$13.95</span></div>
+            <div class="calc-result-row"><span class="lbl">Amazon margin</span><span class="val" id="r_amz_margin">33.7%</span></div>
+            <div class="calc-result-row"><span class="lbl">TikTok margin</span><span class="val" id="r_tts_margin">46.5%</span></div>
+            <div class="calc-result-row highlight"><span class="lbl">Winner</span><span class="val" id="r_winner">-</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <section style="margin-top:var(--s-7);">
-    <div class="section-header">
-      <h2>When TikTok wins, when Amazon wins</h2>
-      <span class="section-tag">01 / decision guide</span>
-    </div>
-    <div class="features" style="margin-top:var(--s-4);">
-      <div class="feature"><div class="icon">[ TTS ]</div><h3>TikTok wins when</h3><p>You sell a trending / impulse / low-COGS product with strong visual appeal. Video converts well, so organic reach can replace ad spend. Fulfillment costs are low because you ship in bulk to TikTok's warehouse.</p></div>
-      <div class="feature"><div class="icon">[ FBA ]</div><h3>Amazon wins when</h3><p>You sell a high-COGS product where organic search (instead of paid ads) drives most sales. Prime shipping gives you a Buy Box boost. Long-tail search terms matter more than impulse appeal.</p></div>
-      <div class="feature"><div class="icon">[ 50/50 ]</div><h3>Run both</h3><p>Most successful multi-channel sellers run Amazon for the long-tail organic demand and TikTok Shop for the trend-driven impulse buys. The same SKU, two audiences, two different profit profiles.</p></div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
@@ -104,10 +127,11 @@
         </ul>
       </div>
     </div>
-    <p class="copyright">© 2026 DengTTSTools. Independent tool — not affiliated with TikTok or ByteDance.</p>
+    <p class="copyright">© 2026 DengTTSTools. Independent tool �?not affiliated with TikTok or ByteDance.</p>
   </div>
 </footer>
 
 <script src="/assets/js/tiktok-vs-amazon.js"></script>
 </body>
 </html>
+
