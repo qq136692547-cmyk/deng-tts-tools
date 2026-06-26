@@ -1,0 +1,12 @@
+{
+  "name": "DengTTSTools — TikTok Shop Seller Tools",
+  "short_name": "deng",
+  "description": "Free TikTok Shop seller tools (2026).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06B6D4",
+  "theme_color": "#06B6D4",
+  "icons": [
+    {"src": "/assets/images/favicon.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}
