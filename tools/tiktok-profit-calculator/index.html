@@ -75,6 +75,16 @@
               <label for="isCrossBorder">Cross-border seller</label>
               <div class="input"><select id="isCrossBorder"><option value="no" selected>No</option><option value="yes">Yes (+1% fee)</option></select></div>
             </div>
+
+            <div class="calc-field">
+              <label for="returnRate">Return rate</label>
+              <div class="input"><input type="number" id="returnRate" value="5" step="1" min="0" max="50" /><span class="prefix" style="margin-left:6px">%</span></div>
+            </div>
+
+            <div class="calc-field">
+              <label for="monthlyUnits">Monthly units sold</label>
+              <div class="input"><input type="number" id="monthlyUnits" value="100" step="1" min="0" /></div>
+            </div>
           </div>
 
           <div class="calc-results">
@@ -86,6 +96,15 @@
             <div class="calc-result-row negative"><span class="lbl">&minus;TikTok ad spend</span><span class="val" id="r_ads">&minus;$3.00</span></div>
             <div class="calc-result-row highlight"><span class="lbl">Net profit per unit</span><span class="val" id="r_profit">$13.95</span></div>
             <div class="calc-result-row highlight"><span class="lbl">Margin / ROI</span><span class="val" id="r_roi">46.5% / 146.6%</span></div>
+            <div class="calc-result-row negative"><span class="lbl">&minus;Return loss (refund)</span><span class="val" id="r_return_cost">&minus;$0.00</span></div>
+            <div class="calc-result-row negative"><span class="lbl">&minus;Return handling fee</span><span class="val" id="r_return_handling">&minus;$0.00</span></div>
+            <div class="calc-result-row highlight"><span class="lbl">Effective profit / unit</span><span class="val" id="r_effective_profit">$13.95</span></div>
+
+            <div style="margin:18px 0 12px;padding-top:14px;border-top:1px dashed rgba(255,255,255,0.12);font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em">Monthly view</div>
+
+            <div class="calc-result-row"><span class="lbl">Monthly revenue</span><span class="val" id="r_monthly_revenue">$2,999</span></div>
+            <div class="calc-result-row"><span class="lbl">Monthly returns</span><span class="val" id="r_monthly_returns">5 units</span></div>
+            <div class="calc-result-row highlight"><span class="lbl">Monthly profit</span><span class="val" id="r_monthly_profit">$1,395</span></div>
           </div>
         </div>
       </div>

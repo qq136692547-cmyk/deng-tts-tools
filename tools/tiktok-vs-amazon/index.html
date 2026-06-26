@@ -75,6 +75,31 @@
               <label for="adsTts">TikTok ad spend (% of sale)</label>
               <div class="input"><input type="number" id="adsTts" value="15" step="1" min="0" max="100" /></div>
             </div>
+
+            <div class="calc-field">
+              <label for="returnRate">Return rate (both platforms)</label>
+              <div class="input"><input type="number" id="returnRate" value="5" step="1" min="0" max="50" /><span class="prefix" style="margin-left:6px">%</span></div>
+            </div>
+
+            <details class="advanced-section">
+              <summary>Advanced: FBA fee inputs (defaults work for most)</summary>
+              <div class="calc-field">
+                <label for="amzFulfillRate">FBA fulfillment (large standard)</label>
+                <div class="input"><span class="prefix">$</span><input type="number" id="amzFulfillRate" value="4.98" step="0.01" min="0" /></div>
+              </div>
+              <div class="calc-field">
+                <label for="amzRefRate">Amazon referral rate</label>
+                <div class="input"><input type="number" id="amzRefRate" value="15" step="1" min="0" max="50" /><span class="prefix" style="margin-left:6px">%</span></div>
+              </div>
+              <div class="calc-field">
+                <label for="amzPlacement">Amazon placement fee</label>
+                <div class="input"><span class="prefix">$</span><input type="number" id="amzPlacement" value="0.21" step="0.01" min="0" /></div>
+              </div>
+              <div class="calc-field">
+                <label for="amzLowInv">Amazon low-inventory fee</label>
+                <div class="input"><span class="prefix">$</span><input type="number" id="amzLowInv" value="0.35" step="0.01" min="0" /></div>
+              </div>
+            </details>
           </div>
 
           <div class="calc-results">
@@ -127,7 +152,7 @@
         </ul>
       </div>
     </div>
-    <p class="copyright">© 2026 DengTTSTools. Independent tool �?not affiliated with TikTok or ByteDance.</p>
+    <p class="copyright">© 2026 DengTTSTools. Independent tool �?not affiliated with TikTok or ByteDance.</p>
   </div>
 </footer>
 

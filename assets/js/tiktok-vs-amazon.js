@@ -4,22 +4,19 @@
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
 
-  // Amazon 2026 defaults (large standard, 0.75 lb, low-inventory applies)
-  function amazonFbaTotal(sale) {
-    var referral = Math.max(sale * 0.15, 0.30);
+  function amazonFbaTotal(sale, fulfillment, refRate, placement, lowInv) {
+    var referral = Math.max(sale * (refRate / 100), 0.30);
     if (sale < 10) referral += 0.05;
-    var fulfillment = 4.98 * 1.035;  // +3.5% fuel surcharge
-    var placement = 0.21;
-    var lowInv = 0.35;
     return referral + fulfillment + placement + lowInv;
   }
 
-  function tiktokTotal(sale, creatorPct) {
-    var base = sale * 0.08;
+  function tiktokTotal(sale, cat, creatorPct, crossBorder) {
+    var base = sale * cat;
     var afff = sale * 0.02;
     var pay = Math.max(sale * 0.018, 0.30);
+    var cross = crossBorder ? sale * 0.01 : 0;
     var creator = sale * (creatorPct / 100);
-    return base + afff + pay + creator;
+    return base + afff + pay + cross + creator;
   }
 
   function calc() {
@@ -30,14 +27,24 @@
     var creatorPct = num(get('creator').value);
     var adsAmz = num(get('adsAmz').value) / 100;
     var adsTts = num(get('adsTts').value) / 100;
+    var returnRate = num(get('returnRate').value) / 100;
+
+    var amzFulfill = num(get('amzFulfillRate').value);
+    var amzRefRate = num(get('amzRefRate').value);
+    var amzPlacement = num(get('amzPlacement').value);
+    var amzLowInv = num(get('amzLowInv').value);
 
     if (isNaN(sale) || sale <= 0) return;
 
-    var amzFees = amazonFbaTotal(sale);
-    var ttsFees = tiktokTotal(sale, creatorPct);
+    var amzFees = amazonFbaTotal(sale, amzFulfill, amzRefRate, amzPlacement, amzLowInv);
+    var ttsFees = tiktokTotal(sale, 0.08, creatorPct, false);
 
     var amzProfit = sale - amzFees - cogs - shipAmz - (sale * adsAmz);
     var ttsProfit = sale - ttsFees - cogs - shipTts - (sale * adsTts);
+
+    // Return rate impact
+    amzProfit = amzProfit * (1 - returnRate);
+    ttsProfit = ttsProfit * (1 - returnRate);
 
     var amzMargin = sale > 0 ? (amzProfit / sale) * 100 : 0;
     var ttsMargin = sale > 0 ? (ttsProfit / sale) * 100 : 0;
@@ -55,7 +62,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts'].forEach(function (id) {
+    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();
