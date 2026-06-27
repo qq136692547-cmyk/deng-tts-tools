@@ -123,6 +123,7 @@
           </div>
 
           <div class="calc-results">
+          <div class="calc-results-head"><span class="calc-results-title">Results</span><button class="copy-results-btn" type="button" data-copy-results aria-label="Copy all results to clipboard">Copy results</button></div>
             <div class="calc-result-row"><span class="lbl">Sale price incl. shipping</span><span class="val" id="r_total">$29.99</span></div>
             <div class="calc-result-row negative"><span class="lbl">&minus;Base commission</span><span class="val" id="r_base">&minus;$2.40</span></div>
             <div class="calc-result-row negative"><span class="lbl">&minus;AFFF platform fee</span><span class="val" id="r_afff">&minus;$0.60</span></div>
@@ -139,6 +140,148 @@
       </div>
     </div>
   </div>
+
+
+<nav class="nextstep" aria-label="Next tools to try">
+  <div class="nextstep-head">Next step</div>
+  <div class="nextstep-grid">
+    <a class="nextstep-card" href="/tools/tiktok-profit-calculator/">
+      <span class="nextstep-name">Profit Calculator</span>
+      <span class="nextstep-desc">Turn these fees into a real margin after COGS &amp; shipping.</span>
+      <span class="nextstep-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="nextstep-card" href="/tools/tiktok-vs-amazon/">
+      <span class="nextstep-name">TikTok vs Amazon FBA</span>
+      <span class="nextstep-desc">Same product, both fee stacks, side by side.</span>
+      <span class="nextstep-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="nextstep-card" href="/blog/tiktok-shop-fees-2026/">
+      <span class="nextstep-name">2026 Fee Guide</span>
+      <span class="nextstep-desc">Every rate, explained&mdash;with the edge cases calculators miss.</span>
+      <span class="nextstep-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</nav>
+
+<div class="subscribe-wrap subscribe-inline">
+  <p class="si-label">Want a fee-change alert? We email the day TikTok moves commission or AFFF rates.</p>
+  <form class="subscribe-form" novalidate>
+    <input type="email" name="email" placeholder="you@store.com" aria-label="Email address" required>
+    <button type="submit" class="btn btn-primary" style="padding:12px 18px">Subscribe</button>
+  </form>
+  <p class="subscribe-done" role="status">&#10003; Thanks! Check your inbox to confirm.</p>
+</div>
+
+<!-- HOW-IT-WORKS START -->
+<section class="how-it-works" aria-label="How this tool works" style="background:#fff; color:#2F3437; padding:var(--s-7) 0; --ink:#2F3437; --ink-soft:#787774; --ink-dim:#B4B2AD; --line:#EAEAEA; --line-soft:#F0EFEC; --accent:#111111;">
+  <div class="container" style="max-width:860px;">
+
+    <h2 style="margin-top:0;">How the TikTok Shop Fee Calculator Works</h2>
+    <p style="line-height:1.6;">The TikTok Shop fee calculator takes your sale price and product category as inputs, applies TikTok's current fee structure, and outputs exactly what you'll receive per order. The tool sums the base commission (8% for most categories), the AFFF platform fee (2%), and payment processing (1.8%) into one transparent fee stack. If you use creator marketing or ship cross-border, it factors in those optional costs too. The result shows your TikTok payout alongside the percentage TikTok takes from your sale &mdash; so you can stop guessing whether the 8% commission is the only fee you owe.</p>
+
+    <h2 style="margin-top:var(--s-6);">Fee Breakdown</h2>
+    <p style="line-height:1.6;">Many sellers are shocked when their first settlement statement arrives because TikTok's 8% commission isn't the only deduction. The platform stacks three mandatory fees on top of each other, plus optional ones depending on how you sell. For a $29.99 item, the combined fee typically lands between 11% and 12% &mdash; not 8%. The table below lists every fee this calculator tracks, along with its rate and when it applies. Understanding how these charges stack is the key to pricing accurately and avoiding margin surprises.</p>
+    <div style="overflow-x:auto;">
+    <table style="width:100%; border-collapse:collapse; font-size:.92rem; margin:var(--s-4) 0;">
+      <thead>
+        <tr style="background:#0B0B0F; color:#fff;">
+          <th style="text-align:left; padding:12px 14px; font-family:var(--font-data); font-weight:600; border-bottom:2px solid var(--brand-1,#F97316);">Fee / Item Name</th>
+          <th style="text-align:left; padding:12px 14px; font-family:var(--font-data); font-weight:600; border-bottom:2px solid var(--brand-1,#F97316);">Rate / Amount</th>
+          <th style="text-align:left; padding:12px 14px; font-family:var(--font-data); font-weight:600; border-bottom:2px solid var(--brand-1,#F97316);">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--line,#EAEAEA);">
+          <td style="padding:10px 14px; font-weight:600;">Base commission</td>
+          <td style="padding:10px 14px;">5%&ndash;13% (default 8%)</td>
+          <td style="padding:10px 14px;">Category-dependent; applies to every order</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line,#EAEAEA); background:#F7F6F3;">
+          <td style="padding:10px 14px; font-weight:600;">AFFF platform fee</td>
+          <td style="padding:10px 14px;">2%</td>
+          <td style="padding:10px 14px;">TikTok's advertising fund fee; mandatory</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line,#EAEAEA);">
+          <td style="padding:10px 14px; font-weight:600;">Payment processing</td>
+          <td style="padding:10px 14px;">1.8%</td>
+          <td style="padding:10px 14px;">Charged on every transaction</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line,#EAEAEA); background:#F7F6F3;">
+          <td style="padding:10px 14px; font-weight:600;">Creator commission</td>
+          <td style="padding:10px 14px;">0%&ndash;30%</td>
+          <td style="padding:10px 14px;">Optional; only if selling through creator affiliate</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line,#EAEAEA);">
+          <td style="padding:10px 14px; font-weight:600;">Cross-border fee</td>
+          <td style="padding:10px 14px;">~1%</td>
+          <td style="padding:10px 14px;">Applies to international orders only</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line,#EAEAEA); background:#F7F6F3;">
+          <td style="padding:10px 14px; font-weight:600;">Shipping charged</td>
+          <td style="padding:10px 14px;">Variable</td>
+          <td style="padding:10px 14px;">$0 if free shipping is baked into price</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; font-weight:600;">Return handling</td>
+          <td style="padding:10px 14px;">Variable</td>
+          <td style="padding:10px 14px;">Deducted from refund amount</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 style="margin-top:var(--s-6);">How to Use This Calculator</h2>
+    <ol style="color:var(--ink-soft); line-height:1.8; padding-left:1.4em;">
+      <li>Enter your product's <strong>sale price</strong> (including shipping) in the Sale price field.</li>
+      <li>Select your <strong>category</strong> from the dropdown &mdash; the commission rate updates automatically.</li>
+      <li>If you sell through creator affiliates, set the <strong>Creator commission</strong> percentage; leave at 0 if not.</li>
+      <li>Toggle <strong>Cross-border order</strong> to Yes if you sell outside the US.</li>
+      <li>Enter the <strong>shipping charged to buyer</strong>, or set 0 if shipping is free.</li>
+      <li>Adjust the <strong>return rate</strong> to see how refunds affect your net payout.</li>
+    </ol>
+
+    <h2 style="margin-top:var(--s-6);">Frequently Asked Questions</h2>
+    <div class="faq" style="margin-top:var(--s-4);">
+      <details>
+        <summary>Why does the calculator show different fees than my TikTok seller dashboard?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="answer">
+          <p>TikTok's seller dashboard often shows the settlement total after commission is deducted, but may bundle AFFF and payment processing into a single line. This calculator separates them so you can see exactly what each fee costs. Small discrepancies (1&ndash;2%) can also come from cross-border fees or temporary commission adjustments during promotions.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is 8% the only fee I pay?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="answer">
+          <p>No. The 8% is the base commission for most categories, but TikTok also charges a 2% AFFF platform fee and 1.8% payment processing. These three stack together, bringing the real take rate to roughly 11.8% for most sellers &mdash; not 8%.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What is the AFFF fee?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="answer">
+          <p>AFFF (Advertising Fund Fee) is a 2% platform fee TikTok collects to invest in platform-wide marketing and traffic acquisition. It applies to all orders, is not optional, and is charged separately from the base commission.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How often do TikTok fee rates change?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="answer">
+          <p>TikTok typically adjusts its fee structure once or twice a year, sometimes with category-specific promotions. This calculator reflects 2026 rates, but we recommend verifying after any major policy announcement or when entering a new category.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does the calculator include return costs?<span class="sign" aria-hidden="true"></span></summary>
+        <div class="answer">
+          <p>Yes. Enter your return rate and the calculator estimates both the refund loss and the return handling fee, then shows your net after returns. This gives you a realistic picture of what each shipped order actually earns after customer returns.</p>
+        </div>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--s-6);">Related Reading</h2>
+    <p style="line-height:1.6;">Want to see your net profit after all fees are deducted? The <a href="/tools/tiktok-profit-calculator/">TikTok Shop profit calculator</a> factors in product cost, shipping, and ad spend alongside the fee stack, so you can see your true take-home margin. For a complete breakdown of TikTok Shop fees in 2026 &mdash; including category rate tables and promotional waivers &mdash; check out our <a href="/blog/tiktok-shop-fees-2026/">TikTok Shop fee guide</a>.</p>
+
+  </div>
+</section>
+<!-- HOW-IT-WORKS END -->
+
+
 </main>
 
 <footer class="site-footer">
@@ -181,5 +324,6 @@
 </footer>
 
 <script src="/assets/js/tiktok-fee-calculator.js"></script>
+<script src="/assets/js/ux.js"></script>
 </body>
 </html>
