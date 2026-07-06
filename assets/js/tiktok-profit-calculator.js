@@ -20,10 +20,10 @@
 
     // TikTok fees
     var baseFee = sale * cat;
-    var afff = sale * 0.02;
+    // removed AFFF
     var payment = Math.max(sale * 0.018, 0.30);
     var cross = crossBorder === 'yes' ? sale * 0.01 : 0;
-    var ttsFees = baseFee + afff + payment + cross;
+    var ttsFees = baseFee + payment + cross;
 
     var creator = sale * creatorPct;
     var ads = sale * adsPct;

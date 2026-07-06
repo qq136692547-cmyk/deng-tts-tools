@@ -15,12 +15,12 @@
     var total = price + ship;
 
     var base   = total * cat;
-    var afff   = total * 0.02;
+    var pay    = total * 0.018;  // payment processing
     var payMin = 0.30;
     var payment = Math.max(total * 0.018, payMin);
     var cross  = crossBorder ? total * 0.01 : 0;
     var creator = total * creatorRate;
-    var totalFee = base + afff + payment + cross + creator;
+    var totalFee = base + pay + cross + creator;
     var payout = total - totalFee;
     var pct = total > 0 ? (totalFee / total) * 100 : 0;
 
@@ -32,7 +32,7 @@
 
     $id('r_total').textContent              = fmt(total);
     $id('r_base').textContent               = '-' + fmt(base);
-    $id('r_afff').textContent               = '-' + fmt(afff);
+    // removed AFFF line
     $id('r_payment').textContent            = '-' + fmt(payment);
     $id('r_cross').textContent              = '-' + fmt(cross);
     $id('r_creator').textContent            = '-' + fmt(creator);

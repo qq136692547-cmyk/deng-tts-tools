@@ -12,11 +12,11 @@
 
   function tiktokTotal(sale, cat, creatorPct, crossBorder) {
     var base = sale * cat;
-    var afff = sale * 0.02;
+    // removed AFFF
     var pay = Math.max(sale * 0.018, 0.30);
     var cross = crossBorder ? sale * 0.01 : 0;
     var creator = sale * (creatorPct / 100);
-    return base + afff + pay + cross + creator;
+    return base + pay + cross + creator;
   }
 
   function calc() {
@@ -37,7 +37,7 @@
     if (isNaN(sale) || sale <= 0) return;
 
     var amzFees = amazonFbaTotal(sale, amzFulfill, amzRefRate, amzPlacement, amzLowInv);
-    var ttsFees = tiktokTotal(sale, 0.08, creatorPct, false);
+    var ttsFees = tiktokTotal(sale, 0.06, creatorPct, false);
 
     var amzProfit = sale - amzFees - cogs - shipAmz - (sale * adsAmz);
     var ttsProfit = sale - ttsFees - cogs - shipTts - (sale * adsTts);
