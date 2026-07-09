@@ -33,7 +33,6 @@
     $id('r_total').textContent              = fmt(total);
     $id('r_base').textContent               = '-' + fmt(referral);
     $id('r_fbt').textContent                = '-' + fmt(fbt);
-    $id('r_payment').textContent            = 'included in 6%';
     $id('r_cross').textContent              = '-' + fmt(cross);
     $id('r_creator').textContent            = '-' + fmt(creator);
     $id('r_payout').textContent             = fmt(payout);

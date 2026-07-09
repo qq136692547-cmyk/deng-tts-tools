@@ -1,44 +1,37 @@
 {
-  "version": "2026.06",
-  "source": "TikTok Shop Seller Center (public docs) + seller community reports (2025-2026). Fees evolve frequently — verify before pricing decisions.",
-  "lastUpdated": "2026-06-24",
+  "version": "2026.07",
+  "source": "TikTok Shop Seller Center (public docs), verified 2026-06-24. Fees evolve frequently - verify before pricing decisions.",
+  "lastUpdated": "2026-07-09",
   "baseCommission": {
-    "default": 0.08,
+    "default": 0.06,
     "byCategory": {
-      "default": 0.08,
-      "electronics": 0.05,
-      "fashion": 0.10,
-      "beauty": 0.08,
-      "home": 0.08,
-      "fmcg": 0.08,
-      "toys": 0.08,
-      "sports": 0.08,
-      "auto": 0.05,
-      "jewelry": 0.08
+      "default": 0.06
     },
-    "appliesTo": "Total sale price (including shipping)"
+    "appliesTo": "Total sale price (including shipping)",
+    "note": "6% flat for all US categories. Payment processing is included in this rate."
   },
-  "paymentProcessingFee": {
-    "rate": 0.018,
-    "min": 0.30,
-    "appliesTo": "Order subtotal",
-    "note": "Charged by payment processor (e.g. Stripe, Adyen). TikTok Shop may add this on top of base commission."
+  "fbtFulfillment": {
+    "multiItem": 2.86,
+    "standardSingle": 3.2,
+    "largeSingle": 3.58,
+    "note": "Mandatory Fulfilled by TikTok since March 31, 2026."
   },
-  "afffFundFee": {
-    "rate": 0.02,
-    "appliesTo": "Order subtotal",
-    "note": "Application Fund Fee — TikTok's separate platform fee for hosting the listing infrastructure. NOT the same as the 8% commission."
+  "refundAdminFee": {
+    "rate": 0.2,
+    "cap": 5.0,
+    "appliesTo": "Original referral fee",
+    "note": "20% of referral fee, capped at $5 per SKU."
   },
   "crossBorderAdditionalFee": 0.01,
   "creatorCommission": {
     "min": 0.01,
-    "max": 0.30,
-    "default": 0.10,
-    "note": "Seller-set commission rate paid to TikTok creators/affiliates. Affiliate fee is ON TOP of the base 8% commission."
+    "max": 0.3,
+    "default": 0.1,
+    "note": "Seller-set commission rate paid to TikTok creators/affiliates. ON TOP of the 6% base commission."
   },
   "shippingModels": {
     "fully_managed": {
-      "label": "Fully managed (FBM→TikTok)",
+      "label": "Fully managed (FBT)",
       "sellerResponsibility": "Ship bulk to TikTok consolidation warehouse",
       "platformHandles": "Last-mile delivery to buyer"
     },
@@ -48,5 +41,5 @@
       "platformHandles": "Listing, payment, dispute"
     }
   },
-  "disclaimer": "TikTok Shop fees change frequently. The 8% base commission, 1.8% payment processing, 2% AFFF, and 1-2% cross-border fees are consistent with public 2025-2026 documentation, but specific rates for your category and seller region may differ. Always confirm in TikTok Seller Center."
+  "disclaimer": "TikTok Shop fees change frequently. The 6% base commission (incl. payment processing), FBT fulfillment ($2.86-$3.58), and 1% cross-border fees are consistent with 2026 documentation. Always confirm in TikTok Seller Center."
 }
