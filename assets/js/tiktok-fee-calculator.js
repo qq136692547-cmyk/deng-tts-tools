@@ -19,16 +19,18 @@
     var fbt      = fbtTier || 0;        // $2.86-$3.58/unit mandatory FBT
     var cross    = crossBorder ? total * 0.01 : 0;
     var creator  = total * creatorRate;
-    var totalFee = referral + fbt + cross + creator;
-    var payout   = total - totalFee;
-    var pct      = total > 0 ? (totalFee / total) * 100 : 0;
+
+    // Platform fees (before returns)
+    var platformFees = referral + fbt + cross + creator;
+    var payout   = total - platformFees;
+    var pct      = total > 0 ? (platformFees / total) * 100 : 0;
 
     // Return impact: TikTok charges 20% of original referral fee, capped at $5
     var refundAdmin = Math.min(referral * 0.20, 5.00);
     var returnCost  = price * returnRate;  // lost product cost
     var returnFee   = refundAdmin * returnRate;  // admin fee per unit sold
     var netAfterReturns = payout - returnCost - returnFee;
-    var netPct = total > 0 ? ((total - totalFee - returnCost - returnFee) / total) * 100 : 0;
+    var netPct = total > 0 ? ((netAfterReturns) / total) * 100 : 0;
 
     $id('r_total').textContent              = fmt(total);
     $id('r_base').textContent               = '-' + fmt(referral);
@@ -36,7 +38,7 @@
     $id('r_cross').textContent              = '-' + fmt(cross);
     $id('r_creator').textContent            = '-' + fmt(creator);
     $id('r_payout').textContent             = fmt(payout);
-    $id('r_total_fee').textContent          = fmt(totalFee) + ' (' + pct.toFixed(1) + '%)';
+    $id('r_total_fee').textContent          = fmt(platformFees) + ' (' + pct.toFixed(1) + '%)';
     $id('r_refund_admin').textContent       = '-' + fmt(returnFee);
     $id('r_return_cost').textContent        = '-' + fmt(returnCost);
     $id('r_net_after_returns').textContent  = fmt(netAfterReturns) + ' (' + netPct.toFixed(1) + '%)';

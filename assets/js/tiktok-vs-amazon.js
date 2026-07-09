@@ -41,9 +41,20 @@
     var amzProfit = sale - amzFees - cogs - shipAmz - (sale * adsAmz);
     var ttsProfit = sale - ttsFees - cogs - shipTts - (sale * adsTts);
 
-    // Return rate impact
-    amzProfit = amzProfit * (1 - returnRate);
-    ttsProfit = ttsProfit * (1 - returnRate);
+    // Return impact (consistent with Fee/Profit calculators)
+    // TikTok: refund admin = 20% of referral, capped at $5; Amazon: similar restocking fee model
+    var ttsReferral = sale * 0.06;
+    var ttsRefundAdmin = Math.min(ttsReferral * 0.20, 5.00);
+    var amzReferral = Math.max(sale * (amzRefRate / 100), 0.30);
+    var amzRefundAdmin = Math.min(amzReferral * 0.20, 5.00);
+
+    var ttsReturnCost = sale * returnRate;           // lost product cost
+    var ttsReturnFee  = ttsRefundAdmin * returnRate;  // admin fee per unit sold
+    var amzReturnCost = sale * returnRate;
+    var amzReturnFee  = amzRefundAdmin * returnRate;
+
+    amzProfit = amzProfit - amzReturnCost - amzReturnFee;
+    ttsProfit = ttsProfit - ttsReturnCost - ttsReturnFee;
 
     var amzMargin = sale > 0 ? (amzProfit / sale) * 100 : 0;
     var ttsMargin = sale > 0 ? (ttsProfit / sale) * 100 : 0;
