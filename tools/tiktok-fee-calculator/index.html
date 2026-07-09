@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TikTok Shop Fee Calculator 2026 | DengTTSTools</title>
-<meta name="description" content="Free TikTok Shop fee calculator. Calculate base commission, AFFF platform fee, payment processing, and creator commission. See the real fee stack." />
 <meta name="keywords" content="tiktok shop fee calculator, tiktok shop commission, tiktok shop afff fee, tiktok payment processing" />
 <link rel="canonical" href="https://deng.zh.kg/tools/tiktok-fee-calculator/" />
 <meta property="og:title" content="TikTok Shop Fee Calculator 2026" />
@@ -56,14 +55,24 @@
       <div class="form-row">
         <label for="category">Category</label>
         <select id="category">
-          <option value="0.06" selected>All categories (6%)</option>
-          <option value="0.06">All categories (6%)</option>
-          <option value="0.06">All categories (6%)</option>
-        </select>
+        <label>Referral fee</label>
+        <div class="static-value">6% flat</div>
+        <div class="hint">Unified for all US categories. Payment processing included.</div>
       </div>
 
       <div class="form-row">
         <label for="creatorRate">Creator / affiliate commission</label>
+      <div class="form-row">
+        <label for="fbtTier">FBT fulfillment (per unit)</label>
+        <select id="fbtTier">
+          <option value="2.86">Multi-item ($2.86)</option>
+          <option value="3.20" selected>Standard single ($3.20)</option>
+          <option value="3.58">Large single ($3.58)</option>
+        </select>
+        <div class="hint">Fulfilled by TikTok. Mandatory since Mar 31, 2026.</div>
+      </div>
+
+
         <input type="number" id="creatorRate" value="0" step="1" min="0" max="30" />
         <div class="hint">Percentage of sale price. 0 if no creator. Max 30%.</div>
       </div>
@@ -88,7 +97,7 @@
       <h2>Fee stack</h2>
       <div class="result-row"><span class="label">Sale price (incl. shipping)</span><span class="value" id="r_total">$29.99</span></div>
       <div class="result-row negative"><span class="label">− Base commission (TikTok)</span><span class="value" id="r_base">−$2.40</span></div>
-      <div class="result-row negative"><span class="label">− AFFF platform fee</span><span class="value" id="r_afff">−$0.60</span></div>
+      <div class="result-row negative"><span class="label">- FBT fulfillment</span><span class="value" id="r_fbt">-$3.20</span></div>
       <div class="result-row negative"><span class="label">− Payment processing</span><span class="value" id="r_payment">−$0.54</span></div>
       <div class="result-row negative"><span class="label">− Cross-border fee</span><span class="value" id="r_cross">−$0.00</span></div>
       <div class="result-row negative"><span class="label">− Creator commission</span><span class="value" id="r_creator">−$0.00</span></div>
@@ -108,7 +117,6 @@
     </div>
     <div class="features" style="margin-top:var(--s-5);">
       <div class="feature"><div class="icon">[ 01 ]</div><h3>Base commission</h3><p>5%–10% depending on category. The headline number TikTok shows. Electronics 5%, Fashion 10%, most others 8%. Charged on total sale price including shipping.</p></div>
-      <div class="feature"><div class="icon">[ 02 ]</div><h3>AFFF platform fee</h3><p>2% on every transaction. "Application Fund Fee" — TikTok's separate fee for hosting the listing infrastructure. Shown as a "platform fee" line item, not a commission.</p></div>
       <div class="feature"><div class="icon">[ 03 ]</div><h3>Payment processing</h3><p>~1.8% paid to the payment processor (Stripe/Adyen). Min $0.30 per order. Shown as a separate line, not a commission.</p></div>
       <div class="feature"><div class="icon">[ 04 ]</div><h3>Cross-border fee</h3><p>~1% on international orders. Applies when you sell to buyers outside your seller region (e.g. US-based seller shipping to a UK buyer).</p></div>
       <div class="feature"><div class="icon">[ 05 ]</div><h3>Creator commission</h3><p>1%–30% (you set it). Paid to TikTok creators/affiliates who promote your product. Stacks ON TOP of all four fees above. Set to 0 if you don't use creators.</p></div>
@@ -124,15 +132,12 @@
     <div class="faq">
       <details>
         <summary>Is the 8% commission all TikTok takes?</summary>
-        <p>No. The 8% is the base commission only. Real TikTok Shop take-rate is closer to 12%–14% once you include AFFF, payment processing, and any cross-border fees. With creator commission added, it can go above 20%.</p>
       </details>
       <details>
-        <summary>What is the AFFF fee?</summary>
         <p>Application Fund Fee — a 2% platform fee that TikTok charges on every transaction, separate from the base commission. It's listed as a "platform fee" on your statement, not a commission, which is why many sellers overlook it.</p>
       </details>
       <details>
         <summary>Do I pay creator commission on top of everything?</summary>
-        <p>Yes. Creator commission is paid to TikTok influencers on top of the base commission, AFFF, and payment processing. If you set a 10% creator commission, you pay 10% to the creator AND the other ~12% in TikTok fees. Total fees on a $30 product with 10% creator commission: about $6.60 (22%).</p>
       </details>
       <details>
         <summary>How do TikTok Shop fees compare to Amazon FBA?</summary>
