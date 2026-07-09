@@ -10,13 +10,11 @@
     return referral + fulfillment + placement + lowInv;
   }
 
-  function tiktokTotal(sale, cat, creatorPct, crossBorder) {
-    var base = sale * cat;
-    // removed AFFF
-    var pay = Math.max(sale * 0.018, 0.30);
-    var cross = crossBorder ? sale * 0.01 : 0;
-    var creator = sale * (creatorPct / 100);
-    return base + pay + cross + creator;
+  function tiktokTotal(sale, creatorPct, fbtTier) {
+    var referral = sale * 0.06;           // 6% flat (includes payment processing)
+    var fbt      = fbtTier || 0;          // $2.86-$3.58/unit
+    var creator  = sale * (creatorPct / 100);
+    return referral + fbt + creator;
   }
 
   function calc() {
@@ -28,6 +26,7 @@
     var adsAmz = num(get('adsAmz').value) / 100;
     var adsTts = num(get('adsTts').value) / 100;
     var returnRate = num(get('returnRate').value) / 100;
+    var fbtTier = parseFloat(get('fbtTier').value);
 
     var amzFulfill = num(get('amzFulfillRate').value);
     var amzRefRate = num(get('amzRefRate').value);
@@ -37,7 +36,7 @@
     if (isNaN(sale) || sale <= 0) return;
 
     var amzFees = amazonFbaTotal(sale, amzFulfill, amzRefRate, amzPlacement, amzLowInv);
-    var ttsFees = tiktokTotal(sale, 0.06, creatorPct, false);
+    var ttsFees = tiktokTotal(sale, creatorPct, fbtTier);
 
     var amzProfit = sale - amzFees - cogs - shipAmz - (sale * adsAmz);
     var ttsProfit = sale - ttsFees - cogs - shipTts - (sale * adsTts);
@@ -62,7 +61,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv'].forEach(function (id) {
+    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();
