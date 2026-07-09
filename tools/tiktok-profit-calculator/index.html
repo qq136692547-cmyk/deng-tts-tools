@@ -42,7 +42,7 @@
         </select>
       </div>
       <div class="form-row"><label>Product cost (COGS)</label><input type="number" id="cogs" value="6.50" step="0.01" /></div>
-      <div class="form-row"><label>FBT fulfillment</label><select id="fbtTier"><option value="2.86">Multi-item ($2.86)</option><option value="3.20" selected>Standard single ($3.20)</option><option value="3.58">Large single ($3.58)</option></select><div class="hint">Mandatory FBT</div></div><div class="form-row"><label>Shipping cost (per unit)</label><input type="number" id="ship" value="3.00" step="0.01" /></div>
+      <div class="form-row"><label for="returnRate">Return rate (%)</label><input type="number" id="returnRate" value="5" step="1" min="0" max="50" /><div class="hint">% of units returned</div></div><div class="form-row"><label for="monthlyUnits">Monthly units sold</label><input type="number" id="monthlyUnits" value="100" step="10" min="0" /><div class="hint">For monthly projection</div></div><div class="form-row"><label for="isCrossBorder">Cross-border</label><select id="isCrossBorder"><option value="no" selected>No</option><option value="yes">Yes</option></select><div class="hint">Adds 1% fee</div></div><div class="form-row"><label>FBT fulfillment</label><select id="fbtTier"><option value="2.86">Multi-item ($2.86)</option><option value="3.20" selected>Standard single ($3.20)</option><option value="3.58">Large single ($3.58)</option></select><div class="hint">Mandatory FBT</div></div><div class="form-row"><label>Shipping cost (per unit)</label><input type="number" id="ship" value="3.00" step="0.01" /></div>
       <div class="form-row"><label>Creator commission (%)</label><input type="number" id="creator" value="0" step="1" min="0" max="30" /></div>
       <div class="form-row"><label>TikTok ad spend (% of sale)</label><input type="number" id="ads" value="10" step="1" min="0" max="100" /></div>
     </section>
@@ -57,6 +57,12 @@
       <div class="result-row negative"><span class="label">− TikTok ad spend</span><span class="value" id="r_ads">−$3.00</span></div>
       <div class="result-row highlight"><span class="label">Net profit per unit</span><span class="value" id="r_profit">$13.95</span></div>
       <div class="result-row highlight"><span class="label">Margin · ROI</span><span class="value" id="r_roi">46.5% / 146.6%</span></div>
+      <div class="result-row"><span>Return cost</span><span id="r_return_cost">$0</span></div>
+      <div class="result-row"><span>Refund fee</span><span id="r_return_fee">$0</span></div>
+      <div class="result-row"><span>Effective profit</span><span id="r_eff_profit">$0</span></div>
+      <div class="result-row"><span>Monthly revenue</span><span id="r_monthly_revenue">$0</span></div>
+      <div class="result-row"><span>Monthly profit</span><span id="r_monthly_profit">$0</span></div>
+      <div class="result-row"><span>Monthly returns</span><span id="r_monthly_returns">0</span></div>
     </section>
   </div>
 
