@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/assets/css/site.css" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1144258736459816" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="tool-calc">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
   <div class="container header-inner">
@@ -28,57 +28,141 @@
   </div>
 </header>
 
-<main id="main" class="calc-page container">
-  <span class="eyebrow">2026 fee structure</span>
-  <h1>TikTok Shop Profit Calculator</h1>
-  <p class="subtitle">Real net profit per unit. After every TikTok fee, your COGS, and your shipping cost.</p>
+<main id="main" class="tool-calc">
+  <div class="container">
+    <div class="tool-header">
+      <span class="eyebrow"><span class="dot"></span> 2026 fee structure</span>
+      <h1>TikTok Shop Profit Calculator</h1>
+      <p class="subtitle">Real net profit per unit. After every TikTok fee, your COGS, and your shipping cost.</p>
+    </div>
 
-  <div class="calc-layout">
-    <section class="calc-card">
-      <h2>Inputs</h2>
-      <div class="form-row"><label>Sale price (USD)</label><input type="number" id="sale" value="29.99" step="0.01" /></div>
-      <div class="form-row"><label>Category</label>
-        <select id="cat">
-          <option value="0.06" selected>All categories (6%)</option>
-        </select>
+    <div class="calc-window">
+      <div class="calc-titlebar">
+        <div class="traffic"><span></span></div>
+        <span class="calc-name">ttcalc — profit-calculator.js</span>
+        <span class="calc-badge">2026 rates</span>
       </div>
-      <div class="form-row"><label>Product cost (COGS)</label><input type="number" id="cogs" value="6.50" step="0.01" /></div>
-      <div class="form-row"><label for="returnRate">Return rate (%)</label><input type="number" id="returnRate" value="5" step="1" min="0" max="50" /><div class="hint">% of units returned</div></div><div class="form-row"><label for="monthlyUnits">Monthly units sold</label><input type="number" id="monthlyUnits" value="100" step="10" min="0" /><div class="hint">For monthly projection</div></div><div class="form-row"><label for="isCrossBorder">Cross-border</label><select id="isCrossBorder"><option value="no" selected>No</option><option value="yes">Yes</option></select><div class="hint">Adds 1% fee</div></div><div class="form-row"><label>FBT fulfillment</label><select id="fbtTier"><option value="2.86">Multi-item ($2.86)</option><option value="3.20" selected>Standard single ($3.20)</option><option value="3.58">Large single ($3.58)</option></select><div class="hint">Mandatory FBT</div></div><div class="form-row"><label>Shipping cost (per unit)</label><input type="number" id="ship" value="3.00" step="0.01" /></div>
-      <div class="form-row"><label>Creator commission (%)</label><input type="number" id="creator" value="0" step="1" min="0" max="30" /></div>
-      <div class="form-row"><label>TikTok ad spend (% of sale)</label><input type="number" id="ads" value="10" step="1" min="0" max="100" /></div>
-    </section>
+      <div class="calc-body">
+        <section class="calc-inputs">
+          <h2>Inputs</h2>
 
-    <section class="calc-card">
-      <h2>Profit breakdown</h2>
-      <div class="result-row"><span class="label">Sale price</span><span class="value" id="r_sale">$29.99</span></div>
-      <div class="result-row negative"><span class="label">− TikTok fees (6% + FBT)</span><span class="value" id="r_tts_fees">−$5.00</span></div>
-      <div class="result-row negative"><span class="label">− Creator commission</span><span class="value" id="r_creator_fee">−$0.00</span></div>
-      <div class="result-row negative"><span class="label">− COGS</span><span class="value" id="r_cogs">−$6.50</span></div>
-      <div class="result-row negative"><span class="label">− Shipping</span><span class="value" id="r_ship">−$3.00</span></div>
-      <div class="result-row negative"><span class="label">− TikTok ad spend</span><span class="value" id="r_ads">−$3.00</span></div>
-      <div class="result-row highlight"><span class="label">Net profit per unit</span><span class="value" id="r_profit">$12.49</span></div>
-      <div class="result-row highlight"><span class="label">Margin · ROI</span><span class="value" id="r_roi">36.6% / 78.3%</span></div>
-      <div class="result-row"><span>Return cost</span><span id="r_return_cost">-$1.50</span></div>
-      <div class="result-row"><span>Refund fee</span><span id="r_return_fee">-$0.02</span></div>
-      <div class="result-row"><span>Effective profit</span><span id="r_eff_profit">$10.97</span></div>
-      <div class="result-row"><span>Monthly revenue</span><span id="r_monthly_revenue">$2,999.00</span></div>
-      <div class="result-row"><span>Monthly profit</span><span id="r_monthly_profit">$1,097.41</span></div>
-      <div class="result-row"><span>Monthly returns</span><span id="r_monthly_returns">5 units</span></div>
+          <div class="calc-field">
+            <label for="sale">Sale price (USD)</label>
+            <input type="number" id="sale" value="29.99" step="0.01" />
+          </div>
+
+          <div class="calc-field">
+            <label for="cat">Category</label>
+            <select id="cat">
+              <option value="0.06" selected>All categories (6%)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="cogs">Product cost (COGS)</label>
+            <input type="number" id="cogs" value="6.50" step="0.01" />
+          </div>
+
+          <div class="calc-field">
+            <label for="returnRate">Return rate (%)</label>
+            <input type="number" id="returnRate" value="5" step="1" min="0" max="50" />
+            <div class="hint">% of units returned</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="monthlyUnits">Monthly units sold</label>
+            <input type="number" id="monthlyUnits" value="100" step="10" min="0" />
+            <div class="hint">For monthly projection</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="isCrossBorder">Cross-border</label>
+            <select id="isCrossBorder">
+              <option value="no" selected>No</option>
+              <option value="yes">Yes</option>
+            </select>
+            <div class="hint">Adds 1% fee</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="fbtTier">FBT fulfillment</label>
+            <select id="fbtTier">
+              <option value="2.86">Multi-item ($2.86)</option>
+              <option value="3.20" selected>Standard single ($3.20)</option>
+              <option value="3.58">Large single ($3.58)</option>
+            </select>
+            <div class="hint">Mandatory FBT</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="ship">Shipping cost (per unit)</label>
+            <input type="number" id="ship" value="3.00" step="0.01" />
+          </div>
+
+          <div class="calc-field">
+            <label for="creator">Creator commission (%)</label>
+            <input type="number" id="creator" value="0" step="1" min="0" max="30" />
+          </div>
+
+          <div class="calc-field">
+            <label for="ads">TikTok ad spend (% of sale)</label>
+            <input type="number" id="ads" value="10" step="1" min="0" max="100" />
+          </div>
+        </section>
+
+        <section class="calc-results">
+          <div class="calc-results-head">
+            <span class="calc-results-title">Profit breakdown</span>
+            <button class="copy-results-btn" type="button">Copy results</button>
+          </div>
+
+          <div class="calc-result-row"><span class="lbl">Sale price</span><span class="val" id="r_sale">$29.99</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; TikTok fees (6% + FBT)</span><span class="val" id="r_tts_fees">&#8722;$5.00</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; Creator commission</span><span class="val" id="r_creator_fee">&#8722;$0.00</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; COGS</span><span class="val" id="r_cogs">&#8722;$6.50</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; Shipping</span><span class="val" id="r_ship">&#8722;$3.00</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; TikTok ad spend</span><span class="val" id="r_ads">&#8722;$3.00</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Net profit per unit</span><span class="val" id="r_profit">$12.49</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Margin · ROI</span><span class="val" id="r_roi">36.6% / 78.3%</span></div>
+          <div class="calc-result-row"><span class="lbl">Return cost</span><span class="val" id="r_return_cost">-$1.50</span></div>
+          <div class="calc-result-row"><span class="lbl">Refund fee</span><span class="val" id="r_return_fee">-$0.02</span></div>
+          <div class="calc-result-row"><span class="lbl">Effective profit</span><span class="val" id="r_eff_profit">$10.97</span></div>
+          <div class="calc-result-row"><span class="lbl">Monthly revenue</span><span class="val" id="r_monthly_revenue">$2,999.00</span></div>
+          <div class="calc-result-row"><span class="lbl">Monthly profit</span><span class="val" id="r_monthly_profit">$1,097.41</span></div>
+          <div class="calc-result-row"><span class="lbl">Monthly returns</span><span class="val" id="r_monthly_returns">5 units</span></div>
+        </section>
+      </div>
+    </div>
+
+    <nav class="nextstep" aria-label="Next steps">
+      <p class="nextstep-head">Next step</p>
+      <div class="nextstep-grid">
+        <a class="nextstep-card" href="/tools/tiktok-fee-calculator/">
+          <span class="nextstep-name">Fee Calculator</span>
+          <span class="nextstep-desc">Break down every TikTok fee line by line</span>
+          <span class="nextstep-arrow">&#8594;</span>
+        </a>
+        <a class="nextstep-card" href="/tools/tiktok-vs-amazon/">
+          <span class="nextstep-name">TikTok vs Amazon</span>
+          <span class="nextstep-desc">Compare TikTok Shop fees against Amazon FBA side by side</span>
+          <span class="nextstep-arrow">&#8594;</span>
+        </a>
+      </div>
+    </nav>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>Why TikTok Shop profit math is different</h2>
+        <span class="section-tag">01 / explainer</span>
+      </div>
+      <p class="section-lede">Three things make TikTok Shop's profit math unique compared to Amazon or eBay:</p>
+      <div class="features" style="margin-top:var(--s-4);">
+        <div class="feature"><div class="icon">[ 01 ]</div><h3>Creator commission is the wildcard</h3><p>On Amazon or eBay, the marketplace is the only platform taking a cut. On TikTok, you can pay creators 1%–30% on top of TikTok's fees. A product that's profitable at 0% creator commission can flip negative at 25%.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>Ad spend is higher</h3><p>TikTok Shop sellers typically spend 10%–20% of revenue on TikTok ads to drive traffic. Amazon sellers can usually get away with less because of organic search. Build ad spend into your unit economics.</p></div>
+        <div class="feature"><div class="icon">[ 03 ]</div><h3>Returns run higher</h3><p>TikTok's "try before you buy" culture means returns can run 15%–25%, vs Amazon's 5%–10%. Returns eat shipping both ways, and you usually eat the cost of damaged or used items.</p></div>
+      </div>
     </section>
   </div>
-
-  <section style="margin-top:var(--s-7);">
-    <div class="section-header">
-      <h2>Why TikTok Shop profit math is different</h2>
-      <span class="section-tag">01 / explainer</span>
-    </div>
-    <p style="color:var(--ink-soft);max-width:65ch;">Three things make TikTok Shop's profit math unique compared to Amazon or eBay:</p>
-    <div class="features" style="margin-top:var(--s-4);">
-      <div class="feature"><div class="icon">[ 01 ]</div><h3>Creator commission is the wildcard</h3><p>On Amazon or eBay, the marketplace is the only platform taking a cut. On TikTok, you can pay creators 1%–30% on top of TikTok's fees. A product that's profitable at 0% creator commission can flip negative at 25%.</p></div>
-      <div class="feature"><div class="icon">[ 02 ]</div><h3>Ad spend is higher</h3><p>TikTok Shop sellers typically spend 10%–20% of revenue on TikTok ads to drive traffic. Amazon sellers can usually get away with less because of organic search. Build ad spend into your unit economics.</p></div>
-      <div class="feature"><div class="icon">[ 03 ]</div><h3>Returns run higher</h3><p>TikTok's "try before you buy" culture means returns can run 15%–25%, vs Amazon's 5%–10%. Returns eat shipping both ways, and you usually eat the cost of damaged or used items.</p></div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
@@ -122,5 +206,6 @@
 </footer>
 
 <script src="/assets/js/tiktok-profit-calculator.js"></script>
+<script src="/assets/js/copy-results.js"></script>
 </body>
 </html>

@@ -1659,3 +1659,329 @@ body.tool-calc .copyright { color: rgba(255, 255, 255, 0.45); }
 }
 .subscribe-inline .subscribe-form input[type=email] { min-width: 180px; }
 .subscribe-inline .subscribe-done { margin-top: 10px; }
+
+/* ============================================================
+   v3 ADDITIVE — Dark theme tool page adapters
+   Adapts .form-row, .result-row, .features, .faq, .section-header
+   for body.tool-calc dark glassmorphism theme
+   ============================================================ */
+
+/* ----- Form rows in dark theme ----- */
+body.tool-calc .form-row {
+  margin-bottom: 16px;
+}
+body.tool-calc .form-row label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 6px;
+}
+body.tool-calc .form-row input,
+body.tool-calc .form-row select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  min-height: 48px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+body.tool-calc .form-row input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+body.tool-calc .form-row input:focus,
+body.tool-calc .form-row select:focus {
+  outline: none;
+  border-color: var(--brand-1, #F97316);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+body.tool-calc .form-row select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23ffffff80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+body.tool-calc .form-row select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+body.tool-calc .form-row .hint {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* ----- Result rows in dark theme ----- */
+body.tool-calc .result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+}
+body.tool-calc .result-row:last-child {
+  border-bottom: 0;
+}
+body.tool-calc .result-row .label {
+  color: rgba(255, 255, 255, 0.8);
+}
+body.tool-calc .result-row .value {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: #fff;
+  text-align: right;
+}
+body.tool-calc .result-row.negative .value {
+  color: #FF6B7A;
+}
+body.tool-calc .result-row.highlight {
+  margin-top: 12px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(219, 39, 119, 0.2));
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  color: #fff;
+}
+body.tool-calc .result-row.highlight .label {
+  color: #FFD1A8;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+body.tool-calc .result-row.highlight .value {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  body.tool-calc .result-row.highlight .value {
+    font-size: 18px;
+  }
+}
+
+/* ----- Result group separators (subtotal / total areas) ----- */
+.calc-result-row.group-end {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 14px;
+  margin-bottom: 6px;
+}
+.calc-result-row.group-start {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ----- Section header in dark theme ----- */
+body.tool-calc .section-header h2 {
+  color: #fff;
+}
+body.tool-calc .section-tag {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ----- Features in dark theme ----- */
+body.tool-calc .features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: var(--s-5);
+}
+@media (max-width: 900px) {
+  body.tool-calc .features { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  body.tool-calc .features { grid-template-columns: 1fr; }
+}
+body.tool-calc .feature {
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+body.tool-calc .feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.5);
+  border-color: rgba(249, 115, 22, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+body.tool-calc .feature .icon {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand-1, #F97316);
+  background: rgba(249, 115, 22, 0.12);
+  padding: 6px 10px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+body.tool-calc .feature h3 {
+  font-family: 'IBM Plex Sans', var(--font-body);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #fff;
+}
+body.tool-calc .feature p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ----- FAQ in dark theme ----- */
+body.tool-calc .faq details {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.tool-calc .faq summary {
+  color: #fff;
+}
+body.tool-calc .faq summary:hover {
+  color: var(--brand-1, #F97316);
+}
+body.tool-calc .faq summary .sign {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+body.tool-calc .faq summary .sign::before,
+body.tool-calc .faq summary .sign::after {
+  background: #fff;
+}
+body.tool-calc .faq details[open] summary .sign {
+  border-color: var(--brand-1, #F97316);
+  background: var(--brand-1, #F97316);
+}
+body.tool-calc .faq details[open] summary .sign::before,
+body.tool-calc .faq details[open] summary .sign::after {
+  background: #fff;
+}
+body.tool-calc .faq details[open] summary {
+  color: var(--brand-1, #F97316);
+}
+body.tool-calc .faq p {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.tool-calc .source-note {
+  color: rgba(255, 255, 255, 0.4);
+}
+body.tool-calc .section-lede {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ----- Calc-window h2 styling in dark theme ----- */
+body.tool-calc .calc-inputs h2,
+body.tool-calc .calc-results h2 {
+  font-family: 'IBM Plex Sans', var(--font-body);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  margin: 0 0 var(--s-4);
+  color: #fff;
+}
+
+/* ----- Eyebrow override for tool-calc dark ----- */
+body.tool-calc .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: 'IBM Plex Mono', var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+}
+body.tool-calc .eyebrow .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 12px #4ADE80;
+}
+
+/* ----- Calc-window: ensure .calc-field inputs use dark style ----- */
+body.tool-calc .calc-field input,
+body.tool-calc .calc-field select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-family: 'IBM Plex Mono', var(--font-mono);
+  font-size: 15px;
+  min-height: 48px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+body.tool-calc .calc-field input:focus,
+body.tool-calc .calc-field select:focus {
+  outline: none;
+  border-color: var(--brand-1, #F97316);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+body.tool-calc .calc-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23ffffff80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+body.tool-calc .calc-field select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+body.tool-calc .calc-field .hint {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* ----- Calc-result-row: ensure rows without .lbl/.val still styled ----- */
+body.tool-calc .calc-result-row span {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ----- Mobile responsive for tool-calc ----- */
+@media (max-width: 720px) {
+  body.tool-calc main.tool-calc { padding: 72px 0 48px; }
+  body.tool-calc .calc-inputs,
+  body.tool-calc .calc-results {
+    padding: 20px;
+  }
+  body.tool-calc .tool-header h1 {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
+}
+@media (max-width: 480px) {
+  body.tool-calc .calc-inputs,
+  body.tool-calc .calc-results {
+    padding: 16px;
+  }
+  body.tool-calc .calc-result-row.highlight .val {
+    font-size: 18px;
+  }
+}
