@@ -27,6 +27,7 @@
     var adsTts = num(get('adsTts').value) / 100;
     var returnRate = num(get('returnRate').value) / 100;
     var fbtTier = parseFloat(get('fbtTier').value);
+    var resellRate = num(get('resellRate').value) / 100;
 
     var amzFulfill = num(get('amzFulfillRate').value);
     var amzRefRate = num(get('amzRefRate').value);
@@ -42,15 +43,17 @@
     var ttsProfit = sale - ttsFees - cogs - shipTts - (sale * adsTts);
 
     // Return impact (consistent with Fee/Profit calculators)
-    // TikTok: refund admin = 20% of referral, capped at $5; Amazon: similar restocking fee model
+    // Only non-resellable returns incur full product cost loss
+    var nonResellableRate = returnRate * (1 - resellRate);
+
     var ttsReferral = sale * 0.06;
     var ttsRefundAdmin = Math.min(ttsReferral * 0.20, 5.00);
     var amzReferral = Math.max(sale * (amzRefRate / 100), 0.30);
     var amzRefundAdmin = Math.min(amzReferral * 0.20, 5.00);
 
-    var ttsReturnCost = sale * returnRate;           // lost product cost
-    var ttsReturnFee  = ttsRefundAdmin * returnRate;  // admin fee per unit sold
-    var amzReturnCost = sale * returnRate;
+    var ttsReturnCost = sale * nonResellableRate;
+    var ttsReturnFee  = ttsRefundAdmin * returnRate;
+    var amzReturnCost = sale * nonResellableRate;
     var amzReturnFee  = amzRefundAdmin * returnRate;
 
     amzProfit = amzProfit - amzReturnCost - amzReturnFee;
@@ -72,7 +75,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv'].forEach(function (id) {
+    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();

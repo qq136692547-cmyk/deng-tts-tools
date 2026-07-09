@@ -11,6 +11,7 @@
     var ship   = num($id('shippingCharged').value);
     var returnRate = num($id('returnRate').value) / 100;
     var fbtTier = parseFloat($id('fbtTier').value);
+    var resellRate = num($id('resellRate').value) / 100;
 
     var total = price + ship;
 
@@ -27,8 +28,10 @@
 
     // Return impact: TikTok charges 20% of original referral fee, capped at $5
     var refundAdmin = Math.min(referral * 0.20, 5.00);
-    var returnCost  = price * returnRate;  // lost product cost
-    var returnFee   = refundAdmin * returnRate;  // admin fee per unit sold
+    // Only non-resellable returns incur full product cost loss
+    var nonResellableRate = returnRate * (1 - resellRate);
+    var returnCost  = price * nonResellableRate;   // lost product cost (non-resellable only)
+    var returnFee   = refundAdmin * returnRate;     // admin fee applies to all returns
     var netAfterReturns = payout - returnCost - returnFee;
     var netPct = total > 0 ? ((netAfterReturns) / total) * 100 : 0;
 
@@ -45,7 +48,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['salePrice','creatorRate','isCrossBorder','shippingCharged','returnRate','fbtTier'].forEach(function (id) {
+    ['salePrice','creatorRate','isCrossBorder','shippingCharged','returnRate','fbtTier','resellRate'].forEach(function (id) {
       var el = $id(id); if (el) el.addEventListener('input', calculate);
     });
     calculate();
