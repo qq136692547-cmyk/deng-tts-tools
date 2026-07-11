@@ -10,7 +10,6 @@
     var ship       = num(get('ship').value);
     var creatorPct = num(get('creator').value) / 100;
     var adsPct     = num(get('ads').value) / 100;
-    var crossBorder = get('isCrossBorder').value;
     var returnRate = num(get('returnRate').value) / 100;
     var monthlyUnits = num(get('monthlyUnits').value);
     var fbtTier   = parseFloat(get('fbtTier').value);
@@ -20,11 +19,11 @@
 
     if (isNaN(sale) || sale <= 0) sale = 0;
 
-    // 2026 TikTok Shop US fees
-    var referral = sale * 0.06;           // 6% flat (includes payment processing)
+    // 2026 TikTok Shop US fees (verified Jul 2026, multi-source)
+    var referral = sale * 0.06;           // 6% flat (payment processing included)
     var fbt      = fbtTier || 0;          // $2.86-$3.58/unit
-    var cross    = crossBorder === 'yes' ? sale * 0.01 : 0;
-    var ttsFees  = referral + fbt + cross;
+    var txnFee   = 0.30;                   // $0.30 flat transaction fee per order
+    var ttsFees  = referral + fbt + txnFee;
     var creator  = sale * creatorPct;
     var ads      = sale * adsPct;
     var profit   = sale - ttsFees - creator - cogs - ship - inboundShip - storageFee - ads;
@@ -70,7 +69,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','ship','creator','ads','isCrossBorder','returnRate','monthlyUnits','fbtTier','cat','inboundShip','storageFee','resellRate'].forEach(function (id) {
+    ['sale','cogs','ship','creator','ads','returnRate','monthlyUnits','fbtTier','cat','inboundShip','storageFee','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();

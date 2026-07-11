@@ -7,7 +7,6 @@
   function calculate() {
     var price  = num($id('salePrice').value);
     var creatorRate = num($id('creatorRate').value) / 100;
-    var crossBorder = $id('isCrossBorder').value === '1';
     var ship   = num($id('shippingCharged').value);
     var returnRate = num($id('returnRate').value) / 100;
     var fbtTier = parseFloat($id('fbtTier').value);
@@ -15,14 +14,14 @@
 
     var total = price + ship;
 
-    // 2026 TikTok Shop US fee structure (verified Jul 2026)
-    var referral = total * 0.06;        // 6% flat referral fee (includes payment processing)
-    var fbt      = fbtTier || 0;        // $2.86-$3.58/unit mandatory FBT
-    var cross    = crossBorder ? total * 0.01 : 0;
+    // 2026 TikTok Shop US fee structure (verified Jul 2026, multi-source)
+    var referral = total * 0.06;        // 6% flat referral fee (payment processing included per tiklytics/dashboardly)
+    var fbt      = fbtTier || 0;        // $2.86-$3.58/unit mandatory FBT (eightx 2026)
+    var txnFee   = 0.30;                 // $0.30 flat transaction fee per order (darkroom/netsellerprofit/feeyield 2026)
     var creator  = total * creatorRate;
 
     // Platform fees (before returns)
-    var platformFees = referral + fbt + cross + creator;
+    var platformFees = referral + fbt + txnFee + creator;
     var payout   = total - platformFees;
     var pct      = total > 0 ? (platformFees / total) * 100 : 0;
 
@@ -38,7 +37,7 @@
     $id('r_total').textContent              = fmt(total);
     $id('r_base').textContent               = '-' + fmt(referral);
     $id('r_fbt').textContent                = '-' + fmt(fbt);
-    $id('r_cross').textContent              = '-' + fmt(cross);
+    $id('r_txn').textContent                = '-' + fmt(txnFee);
     $id('r_creator').textContent            = '-' + fmt(creator);
     $id('r_payout').textContent             = fmt(payout);
     $id('r_total_fee').textContent          = fmt(platformFees) + ' (' + pct.toFixed(1) + '%)';
@@ -48,7 +47,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['salePrice','creatorRate','isCrossBorder','shippingCharged','returnRate','fbtTier','resellRate'].forEach(function (id) {
+    ['salePrice','creatorRate','shippingCharged','returnRate','fbtTier','resellRate'].forEach(function (id) {
       var el = $id(id); if (el) el.addEventListener('input', calculate);
     });
     calculate();

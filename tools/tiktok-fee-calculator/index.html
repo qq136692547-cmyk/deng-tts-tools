@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TikTok Shop Fee Calculator 2026 | TTCalc</title>
-<meta name="description" content="Free TikTok Shop fee calculator. See the full fee stack: 6% referral, FBT fulfillment, creator commission, cross-border fees, and return costs. Updated for 2026." />
+<meta name="description" content="Free TikTok Shop fee calculator. See the full fee stack: 6% referral, $0.30 transaction fee, FBT fulfillment, creator commission, and return costs. Updated for 2026." />
 <meta name="keywords" content="tiktok shop fee calculator, tiktok shop commission, tiktok payment processing, tiktok fbt fulfillment" />
 <link rel="canonical" href="https://ttcalc.shop/tools/tiktok-fee-calculator/" />
 <meta property="og:title" content="TikTok Shop Fee Calculator 2026" />
@@ -43,7 +43,7 @@
       "name": "Is the 6% referral fee all TikTok takes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The 6% referral fee includes payment processing. On top of that you may have FBT fulfillment ($2.86-$3.58/unit), creator commission (0-30%), cross-border fees (1%), and return costs."
+        "text": "The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($2.86-$3.58/unit), creator commission (0-30%), and return costs."
       }
     },
     {
@@ -130,15 +130,6 @@
           </div>
 
           <div class="calc-field">
-            <label for="isCrossBorder">Cross-border order</label>
-            <select id="isCrossBorder">
-              <option value="0" selected>No (domestic US)</option>
-              <option value="1">Yes (international)</option>
-            </select>
-            <div class="hint">Cross-border orders add ~1% in additional fees</div>
-          </div>
-
-          <div class="calc-field">
             <label for="shippingCharged">Shipping charged to buyer</label>
             <input type="number" id="shippingCharged" value="0" step="0.01" min="0" />
             <div class="hint">Set 0 if "free shipping" is baked into price</div>
@@ -160,13 +151,13 @@
           <div class="calc-result-row"><span class="lbl">Sale price (incl. shipping)</span><span class="val" id="r_total">$29.99</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Base commission (6%, incl. payment processing)</span><span class="val" id="r_base">-$1.80</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; FBT fulfillment</span><span class="val" id="r_fbt">-$3.20</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Cross-border fee</span><span class="val" id="r_cross">-$0.00</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; Transaction fee ($0.30/order)</span><span class="val" id="r_txn">-$0.30</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Creator commission</span><span class="val" id="r_creator">-$0.00</span></div>
-          <div class="calc-result-row group-end"><span class="lbl">= TikTok payout</span><span class="val" id="r_payout">$24.99</span></div>
+          <div class="calc-result-row"><span class="lbl">= TikTok payout</span><span class="val" id="r_payout">$24.69</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Refund admin fee</span><span class="val" id="r_refund_admin">-$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Return cost</span><span class="val" id="r_return_cost">-$0.00</span></div>
           <div class="calc-result-row group-end"><span class="lbl">= Net after returns</span><span class="val" id="r_net_after_returns">$0.00</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Total TikTok take</span><span class="val" id="r_total_fee">$5.00 (16.7%)</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Total TikTok take</span><span class="val" id="r_total_fee">$5.30 (17.7%)</span></div>
 
           <p class="source-note">
             Source: TikTok Shop Seller Center 2026 docs and third-party reports. Refund admin fee is an estimate (20% of referral, capped at $5). Does not include ad spend, FBT storage fees, inbound shipping, or removal/disposal fees. Real fees vary by region, category, and seller status.
@@ -197,7 +188,7 @@
         <span class="section-tag">01 / explainer</span>
       </div>
       <div class="features" style="margin-top:var(--s-5);">
-        <div class="feature"><div class="icon">[ 01 ]</div><h3>Base commission (6%)</h3><p>6% flat for all US categories. Payment processing is included in this rate. No separate processing fee. Charged on total sale price including shipping.</p></div>
+        <div class="feature"><div class="icon">[ 01 ]</div><h3>Base commission (6%)</h3><p>6% flat for all US categories. Payment processing is included in this rate. No separate processing fee. A flat $0.30 transaction fee applies per order. Charged on total sale price including shipping.</p></div>
         <div class="feature"><div class="icon">[ 02 ]</div><h3>FBT fulfillment</h3><p>$2.86/$3.20/$3.58 per unit depending on size. Mandatory since March 31, 2026. Fulfilled by TikTok (FBT) — you ship bulk to TikTok's warehouse, they handle last-mile.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Creator commission</h3><p>1%&#8211;30% (you set it). Paid to TikTok creators/affiliates who promote your product. Stacks ON TOP of all fees above. Set to 0 if you don't use creators.</p></div>
         <div class="feature"><div class="icon">[ 04 ]</div><h3>What's NOT included</h3><p>This calculator doesn't include: TikTok ad spend, FBT storage fees (monthly per-cubic-foot), inbound shipping to FBT warehouse, aged-inventory surcharges, or removal/disposal fees. Use the Profit Calculator for a more complete picture including these costs.</p></div>
@@ -213,7 +204,7 @@
         <details>
           <summary>Is the 6% referral fee all TikTok takes?<span class="sign"></span></summary>
           <div class="answer">
-            <p>The 6% referral fee includes payment processing. On top of that you may have FBT fulfillment ($2.86&#8211;$3.58/unit), creator commission (0&#8211;30%), cross-border fees (1%), and return costs. The real total typically ranges from 10% to 22%+ depending on your setup.</p>
+            <p>The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($2.86&#8211;$3.58/unit), creator commission (0&#8211;30%), and return costs. The real total typically ranges from 10% to 22%+ depending on your setup.</p>
           </div>
         </details>
         <details>
