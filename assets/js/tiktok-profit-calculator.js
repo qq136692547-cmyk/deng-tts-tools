@@ -69,7 +69,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','ship','creator','ads','returnRate','monthlyUnits','fbtTier','cat','inboundShip','storageFee','resellRate'].forEach(function (id) {
+    ['sale','cogs','ship','creator','ads','returnRate','monthlyUnits','fbtTier','inboundShip','storageFee','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();
