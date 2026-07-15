@@ -1,3 +1,26 @@
+User-agent: GPTBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /tools/
+Allow: /assets/
+Disallow: /privacy/
+
 Sitemap: https://ttcalc.shop/sitemap.xml

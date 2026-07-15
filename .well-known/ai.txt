@@ -1,0 +1,13 @@
+# TTCalc
+# https://ttcalc.shop
+# Free TikTok Shop seller tools.
+
+- OAI-SearchBot: Allow
+- PerplexityBot: Allow
+- ClaudeBot: Allow
+- Google-Extended: Allow
+- GPTBot: Disallow
+- anthropic-ai: Disallow
+
+llms.txt: https://ttcalc.shop/llms.txt
+sitemap: https://ttcalc.shop/sitemap.xml
