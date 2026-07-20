@@ -42,14 +42,14 @@
 </style>
 <script type="application/ld+json">
 {
-  "@@context": "https://schema.org",
-  "@@type": "WebApplication",
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
   "name": "TTCalc",
   "url": "https://ttcalc.shop/",
   "description": "Free TikTok Shop seller tools with 2026 fee structure.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
-  "offers": {"@@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
 }
 </script>
 
@@ -58,67 +58,80 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <script type="application/ld+json">
 {
-  "@@context": "https://schema.org",
-  "@@graph": [
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@@type": "WebSite",
-      "@@id": "https://ttcalc.shop/#website",
+      "@type": "WebSite",
+      "@id": "https://ttcalc.shop/#website",
       "name": "TTCalc",
       "url": "https://ttcalc.shop/",
       "description": "Free TikTok Shop seller tools. Calculate TikTok Shop fees, profit margins, and compare with Amazon FBA. Updated for 2026."
     },
     {
-      "@@type": "Organization",
-      "@@id": "https://ttcalc.shop/#organization",
+      "@type": "Organization",
+      "@id": "https://ttcalc.shop/#organization",
       "name": "TTCalc",
       "url": "https://ttcalc.shop/",
       "logo": {
-        "@@type": "ImageObject",
+        "@type": "ImageObject",
         "url": "https://ttcalc.shop/assets/images/og-default.jpg",
         "width": 1200,
         "height": 630
       },
+      "description": "Free TikTok Shop seller tools â€?fee calculator, profit calculator, and platform comparison.",
+      "founder": {
+        "@type": "Person",
+        "name": "L.D. Studio",
+        "url": "https://ttcalc.shop/about/",
+        "jobTitle": "Founder & Developer"
+      },
       "sameAs": [
         "https://github.com/qq136692547-cmyk/deng-tts-tools"
-      ]
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://github.com/qq136692547-cmyk/deng-tts-tools/issues",
+        "availableLanguage": "English"
+      }
     }
   ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@@context": "https://schema.org",
-  "@@type": "FAQPage",
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
   "mainEntity": [
     {
-      "@@type": "Question",
+      "@type": "Question",
       "name": "Why is my TikTok Shop profit different from the Seller Center dashboard?",
       "acceptedAnswer": {
-        "@@type": "Answer",
+        "@type": "Answer",
         "text": "The TikTok dashboard shows the gross amount after their 6% commission, but doesn't break out FBT fulfillment, cross-border fees, or creator commission separately. Once you add those, your real take-home is typically 10-15% lower than the dashboard shows."
       }
     },
     {
-      "@@type": "Question",
+      "@type": "Question",
       "name": "Is 6% the only fee TikTok takes?",
       "acceptedAnswer": {
-        "@@type": "Answer",
+        "@type": "Answer",
         "text": "The 6% referral fee includes payment processing. On top of that, you have FBT fulfillment ($2.86-3.58/unit), cross-border fees (~1%), and creator commission (0-30%). For a $30 product with FBT and 10% creator, the real fee stack is $6.74 (22.5%) - not just $1.80 (6%)."
       }
     },
     {
-      "@@type": "Question",
+      "@type": "Question",
       "name": "Do I pay creator commission on top of TikTok's fees?",
       "acceptedAnswer": {
-        "@@type": "Answer",
+        "@type": "Answer",
         "text": "Yes. If you set a 10% creator commission, that 10% goes to the TikTok influencer on top of the 6% referral + FBT fulfillment. For a $30 product with FBT ($3.20), that's $6.20 in fees (20.7%) - and you still have to cover COGS, shipping, and returns."
       }
     },
     {
-      "@@type": "Question",
+      "@type": "Question",
       "name": "How does TikTok Shop compare to Amazon FBA?",
       "acceptedAnswer": {
-        "@@type": "Answer",
+        "@type": "Answer",
         "text": "On a per-fee basis, TikTok's headline 6% is much lower than Amazon's 15% referral. But once you include creator commission and payment processing, the gap closes. Use the side-by-side calculator to model the same product on both platforms."
       }
     }
