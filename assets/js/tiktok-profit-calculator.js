@@ -59,7 +59,12 @@
     get('r_storage').textContent            = '-' + fmt(storageFee);
     get('r_ads').textContent                = '-' + fmt(ads);
     get('r_profit').textContent             = fmt(profit);
-    get('r_roi').textContent                = margin.toFixed(1) + '% / ' + roiDirect.toFixed(1) + '% / ' + roiAll.toFixed(1) + '%';
+    var rMargin = document.getElementById('r_roi_margin');
+    var rDirect = document.getElementById('r_roi_direct');
+    var rAll    = document.getElementById('r_roi_all');
+    if (rMargin) rMargin.textContent = margin.toFixed(1) + '%';
+    if (rDirect) rDirect.textContent = roiDirect.toFixed(1) + '%';
+    if (rAll)    rAll.textContent    = roiAll.toFixed(1) + '%';
     get('r_return_cost').textContent        = '-' + fmt(returnCost);
     get('r_return_fee').textContent         = '-' + fmt(returnFee);
     get('r_eff_profit').textContent         = fmt(effectiveProfit);

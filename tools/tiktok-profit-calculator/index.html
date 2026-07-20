@@ -20,9 +20,11 @@
 <meta property="og:url" content="https://ttcalc.shop/tools/tiktok-profit-calculator/" />
 <meta property="og:site_name" content="TTCalc" />
 <meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" />
+<link rel="preload" href="/assets/css/site.css" as="style" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href="/assets/css/site.css" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1144258736459816" crossorigin="anonymous"></script>
 </head>
@@ -50,14 +52,13 @@
 
     <div class="calc-window">
       <div class="calc-titlebar">
-        <div class="traffic"><span></span></div>
-        <span class="calc-name">ttcalc — profit-calculator.js</span>
+        <div class="traffic"><span></span><span></span><span></span></div>
+        <span class="calc-name">ttcalc &mdash; profit-calculator.js</span>
         <span class="calc-badge">2026 rates</span>
       </div>
       <div class="calc-body">
         <section class="calc-inputs">
-          
-<h2>Inputs</h2>
+          <h2>Inputs</h2>
 
           <div class="calc-field">
             <label for="sale">Sale price (USD)</label>
@@ -140,7 +141,11 @@
           <div class="calc-result-row"><span class="lbl">&#8722; FBT storage (monthly)</span><span class="val" id="r_storage">&#8722;$0.15</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; TikTok ad spend</span><span class="val" id="r_ads">&#8722;$3.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Net profit per unit</span><span class="val" id="r_profit">$11.04</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Margin · ROI (direct) · ROI (all)</span><span class="val" id="r_roi">34.3% / 72.0% / 52.1%</span></div>
+          <div class="calc-result-row roi-row group-end" id="r_roi">
+            <div class="roi-line"><span class="roi-lbl">Margin</span><span class="roi-val" id="r_roi_margin">34.3%</span></div>
+            <div class="roi-line"><span class="roi-lbl">ROI (direct)</span><span class="roi-val" id="r_roi_direct">72.0%</span></div>
+            <div class="roi-line"><span class="roi-lbl">ROI (all)</span><span class="roi-val" id="r_roi_all">52.1%</span></div>
+          </div>
           <div class="calc-result-row"><span class="lbl">Return cost (non-resellable)</span><span class="val" id="r_return_cost">-$0.75</span></div>
           <div class="calc-result-row"><span class="lbl">Refund admin fee</span><span class="val" id="r_return_fee">-$0.02</span></div>
           <div class="calc-result-row"><span class="lbl">Effective profit</span><span class="val" id="r_eff_profit">$10.27</span></div>
@@ -174,8 +179,8 @@
       </div>
       <p class="section-lede">Three things make TikTok Shop's profit math unique compared to Amazon or eBay:</p>
       <div class="features" style="margin-top:var(--s-4);">
-        <div class="feature"><div class="icon">[ 01 ]</div><h3>Creator commission is the wildcard</h3><p>On Amazon or eBay, the marketplace is the only platform taking a cut. On TikTok, you can pay creators 1%–30% on top of TikTok's fees. A product that's profitable at 0% creator commission can flip negative at 25%.</p></div>
-        <div class="feature"><div class="icon">[ 02 ]</div><h3>Ad spend is higher</h3><p>TikTok Shop sellers typically spend 10%–20% of revenue on TikTok ads to drive traffic. Amazon sellers can usually get away with less because of organic search. Build ad spend into your unit economics.</p></div>
+        <div class="feature"><div class="icon">[ 01 ]</div><h3>Creator commission is the wildcard</h3><p>On Amazon or eBay, the marketplace is the only platform taking a cut. On TikTok, you can pay creators 1%&ndash;30% on top of TikTok's fees. A product that's profitable at 0% creator commission can flip negative at 25%.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>Ad spend is higher</h3><p>TikTok Shop sellers typically spend 10%&ndash;20% of revenue on TikTok ads to drive traffic. Amazon sellers can usually get away with less because of organic search. Build ad spend into your unit economics.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Returns run higher</h3><p>TikTok's "try before you buy" culture means returns can run 15%&#8211;25%, vs Amazon's 5%&#8211;10%. Set the resellable rate to reflect how many returns you can actually resell &#8212; this dramatically impacts real profit.</p></div>
         <div class="feature"><div class="icon">[ 04 ]</div><h3>Hidden costs add up</h3><p>Inbound shipping to FBT warehouse and monthly storage fees are easy to forget but can eat 5%&#8211;10% of margin. This calculator includes them so your numbers reflect reality.</p></div>
       </div>
@@ -224,6 +229,6 @@
 </footer>
 
 <script src="/assets/js/tiktok-profit-calculator.js"></script>
-<script src="/assets/js/copy-results.js"></script>
+<script src="/assets/js/ux.js"></script>
 </body>
 </html>

@@ -27,47 +27,48 @@
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" />
+<link rel="preload" href="/assets/css/site.css" as="style" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href="/assets/css/site.css" />
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@@context": "https://schema.org",
+  "@@type": "WebApplication",
   "name": "TikTok Shop Fee Calculator 2026",
   "url": "https://ttcalc.shop/tools/tiktok-fee-calculator/",
   "description": "Free TikTok Shop fee calculator with 2026 fee structure.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  "offers": {"@@type": "Offer", "price": "0", "priceCurrency": "USD"}
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
+  "@@context": "https://schema.org",
+  "@@type": "FAQPage",
   "mainEntity": [
     {
-      "@type": "Question",
+      "@@type": "Question",
       "name": "Is the 6% referral fee all TikTok takes?",
       "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($2.86-$3.58/unit), creator commission (0-30%), and return costs."
+        "@@type": "Answer",
+        "text": "The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($2.86-3.58/unit), creator commission (0-30%), and return costs."
       }
     },
     {
-      "@type": "Question",
+      "@@type": "Question",
       "name": "Do I pay creator commission on top of everything?",
       "acceptedAnswer": {
-        "@type": "Answer",
+        "@@type": "Answer",
         "text": "Yes. Creator commission is set by you (0-30%) and stacks on top of the 6% referral fee and FBT fulfillment. Set to 0 if you don't use creators."
       }
     },
     {
-      "@type": "Question",
+      "@@type": "Question",
       "name": "How do TikTok Shop fees compare to Amazon FBA?",
       "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "On headline commission: TikTok 6% vs Amazon 15% — TikTok wins. On total fee stack including all fees: TikTok 6% + FBT vs Amazon ~35% (with placement, low-inventory, fulfillment) — TikTok still wins by a large margin. But Amazon includes Prime shipping and warehouse fulfillment in that fee. Use the side-by-side calculator for a true comparison."
+        "@@type": "Answer",
+        "text": "On headline commission: TikTok 6% vs Amazon 15% - TikTok wins. On total fee stack including all fees: TikTok 6% + FBT vs Amazon ~35% (with placement, low-inventory, fulfillment) - TikTok still wins by a large margin. But Amazon includes Prime shipping and warehouse fulfillment in that fee. Use the side-by-side calculator for a true comparison."
       }
     }
   ]
@@ -102,8 +103,8 @@
 
     <div class="calc-window">
       <div class="calc-titlebar">
-        <div class="traffic"><span></span></div>
-        <span class="calc-name">ttcalc — fee-calculator.js</span>
+        <div class="traffic"><span></span><span></span><span></span></div>
+        <span class="calc-name">ttcalc &mdash; fee-calculator.js</span>
         <span class="calc-badge">2026 rates</span>
       </div>
       <div class="calc-body">
@@ -197,7 +198,7 @@
       </div>
       <div class="features" style="margin-top:var(--s-5);">
         <div class="feature"><div class="icon">[ 01 ]</div><h3>Base commission (6%)</h3><p>6% flat for all US categories. Payment processing is included in this rate. No separate processing fee. A flat $0.30 transaction fee applies per order. Charged on total sale price including shipping.</p></div>
-        <div class="feature"><div class="icon">[ 02 ]</div><h3>FBT fulfillment</h3><p>$2.86/$3.20/$3.58 per unit depending on size. Mandatory since March 31, 2026. Fulfilled by TikTok (FBT) — you ship bulk to TikTok's warehouse, they handle last-mile.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>FBT fulfillment</h3><p>$2.86/$3.20/$3.58 per unit depending on size. Mandatory since March 31, 2026. Fulfilled by TikTok (FBT) &mdash; you ship bulk to TikTok's warehouse, they handle last-mile.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Creator commission</h3><p>1%&#8211;30% (you set it). Paid to TikTok creators/affiliates who promote your product. Stacks ON TOP of all fees above. Set to 0 if you don't use creators.</p></div>
         <div class="feature"><div class="icon">[ 04 ]</div><h3>What's NOT included</h3><p>This calculator doesn't include: TikTok ad spend, FBT storage fees (monthly per-cubic-foot), inbound shipping to FBT warehouse, aged-inventory surcharges, or removal/disposal fees. Use the Profit Calculator for a more complete picture including these costs.</p></div>
       </div>
@@ -273,6 +274,6 @@
 </footer>
 
 <script src="/assets/js/tiktok-fee-calculator.js"></script>
-<script src="/assets/js/copy-results.js"></script>
+<script src="/assets/js/ux.js"></script>
 </body>
 </html>

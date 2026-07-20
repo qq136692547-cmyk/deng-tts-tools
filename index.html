@@ -27,6 +27,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" href="/assets/css/site.css" as="style" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href="/assets/css/site.css" />
 <style>
@@ -41,14 +42,14 @@
 </style>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@@context": "https://schema.org",
+  "@@type": "WebApplication",
   "name": "TTCalc",
   "url": "https://ttcalc.shop/",
   "description": "Free TikTok Shop seller tools with 2026 fee structure.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  "offers": {"@@type": "Offer", "price": "0", "priceCurrency": "USD"}
 }
 </script>
 
@@ -57,74 +58,74 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@@context": "https://schema.org",
+  "@@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://ttcalc.shop/#website",
+      "@@type": "WebSite",
+      "@@id": "https://ttcalc.shop/#website",
       "name": "TTCalc",
       "url": "https://ttcalc.shop/",
       "description": "Free TikTok Shop seller tools. Calculate TikTok Shop fees, profit margins, and compare with Amazon FBA. Updated for 2026."
     },
     {
-      "@type": "Organization",
-      "@id": "https://ttcalc.shop/#organization",
+      "@@type": "Organization",
+      "@@id": "https://ttcalc.shop/#organization",
       "name": "TTCalc",
       "url": "https://ttcalc.shop/",
       "logo": {
-        "@type": "ImageObject",
+        "@@type": "ImageObject",
         "url": "https://ttcalc.shop/assets/images/og-default.jpg",
         "width": 1200,
         "height": 630
       },
       "sameAs": [
-              "https://github.com/qq136692547-cmyk/deng-tts-tools"
-            ]
-          }
-        ]
+        "https://github.com/qq136692547-cmyk/deng-tts-tools"
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@@type": "Question",
+      "name": "Why is my TikTok Shop profit different from the Seller Center dashboard?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "The TikTok dashboard shows the gross amount after their 6% commission, but doesn't break out FBT fulfillment, cross-border fees, or creator commission separately. Once you add those, your real take-home is typically 10-15% lower than the dashboard shows."
       }
-      </script>
-      <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Why is my TikTok Shop profit different from the Seller Center dashboard?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The TikTok dashboard shows the gross amount after their 6% commission, but doesn't break out FBT fulfillment, cross-border fees, or creator commission separately. Once you add those, your real take-home is typically 10-15% lower than the dashboard shows."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is 6% the only fee TikTok takes?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The 6% referral fee includes payment processing. On top of that, you have FBT fulfillment ($2.86-$3.58/unit), cross-border fees (~1%), and creator commission (0-30%). For a $30 product with FBT and 10% creator, the real fee stack is $6.74 (22.5%) - not just $1.80 (6%)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I pay creator commission on top of TikTok's fees?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. If you set a 10% creator commission, that 10% goes to the TikTok influencer on top of the 6% referral + FBT fulfillment. For a $30 product with FBT ($3.20), that's $6.20 in fees (20.7%) - and you still have to cover COGS, shipping, and returns."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does TikTok Shop compare to Amazon FBA?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "On a per-fee basis, TikTok's headline 6% is much lower than Amazon's 15% referral. But once you include creator commission and payment processing, the gap closes. Use the side-by-side calculator to model the same product on both platforms."
-            }
-          }
-        ]
+    },
+    {
+      "@@type": "Question",
+      "name": "Is 6% the only fee TikTok takes?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "The 6% referral fee includes payment processing. On top of that, you have FBT fulfillment ($2.86-3.58/unit), cross-border fees (~1%), and creator commission (0-30%). For a $30 product with FBT and 10% creator, the real fee stack is $6.74 (22.5%) - not just $1.80 (6%)."
       }
-      </script>
-      <meta name="google-site-verification" content="google549b561c38ba8bae" />
+    },
+    {
+      "@@type": "Question",
+      "name": "Do I pay creator commission on top of TikTok's fees?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "Yes. If you set a 10% creator commission, that 10% goes to the TikTok influencer on top of the 6% referral + FBT fulfillment. For a $30 product with FBT ($3.20), that's $6.20 in fees (20.7%) - and you still have to cover COGS, shipping, and returns."
+      }
+    },
+    {
+      "@@type": "Question",
+      "name": "How does TikTok Shop compare to Amazon FBA?",
+      "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "On a per-fee basis, TikTok's headline 6% is much lower than Amazon's 15% referral. But once you include creator commission and payment processing, the gap closes. Use the side-by-side calculator to model the same product on both platforms."
+      }
+    }
+  ]
+}
+</script>
+<meta name="google-site-verification" content="google549b561c38ba8bae" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1144258736459816" crossorigin="anonymous"></script>
 </head>
 <body class="home">
@@ -147,15 +148,15 @@
 <main id="main">
 <section class="hero-v3">
   <div class="container">
-    <span class="hero-eyebrow"><span class="dot"></span> 2026 fee structure &middot; no signup</span>
-    <h1 class="hero-title">Know your real TikTok Shop profit. <em>Before you source.</em></h1>
-    <p class="hero-lede">TikTok Shop&rsquo;s fee stack is hidden in layers: the 6% referral fee (which includes payment processing), FBT fulfillment, and creator commission. Most sellers only see the 6% — the real cost is closer to 12% with all fees. Calculate the real cost per unit, then see how it stacks against Amazon FBA on the same product.</p>
-    <div class="hero-cta-row">
+    <span class="hero-eyebrow" style="--i:0"><span class="dot"></span> 2026 fee structure &middot; no signup</span>
+    <h1 class="hero-title" style="--i:1">Know your real TikTok Shop profit. <em>Before you source.</em></h1>
+    <p class="hero-lede" style="--i:2">TikTok Shop&rsquo;s fee stack is hidden in layers: the 6% referral fee (which includes payment processing), FBT fulfillment, and creator commission. Most sellers only see the 6% &mdash; the real cost is closer to 12% with all fees. Calculate the real cost per unit, then see how it stacks against Amazon FBA on the same product.</p>
+    <div class="hero-cta-row" style="--i:3">
       <a href="/tools/tiktok-fee-calculator/" class="btn btn-primary">Open Calculator <span class="arr">&rarr;</span></a>
       <a href="#how-it-works" class="btn btn-ghost">How it works</a>
     </div>
 
-    <div class="calc-window" role="region" aria-label="TikTok Shop fee calculator demo">
+    <div class="calc-window" role="region" aria-label="TikTok Shop fee calculator demo" style="--i:4">
       <div class="demo-tabs-bar">
         <div class="demo-traffic" aria-hidden="true"><span></span><span></span><span></span></div>
         <button class="demo-tab is-active" data-tab="calc">
@@ -190,13 +191,13 @@
               <div class="input"><span>10%</span></div>
             </div>
           </div>
-          <div class="calc-results">
-            <div class="calc-result-row"><span class="lbl">Referral fee (6%, incl. processing)</span><span class="val">&minus;$1.80</span></div>
-            <div class="calc-result-row"><span class="lbl">FBT fulfillment</span><span class="val">&minus;$3.20</span></div>
-            <div class="calc-result-row"><span class="lbl">Creator commission (10%)</span><span class="val">&minus;$3.00</span></div>
-            <div class="calc-result-row"><span class="lbl">Cross-border / fixed</span><span class="val">&minus;$0.20</span></div>
-            <div class="calc-result-row"><span class="lbl">COGS + ship</span><span class="val">&minus;$9.50</span></div>
-            <div class="calc-result-row highlight"><span class="lbl">Net profit / unit</span><span class="val">$12.29</span></div>
+          <div class="calc-results" aria-live="polite">
+            <div class="calc-result-row"><span class="lbl">Referral fee (6%, incl. processing)</span><span class="val">&minus;.80</span></div>
+            <div class="calc-result-row"><span class="lbl">FBT fulfillment</span><span class="val">&minus;.20</span></div>
+            <div class="calc-result-row"><span class="lbl">Creator commission (10%)</span><span class="val">&minus;.00</span></div>
+            <div class="calc-result-row"><span class="lbl">Cross-border / fixed</span><span class="val">&minus;.20</span></div>
+            <div class="calc-result-row"><span class="lbl">COGS + ship</span><span class="val">&minus;.50</span></div>
+            <div class="calc-result-row highlight"><span class="lbl">Net profit / unit</span><span class="val">.29</span></div>
           </div>
         </div>
       </div>
@@ -205,19 +206,19 @@
         <div class="calc-body" style="grid-template-columns: 1fr 1fr;">
           <div style="padding:28px; background: rgba(0,0,0,0.3);">
             <div class="calc-field" style="margin-bottom:6px"><span style="color:#06B6D4;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em">TikTok Shop</span></div>
-            <div class="calc-result-row" style="border-color:rgba(255,255,255,0.08)"><span class="lbl">Total TikTok fees</span><span class="val">&minus;$8.00</span></div>
-            <div class="calc-result-row"><span class="lbl">Net / unit</span><span class="val">$12.29</span></div>
+            <div class="calc-result-row" style="border-color:rgba(255,255,255,0.08)"><span class="lbl">Total TikTok fees</span><span class="val">&minus;.00</span></div>
+            <div class="calc-result-row"><span class="lbl">Net / unit</span><span class="val">.29</span></div>
             <div class="calc-result-row"><span class="lbl">Margin</span><span class="val">41.0%</span></div>
             <div class="calc-result-row"><span class="lbl">ROI</span><span class="val">129%</span></div>
-            <div class="calc-result-row"><span class="lbl">Per month (100u)</span><span class="val">$1,229</span></div>
+            <div class="calc-result-row"><span class="lbl">Per month (100u)</span><span class="val">,229</span></div>
           </div>
           <div style="padding:28px; background: rgba(0,0,0,0.2);">
             <div class="calc-field" style="margin-bottom:6px"><span style="color:#EC4899;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em">TikTok Shop (no creator)</span></div>
-            <div class="calc-result-row" style="border-color:rgba(255,255,255,0.08)"><span class="lbl">Total TikTok fees</span><span class="val">&minus;$5.00</span></div>
-            <div class="calc-result-row"><span class="lbl">Net / unit</span><span class="val">$15.29</span></div>
+            <div class="calc-result-row" style="border-color:rgba(255,255,255,0.08)"><span class="lbl">Total TikTok fees</span><span class="val">&minus;.00</span></div>
+            <div class="calc-result-row"><span class="lbl">Net / unit</span><span class="val">.29</span></div>
             <div class="calc-result-row"><span class="lbl">Margin</span><span class="val">51.0%</span></div>
-            <div class="calc-result-row"><span class="lbl">Per month (100u)</span><span class="val">$1,529</span></div>
-            <div class="calc-result-row"><span class="lbl">Creator cost</span><span class="val">&minus;$300/mo</span></div>
+            <div class="calc-result-row"><span class="lbl">Per month (100u)</span><span class="val">,529</span></div>
+            <div class="calc-result-row"><span class="lbl">Creator cost</span><span class="val">&minus;/mo</span></div>
           </div>
         </div>
       </div>
@@ -225,7 +226,7 @@
       <div class="demo-tabpanel" data-panel="vs" hidden>
         <div style="padding: 24px 28px; font-family: var(--font-mono); font-size: 13px; line-height: 1.8; color: #fff;">
 <pre style="margin:0;color:#fff;font-family:var(--font-mono);font-size:13px;line-height:1.7"><span class="tok-com">// TikTok Shop vs Amazon FBA &mdash;same $29.99 product</span>
-<span class="tok-key">product</span> = <span class="tok-str">"$29.99 beauty"</span>
+<span class="tok-key">product</span> = <span class="tok-str">".99 beauty"</span>
 <span class="tok-key">tiktok</span> = <span class="tok-pun">{</span>
   <span class="tok-key">base</span>:         <span class="tok-fn">tiktok_commission</span>(<span class="tok-num">0.06</span>, product),
   <span class="tok-key">fbt</span>:          <span class="tok-fn">fbt_fulfillment</span>(<span class="tok-num">3.20</span>, product),
@@ -249,19 +250,19 @@
 
     <div class="hero-stats">
       <div class="hero-stat">
-        <span class="n"><span class="accent">$0</span></span>
+        <span class="n"><span class="accent"></span></span>
         <span class="l">always free &middot; no signup</span>
       </div>
       <div class="hero-stat">
-        <span class="n">4<span class="unit">fees</span></span>
+        <span class="n" data-count="4">0<span class="unit">fees</span></span>
         <span class="l">the real TikTok stack</span>
       </div>
       <div class="hero-stat">
-        <span class="n">12<span class="unit">%</span></span>
+        <span class="n" data-count="12">0<span class="unit">%</span></span>
         <span class="l">real total &middot; not 6% headline</span>
       </div>
       <div class="hero-stat">
-        <span class="n">2026</span>
+        <span class="n" data-count="2026">0</span>
         <span class="l">fee structure &middot; verified</span>
       </div>
     </div>
@@ -286,11 +287,10 @@
 <section class="home-section" id="how-it-works">
   <div class="container">
     <span class="section-eyebrow">The hidden fee stack</span>
-    
-<h2 class="section-title">What you&rsquo;re actually paying TikTok.</h2>
+    <h2 class="section-title">What you&rsquo;re actually paying TikTok.</h2>
     <p class="section-sub">The 6% TikTok shows in the Seller Center is the headline number, not the real cost. The other three fees below are where most sellers lose visibility.</p>
     <div class="bento-v3">
-      <div class="bento-card span-4">
+      <div class="bento-card span-4" style="--i:0">
         <span class="card-edge" aria-hidden="true"></span>
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h6M9 14h6"/></svg>
@@ -299,13 +299,13 @@
         <h3>Base commission &mdash; the headline number.</h3>
         <p>6% flat for all US categories. Payment processing is included in this rate. Charged on total sale price including shipping.</p>
       </div>
-      <div class="bento-card span-2 card-short">
+      <div class="bento-card span-2 card-short" style="--i:1">
         <span class="card-edge" aria-hidden="true"></span>
         <span class="num">02 &middot; $2.86+</span>
         <h3>FBT fulfillment fee</h3>
-        <p>Mandatory Fulfilled by TikTok. $2.86&#8211;$3.58 per unit depending on size. In effect since March 31, 2026.</p>
+        <p>Mandatory Fulfilled by TikTok. $2.86&ndash;$3.58 per unit depending on size. In effect since March 31, 2026.</p>
       </div>
-      <div class="bento-card span-3">
+      <div class="bento-card span-3" style="--i:2">
         <span class="card-edge" aria-hidden="true"></span>
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6l3-7 4 14 3-7h4"/></svg>
@@ -314,7 +314,7 @@
         <h3>Cross-border fee.</h3>
         <p>Additional ~1% on international orders. Applies when the seller and buyer are in different countries.</p>
       </div>
-      <div class="bento-card span-3">
+      <div class="bento-card span-3" style="--i:3">
         <span class="card-edge" aria-hidden="true"></span>
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11a4 4 0 1 0-8 0M3 21v-1a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v1"/></svg>
@@ -333,7 +333,7 @@
     <h2 class="section-title">Three calculators, no signup.</h2>
     <p class="section-sub">Each one is a focused, single-purpose tool. Open the one you need, get an answer, close the tab.</p>
     <div class="tools-v3">
-      <a class="tool-v3" href="/tools/tiktok-fee-calculator/" style="--tool-color:#06B6D4;--tool-tint:rgba(6,182,212,0.1);--tool-edge:linear-gradient(90deg,#06B6D4,#8B5CF6)">
+      <a class="tool-v3" href="/tools/tiktok-fee-calculator/" style="--tool-color:#06B6D4;--tool-tint:rgba(6,182,212,0.1);--tool-edge:linear-gradient(90deg,#06B6D4,#8B5CF6)" data-reveal>
         <div class="tool-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
         </div>
@@ -341,7 +341,7 @@
         <p>Full fee breakdown: base commission payment processing, and creator commission. See the real percentage TikTok keeps.</p>
         <span class="arrow">Open calculator <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
-      <a class="tool-v3" href="/tools/tiktok-profit-calculator/" style="--tool-color:#8B5CF6;--tool-tint:rgba(139,92,246,0.1);--tool-edge:linear-gradient(90deg,#8B5CF6,#EC4899)">
+      <a class="tool-v3" href="/tools/tiktok-profit-calculator/" style="--tool-color:#8B5CF6;--tool-tint:rgba(139,92,246,0.1);--tool-edge:linear-gradient(90deg,#8B5CF6,#EC4899)" data-reveal>
         <div class="tool-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
         </div>
@@ -349,7 +349,7 @@
         <p>Input COGS and shipping, get net profit per unit after every TikTok fee. Margin and ROI update as you type.</p>
         <span class="arrow">Calculate profit <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
-      <a class="tool-v3" href="/tools/tiktok-vs-amazon/" style="--tool-color:#EC4899;--tool-tint:rgba(236,72,153,0.1);--tool-edge:linear-gradient(90deg,#EC4899,#F97316)">
+      <a class="tool-v3" href="/tools/tiktok-vs-amazon/" style="--tool-color:#EC4899;--tool-tint:rgba(236,72,153,0.1);--tool-edge:linear-gradient(90deg,#EC4899,#F97316)" data-reveal>
         <div class="tool-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6l3-7 4 14 3-7h2"/></svg>
         </div>
@@ -376,7 +376,7 @@
       <details>
         <summary>Is 6% the only fee TikTok takes?<span class="sign" aria-hidden="true"></span></summary>
         <div class="answer">
-          <p>The 6% referral fee includes payment processing. On top of that, you have FBT fulfillment ($2.86&#8211;$3.58/unit), cross-border fees (~1%), and creator commission (0&#8211;30%). For a $30 product with FBT and 10% creator, the real TikTok fee stack is $6.74 (22.5%) &mdash; not just $1.80 (6%).</p>
+          <p>The 6% referral fee includes payment processing. On top of that, you have FBT fulfillment ($2.86&ndash;$3.58/unit), cross-border fees (~1%), and creator commission (0&#8211;30%). For a $30 product with FBT and 10% creator, the real TikTok fee stack is $6.74 (22.5%) &mdash; not just $1.80 (6%).</p>
         </div>
       </details>
       <details>
