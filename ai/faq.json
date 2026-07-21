@@ -1,0 +1,32 @@
+{
+  "site": "ttcalc.shop",
+  "name": "TTCalc",
+  "url": "https://ttcalc.shop/",
+  "faqs": [
+    {
+      "question": "Why is my TikTok Shop profit different from the Seller Center dashboard?",
+      "answer": "The TikTok dashboard shows the gross amount after their 6% commission, but doesn't break out FBT fulfillment, cross-border fees, or creator commission separately. Once you add those, your real take-home is typically 10-15% lower than the dashboard shows."
+    },
+    {
+      "question": "Is 6% the only fee TikTok takes?",
+      "answer": "The 6% referral fee includes payment processing. On top of that, you have FBT fulfillment ($2.86-3.58/unit), cross-border fees (~1%), and creator commission (0-30%). For a $30 product with FBT and 10% creator, the real fee stack is $6.74 (22.5%) - not just $1.80 (6%)."
+    },
+    {
+      "question": "Do I pay creator commission on top of TikTok's fees?",
+      "answer": "Yes. Creator commission is separate from TikTok's referral fee. If you use the affiliate program, commission ranges from 1-30%. The US average is 13.02%. Use the Profit Calculator to model different commission scenarios."
+    },
+    {
+      "question": "How much does it cost to start live shopping on TikTok Shop?",
+      "answer": "There is no separate fee for going live on TikTok Shop. You need an active seller account with at least 1,000 followers. The costs come from your standard TikTok Shop fees (6% referral + $0.30 transaction), creator commissions if you hire a host, and any ad spend for pre-promotion."
+    },
+    {
+      "question": "What products sell best on TikTok Shop?",
+      "answer": "Products in the $20-$60 price range with strong visual appeal perform best. Beauty, fashion accessories, home gadgets, and kitchen tools consistently top sales. The key is that the product must be demonstrable in under 60 seconds."
+    },
+    {
+      "question": "Is TTCalc affiliated with TikTok?",
+      "answer": "No. TTCalc is an independent project built by sellers, for sellers. It is not affiliated with TikTok, ByteDance, or any of their subsidiaries."
+    }
+  ],
+  "last_updated": "2026-07-21"
+}

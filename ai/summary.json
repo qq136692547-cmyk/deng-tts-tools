@@ -1,0 +1,39 @@
+{
+  "site": "ttcalc.shop",
+  "name": "TTCalc",
+  "description": "Free TikTok Shop seller tools - fee calculator, profit calculator, and platform comparison. Independent, no signup, no tracking.",
+  "url": "https://ttcalc.shop/",
+  "author": {
+    "name": "L.D. Studio",
+    "role": "Founder & Developer",
+    "url": "https://ttcalc.shop/about/"
+  },
+  "tools": [
+    {
+      "name": "TikTok Shop Fee Calculator",
+      "url": "https://ttcalc.shop/tools/tiktok-fee-calculator/",
+      "description": "Calculate the full TikTok Shop fee stack: 6% referral, $0.30 transaction, FBT fulfillment, creator commissions, refund administration."
+    },
+    {
+      "name": "TikTok Shop Profit Calculator",
+      "url": "https://ttcalc.shop/tools/tiktok-profit-calculator/",
+      "description": "Model net profit per unit after all TikTok fees, COGS, shipping, ad spend, creator commissions, and returns."
+    },
+    {
+      "name": "TikTok vs Amazon FBA",
+      "url": "https://ttcalc.shop/tools/tiktok-vs-amazon/",
+      "description": "Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point."
+    }
+  ],
+  "fee_structure": {
+    "referral_fee": "6% flat (includes payment processing)",
+    "transaction_fee": "$0.30 per order",
+    "fbt_fulfillment": "$2.86-$3.58 per unit",
+    "cross_border_fee": "~1% on international orders",
+    "creator_commission": "0-30% (13.02% US average)",
+    "last_verified": "2026-06-24"
+  },
+  "blog_count": 14,
+  "blog_index": "https://ttcalc.shop/blog/",
+  "last_updated": "2026-07-21"
+}
