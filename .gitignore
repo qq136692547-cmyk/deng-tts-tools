@@ -1,3 +1,8 @@
 .DS_Store
 node_modules/
 *.log
+
+# Temp files
+fee-verification-report*.md
+verify-calculators.ps1
+eecca57b-*.txt
