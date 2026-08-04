@@ -31,9 +31,29 @@
     "fbt_fulfillment": "$2.86-$3.58 per unit",
     "cross_border_fee": "~1% on international orders",
     "creator_commission": "0-30% (13.02% US average)",
-    "last_verified": "2026-06-24"
+    "last_verified": "2026-08-05"
   },
-  "blog_count": 14,
+  "blog_count": 18,
   "blog_index": "https://ttcalc.shop/blog/",
-  "last_updated": "2026-07-21"
+  "blog_topics": [
+    { "title": "TikTok Shop Fees 2026: Complete Breakdown", "url": "https://ttcalc.shop/blog/tiktok-shop-fees-2026/" },
+    { "title": "How to Calculate TikTok Shop Profit Per Unit", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-per-unit-2026/" },
+    { "title": "5 TikTok Shop Profit Killers", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-killers-2026/" },
+    { "title": "TikTok Shop Profit Calculator Guide", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-calculator-guide/" },
+    { "title": "TikTok Shop FBT Fulfillment Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fulfillment-guide-2026/" },
+    { "title": "TikTok Shop vs Amazon FBA 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-vs-amazon-fba-2026/" },
+    { "title": "TikTok Shop SEO Guide 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-seo-guide-2026/" },
+    { "title": "TikTok Shop Return Rates & Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-return-rates-cost-2026/" },
+    { "title": "TikTok Shop Taxes 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-taxes-2026/" },
+    { "title": "GMV Max on TikTok Shop 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-gmv-max-2026/" },
+    { "title": "TikTok Shop Affiliate Program 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-affiliate-program-2026/" },
+    { "title": "TikTok Shop Account Health Rating 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-account-health-rating-2026/" },
+    { "title": "TikTok Shop Live Shopping Strategy 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-live-shopping-strategy-2026/" },
+    { "title": "TikTok Shop Product Research 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-product-research-2026/" },
+    { "title": "TikTok Shop Content Strategy 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-content-strategy-2026/" },
+    { "title": "TikTok Shop Seller Tools 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-seller-tools-2026/" },
+    { "title": "TikTok Shop Multi-Store Operations 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-multi-store-operations-2026/" },
+    { "title": "TikTok Shop Payment Terms 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-payment-terms-2026/" }
+  ],
+  "last_updated": "2026-08-05"
 }
