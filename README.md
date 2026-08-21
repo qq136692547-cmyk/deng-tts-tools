@@ -5,6 +5,7 @@ Free TikTok Shop seller tools — fee calculator, profit calculator, and TikTok 
 - Domain: https://ttcalc.shop
 - Stack: Static HTML + CSS + vanilla JavaScript (no build step)
 - Hosting: GitHub Pages
+- Project handover & analytics baseline: [PROJECT_HANDOVER.md](PROJECT_HANDOVER.md)
 
 ## Pages
 
