@@ -1,8 +1,8 @@
-# DengTTSTools
+# TTCalc
 
 Free TikTok Shop seller tools — fee calculator, profit calculator, and TikTok Shop vs Amazon FBA comparison.
 
-- Domain: https://deng.zh.kg
+- Domain: https://ttcalc.shop
 - Stack: Static HTML + CSS + vanilla JavaScript (no build step)
 - Hosting: GitHub Pages
 
