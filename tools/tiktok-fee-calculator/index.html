@@ -132,18 +132,33 @@
 <div class="calc-field">
             <label for="fbtTier">FBT fulfillment</label>
             <select id="fbtTier">
-              <option value="4.28">Single ≤4 oz ($4.28)</option>
-              <option value="4.52" selected>Single 4–8 oz ($4.52)</option>
-              <option value="4.70">Single 8–12 oz ($4.70)</option>
-              <option value="5.10">Single 12–16 oz ($5.10)</option>
-              <option value="5.71">Single 1–2 lb ($5.71)</option>
-              <option value="6.27">Single 2–3 lb ($6.27)</option>
-              <option value="6.92">Single 3–4 lb ($6.92)</option>
-              <option value="7.66">Single 4–5 lb ($7.66)</option>
-              <option value="8.58">Single 5–6 lb ($8.58)</option>
-              <option value="9.63">Single 9–10 lb ($9.63)</option>
+              <option value="0">≤4 oz ($4.28)</option>
+              <option value="1" selected>4–8 oz ($4.52)</option>
+              <option value="2">8–12 oz ($4.70)</option>
+              <option value="3">12–16 oz ($5.10)</option>
+              <option value="4">1–2 lb ($5.71)</option>
+              <option value="5">2–3 lb ($6.27)</option>
+              <option value="6">3–4 lb ($6.92)</option>
+              <option value="7">4–5 lb ($7.66)</option>
+              <option value="8">5–6 lb ($8.58)</option>
+              <option value="9">6–7 lb ($8.88)</option>
+              <option value="10">7–8 lb ($9.22)</option>
+              <option value="11">8–9 lb ($9.42)</option>
+              <option value="12">9–10 lb ($9.63)</option>
+              <option value="13">10–11 lb ($10.64)</option>
+              <option value="14">11–12 lb ($10.75)</option>
+              <option value="15">12–13 lb ($10.98)</option>
+              <option value="16">13–14 lb ($11.44)</option>
+              <option value="17">14–15 lb ($11.85)</option>
+              <option value="18">15–16 lb ($12.67)</option>
             </select>
-            <div class="hint">Fulfilled by TikTok. 2026 weight-based rate for single-item orders; multi-item orders cost less per unit.</div>
+            <select id="fbtUnits">
+              <option value="0" selected>1 unit (single)</option>
+              <option value="1">2 units</option>
+              <option value="2">3 units</option>
+              <option value="3">4+ units</option>
+            </select>
+            <div class="hint">Fulfilled by TikTok. 2026 rate card (Jul 13): single-unit rate shown; multi-item orders cost less per unit.</div>
           </div>
 
           <div class="calc-field">
@@ -293,6 +308,7 @@
   </p>
 </footer>
 
+<script src="/assets/js/fbt-rates.js"></script>
 <script src="/assets/js/tiktok-fee-calculator.js"></script>
 <script src="/assets/js/ux.js"></script>
 </body>

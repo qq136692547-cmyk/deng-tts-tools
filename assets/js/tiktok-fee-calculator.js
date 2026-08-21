@@ -9,7 +9,6 @@
     var creatorRate = num($id('creatorRate').value) / 100;
     var ship   = num($id('shippingCharged').value);
     var returnRate = num($id('returnRate').value) / 100;
-    var fbtTier = parseFloat($id('fbtTier').value);
     var catSel = $id('category');
     var referralRate = catSel ? parseFloat(catSel.value) : 6;
     var resellRate = num($id('resellRate').value) / 100;
@@ -18,7 +17,7 @@
 
     // 2026 TikTok Shop US fee structure (verified Jul 2026, multi-source)
     var referral = total * (referralRate / 100); // referral varies by category (default 6%, Jewelry/Pre-Owned 5%)
-    var fbt      = fbtTier || 0;        // weight-based single-item FBT (Seller Center 2026)
+    var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+$id('fbtTier').value || 0].rates[+$id('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
     var txnFee   = 0.30;                 // $0.30 flat transaction fee per order (darkroom/netsellerprofit/feeyield 2026)
     var creator  = total * creatorRate;
 
@@ -50,7 +49,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['salePrice','category','creatorRate','shippingCharged','returnRate','fbtTier','resellRate'].forEach(function (id) {
+    ['salePrice','category','creatorRate','shippingCharged','returnRate','fbtTier','fbtUnits','resellRate'].forEach(function (id) {
       var el = $id(id); if (el) el.addEventListener('input', calculate);
     });
     calculate();

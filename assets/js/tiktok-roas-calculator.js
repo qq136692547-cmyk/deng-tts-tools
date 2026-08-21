@@ -7,9 +7,9 @@
   function calc() {
     var sale = num(get('sale').value);
     var cogs = num(get('cogs').value);
+    var returnRate = num(get('returnRate').value) / 100;
     var catSel = get('category');
     var referralRate = catSel ? parseFloat(catSel.value) : 6;
-    var fbtTier = parseFloat(get('fbtTier').value);
     var creatorPct = num(get('creator').value) / 100;
     var roas = num(get('roas').value);
     var monthlyUnits = num(get('monthlyUnits').value);
@@ -18,15 +18,22 @@
 
     // 2026 TikTok Shop US fees (Seller Center, Aug 2026)
     var referral = sale * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
-    var fbt      = fbtTier || 0;                // weight-based single-item FBT
+    var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
     var txn      = 0.30;                         // flat transaction fee per order
     var creator  = sale * creatorPct;
     var platformFees = referral + fbt + txn + creator;
 
-    var preAdProfit = sale - platformFees - cogs;
+    // Return impact: 20% of referral fee (capped $5) + product cost on returned units
+    var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate;
+
+    var preAdProfit = sale - platformFees - cogs - returnImpact;
     var preAdMargin = sale > 0 ? (preAdProfit / sale) * 100 : 0;
     var beRoas = preAdProfit > 0 ? sale / preAdProfit : 0;
     var adCost = roas > 0 ? sale / roas : 0;
+
+    // Corrected ROAS: revenue after returns divided by ad spend
+    var correctedRevenue = sale * (1 - returnRate);
+    var correctedRoas = adCost > 0 ? correctedRevenue / adCost : 0;
     var netProfit = preAdProfit - adCost;
     var netMargin = sale > 0 ? (netProfit / sale) * 100 : 0;
     // Monthly projection uses the rounded per-unit figures shown above
@@ -36,9 +43,11 @@
     var monthlyProfit = netProfitR * monthlyUnits;
 
     get('r_platform_fees').textContent = '-' + fmt(platformFees);
+    get('r_return_impact').textContent = '-' + fmt(returnImpact);
     get('r_pre_ad_profit').textContent = fmt(preAdProfit) + ' (' + preAdMargin.toFixed(1) + '%)';
     get('r_be_roas').textContent = beRoas > 0 ? beRoas.toFixed(2) + 'x' : '—';
     get('r_ad_cost').textContent = '-' + fmt(adCost);
+    get('r_corrected_roas').textContent = correctedRoas > 0 ? correctedRoas.toFixed(2) + 'x' : '—';
     get('r_net_profit').textContent = fmt(netProfit) + ' (' + netMargin.toFixed(1) + '%)';
     get('r_monthly_ad').textContent = '-' + fmt(monthlyAd);
     get('r_monthly_profit').textContent = fmt(monthlyProfit);
@@ -54,7 +63,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','category','fbtTier','creator','roas','monthlyUnits'].forEach(function (id) {
+    ['sale','cogs','category','fbtTier','fbtUnits','returnRate','creator','roas','monthlyUnits'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();

@@ -12,10 +12,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>TikTok Shop ROAS Calculator 2026 (GMV Max Break-Even) | TTCalc</title>
-<meta name="description" content="Free TikTok Shop ROAS calculator. Find your break-even ROAS after referral fees, FBT fulfillment, creator commissions, and COGS. See net profit per unit and per month for any reported ROAS." />
+<meta name="description" content="Free TikTok Shop ROAS calculator. Find your break-even ROAS after referral fees, FBT fulfillment, creator commissions, returns, and COGS. See net profit per unit and per month for any reported ROAS." />
 <link rel="canonical" href="https://ttcalc.shop/tools/tiktok-roas-calculator/" />
 <meta property="og:title" content="TikTok Shop ROAS Calculator 2026" />
-<meta property="og:description" content="Break-even ROAS + net profit per unit and per month after all TikTok fees, COGS, creator commissions, and ad spend." />
+<meta property="og:description" content="Break-even ROAS + net profit per unit and per month after all TikTok fees, COGS, creator commissions, returns, and ad spend." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ttcalc.shop/tools/tiktok-roas-calculator/" />
 <meta property="og:site_name" content="TTCalc" />
@@ -73,6 +73,12 @@
           </div>
 
           <div class="calc-field">
+            <label for="returnRate">Return rate (%)</label>
+            <input type="number" id="returnRate" value="5" step="1" min="0" max="50" />
+            <div class="hint">Expected return rate (e.g. 5 for 5%). Deducted before break-even ROAS.</div>
+          </div>
+
+          <div class="calc-field">
             <label for="category">Product category</label>
             <select id="category">
               <option value="6" selected>Default (most categories, 6%)</option>
@@ -87,18 +93,33 @@
           <div class="calc-field">
             <label for="fbtTier">FBT fulfillment</label>
             <select id="fbtTier">
-              <option value="4.28">Single &le;4 oz ($4.28)</option>
-              <option value="4.52" selected>Single 4&ndash;8 oz ($4.52)</option>
-              <option value="4.70">Single 8&ndash;12 oz ($4.70)</option>
-              <option value="5.10">Single 12&ndash;16 oz ($5.10)</option>
-              <option value="5.71">Single 1&ndash;2 lb ($5.71)</option>
-              <option value="6.27">Single 2&ndash;3 lb ($6.27)</option>
-              <option value="6.92">Single 3&ndash;4 lb ($6.92)</option>
-              <option value="7.66">Single 4&ndash;5 lb ($7.66)</option>
-              <option value="8.58">Single 5&ndash;6 lb ($8.58)</option>
-              <option value="9.63">Single 9&ndash;10 lb ($9.63)</option>
+              <option value="0">&le;4 oz ($4.28)</option>
+              <option value="1" selected>4&ndash;8 oz ($4.52)</option>
+              <option value="2">8&ndash;12 oz ($4.70)</option>
+              <option value="3">12&ndash;16 oz ($5.10)</option>
+              <option value="4">1&ndash;2 lb ($5.71)</option>
+              <option value="5">2&ndash;3 lb ($6.27)</option>
+              <option value="6">3&ndash;4 lb ($6.92)</option>
+              <option value="7">4&ndash;5 lb ($7.66)</option>
+              <option value="8">5&ndash;6 lb ($8.58)</option>
+              <option value="9">6&ndash;7 lb ($8.88)</option>
+              <option value="10">7&ndash;8 lb ($9.22)</option>
+              <option value="11">8&ndash;9 lb ($9.42)</option>
+              <option value="12">9&ndash;10 lb ($9.63)</option>
+              <option value="13">10&ndash;11 lb ($10.64)</option>
+              <option value="14">11&ndash;12 lb ($10.75)</option>
+              <option value="15">12&ndash;13 lb ($10.98)</option>
+              <option value="16">13&ndash;14 lb ($11.44)</option>
+              <option value="17">14&ndash;15 lb ($11.85)</option>
+              <option value="18">15&ndash;16 lb ($12.67)</option>
             </select>
-            <div class="hint">2026 weight-based rate; multi-item orders cost less per unit</div>
+            <select id="fbtUnits">
+              <option value="0" selected>1 unit (single)</option>
+              <option value="1">2 units</option>
+              <option value="2">3 units</option>
+              <option value="3">4+ units</option>
+            </select>
+            <div class="hint">2026 rate card (Jul 13): single-unit rate shown; multi-item orders cost less per unit.</div>
           </div>
 
           <div class="calc-field">
@@ -127,9 +148,11 @@
           </div>
 
           <div class="calc-result-row"><span class="lbl">&#8722; TikTok platform fees (per unit)</span><span class="val" id="r_platform_fees">-$9.62</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; Return impact (COGS + refund fee)</span><span class="val" id="r_return_impact">-$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.87 (46.3%)</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Break-even ROAS</span><span class="val" id="r_be_roas">2.16x</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Ad cost at reported ROAS (per unit)</span><span class="val" id="r_ad_cost">-$10.00</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Corrected ROAS (after returns)</span><span class="val" id="r_corrected_roas">2.85x</span></div>
           <div class="calc-result-row"><span class="lbl">Net profit (per unit)</span><span class="val" id="r_net_profit">$3.87 (12.9%)</span></div>
           <div class="calc-result-row"><span class="lbl">Monthly ad spend</span><span class="val" id="r_monthly_ad">-$5000.00</span></div>
           <div class="calc-result-row"><span class="lbl">Monthly net profit</span><span class="val" id="r_monthly_profit">$1935.00</span></div>
@@ -210,6 +233,7 @@
   </p>
 </footer>
 
+<script src="/assets/js/fbt-rates.js"></script>
 <script src="/assets/js/tiktok-roas-calculator.js"></script>
 <script src="/assets/js/ux.js"></script>
 </body>

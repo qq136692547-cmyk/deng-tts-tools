@@ -13,7 +13,7 @@
 
   function tiktokTotal(sale, creatorPct, fbtTier, referralRate) {
     var referral = sale * (referralRate / 100); // varies by category (default 6%)
-    var fbt      = fbtTier || 0;          // weight-based single-item FBT (Seller Center 2026)
+    var fbt      = fbtTier || 0;          // weight-based FBT per unit (Seller Center 2026, incl. multi-item)
     var creator  = sale * (creatorPct / 100);
     return referral + fbt + creator;
   }
@@ -27,7 +27,7 @@
     var adsAmz = num(get('adsAmz').value) / 100;
     var adsTts = num(get('adsTts').value) / 100;
     var returnRate = num(get('returnRate').value) / 100;
-    var fbtTier = parseFloat(get('fbtTier').value);
+    var fbtTier = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (incl. multi-item, rate card Jul 13 2026)
     var amzFuelPct = num(get('amzFuelPct').value);
     var catSel = get('category');
     var referralRate = catSel ? parseFloat(catSel.value) : 6;
@@ -79,7 +79,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
+    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','fbtUnits','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();
