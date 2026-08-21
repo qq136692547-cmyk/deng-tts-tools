@@ -109,6 +109,18 @@
         <span class="calc-badge">2026 rates</span>
       </div>
       <div class="calc-body">
+        <div class="calc-workspace">
+          <div class="workspace-head">
+            <span class="workspace-title">My products &middot; saved on this device</span>
+            <span class="workspace-actions">
+              <input type="text" id="wsName" placeholder="Name (auto)" maxlength="60" autocomplete="off" />
+              <button type="button" class="copy-results-btn" id="wsSave">Save</button>
+              <button type="button" class="copy-results-btn" id="wsLink">Copy link</button>
+            </span>
+          </div>
+          <div class="workspace-list" id="wsList"></div>
+        </div>
+
         <section class="calc-inputs">
           <h2>Inputs</h2>
 
@@ -311,5 +323,6 @@
 <script src="/assets/js/fbt-rates.js"></script>
 <script src="/assets/js/tiktok-fee-calculator.js"></script>
 <script src="/assets/js/ux.js"></script>
+<script src="/assets/js/workspace.js"></script>
 </body>
 </html>
