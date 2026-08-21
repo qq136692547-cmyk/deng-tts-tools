@@ -1,5 +1,5 @@
 // ux.js — deng/fbatools shared UX
-// Copy results + subscribe mock + hero stats count-up + scroll reveal + FAQ accordion
+// Copy results + hero stats count-up + scroll reveal + FAQ accordion
 (function () {
   'use strict';
 
@@ -41,20 +41,6 @@
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('.copy-results-btn, [data-copy-results]');
     if (btn) { e.preventDefault(); doCopy(btn); }
-  });
-
-  // ---- Subscribe form mock ----
-  document.addEventListener('submit', function (e) {
-    var form = e.target.closest('.subscribe-form');
-    if (!form) return;
-    e.preventDefault();
-    var email = form.querySelector('input[type=email]');
-    if (!email || !email.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
-      if (email) { email.focus(); email.style.borderColor = '#F87171'; }
-      return;
-    }
-    var wrap = form.closest('.subscribe-wrap');
-    if (wrap) wrap.classList.add('done');
   });
 
   // ---- Hero stats count-up ----
