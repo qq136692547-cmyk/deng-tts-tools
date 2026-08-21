@@ -1,0 +1,62 @@
+(function () {
+  'use strict';
+  var get = function (s) { return document.getElementById(s); };
+  function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
+  function fmt(n) { return '$' + n.toFixed(2); }
+
+  function calc() {
+    var sale = num(get('sale').value);
+    var cogs = num(get('cogs').value);
+    var catSel = get('category');
+    var referralRate = catSel ? parseFloat(catSel.value) : 6;
+    var fbtTier = parseFloat(get('fbtTier').value);
+    var creatorPct = num(get('creator').value) / 100;
+    var roas = num(get('roas').value);
+    var monthlyUnits = num(get('monthlyUnits').value);
+
+    if (isNaN(sale) || sale <= 0) return;
+
+    // 2026 TikTok Shop US fees (Seller Center, Aug 2026)
+    var referral = sale * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
+    var fbt      = fbtTier || 0;                // weight-based single-item FBT
+    var txn      = 0.30;                         // flat transaction fee per order
+    var creator  = sale * creatorPct;
+    var platformFees = referral + fbt + txn + creator;
+
+    var preAdProfit = sale - platformFees - cogs;
+    var preAdMargin = sale > 0 ? (preAdProfit / sale) * 100 : 0;
+    var beRoas = preAdProfit > 0 ? sale / preAdProfit : 0;
+    var adCost = roas > 0 ? sale / roas : 0;
+    var netProfit = preAdProfit - adCost;
+    var netMargin = sale > 0 ? (netProfit / sale) * 100 : 0;
+    // Monthly projection uses the rounded per-unit figures shown above
+    var adCostR = Math.round(adCost * 100) / 100;
+    var netProfitR = Math.round(netProfit * 100) / 100;
+    var monthlyAd = adCostR * monthlyUnits;
+    var monthlyProfit = netProfitR * monthlyUnits;
+
+    get('r_platform_fees').textContent = '-' + fmt(platformFees);
+    get('r_pre_ad_profit').textContent = fmt(preAdProfit) + ' (' + preAdMargin.toFixed(1) + '%)';
+    get('r_be_roas').textContent = beRoas > 0 ? beRoas.toFixed(2) + 'x' : '—';
+    get('r_ad_cost').textContent = '-' + fmt(adCost);
+    get('r_net_profit').textContent = fmt(netProfit) + ' (' + netMargin.toFixed(1) + '%)';
+    get('r_monthly_ad').textContent = '-' + fmt(monthlyAd);
+    get('r_monthly_profit').textContent = fmt(monthlyProfit);
+
+    var st = get('r_status');
+    var status = '';
+    if (roas <= 0) { status = 'Enter a reported ROAS'; st.classList.remove('good', 'bad'); }
+    else if (beRoas <= 0) { status = 'Not profitable before ads'; st.classList.remove('good'); st.classList.add('bad'); }
+    else if (roas > beRoas) { status = 'Above break-even'; st.classList.remove('bad'); st.classList.add('good'); }
+    else if (roas < beRoas) { status = 'Below break-even'; st.classList.remove('good'); st.classList.add('bad'); }
+    else { status = 'At break-even'; st.classList.remove('good', 'bad'); }
+    st.textContent = status;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    ['sale','cogs','category','fbtTier','creator','roas','monthlyUnits'].forEach(function (id) {
+      var el = get(id); if (el) el.addEventListener('input', calc);
+    });
+    calc();
+  });
+})();

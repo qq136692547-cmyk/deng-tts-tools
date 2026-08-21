@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GZBDCFNMTN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GZBDCFNMTN');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TikTok Shop ROAS Calculator 2026 (GMV Max Break-Even) | TTCalc</title>
+<meta name="description" content="Free TikTok Shop ROAS calculator. Find your break-even ROAS after referral fees, FBT fulfillment, creator commissions, and COGS. See net profit per unit and per month for any reported ROAS." />
+<link rel="canonical" href="https://ttcalc.shop/tools/tiktok-roas-calculator/" />
+<meta property="og:title" content="TikTok Shop ROAS Calculator 2026" />
+<meta property="og:description" content="Break-even ROAS + net profit per unit and per month after all TikTok fees, COGS, creator commissions, and ad spend." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ttcalc.shop/tools/tiktok-roas-calculator/" />
+<meta property="og:site_name" content="TTCalc" />
+<meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" href="/assets/css/site.css" as="style" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="/assets/css/site.css" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1144258736459816" crossorigin="anonymous"></script>
+</head>
+<body class="tool-calc">
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/tools/tiktok-fee-calculator/">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/">Profit</a>
+      <a href="/tools/tiktok-roas-calculator/" class="active" aria-current="page">ROAS</a>
+      <a href="/tools/tiktok-vs-amazon/">vs Amazon FBA</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="tool-calc">
+  <div class="container">
+    <div class="tool-header">
+      <span class="eyebrow"><span class="dot"></span> GMV Max &middot; break-even ROAS</span>
+      <h1>TikTok Shop ROAS Calculator</h1>
+      <p class="subtitle">What ROAS do you actually need to break even &mdash; and what do you keep at your reported ROAS?</p>
+    </div>
+
+    <div class="calc-window">
+      <div class="calc-titlebar">
+        <div class="traffic"><span></span><span></span><span></span></div>
+        <span class="calc-name">ttcalc &mdash; roas-calculator.js</span>
+        <span class="calc-badge">2026 rates</span>
+      </div>
+      <div class="calc-body">
+        <section class="calc-inputs">
+          <h2>Inputs</h2>
+
+          <div class="calc-field">
+            <label for="sale">Sale price (USD)</label>
+            <input type="number" id="sale" value="29.99" step="0.01" min="0" />
+          </div>
+
+          <div class="calc-field">
+            <label for="cogs">Product cost (COGS)</label>
+            <input type="number" id="cogs" value="6.50" step="0.01" min="0" />
+            <div class="hint">Unit cost including inbound shipping to FBT</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="category">Product category</label>
+            <select id="category">
+              <option value="6" selected>Default (most categories, 6%)</option>
+              <option value="6">Fashion (6%)</option>
+              <option value="6">Beauty (6%)</option>
+              <option value="5">Jewelry (5%)</option>
+              <option value="5">Pre-Owned (5%)</option>
+            </select>
+            <div class="hint">Referral fee varies by category; Jewelry &amp; Pre-Owned are 5%</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="fbtTier">FBT fulfillment</label>
+            <select id="fbtTier">
+              <option value="4.28">Single &le;4 oz ($4.28)</option>
+              <option value="4.52" selected>Single 4&ndash;8 oz ($4.52)</option>
+              <option value="4.70">Single 8&ndash;12 oz ($4.70)</option>
+              <option value="5.10">Single 12&ndash;16 oz ($5.10)</option>
+              <option value="5.71">Single 1&ndash;2 lb ($5.71)</option>
+              <option value="6.27">Single 2&ndash;3 lb ($6.27)</option>
+              <option value="6.92">Single 3&ndash;4 lb ($6.92)</option>
+              <option value="7.66">Single 4&ndash;5 lb ($7.66)</option>
+              <option value="8.58">Single 5&ndash;6 lb ($8.58)</option>
+              <option value="9.63">Single 9&ndash;10 lb ($9.63)</option>
+            </select>
+            <div class="hint">2026 weight-based rate; multi-item orders cost less per unit</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="creator">Creator commission (%)</label>
+            <input type="number" id="creator" value="10" step="1" min="0" max="30" />
+            <div class="hint">Affiliate creator share. 0 if you don't run creators.</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="roas">Reported ROAS (&times;)</label>
+            <input type="number" id="roas" value="3.0" step="0.1" min="0" />
+            <div class="hint">Revenue &divide; ad spend, as shown in GMV Max / Ads Manager</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="monthlyUnits">Monthly units sold</label>
+            <input type="number" id="monthlyUnits" value="500" step="50" min="0" />
+            <div class="hint">For the monthly projection</div>
+          </div>
+        </section>
+
+        <section class="calc-results">
+          <div class="calc-results-head">
+            <span class="calc-results-title">ROAS math</span>
+            <button class="copy-results-btn" type="button">Copy results</button>
+          </div>
+
+          <div class="calc-result-row"><span class="lbl">&#8722; TikTok platform fees (per unit)</span><span class="val" id="r_platform_fees">-$9.62</span></div>
+          <div class="calc-result-row"><span class="lbl">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.87 (46.3%)</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Break-even ROAS</span><span class="val" id="r_be_roas">2.16x</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; Ad cost at reported ROAS (per unit)</span><span class="val" id="r_ad_cost">-$10.00</span></div>
+          <div class="calc-result-row"><span class="lbl">Net profit (per unit)</span><span class="val" id="r_net_profit">$3.87 (12.9%)</span></div>
+          <div class="calc-result-row"><span class="lbl">Monthly ad spend</span><span class="val" id="r_monthly_ad">-$5000.00</span></div>
+          <div class="calc-result-row"><span class="lbl">Monthly net profit</span><span class="val" id="r_monthly_profit">$1935.00</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Status</span><span class="val good" id="r_status">Above break-even</span></div>
+        </section>
+      </div>
+    </div>
+
+    <nav class="nextstep" aria-label="Next steps">
+      <p class="nextstep-head">Next step</p>
+      <div class="nextstep-grid">
+        <a class="nextstep-card" href="/tools/tiktok-profit-calculator/">
+          <span class="nextstep-name">Profit Calculator</span>
+          <span class="nextstep-desc">Full per-unit profit after returns, storage, and inbound shipping</span>
+          <span class="nextstep-arrow">&#8594;</span>
+        </a>
+        <a class="nextstep-card" href="/tools/tiktok-fee-calculator/">
+          <span class="nextstep-name">Fee Calculator</span>
+          <span class="nextstep-desc">Break down every TikTok fee line by line</span>
+          <span class="nextstep-arrow">&#8594;</span>
+        </a>
+      </div>
+    </nav>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>How to read your break-even ROAS</h2>
+        <span class="section-tag">01 / explainer</span>
+      </div>
+      <p class="section-lede">ROAS in Ads Manager measures gross revenue per ad dollar &mdash; not profit. Three things decide whether a reported ROAS actually makes you money:</p>
+      <div class="features" style="margin-top:var(--s-4);">
+        <div class="feature"><div class="icon">[ 01 ]</div><h3>Fees come off first</h3><p>Referral (6%), FBT fulfillment, the $0.30 transaction fee, and creator commissions all come out before ad spend. On a $29.99 product those add up to roughly a third of your revenue before you've paid for the product or the ads.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>Break-even ROAS is your floor</h3><p>It equals 1 &divide; your profit-before-ads margin. If your margin before ads is 50%, you break even at a 2.0x ROAS &mdash; anything below that is paid traffic burning cash even though Ads Manager shows a positive ROAS.</p></div>
+        <div class="feature"><div class="icon">[ 03 ]</div><h3>Scale only above the floor</h3><p>Corrected ROAS &mdash; revenue minus returns and fee refunds &mdash; is what you should scale against. Budget increases are safe only when your reported ROAS clears the break-even line with room for return rates.</p></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="/">
+        <img src="/assets/images/logo.svg" alt="" />
+        <span>TTCalc</span>
+      </a>
+      <p>Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="/tools/tiktok-fee-calculator/">Fee Calculator</a></li>
+        <li><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a></li>
+        <li><a href="/tools/tiktok-roas-calculator/">ROAS Calculator</a></li>
+        <li><a href="/tools/tiktok-vs-amazon/">TikTok vs Amazon</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/blog/tiktok-shop-fees-2026/">2026 Fee Guide</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools">Source</a></li>
+        <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">
+    <span>&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
+    <span class="links"><a href="/privacy/">Privacy</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools">Source</a></span>
+  </p>
+</footer>
+
+<script src="/assets/js/tiktok-roas-calculator.js"></script>
+<script src="/assets/js/ux.js"></script>
+</body>
+</html>
