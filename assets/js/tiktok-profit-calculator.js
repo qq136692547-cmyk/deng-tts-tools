@@ -13,6 +13,8 @@
     var returnRate = num(get('returnRate').value) / 100;
     var monthlyUnits = num(get('monthlyUnits').value);
     var fbtTier   = parseFloat(get('fbtTier').value);
+    var catSel = get('category');
+    var referralRate = catSel ? parseFloat(catSel.value) : 6;
     var inboundShip = num(get('inboundShip').value);
     var storageFee  = num(get('storageFee').value);
     var resellRate  = num(get('resellRate').value) / 100;
@@ -20,8 +22,8 @@
     if (isNaN(sale) || sale <= 0) sale = 0;
 
     // 2026 TikTok Shop US fees (verified Jul 2026, multi-source)
-    var referral = sale * 0.06;           // 6% flat (payment processing included)
-    var fbt      = fbtTier || 0;          // $2.86-$3.58/unit
+    var referral = sale * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
+    var fbt      = fbtTier || 0;          // weight-based single-item FBT (Seller Center 2026)
     var txnFee   = 0.30;                   // $0.30 flat transaction fee per order
     var ttsFees  = referral + fbt + txnFee;
     var creator  = sale * creatorPct;
@@ -52,6 +54,7 @@
 
     get('r_sale').textContent              = fmt(sale);
     get('r_tts_fees').textContent           = '-' + fmt(ttsFees);
+    var lbl = get('r_tts_fees_lbl'); if (lbl) lbl.textContent = '- TikTok fees (' + referralRate + '% + $0.30 + FBT)';
     get('r_creator_fee').textContent        = '-' + fmt(creator);
     get('r_cogs').textContent               = '-' + fmt(cogs);
     get('r_ship').textContent               = '-' + fmt(ship);
@@ -74,7 +77,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','ship','creator','ads','returnRate','monthlyUnits','fbtTier','inboundShip','storageFee','resellRate'].forEach(function (id) {
+    ['sale','cogs','ship','category','creator','ads','returnRate','monthlyUnits','fbtTier','inboundShip','storageFee','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();

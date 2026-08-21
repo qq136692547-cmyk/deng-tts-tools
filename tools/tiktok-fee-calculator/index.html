@@ -52,7 +52,7 @@
       "name": "Is the 6% referral fee all TikTok takes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($2.86-3.58/unit), creator commission (0-30%), and return costs."
+        "text": "The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($4.28-$9.63/unit), creator commission (0-30%), and return costs."
       }
     },
     {
@@ -116,14 +116,33 @@
             <input type="number" id="salePrice" value="29.99" step="0.01" min="0" />
           </div>
 
-          <div class="calc-field">
+                    <div class="calc-field">
+            <label for="category">Product category</label>
+            <select id="category">
+              <option value="6" selected>Default (most categories, 6%)</option>
+              <option value="6">Fashion (6%)</option>
+              <option value="6">Beauty (6%)</option>
+              <option value="5">Jewelry (5%)</option>
+              <option value="5">Pre-Owned (5%)</option>
+            </select>
+            <div class="hint">Referral fee varies by category; Jewelry &amp; Pre-Owned are 5%</div>
+          </div>
+
+<div class="calc-field">
             <label for="fbtTier">FBT fulfillment</label>
             <select id="fbtTier">
-              <option value="2.86">Multi-item ($2.86)</option>
-              <option value="3.20" selected>Standard single ($3.20)</option>
-              <option value="3.58">Large single ($3.58)</option>
+              <option value="4.28">Single ≤4 oz ($4.28)</option>
+              <option value="4.52" selected>Single 4–8 oz ($4.52)</option>
+              <option value="4.70">Single 8–12 oz ($4.70)</option>
+              <option value="5.10">Single 12–16 oz ($5.10)</option>
+              <option value="5.71">Single 1–2 lb ($5.71)</option>
+              <option value="6.27">Single 2–3 lb ($6.27)</option>
+              <option value="6.92">Single 3–4 lb ($6.92)</option>
+              <option value="7.66">Single 4–5 lb ($7.66)</option>
+              <option value="8.58">Single 5–6 lb ($8.58)</option>
+              <option value="9.63">Single 9–10 lb ($9.63)</option>
             </select>
-            <div class="hint">Fulfilled by TikTok. Mandatory since Mar 31, 2026.</div>
+            <div class="hint">Fulfilled by TikTok. 2026 weight-based rate for single-item orders; multi-item orders cost less per unit.</div>
           </div>
 
           <div class="calc-field">
@@ -158,15 +177,15 @@
           </div>
 
           <div class="calc-result-row"><span class="lbl">Sale price (incl. shipping)</span><span class="val" id="r_total">$29.99</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Base commission (6%, incl. payment processing)</span><span class="val" id="r_base">-$1.80</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; FBT fulfillment</span><span class="val" id="r_fbt">-$3.20</span></div>
+          <div class="calc-result-row"><span class="lbl" id="r_base_lbl">&#8722; Base commission (6%, incl. payment processing)</span><span class="val" id="r_base">-$1.80</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; FBT fulfillment</span><span class="val" id="r_fbt">-$4.52</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Transaction fee ($0.30/order)</span><span class="val" id="r_txn">-$0.30</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Creator commission</span><span class="val" id="r_creator">-$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">= TikTok payout</span><span class="val" id="r_payout">$24.69</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Refund admin fee</span><span class="val" id="r_refund_admin">-$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Return cost</span><span class="val" id="r_return_cost">-$0.00</span></div>
           <div class="calc-result-row group-end"><span class="lbl">= Net after returns</span><span class="val" id="r_net_after_returns">$0.00</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Total TikTok take</span><span class="val" id="r_total_fee">$5.30 (17.7%)</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Total TikTok take</span><span class="val" id="r_total_fee">$6.62 (22.1%)</span></div>
 
           <p class="source-note">
             Source: TikTok Shop Seller Center 2026 docs and third-party reports. Refund admin fee is an estimate (20% of referral, capped at $5). Does not include ad spend, FBT storage fees, inbound shipping, or removal/disposal fees. Real fees vary by region, category, and seller status.
@@ -198,7 +217,7 @@
       </div>
       <div class="features" style="margin-top:var(--s-5);">
         <div class="feature"><div class="icon">[ 01 ]</div><h3>Base commission (6%)</h3><p>6% flat for all US categories. Payment processing is included in this rate. No separate processing fee. A flat $0.30 transaction fee applies per order. Charged on total sale price including shipping.</p></div>
-        <div class="feature"><div class="icon">[ 02 ]</div><h3>FBT fulfillment</h3><p>$2.86/$3.20/$3.58 per unit depending on size. Mandatory since March 31, 2026. Fulfilled by TikTok (FBT) &mdash; you ship bulk to TikTok's warehouse, they handle last-mile.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>FBT fulfillment</h3><p>$4.28&ndash;$9.63 per unit by weight (single item). Default fulfillment option since early 2026. Fulfilled by TikTok (FBT) &mdash; you ship bulk to TikTok's warehouse, they handle last-mile.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Creator commission</h3><p>1%&#8211;30% (you set it). Paid to TikTok creators/affiliates who promote your product. Stacks ON TOP of all fees above. Set to 0 if you don't use creators.</p></div>
         <div class="feature"><div class="icon">[ 04 ]</div><h3>What's NOT included</h3><p>This calculator doesn't include: TikTok ad spend, FBT storage fees (monthly per-cubic-foot), inbound shipping to FBT warehouse, aged-inventory surcharges, or removal/disposal fees. Use the Profit Calculator for a more complete picture including these costs.</p></div>
       </div>
@@ -213,7 +232,7 @@
         <details>
           <summary>Is the 6% referral fee all TikTok takes?<span class="sign"></span></summary>
           <div class="answer">
-            <p>The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($2.86&#8211;$3.58/unit), creator commission (0&#8211;30%), and return costs. The real total typically ranges from 10% to 22%+ depending on your setup.</p>
+            <p>The 6% referral fee includes payment processing. On top of that you pay a $0.30 flat transaction fee per order, FBT fulfillment ($4.28&#8211;$9.63/unit), creator commission (0&#8211;30%), and return costs. The real total typically ranges from 10% to 22%+ depending on your setup.</p>
           </div>
         </details>
         <details>

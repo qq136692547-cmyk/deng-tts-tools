@@ -1,45 +1,95 @@
-﻿{
-    "version":  "2026.07",
-    "source":  "TikTok Shop Seller Center (public docs), verified 2026-06-24. Fees evolve frequently - verify before pricing decisions.",
-    "lastUpdated":  "2026-08-05",
-    "baseCommission":  {
-                           "default":  0.06,
-                           "byCategory":  {
-                                              "default":  0.06
-                                          },
-                           "appliesTo":  "Total sale price (including shipping)",
-                           "note":  "6% flat for all US categories. Payment processing is included in this rate."
-                       },
-    "fbtFulfillment":  {
-                           "multiItem":  2.86,
-                           "standardSingle":  3.2,
-                           "largeSingle":  3.58,
-                           "note":  "Mandatory Fulfilled by TikTok since March 31, 2026."
-                       },
-    "refundAdminFee":  {
-                           "rate":  0.2,
-                           "cap":  5.0,
-                           "appliesTo":  "Original referral fee",
-                           "note":  "20% of referral fee, capped at $5 per SKU."
-                       },
-    "crossBorderAdditionalFee":  0.01,
-    "creatorCommission":  {
-                              "min":  0.01,
-                              "max":  0.3,
-                              "default":  0.1,
-                              "note":  "Seller-set commission rate paid to TikTok creators/affiliates. ON TOP of the 6% base commission."
-                          },
-    "shippingModels":  {
-                           "fully_managed":  {
-                                                 "label":  "Fully managed (FBT)",
-                                                 "sellerResponsibility":  "Ship bulk to TikTok consolidation warehouse",
-                                                 "platformHandles":  "Last-mile delivery to buyer"
-                                             },
-                           "seller_managed":  {
-                                                  "label":  "Seller managed (you ship to buyer)",
-                                                  "sellerResponsibility":  "End-to-end shipping including last-mile",
-                                                  "platformHandles":  "Listing, payment, dispute"
-                                              }
-                       },
-    "disclaimer":  "TikTok Shop fees change frequently. The 6% base commission (incl. payment processing), FBT fulfillment ($2.86-$3.58), and 1% cross-border fees are consistent with 2026 documentation. Always confirm in TikTok Seller Center."
+{
+    "version": "2026.08",
+    "source": "TikTok Shop Seller Center (public docs), verified 2026-08-10. Fees evolve frequently - verify before pricing decisions.",
+    "lastUpdated": "2026-08-21",
+    "baseCommission": {
+        "default": 0.06,
+        "byCategory": {
+            "default": 0.06,
+            "fashion": 0.06,
+            "beauty": 0.06,
+            "jewelry": 0.05,
+            "preOwned": 0.05
+        },
+        "appliesTo": "Total sale price (including shipping)",
+        "note": "6% flat for most US categories; payment processing is included. Jewelry and Pre-Owned categories are 5%."
+    },
+    "fbtFulfillment": {
+        "singleItemTiers": [
+            {
+                "weight": "<=4 oz",
+                "rate": 4.28
+            },
+            {
+                "weight": "4-8 oz",
+                "rate": 4.52
+            },
+            {
+                "weight": "8-12 oz",
+                "rate": 4.7
+            },
+            {
+                "weight": "12-16 oz",
+                "rate": 5.1
+            },
+            {
+                "weight": "1-2 lb",
+                "rate": 5.71
+            },
+            {
+                "weight": "2-3 lb",
+                "rate": 6.27
+            },
+            {
+                "weight": "3-4 lb",
+                "rate": 6.92
+            },
+            {
+                "weight": "4-5 lb",
+                "rate": 7.66
+            },
+            {
+                "weight": "5-6 lb",
+                "rate": 8.58
+            },
+            {
+                "weight": "9-10 lb",
+                "rate": 9.63
+            }
+        ],
+        "defaultSingle": 4.52,
+        "multiItemNote": "Multi-item orders cost less per unit",
+        "note": "Weight-based single-item FBT rates (Seller Center, verified 2026-08-10). The mandatory FBT rollout was paused in Feb 2026; FBT remains the default, lowest-risk fulfillment option for US sellers."
+    },
+    "fbaFuelSurcharge": {
+        "rate": 0.035,
+        "appliesTo": "Amazon FBA fulfillment fees",
+        "note": "3.5% fuel and logistics surcharge added to FBA fulfillment fees effective Apr 17, 2026."
+    },
+    "refundAdminFee": {
+        "rate": 0.2,
+        "cap": 5,
+        "appliesTo": "Original referral fee",
+        "note": "20% of referral fee, capped at $5 per SKU."
+    },
+    "crossBorderAdditionalFee": 0.01,
+    "creatorCommission": {
+        "min": 0.01,
+        "max": 0.3,
+        "default": 0.1,
+        "note": "Seller-set commission rate paid to TikTok creators/affiliates. ON TOP of the base commission."
+    },
+    "shippingModels": {
+        "fully_managed": {
+            "label": "Fully managed (FBT)",
+            "sellerResponsibility": "Ship bulk to TikTok consolidation warehouse",
+            "platformHandles": "Last-mile delivery to buyer"
+        },
+        "seller_managed": {
+            "label": "Seller managed (you ship to buyer)",
+            "sellerResponsibility": "End-to-end shipping including last-mile",
+            "platformHandles": "Listing, payment, dispute"
+        }
+    },
+    "disclaimer": "TikTok Shop fees change frequently. Weight-based FBT tiers, 6%/5% referral, $0.30 transaction fee, and 1% cross-border fees are consistent with 2026 documentation. Always confirm in TikTok Seller Center."
 }

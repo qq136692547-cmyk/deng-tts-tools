@@ -105,15 +105,39 @@
             <input type="number" id="amzLowInv" value="0.36" step="0.01" />
             <div class="hint">Per unit if &lt;28 days</div>
           </div>
-
           <div class="calc-field">
+            <label for="amzFuelPct">Amazon fuel surcharge</label>
+            <input type="number" id="amzFuelPct" value="3.5" step="0.1" min="0" />
+            <div class="hint">% added to FBA fulfillment (Apr 17, 2026)</div>
+          </div>
+
+                    <div class="calc-field">
+            <label for="category">Product category</label>
+            <select id="category">
+              <option value="6" selected>Default (most categories, 6%)</option>
+              <option value="6">Fashion (6%)</option>
+              <option value="6">Beauty (6%)</option>
+              <option value="5">Jewelry (5%)</option>
+              <option value="5">Pre-Owned (5%)</option>
+            </select>
+            <div class="hint">Referral fee varies by category; Jewelry &amp; Pre-Owned are 5%</div>
+          </div>
+
+<div class="calc-field">
             <label for="fbtTier">FBT</label>
             <select id="fbtTier">
-              <option value="2.86">Multi-item ($2.86)</option>
-              <option value="3.20" selected>Standard single ($3.20)</option>
-              <option value="3.58">Large single ($3.58)</option>
+              <option value="4.28">Single ≤4 oz ($4.28)</option>
+              <option value="4.52" selected>Single 4–8 oz ($4.52)</option>
+              <option value="4.70">Single 8–12 oz ($4.70)</option>
+              <option value="5.10">Single 12–16 oz ($5.10)</option>
+              <option value="5.71">Single 1–2 lb ($5.71)</option>
+              <option value="6.27">Single 2–3 lb ($6.27)</option>
+              <option value="6.92">Single 3–4 lb ($6.92)</option>
+              <option value="7.66">Single 4–5 lb ($7.66)</option>
+              <option value="8.58">Single 5–6 lb ($8.58)</option>
+              <option value="9.63">Single 9–10 lb ($9.63)</option>
             </select>
-            <div class="hint">Mandatory FBT</div>
+            <div class="hint">2026 weight-based rate; multi-item orders cost less per unit</div>
           </div>
 
           <div class="calc-field">
@@ -144,8 +168,8 @@
             <button class="copy-results-btn" type="button">Copy results</button>
           </div>
 
-          <div class="calc-result-row"><span class="lbl">Amazon FBA fees</span><span class="val" id="r_amz_fees">$9.32</span></div>
-          <div class="calc-result-row"><span class="lbl">TikTok Shop fees</span><span class="val" id="r_tts_fees">$5.00</span></div>
+          <div class="calc-result-row"><span class="lbl">Amazon FBA fees</span><span class="val" id="r_amz_fees">$9.46</span></div>
+          <div class="calc-result-row"><span class="lbl">TikTok Shop fees</span><span class="val" id="r_tts_fees">$6.32</span></div>
           <div class="calc-result-row"><span class="lbl">Amazon net profit</span><span class="val" id="r_amz_profit">$9.47</span></div>
           <div class="calc-result-row"><span class="lbl">TikTok net profit</span><span class="val" id="r_tts_profit">$10.44</span></div>
           <div class="calc-result-row"><span class="lbl">Amazon margin</span><span class="val" id="r_amz_margin">31.6%</span></div>

@@ -10,13 +10,15 @@
     var ship   = num($id('shippingCharged').value);
     var returnRate = num($id('returnRate').value) / 100;
     var fbtTier = parseFloat($id('fbtTier').value);
+    var catSel = $id('category');
+    var referralRate = catSel ? parseFloat(catSel.value) : 6;
     var resellRate = num($id('resellRate').value) / 100;
 
     var total = price + ship;
 
     // 2026 TikTok Shop US fee structure (verified Jul 2026, multi-source)
-    var referral = total * 0.06;        // 6% flat referral fee (payment processing included per tiklytics/dashboardly)
-    var fbt      = fbtTier || 0;        // $2.86-$3.58/unit mandatory FBT (eightx 2026)
+    var referral = total * (referralRate / 100); // referral varies by category (default 6%, Jewelry/Pre-Owned 5%)
+    var fbt      = fbtTier || 0;        // weight-based single-item FBT (Seller Center 2026)
     var txnFee   = 0.30;                 // $0.30 flat transaction fee per order (darkroom/netsellerprofit/feeyield 2026)
     var creator  = total * creatorRate;
 
@@ -36,6 +38,7 @@
 
     $id('r_total').textContent              = fmt(total);
     $id('r_base').textContent               = '-' + fmt(referral);
+    var lbl = $id('r_base_lbl'); if (lbl) lbl.textContent = '- Base commission (' + referralRate + '%, incl. payment processing)';
     $id('r_fbt').textContent                = '-' + fmt(fbt);
     $id('r_txn').textContent                = '-' + fmt(txnFee);
     $id('r_creator').textContent            = '-' + fmt(creator);
@@ -47,7 +50,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['salePrice','creatorRate','shippingCharged','returnRate','fbtTier','resellRate'].forEach(function (id) {
+    ['salePrice','category','creatorRate','shippingCharged','returnRate','fbtTier','resellRate'].forEach(function (id) {
       var el = $id(id); if (el) el.addEventListener('input', calculate);
     });
     calculate();

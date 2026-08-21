@@ -4,15 +4,16 @@
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
 
-  function amazonFbaTotal(sale, fulfillment, refRate, placement, lowInv) {
+  function amazonFbaTotal(sale, fulfillment, refRate, placement, lowInv, fuelPct) {
     var referral = Math.max(sale * (refRate / 100), 0.30);
     if (sale < 10) referral += 0.05;
-    return referral + fulfillment + placement + lowInv;
+    var fuel = fulfillment * (fuelPct / 100);
+    return referral + fulfillment + fuel + placement + lowInv;
   }
 
-  function tiktokTotal(sale, creatorPct, fbtTier) {
-    var referral = sale * 0.06;           // 6% flat (includes payment processing)
-    var fbt      = fbtTier || 0;          // $2.86-$3.58/unit
+  function tiktokTotal(sale, creatorPct, fbtTier, referralRate) {
+    var referral = sale * (referralRate / 100); // varies by category (default 6%)
+    var fbt      = fbtTier || 0;          // weight-based single-item FBT (Seller Center 2026)
     var creator  = sale * (creatorPct / 100);
     return referral + fbt + creator;
   }
@@ -27,6 +28,9 @@
     var adsTts = num(get('adsTts').value) / 100;
     var returnRate = num(get('returnRate').value) / 100;
     var fbtTier = parseFloat(get('fbtTier').value);
+    var amzFuelPct = num(get('amzFuelPct').value);
+    var catSel = get('category');
+    var referralRate = catSel ? parseFloat(catSel.value) : 6;
     var resellRate = num(get('resellRate').value) / 100;
 
     var amzFulfill = num(get('amzFulfillRate').value);
@@ -36,8 +40,8 @@
 
     if (isNaN(sale) || sale <= 0) return;
 
-    var amzFees = amazonFbaTotal(sale, amzFulfill, amzRefRate, amzPlacement, amzLowInv);
-    var ttsFees = tiktokTotal(sale, creatorPct, fbtTier);
+    var amzFees = amazonFbaTotal(sale, amzFulfill, amzRefRate, amzPlacement, amzLowInv, amzFuelPct);
+    var ttsFees = tiktokTotal(sale, creatorPct, fbtTier, referralRate);
 
     var amzProfit = sale - amzFees - cogs - shipAmz - (sale * adsAmz);
     var ttsProfit = sale - ttsFees - cogs - shipTts - (sale * adsTts);
@@ -46,7 +50,7 @@
     // Only non-resellable returns incur full product cost loss
     var nonResellableRate = returnRate * (1 - resellRate);
 
-    var ttsReferral = sale * 0.06;
+    var ttsReferral = sale * (referralRate / 100);
     var ttsRefundAdmin = Math.min(ttsReferral * 0.20, 5.00);
     var amzReferral = Math.max(sale * (amzRefRate / 100), 0.30);
     var amzRefundAdmin = Math.min(amzReferral * 0.20, 5.00);
@@ -75,7 +79,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','resellRate'].forEach(function (id) {
+    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', calc);
     });
     calc();
