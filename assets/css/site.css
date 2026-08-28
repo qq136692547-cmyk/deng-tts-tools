@@ -475,3 +475,24 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 .ws-del:hover { color: #F87171; }
 .ws-empty { font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,.4); padding: 2px 0; }
 @media (max-width: 720px) { .calc-workspace { padding: 12px 16px 8px; } .workspace-actions input { width: 100%; } }
+
+/* Language toggle button */
+.lang-toggle {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  font-family: var(--font-body, 'Geist', sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.lang-toggle:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+}

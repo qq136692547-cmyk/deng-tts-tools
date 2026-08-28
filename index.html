@@ -214,11 +214,13 @@
       <span>TTCalc</span>
     </a>
     <nav class="main-nav" aria-label="Primary">
-      <a href="/tools/tiktok-fee-calculator/">Fee Calculator</a>
-      <a href="/tools/tiktok-profit-calculator/">Profit</a>
-      <a href="/tools/tiktok-roas-calculator/">ROAS</a>
-      <a href="/tools/tiktok-vs-amazon/">vs Amazon FBA</a>
-      <a href="/blog/">Blog</a>
+      <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/" data-i18n="nav.profit">Profit</a>
+      <a href="/tools/tiktok-roas-calculator/" data-i18n="nav.roas">ROAS</a>
+      <a href="/tools/tiktok-vs-amazon/" data-i18n="nav.vsAmazon">vs Amazon FBA</a>
+      <a href="/blog/" data-i18n="nav.blog">Blog</a>
+    
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换到中文">中文</button>
     </nav>
   </div>
 </header>
@@ -420,7 +422,7 @@
         <div class="tool-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
         </div>
-        <h3>TikTok Shop Fee Calculator</h3>
+        <h3 data-i18n="tool.1.title">TikTok Shop Fee Calculator</h3>
         <p>Full fee breakdown: base commission payment processing, and creator commission. See the real percentage TikTok keeps.</p>
         <span class="arrow">Open calculator <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
@@ -428,7 +430,7 @@
         <div class="tool-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
         </div>
-        <h3>TikTok Shop Profit Calculator</h3>
+        <h3 data-i18n="tool.2.title">TikTok Shop Profit Calculator</h3>
         <p>Input COGS and shipping, get net profit per unit after every TikTok fee. Margin and ROI update as you type.</p>
         <span class="arrow">Calculate profit <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
@@ -436,7 +438,7 @@
         <div class="tool-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6l3-7 4 14 3-7h2"/></svg>
         </div>
-        <h3>TikTok Shop vs Amazon FBA</h3>
+        <h3 data-i18n="tool.3.title">TikTok Shop vs Amazon FBA</h3>
         <p>Same product, two platforms. Side-by-side net profit comparison so you can see which marketplace actually pays you more per unit.</p>
         <span class="arrow">Compare platforms <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
@@ -444,7 +446,7 @@
         <div class="tool-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/></svg>
         </div>
-        <h3>TikTok Shop ROAS Calculator</h3>
+        <h3 data-i18n="tool.4.title">TikTok Shop ROAS Calculator</h3>
         <p>Find your break-even ROAS after every fee, then see net profit per unit and per month at your reported ROAS.</p>
         <span class="arrow">Check your ROAS <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
@@ -459,25 +461,25 @@
     <p class="section-sub">The questions TikTok sellers ask us most about the fee stack, the dashboard mismatch, and how TikTok really compares to Amazon FBA.</p>
     <div class="faq-v3">
       <details>
-        <summary>Why is my TikTok Shop profit different from the Seller Center dashboard?<span class="sign" aria-hidden="true"></span></summary>
+        <summary data-i18n="faq.1.q">Why is my TikTok Shop profit different from the Seller Center dashboard?<span class="sign" aria-hidden="true"></span></summary>
         <div class="answer">
           <p>The TikTok dashboard shows the gross amount after their commission, but doesn&rsquo;t subtract the Payment processing, payment processing fee, or creator commission separately. Once you add those, your real take-home is typically 12&ndash;15% lower than the dashboard shows.</p>
         </div>
       </details>
       <details>
-        <summary>Is 6% the only fee TikTok takes?<span class="sign" aria-hidden="true"></span></summary>
+        <summary data-i18n="faq.2.q">Is 6% the only fee TikTok takes?<span class="sign" aria-hidden="true"></span></summary>
         <div class="answer">
           <p>The 6% referral fee includes payment processing. On top of that, you have FBT fulfillment ($4.28&ndash;$9.63/unit), cross-border fees (~1%), and creator commission (0&#8211;30%). For a $30 product with FBT and 10% creator, the real TikTok fee stack is $9.62 (32.1%) &mdash; not just $1.80 (6%).</p>
         </div>
       </details>
       <details>
-        <summary>Do I pay creator commission on top of TikTok&rsquo;s fees?<span class="sign" aria-hidden="true"></span></summary>
+        <summary data-i18n="faq.3.q">Do I pay creator commission on top of TikTok&rsquo;s fees?<span class="sign" aria-hidden="true"></span></summary>
         <div class="answer">
           <p>Yes. If you set a 10% creator commission, that 10% goes to the TikTok influencer on top of the 6% referral + FBT fulfillment. For a $30 product with FBT ($4.52), that&rsquo;s $9.62 in fees (32.1%) &mdash; and you still have to cover COGS, shipping, and returns.</p>
         </div>
       </details>
       <details>
-        <summary>How does TikTok Shop compare to Amazon FBA?<span class="sign" aria-hidden="true"></span></summary>
+        <summary data-i18n="faq.4.q">How does TikTok Shop compare to Amazon FBA?<span class="sign" aria-hidden="true"></span></summary>
         <div class="answer">
           <p>On a per-fee basis, TikTok&rsquo;s headline 6% is much lower than Amazon&rsquo;s 15% referral. But once you include creator commission and payment processing, the gap closes. Use the side-by-side calculator to model the same product on both platforms.</p>
         </div>
@@ -509,27 +511,27 @@
       <p>Free TikTok Shop calculator and seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
     </div>
     <div class="footer-col">
-      <h4>Tools</h4>
+      <h4 data-i18n="footer.tools">Tools</h4>
       <ul>
-        <li><a href="/tools/tiktok-fee-calculator/">Fee Calculator</a></li>
+        <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
         <li><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a></li>
         <li><a href="/tools/tiktok-roas-calculator/">ROAS Calculator</a></li>
         <li><a href="/tools/tiktok-vs-amazon/">TikTok vs Amazon</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Learn</h4>
+      <h4 data-i18n="footer.learn">Learn</h4>
       <ul>
-        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
         <li><a href="/blog/tiktok-shop-fees-2026/">2026 Fee Guide</a></li>
         <li><a href="/rate-updates/">Rate Updates</a></li>
-        <li><a href="/about/">About</a></li>
+        <li><a href="/about/" data-i18n="footer.about">About</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Site</h4>
+      <h4 data-i18n="footer.site">Site</h4>
       <ul>
-        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
         <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools">Source</a></li>
         <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues">Feedback</a></li>
       </ul>
@@ -559,6 +561,9 @@
   });
 })();
 </script>
+<script src="/assets/js/translations.js"></script>
+<script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/ux.js"></script>
 </body>
 </html>
+PLACEHOLDER

@@ -1,0 +1,127 @@
+/* TTCalc translations — English + Chinese */
+window.TTCALC_I18N = {
+  en: {},
+  zh: {
+    // Header / Nav
+    'nav.fee': '费用计算器',
+    'nav.profit': '利润',
+    'nav.roas': 'ROAS',
+    'nav.vsAmazon': '对比亚马逊FBA',
+    'nav.blog': '博客',
+
+    // Hero
+    'hero.eyebrow': '2026费率结构 · 无需注册',
+    'hero.title1': '看清你的TikTok Shop真实利润。',
+    'hero.title2': '在进货之前。',
+    'hero.lede': '费用层层叠加：6%佣金（含支付处理）、履约费、创作者佣金。大多数卖家只看到6%的头版数字——实际成本接近12%。算清每件产品的真实费用，再与亚马逊FBA对比。',
+    'hero.byline': '作者',
+    'hero.updated': '更新于2026年8月',
+    'hero.cta1': '打开计算器',
+    'hero.cta2': '工作原理',
+
+    // Hero stats
+    'stat.free': '始终免费 · 无需注册',
+    'stat.fees': '真实费用堆叠',
+    'stat.real': '实际总费率 · 不是6%',
+    'stat.year': '费率结构 · 已验证',
+
+    // Trust strip
+    'trust.all': '包含全部费用 + 创作者佣金',
+    'trust.noSignup': '无需注册 · 无需邮箱 · 无Cookie',
+    'trust.cross': '已与亚马逊FBA交叉对比',
+    'trust.rates': '2026费率表',
+
+    // Section: hidden fee stack
+    'section.eyebrow': '隐藏的费用堆叠',
+    'section.title': '你实际在向TikTok支付什么。',
+    'section.sub': '卖家中心显示的6%是头版数字，不是真实成本。下面这三项费用才是大多数卖家失去利润的地方。',
+    'block.quote': '在$30美妆产品上，FBT+10%创作者佣金的真实费率是22.5%——不是6%。大多数卖家在第一次收款后才意识到。',
+
+    // Bento cards
+    'card.1.title': '基础佣金——头版数字。',
+    'card.1.body': '美国所有品类6%固定。支付处理已含在此费率。按含运费的销售总价计费。',
+    'card.2.title': 'FBT履约费',
+    'card.2.body': '由TikTok配送。按重量$4.28–$9.63/件（单件）。2026年初以来的默认履约方式。',
+    'card.3.title': '跨境费。',
+    'card.3.body': '国际订单额外约1%。适用于卖家和买家在不同国家的情况。',
+    'card.4.title': '创作者佣金。',
+    'card.4.body': '如果你用TikTok达人/联盟，该佣金从你的利润中扣除，叠加在所有费用之上。费用堆叠是杀死利润率的原因。',
+
+    // Tools section
+    'tools.title': '四个计算器，无需注册。',
+    'tools.sub': '每个都是专注的单一用途工具。打开你需要的，拿到答案，关掉页面。',
+    'tool.1.title': 'TikTok Shop费用计算器',
+    'tool.1.desc': '完整费用拆解：基础佣金、支付处理、创作者佣金。看清TikTok实际拿走多少。',
+    'tool.1.cta': '打开计算器',
+    'tool.2.title': 'TikTok Shop利润计算器',
+    'tool.2.desc': '输入成本和运费，计算扣除所有TikTok费用后的每件净利润。利润率和ROI实时更新。',
+    'tool.2.cta': '计算利润',
+    'tool.3.title': 'TikTok Shop对比亚马逊FBA',
+    'tool.3.desc': '同一产品，两个平台。并排净利润对比，看清哪个市场每件真正给你更多。',
+    'tool.3.cta': '对比平台',
+    'tool.4.title': 'TikTok Shop ROAS计算器',
+    'tool.4.desc': '找到扣除所有费用后的盈亏平衡ROAS，查看每件和每月的净利润。',
+    'tool.4.cta': '检查你的ROAS',
+
+    // FAQ
+    'faq.title': '常见问题。',
+    'faq.sub': 'TikTok卖家最常问的关于费用堆叠、后台利润不匹配以及与亚马逊FBA对比的问题。',
+    'faq.1.q': '为什么TikTok Shop利润和卖家中心后台不一致？',
+    'faq.1.a': 'TikTok后台显示的是佣金后的总额，但没有单独扣除支付处理费、FBT履约费或创作者佣金。加上这些后，你的实际到手通常比后台显示低12–15%。',
+    'faq.2.q': '6%是TikTok收取的全部费用吗？',
+    'faq.2.a': '6%佣金包含支付处理。在此之上还有FBT履约费（$4.28–$9.63/件）、跨境费（~1%）和创作者佣金（0–30%）。$30产品+FBT+10%创作者的实际费用堆叠是$9.62（32.1%）——不只是$1.80（6%）。',
+    'faq.3.q': '创作者佣金是否叠加在TikTok费用之上？',
+    'faq.3.a': '是的。如果你设置10%创作者佣金，这10%给TikTok达人，叠加在6%佣金+FBT履约费之上。$30产品+FBT（$4.52）的费用是$9.62（32.1%）——你还要负担COGS、运费和退货。',
+    'faq.4.q': 'TikTok Shop和亚马逊FBA哪个更好？',
+    'faq.4.a': '从佣金看：TikTok 6% vs 亚马逊15%——TikTok更低。但加上创作者佣金和支付处理后，差距缩小。用并排计算器对比同一产品在两个平台的表现。',
+
+    // Rate updates section
+    'rate.eyebrow': '费率会变动，我们持续追踪。',
+    'rate.title': 'TikTok悄悄调整费用。',
+    'rate.sub': '我们记录每次费率变动和新数字对你利润的影响。收藏更新日志，在TikTok发布变动时回来查看。',
+    'rate.cta1': '查看费率更新日志',
+    'rate.cta2': '试试计算器',
+
+    // Footer
+    'footer.desc': '免费TikTok Shop计算器和卖家工具。独立项目，与TikTok或字节跳动无关。',
+    'footer.tools': '工具',
+    'footer.learn': '学习',
+    'footer.site': '网站',
+    'footer.privacy': '隐私',
+    'footer.source': '源码',
+    'footer.feedback': '反馈',
+    'footer.about': '关于',
+    'footer.blog': '博客',
+    'footer.feeGuide': '2026费用指南',
+    'footer.rateUpdates': '费率更新',
+    'footer.copyright': '© 2026 TTCalc. 独立工具，与TikTok或字节跳动无关。',
+
+    // Calculator pages
+    'calc.title': '费用计算器',
+    'calc.inputs': '输入',
+    'calc.results': '费用堆叠',
+    'calc.salePrice': '售价（美元）',
+    'calc.category': '产品品类',
+    'calc.creator': '创作者佣金（%）',
+    'calc.returnRate': '退货率（%）',
+    'calc.shipping': '向买家收取的运费',
+    'calc.resellRate': '可转售退货率（%）',
+    'calc.fbt': 'FBT履约',
+    'calc.save': '保存',
+    'calc.copyLink': '复制链接',
+    'calc.copyResults': '复制结果',
+    'calc.workspace': '我的产品 · 保存在本设备',
+
+    // Fee calculator results
+    'r.total': '售价（含运费）',
+    'r.base': '基础佣金（6%，含支付处理）',
+    'r.fbt': 'FBT履约费',
+    'r.txn': '交易费（$0.30/单）',
+    'r.creator': '创作者佣金',
+    'r.payout': 'TikTok打款',
+    'r.refundAdmin': '退款管理费',
+    'r.returnCost': '退货成本',
+    'r.netAfterReturns': '退货后净利润',
+    'r.totalFee': 'TikTok总费用',
+  }
+};

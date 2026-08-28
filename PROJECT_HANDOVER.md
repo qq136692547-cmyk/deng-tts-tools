@@ -80,3 +80,48 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 
 - 2026-08-21 `fbcccd7` — 新增 3 篇 2026 博客（账号申诉、运费成本、首单实战）并同步索引/sitemap/llms，已推送上线
 - 2026-08-21 — 完成 GA ↔ Search Console 关联，本文档记录流量基线
+- 2026-08-21 — Reddit 推广启动（账号 Accomplished-Wind-29）：已在 r/TikTokShop「New brand cold start」发布单元经济评论（50% 佣金下 $15 单价的实际贡献利润核算，含 ttcalc.shop 提及，已核验可见）；另有 2 条草稿待发（r/TikTokShop「Is TikTok Shop worth it」费用表时效性评论 + r/ecommerce「Teardown 3-in-1 charger」毛利纠偏评论，草稿已存 Reddit 编辑器），因账号触发 Reddit 发布频率限制被静默拦截，建议 24h 后重试
+
+## 6. 引流工作标准（2026-08-21 实测定版）
+
+完整标准见 `D:\Codex\projects\geo-score\PROJECT_HANDOVER.md` 第十二节；本节为 ttcalc 侧要点。
+
+- **账户**：X @Denney_UG（资料含 ttcalc.shop 与 geoscore.help）；FB AN（L.D. Studio，profile id 100095204201718）；Reddit Accomplished-Wind-29。
+- **每日节奏**：X 原创 ≤2-3 帖 + 回复 ≤3-5 条；FB 群评论 5-6 条（TikTok Shop 卖家群）；Reddit ≤3 条/天（24h 冷却期 ≤2）；Quora ≤1-2 答/天、Medium/DEV/LinkedIn 各 ≤1 帖/天（2026-08-22 调整）。
+- **平台红线**：X 280 字符（URL 按 23 计）、草稿纯 ASCII；Reddit 单账号 24h 约 3-4 条上限，超限静默拦截，AutoMod 低 CQS 删评论、**评论一律禁链接**（2026-08-22 实测）；FB 新号群评论带外链会被自动隐藏（实测），FB 群评论一律无链接、工具只提名字；Quora 禁 affiliate/广告式签名，答真实问题才可带链接；DEV 帖子必须有实质内容、不得只贴外链；Medium 全文转载、禁纯广告；LinkedIn 专业原创、禁重复刷屏。
+- **内容标准**：选垂直赛道真实问题帖；先无链接纯帮忙回复验证通道，再自然嵌入工具链接；外链带 UTM；发布后核验可见并记录。
+- **ttcalc 卖点话术**：免费 TikTok Shop 费用/利润计算器、FBT 履约费明细、TikTok Shop vs Amazon FBA 对比；适合回「运费扣费」「利润核算」「费用结构」类问题。
+- **交叉引流**：ttcalc 面向卖家人群；GEO 工具面向 SEO/AI 搜索人群；两站资料互挂。
+
+## 7. 每日例行工作流（SOP，2026-08-21 固化）
+
+每天开始新发帖/评论前按序执行：① 复查上一天及最近 48h 的发帖/评论（X 个人主页+回复帖、FB 两条评论帖、Reddit 7 条评论）→ ② 有回复先回复（FB 不带链接）→ ③ 处理完才发新内容（X ≤1 帖+≤3 回复、FB 2-4 评论、Reddit ≤3 条）→ ④ 收尾记录追加到本文档 → ⑤ 每周复盘互动数据调整策略。完整版见 geo-score 文档第十二节。
+
+## 8. 最近变更记录（续）
+
+- 2026-08-21 — SOP 固化并首次执行：复查 X/FB 全部近期内容，无新回复（仅点赞增长：X 首帖 3、Light Silver 评论 3、Jason Barnard 评论 1）；FB 利润帖评论计数 6 无回复通知；无需回复，无阻塞。
+
+- 2026-08-21 — X/FB 引流实测完成：X 首帖 + Jason Barnard 帖评论 + Light Silver「What are you building?」回复（带 geoscore.help UTM）已发布并复查可见；FB「Tiktok Seller Support」群运费帖 Tagalog 评论可见，35 PHP 成本定价帖首条带链接评论被 FB 隐藏，已补发无链接版本即时可见；FB 简介已同步两站文案；Reddit 2 条草稿待 24h 冷却后补发。
+
+- 2026-08-22 — Reddit 被删评论核查：r/SEO 两条评论被 AutoMod 以低 CQS Score 移除、r/TikTokShop「New brand cold start」评论因含 ttcalc.shop 链接被 AutoMod 移除（提示 links are not allowed，编辑无效需重发）；r/SideProject 原帖被版主删除。教训固化：**Reddit 评论一律禁链接**，只提工具名。
+- 2026-08-22 — 发布记录：X 首帖（Most SEO audits...）+ Light Silver 帖回复（带 UTM）可见；FB「Tiktok Seller Support」群 2 条无链接 Tagalog 评论即时可见；Reddit r/TikTokshop「affiliate 设置」帖无链接评论（提 TTCalc）可见。
+- 2026-08-22 — AlternativeTo 提交 GeoScore GEO Audit 成功进审核队列（软件目录页，slug geoscore-geo-audit）；ttcalc.shop 后续可按同法建目录条目（搜索 tiktok shop fee calculator 分类）。
+
+- 2026-08-22 — 新平台首日发布（规则已先调研）：LinkedIn 专业短帖（审计数据+链接）已发布 https://www.linkedin.com/feed/update/urn:li:activity:7496794327352897537/；Medium 全文转载《Why Doesnt ChatGPT Cite My Website?》 https://medium.com/@qq136692547/why-doesnt-chatgpt-cite-my-website-7-reasons-and-how-to-fix-them-d7d2a6526f44；Quora 回答「How can brands get cited in AI answers」 https://www.quora.com/How-can-brands-get-cited-in-AI-answers-like-ChatGPT-instead-of-just-ranking-on-Google/answer/D-L-7-2；DEV 开发者向文章 https://dev.to/l_d_985a85beff7511/i-built-a-free-cli-mcp-server-for-geo-audits-here-is-what-1200-sites-taught-me-d17。全部已核验可见。
+- 2026-08-22 — AlternativeTo 提交 **TTCalc - TikTok Shop Fee Calculator** 成功（slug https://alternativeto.net/software/ttcalc--tiktok-shop-fee-calculator/）：Free 定价 + Source available（仓库公开但无 LICENSE）+ 源码 https://github.com/qq136692547-cmyk/deng-tts-tools + 图标 og-default.jpg URL 上传；作者 L.D. Studio（CN），tags=tiktok/e-commerce/calculator，平台 Online/Web；my-submissions 现 2 apps waiting（GeoScore GEO Audit + TTCalc）。
+- 2026-08-22 — FB「Tiktok Seller Support」群补发 4 条无链接评论（他加禄语推 TTCalc）：shipping fee 帖、settlement 帖、affiliate 新手帖、free trial 帖；3 条刷新可见，free trial 帖计数+1 但公开线程未渲染（疑似新号隐置，明日复查）。X 两帖当日为 geo 站引流（geoscore.help UTM），TTCalc 通过 FB 群评论+两站资料互挂做交叉引流。
+
+- 2026-08-27 — 全量复查：X 5 条帖存活、无新回复；FB 4 条评论存活，settlement 帖和 PurpleBee free trial 帖两条质疑/纠偏均已用无链接他加禄语回复，PurpleBee“隐置”结论更正为渲染问题。Reddit 6 条评论存活；hubfluence 和 r/SEO 作者追问已回复（均无链接）。Quora 3 views 无回复；Medium 0 responses；DEV 1 reaction + 1 条评论，已回复并核验。
+
+- 2026-08-27 — AlternativeTo 复查更正：TTCalc 提交已被 POX 以“does not meet the quality and benefits we require”驳回并删除（3 天前）；GeoScore 提交同样被驳回（5 天前）。公开 slug 404，my-submissions 为空。先补齐目录价值和证据后再考虑咨询管理员或一次性重发。
+
+- 2026-08-27 — LinkedIn 账户被封锁，从后续平台工作流移除。
+
+- 2026-08-28 — AlternativeTo 重投决策：暂不重投。官方 FAQ 明确将 simple calculators 列入通常不收录类型；TTCalc 直接命中该标准，GeoScore 也可能被归类为 basic AI tool / online tool collection。后续优先真实场景评论、SEO/转化优化、以及可验证的差异化证据。若未来有真实用户量、返回使用证据或明显功能差异，再咨询管理员并一次性重投。
+- 2026-08-28 — 当日引流兜底：因浏览器控制层不可用且无登录态，未自动发布；已准备 `D:\Codex\projects\geo-score\promotional-content-pack-2026-08-28.md`。TTCalc 部分含 2 条 X 帖、2 条 FB 无链接评论（含一条 Tagalog/English）、2 条 Reddit 无链接评论和 1 条 Quora 模板。
+
+### 配图唯一性标准（2026-08-28）
+
+- 每次发帖/长回答必须使用与该内容对应的新视觉素材，不得复用历史截图。
+- 优先使用本次真实界面截图；若截图不合适，可用 AI 生图生成相关主题图，但不得伪造真实用户数据、平台背书或可信度声明。
+- 图片命名带日期+平台+主题（例如 `2026-08-28-x-ttcalc-contribution-margin.png`），避免重复上传同一张图。

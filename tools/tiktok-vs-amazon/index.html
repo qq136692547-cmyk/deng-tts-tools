@@ -30,11 +30,14 @@
   <div class="container header-inner">
     <a href="/" class="logo"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
     <nav class="main-nav" aria-label="Primary">
-      <a href="/tools/tiktok-fee-calculator/">Fee Calculator</a>
-      <a href="/tools/tiktok-profit-calculator/">Profit</a>
-      <a href="/tools/tiktok-roas-calculator/">ROAS</a>
-      <a href="/tools/tiktok-vs-amazon/" class="active" aria-current="page">vs Amazon FBA</a>
-      <a href="/blog/">Blog</a>
+      <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/" data-i18n="nav.profit">Profit</a>
+      <a href="/tools/tiktok-roas-calculator/" data-i18n="nav.roas">ROAS</a>
+      <a href="/tools/tiktok-vs-amazon/" class="active" aria-current="page" data-i18n="nav.vsAmazon">vs Amazon FBA</a>
+      <a href="/blog/" data-i18n="nav.blog">Blog</a>
+
+    
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换到中文">中文</button>
     </nav>
   </div>
 </header>
@@ -220,8 +223,7 @@
           <span class="nextstep-desc">See net profit after COGS, shipping, and ad spend</span>
           <span class="nextstep-arrow">&#8594;</span>
         </a>
-      </div>
-    </nav>
+      </div>    </nav>
 
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
@@ -247,25 +249,25 @@
       <p>Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
     </div>
     <div class="footer-col">
-      <h4>Tools</h4>
+      <h4 data-i18n="footer.tools">Tools</h4>
       <ul>
-        <li><a href="/tools/tiktok-fee-calculator/">Fee Calculator</a></li>
+        <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
         <li><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a></li>
         <li><a href="/tools/tiktok-roas-calculator/">ROAS Calculator</a></li>
         <li><a href="/tools/tiktok-vs-amazon/">TikTok vs Amazon</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Learn</h4>
+      <h4 data-i18n="footer.learn">Learn</h4>
       <ul>
-        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
         <li><a href="/blog/tiktok-shop-fees-2026/">2026 Fee Guide</a></li>
         <li><a href="/rate-updates/">Rate Updates</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Site</h4>
+      <h4 data-i18n="footer.site">Site</h4>
       <ul>
         <li><a href="/privacy/">Privacy</a></li>
         <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools">Source</a></li>
@@ -281,6 +283,8 @@
 
 <script src="/assets/js/fbt-rates.js"></script>
 <script src="/assets/js/tiktok-vs-amazon.js"></script>
+<script src="/assets/js/translations.js"></script>
+<script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/ux.js"></script>
 <script src="/assets/js/workspace.js"></script>
 </body>
