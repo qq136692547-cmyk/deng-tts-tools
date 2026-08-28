@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>TikTok Shop Product Photo Generator | TTCalc</title>
+  <meta name="description" content="Generate clean TikTok Shop product photos from a product description. Choose a scene and aspect ratio, then download up to four images. Your API key stays in your browser." />
+  <link rel="canonical" href="https://ttcalc.shop/tools/tiktok-product-photo/" />
+  <meta property="og:title" content="TikTok Shop Product Photo Generator" />
+  <meta property="og:description" content="Turn a product description into marketplace-ready photos, then download up to four images." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ttcalc.shop/tools/tiktok-product-photo/" />
+  <meta property="og:site_name" content="TTCalc" />
+  <meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="/assets/css/site.css" as="style" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="stylesheet" href="/assets/css/product-photo.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "TikTok Shop Product Photo Generator",
+    "url": "https://ttcalc.shop/tools/tiktok-product-photo/",
+    "description": "Generate marketplace-ready product photos from a text description.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  }
+  </script>
+</head>
+<body class="tool-calc">
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/" data-i18n="nav.profit">Profit</a>
+      <a href="/tools/tiktok-roas-calculator/" data-i18n="nav.roas">ROAS</a>
+      <a href="/tools/tiktok-vs-amazon/" data-i18n="nav.vsAmazon">vs Amazon FBA</a>
+      <a href="/blog/" data-i18n="nav.blog">Blog</a>
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换到中文">中文</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="tool-calc">
+  <div class="container">
+    <div class="tool-header">
+      <span class="eyebrow"><span class="dot"></span> Product photos &middot; SenseNova</span>
+      <h1 data-i18n="photo.title">TikTok Shop Product Photo Generator</h1>
+      <p class="subtitle" data-i18n="photo.subtitle">Describe the product, pick a scene and ratio, then generate marketplace-ready images. Your API key stays in your browser and requests go directly to SenseNova.</p>
+    </div>
+
+    <div class="calc-window">
+      <div class="calc-titlebar">
+        <div class="traffic"><span></span><span></span><span></span></div>
+        <span class="calc-name">ttcalc &mdash; product-photo.js</span>
+        <span class="calc-badge">up to 4 photos</span>
+      </div>
+      <div class="calc-body">
+        <form id="photoForm" class="calc-inputs">
+          <h2 data-i18n="photo.setup">Photo setup</h2>
+
+          <div class="calc-field">
+            <label for="productPrompt" data-i18n="photo.prompt">Product description</label>
+            <textarea id="productPrompt" rows="4" required data-i18n-placeholder="photo.promptPlaceholder" placeholder="Example: matte ceramic mug, sage green, bamboo lid, 12 oz"></textarea>
+          </div>
+
+          <div class="calc-field">
+            <label for="scenePreset" data-i18n="photo.scene">Scene</label>
+            <select id="scenePreset">
+              <option value="white" selected data-i18n="photo.scene.white">White studio</option>
+              <option value="podium" data-i18n="photo.scene.podium">Minimal podium</option>
+              <option value="lifestyle" data-i18n="photo.scene.lifestyle">Modern lifestyle</option>
+              <option value="model" data-i18n="photo.scene.model">Model holding product</option>
+              <option value="holiday" data-i18n="photo.scene.holiday">Holiday styling</option>
+              <option value="outdoor" data-i18n="photo.scene.outdoor">Outdoor daylight</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="ratioPreset" data-i18n="photo.ratio">Aspect ratio</label>
+            <select id="ratioPreset">
+              <option value="square" selected data-i18n="photo.ratio.square">1:1 &middot; marketplace</option>
+              <option value="portrait" data-i18n="photo.ratio.portrait">9:16 &middot; TikTok</option>
+              <option value="wide" data-i18n="photo.ratio.wide">16:9 &middot; banner</option>
+              <option value="fourFive" data-i18n="photo.ratio.fourFive">4:5 &middot; feed</option>
+              <option value="fourThree" data-i18n="photo.ratio.fourThree">4:3 &middot; listing</option>
+              <option value="threeTwo" data-i18n="photo.ratio.threeTwo">3:2 &middot; editorial</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="photoCount" data-i18n="photo.count">Photos to generate</label>
+            <select id="photoCount">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="apiKey" data-i18n="photo.key">SenseNova API key</label>
+            <input type="password" id="apiKey" autocomplete="off" placeholder="sk-..." />
+            <div class="hint" data-i18n="photo.keyHint">Saved only on this device. Never sent to TTCalc servers.</div>
+          </div>
+
+          <div class="photo-actions">
+            <button type="submit" id="generateBtn" class="primary-button" data-i18n="photo.generate">Generate product photo</button>
+            <button type="button" id="saveKey" class="ghost-button" data-i18n="photo.saveKey">Save key</button>
+            <button type="button" id="clearKey" class="ghost-button" data-i18n="photo.removeKey" hidden>Remove key</button>
+          </div>
+        </form>
+
+        <section class="calc-results" aria-label="Generated photos">
+          <div class="calc-results-head">
+            <span class="calc-results-title" data-i18n="photo.results">Photos</span>
+          </div>
+          <p id="photoStatus" class="photo-status" aria-live="polite"></p>
+          <div id="photoGallery" class="photo-gallery"></div>
+          <p class="source-note" data-i18n="photo.rightsNote">Use only product descriptions and imagery you have the rights to publish. Generated photos are intended as starting points for product visuals.</p>
+        </section>
+      </div>
+    </div>
+
+    <nav class="nextstep" aria-label="Next steps">
+      <p class="nextstep-head">Next step</p>
+      <div class="nextstep-grid">
+        <a class="nextstep-card" href="/tools/tiktok-fee-calculator/">
+          <span class="nextstep-name">Fee Calculator</span>
+          <span class="nextstep-desc">Break down every TikTok fee line by line</span>
+          <span class="nextstep-arrow">&#8594;</span>
+        </a>
+        <a class="nextstep-card" href="/tools/tiktok-profit-calculator/">
+          <span class="nextstep-name">Profit Calculator</span>
+          <span class="nextstep-desc">See net profit after COGS, shipping, and ad spend</span>
+          <span class="nextstep-arrow">&#8594;</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="/"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
+      <p>Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.tools">Tools</h4>
+      <ul>
+        <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
+        <li><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a></li>
+        <li><a href="/tools/tiktok-roas-calculator/">ROAS Calculator</a></li>
+        <li><a href="/tools/tiktok-vs-amazon/">TikTok vs Amazon</a></li>
+        <li><a href="/tools/tiktok-product-photo/">Product Photos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.learn">Learn</h4>
+      <ul>
+        <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="/blog/tiktok-shop-fees-2026/">2026 Fee Guide</a></li>
+        <li><a href="/rate-updates/">Rate Updates</a></li>
+        <li><a href="/about/" data-i18n="footer.about">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.site">Site</h4>
+      <ul>
+        <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
+        <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools">Source</a></li>
+        <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues">Feedback</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">
+    <span>&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
+    <span class="links"><a href="/privacy/">Privacy</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools">Source</a></span>
+  </p>
+</footer>
+
+<script src="/assets/js/tiktok-product-photo.js"></script>
+<script src="/assets/js/translations.js"></script>
+<script src="/assets/js/i18n.js"></script>
+<script src="/assets/js/ux.js"></script>
+</body>
+</html>

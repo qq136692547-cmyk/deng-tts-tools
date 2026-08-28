@@ -496,3 +496,4 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
   color: #fff;
   border-color: rgba(255,255,255,0.25);
 }
+@media (max-width: 640px) { .main-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .main-nav::-webkit-scrollbar { display: none; } .main-nav a { white-space: nowrap; } }

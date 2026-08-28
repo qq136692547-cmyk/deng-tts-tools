@@ -7,6 +7,7 @@ window.TTCALC_I18N = {
     'nav.profit': '利润',
     'nav.roas': 'ROAS',
     'nav.vsAmazon': '对比亚马逊FBA',
+    'nav.photo': 'AI商品图',
     'nav.blog': '博客',
 
     // Hero
@@ -48,7 +49,7 @@ window.TTCALC_I18N = {
     'card.4.body': '如果你用TikTok达人/联盟，该佣金从你的利润中扣除，叠加在所有费用之上。费用堆叠是杀死利润率的原因。',
 
     // Tools section
-    'tools.title': '四个计算器，无需注册。',
+    'tools.title': '五个工具，无需注册。',
     'tools.sub': '每个都是专注的单一用途工具。打开你需要的，拿到答案，关掉页面。',
     'tool.1.title': 'TikTok Shop费用计算器',
     'tool.1.desc': '完整费用拆解：基础佣金、支付处理、创作者佣金。看清TikTok实际拿走多少。',
@@ -62,6 +63,9 @@ window.TTCALC_I18N = {
     'tool.4.title': 'TikTok Shop ROAS计算器',
     'tool.4.desc': '找到扣除所有费用后的盈亏平衡ROAS，查看每件和每月的净利润。',
     'tool.4.cta': '检查你的ROAS',
+    'tool.5.title': 'AI商品图生成器',
+    'tool.5.desc': '输入商品描述，选择场景和比例，快速生成上架可用的商品图。',
+    'tool.5.cta': '生成商品图',
 
     // FAQ
     'faq.title': '常见问题。',
@@ -123,5 +127,36 @@ window.TTCALC_I18N = {
     'r.returnCost': '退货成本',
     'r.netAfterReturns': '退货后净利润',
     'r.totalFee': 'TikTok总费用',
+
+    // Product photo generator
+    'photo.title': 'TikTok Shop商品图生成器',
+    'photo.subtitle': '输入商品描述，选择场景和比例，即可生成上架可用的图片。API Key仅保存在浏览器中，请求直连商汤。',
+    'photo.setup': '生成设置',
+    'photo.prompt': '产品描述',
+    'photo.promptPlaceholder': '示例：哑光陶瓷马克杯，鼠尾草绿，竹盖，12盎司',
+    'photo.scene': '场景',
+    'photo.ratio': '比例',
+    'photo.count': '生成数量',
+    'photo.scene.white': '白底棚拍',
+    'photo.scene.podium': '极简展台',
+    'photo.scene.lifestyle': '生活场景',
+    'photo.scene.model': '模特持握',
+    'photo.scene.holiday': '节日主题',
+    'photo.scene.outdoor': '户外日光',
+    'photo.ratio.square': '1:1 · 商城主图',
+    'photo.ratio.portrait': '9:16 · TikTok',
+    'photo.ratio.wide': '16:9 · 横幅',
+    'photo.ratio.fourFive': '4:5 · Feed',
+    'photo.ratio.fourThree': '4:3 · 详情图',
+    'photo.ratio.threeTwo': '3:2 · 编辑图',
+    'photo.key': 'SenseNova API Key',
+    'photo.keyHint': '仅保存在本设备。不会发送到 TTCalc 服务器。',
+    'photo.generate': '生成商品图',
+    'photo.generating': '生成中…',
+    'photo.saveKey': '保存Key',
+    'photo.saved': '已保存',
+    'photo.removeKey': '删除Key',
+    'photo.results': '生成结果',
+    'photo.rightsNote': '请只使用你拥有发布权利的产品描述和图像。生成结果适合作为产品视觉素材的起点。'
   }
 };

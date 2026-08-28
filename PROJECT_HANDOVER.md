@@ -125,3 +125,12 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - 每次发帖/长回答必须使用与该内容对应的新视觉素材，不得复用历史截图。
 - 优先使用本次真实界面截图；若截图不合适，可用 AI 生图生成相关主题图，但不得伪造真实用户数据、平台背书或可信度声明。
 - 图片命名带日期+平台+主题（例如 `2026-08-28-x-ttcalc-contribution-margin.png`），避免重复上传同一张图。
+
+## 2026-08-29 — Homepage + AI Product Photo Generator
+
+- Added `/tools/tiktok-product-photo/` using SenseNova `sensenova-u1-fast` with browser-side BYOK stored in `localStorage`.
+- Supports product prompt, six scene presets, six marketplace ratios, 1–4 images, local API key save/remove, signed image download, and bilingual UI.
+- Updated homepage positioning from four calculators to five seller tools and linked the photo generator from the hero and tools grid.
+- Updated tools index, sitemap, llms.txt, translations, and page-specific CSS.
+- Validation: `node --check` passed for the generator/i18n scripts; Playwright desktop and mobile screenshots rendered without layout breakage; direct SenseNova API test returned a valid image URL.
+- Deployment note: push only the tracked changes; do not commit local Playwright artifacts or unused demo image binaries.

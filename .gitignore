@@ -6,3 +6,6 @@ node_modules/
 fee-verification-report*.md
 verify-calculators.ps1
 eecca57b-*.txt
+.playwright-cli/
+assets/images/product-photo-demo.png
+assets/images/product-photo-demo.jpg

@@ -8,6 +8,7 @@
 - [TikTok Shop Profit Calculator](https://ttcalc.shop/tools/tiktok-profit-calculator/): Model net profit per unit after TikTok fees, COGS, shipping, ad spend, creator commissions, and returns.
 - [TikTok Shop ROAS Calculator](https://ttcalc.shop/tools/tiktok-roas-calculator/): Break-even ROAS plus net profit per unit and per month after TikTok fees, COGS, creator commissions, and ad spend.
 - [TikTok vs Amazon FBA](https://ttcalc.shop/tools/tiktok-vs-amazon/): Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point.
+- [TikTok Shop Product Photo Generator](https://ttcalc.shop/tools/tiktok-product-photo/): Generate marketplace-ready product photos from a description, with scene and aspect-ratio presets.
 
 ## Guides
 
