@@ -103,6 +103,7 @@ export default {
       prompt,
       size,
       response_format: 'url',
+      watermark: false,
       output_format: 'png'
     };
     if (seed !== undefined) payload.seed = seed;
