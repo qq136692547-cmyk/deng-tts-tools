@@ -142,3 +142,11 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Frontend now uses the free proxy when no key is entered, and keeps direct SenseNova BYOK when a key is present; optional key wording was updated in English/Chinese.
 - Verified: OPTIONS 204, bad origin 403, bad size 400, and real generation 200 with a signed PNG URL.
 - Rollback: revert the frontend commit, remove the Worker custom-domain binding, then delete the Worker.
+
+## 2026-08-29 — Homepage v5 redesign
+
+- Rebuilt `/` with a light editorial layout inspired by StyleKit: grid-textured hero, split headline + visual P&L preview, quick-task links, five-tool grid, 32.1% fee-stack fact section, FAQ, and dark rate-update CTA.
+- Added scoped `assets/css/home-v5.css`; the style is limited to `body.home-v5`, so calculator and photo pages continue using the shared stylesheet.
+- Preserved canonical, title/meta, GA, AdSense, manifest, sitemap, and consolidated JSON-LD (`WebApplication`, `WebSite`, `Organization`, `FAQPage`).
+- Kept bilingual UI via `data-i18n`; added Chinese copy for the new preview, quick paths, headline, and fee-fact sections.
+- Local validation: `node --check` passed for `translations.js`, `i18n.js`, and `ux.js`; all 4 JSON-LD blocks parsed; all 77 homepage `data-i18n` keys have Chinese definitions; desktop/mobile Playwright screenshots had no horizontal overflow; browser check reported no console errors and zero failed local asset requests.
