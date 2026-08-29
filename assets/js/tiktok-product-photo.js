@@ -85,19 +85,26 @@
 
   function compressImage(file) {
     return loadImage(file).then(function (loaded) {
-      var maxSide = 2048;
-      var width = loaded.image.naturalWidth || loaded.image.width;
-      var height = loaded.image.naturalHeight || loaded.image.height;
-      var scale = Math.min(1, maxSide / Math.max(width, height));
-      var canvas = document.createElement('canvas');
-      canvas.width = Math.max(1, Math.round(width * scale));
-      canvas.height = Math.max(1, Math.round(height * scale));
-      var context = canvas.getContext('2d');
-      context.fillStyle = '#ffffff';
-      context.fillRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(loaded.image, 0, 0, canvas.width, canvas.height);
-      URL.revokeObjectURL(loaded.objectUrl);
-      return canvas.toDataURL('image/jpeg', 0.92);
+      return new Promise(function (resolve, reject) {
+        var maxSide = 2048;
+        var width = loaded.image.naturalWidth || loaded.image.width;
+        var height = loaded.image.naturalHeight || loaded.image.height;
+        var scale = Math.min(1, maxSide / Math.max(width, height));
+        var canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(width * scale));
+        canvas.height = Math.max(1, Math.round(height * scale));
+        var context = canvas.getContext('2d');
+        context.fillStyle = '#ffffff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(loaded.image, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(loaded.objectUrl);
+
+        var dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+        canvas.toBlob(function (blob) {
+          if (blob) resolve({ dataUrl: dataUrl, previewUrl: URL.createObjectURL(blob) });
+          else resolve({ dataUrl: dataUrl, previewUrl: null });
+        }, 'image/jpeg', 0.92);
+      });
     });
   }
 
@@ -118,8 +125,13 @@
     previewObjectUrl = URL.createObjectURL(file);
     previewImage.src = previewObjectUrl;
     setStatus('Preparing product photo…', 'busy');
-    compressImage(file).then(function (dataUrl) {
-      sourceImage = dataUrl;
+    compressImage(file).then(function (result) {
+      sourceImage = result.dataUrl;
+      if (result.previewUrl) {
+        if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
+        previewObjectUrl = result.previewUrl;
+        previewImage.src = previewObjectUrl;
+      }
       refreshUploadState();
       setStatus('Product photo ready. Describe the scene you want, then generate.', 'success');
     }).catch(function (error) {
