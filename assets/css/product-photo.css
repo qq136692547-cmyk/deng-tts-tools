@@ -138,3 +138,19 @@ body.tool-calc .calc-field textarea:focus {
   font-size: 12px;
   border-radius: 8px;
 }
+
+/* Google sign-in block */
+.photo-auth {
+  gap: 10px;
+}
+
+.google-btn-wrap {
+  min-height: 44px;
+}
+
+#authSignedIn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}

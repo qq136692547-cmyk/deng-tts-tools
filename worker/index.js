@@ -9,13 +9,15 @@ const ALLOWED_SIZES = new Set([
   '3072x864'
 ]);
 const RATE_LIMIT = 20;
+const USER_RATE_LIMIT = 60;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
+const SESSION_TTL_SECONDS = 7 * 86400;
 const rateLimits = new Map();
 
 function corsHeaders(origin) {
   const headers = {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin'
   };
@@ -38,17 +40,123 @@ function jsonResponse(origin, body, status) {
   });
 }
 
-function isRateLimited(ip) {
+function isRateLimited(key, limit) {
   const now = Date.now();
-  const entry = rateLimits.get(ip);
+  const entry = rateLimits.get(key);
 
   if (!entry || entry.resetAt <= now) {
-    rateLimits.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    rateLimits.set(key, { count: 1, resetAt: now + RATE_WINDOW_MS });
     return false;
   }
 
   entry.count += 1;
-  return entry.count > RATE_LIMIT;
+  return entry.count > limit;
+}
+
+/* ---- session tokens (HS256, mirrors geoscore-payments) ---- */
+
+function base64Url(str) {
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function base64UrlDecode(str) {
+  str = str.replace(/-/g, '+').replace(/_/g, '/');
+  while (str.length % 4) str += '=';
+  return atob(str);
+}
+
+function constantTimeEqual(a, b) {
+  if (a.length !== b.length) return false;
+  let result = 0;
+  for (let i = 0; i < a.length; i++) result |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return result === 0;
+}
+
+async function hmacSha256(message, secret) {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    'raw', encoder.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false, ['sign']
+  );
+  const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(message));
+  return Array.from(new Uint8Array(signature))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+async function signSession(payload, secret) {
+  const header = { alg: 'HS256', typ: 'JWT' };
+  const now = Math.floor(Date.now() / 1000);
+  const fullPayload = { ...payload, iat: now, exp: now + SESSION_TTL_SECONDS };
+
+  const encodedHeader = base64Url(JSON.stringify(header));
+  const encodedPayload = base64Url(JSON.stringify(fullPayload));
+  const data = `${encodedHeader}.${encodedPayload}`;
+
+  const signature = await hmacSha256(data, secret);
+  return `${data}.${signature}`;
+}
+
+async function verifySession(token, secret) {
+  const parts = String(token || '').split('.');
+  if (parts.length !== 3) return null;
+  const [header, payload, signature] = parts;
+  const expectedSignature = await hmacSha256(header + '.' + payload, secret);
+  if (!constantTimeEqual(signature, expectedSignature)) return null;
+  try {
+    const decoded = JSON.parse(base64UrlDecode(payload));
+    if (decoded.exp && decoded.exp < Math.floor(Date.now() / 1000)) return null;
+    return decoded;
+  } catch {
+    return null;
+  }
+}
+
+/* ---- Google sign-in ---- */
+
+async function handleGoogleAuth(request, env, origin) {
+  if (!env.GOOGLE_CLIENT_ID || !env.JWT_SECRET) {
+    return jsonResponse(origin, { error: 'Sign-in is not configured.' }, 500);
+  }
+
+  let input;
+  try {
+    input = await request.json();
+  } catch {
+    return jsonResponse(origin, { error: 'Invalid JSON body.' }, 400);
+  }
+
+  const idToken = typeof input.idToken === 'string' ? input.idToken : '';
+  if (!idToken) {
+    return jsonResponse(origin, { error: 'Missing idToken.' }, 400);
+  }
+
+  const googleResp = await fetch(
+    'https://oauth2.googleapis.com/tokeninfo?id_token=' + encodeURIComponent(idToken)
+  ).catch(() => null);
+
+  if (!googleResp || !googleResp.ok) {
+    return jsonResponse(origin, { error: 'Invalid Google token.' }, 401);
+  }
+
+  const payload = await googleResp.json().catch(() => null);
+  if (!payload || payload.aud !== env.GOOGLE_CLIENT_ID) {
+    return jsonResponse(origin, { error: 'Token audience mismatch.' }, 401);
+  }
+  if (!payload.email || payload.email_verified === 'false' || payload.email_verified === false) {
+    return jsonResponse(origin, { error: 'Google account email is not verified.' }, 401);
+  }
+
+  const token = await signSession(
+    { uid: payload.sub, email: payload.email, name: payload.name || '' },
+    env.JWT_SECRET
+  );
+
+  return jsonResponse(origin, {
+    token,
+    user: { email: payload.email, name: payload.name || '' }
+  }, 200);
 }
 
 export default {
@@ -64,12 +172,32 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
 
+    if (request.method === 'POST' && url.pathname === '/auth/google') {
+      return handleGoogleAuth(request, env, origin);
+    }
+
     if (request.method !== 'POST' || url.pathname !== '/generate') {
       return jsonResponse(origin, { error: 'Not found.' }, 404);
     }
 
-    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
-    if (isRateLimited(ip)) {
+    let session = null;
+    const authHeader = request.headers.get('Authorization') || '';
+    if (authHeader.startsWith('Bearer ') && env.JWT_SECRET) {
+      session = await verifySession(authHeader.slice(7), env.JWT_SECRET);
+    }
+
+    let quotaKey;
+    let quotaLimit;
+    if (session && session.uid) {
+      quotaKey = 'user:' + session.uid;
+      quotaLimit = USER_RATE_LIMIT;
+    } else {
+      const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+      quotaKey = 'ip:' + ip;
+      quotaLimit = RATE_LIMIT;
+    }
+
+    if (isRateLimited(quotaKey, quotaLimit)) {
       return jsonResponse(
         origin,
         { error: 'Free quota reached for this hour. Please try again later.' },

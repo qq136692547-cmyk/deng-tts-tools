@@ -111,6 +111,18 @@
             <div class="hint" data-i18n="photo.keyHint">No key? Use TTCalc's free quota. Add your own key to use your own image service quota.</div>
           </div>
 
+          <div class="calc-field photo-auth">
+            <span data-i18n="photo.account">Free quota account</span>
+            <div id="authSignedOut">
+              <div id="googleBtnWrap" class="google-btn-wrap"></div>
+              <div class="hint" data-i18n="photo.authHint">Sign in with Google for a personal free quota of 60 images per hour, instead of 20 per hour shared by visitors without an account.</div>
+            </div>
+            <div id="authSignedIn" hidden>
+              <span id="authUser" class="hint"></span>
+              <button type="button" id="signOutBtn" class="ghost-button" data-i18n="photo.signOut">Sign out</button>
+            </div>
+          </div>
+
           <div class="photo-actions">
             <button type="submit" id="generateBtn" class="primary-button" data-i18n="photo.generate">Generate product photo</button>
             <button type="button" id="saveKey" class="ghost-button" data-i18n="photo.saveKey">Save key</button>

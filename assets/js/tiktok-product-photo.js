@@ -3,6 +3,9 @@
   'use strict';
 
   var STORAGE_KEY = 'ttcalc_sensenova_api_key';
+  var SESSION_KEY = 'ttcalc_session';
+  var WORKER_BASE = 'https://ttcalc-photo-proxy.geoscore.help';
+  var GOOGLE_CLIENT_ID = '154080569698-1e94rhuipkvgboc6fqfp94fndkodmtea.apps.googleusercontent.com';
   var DEFAULT_ENDPOINT = 'https://token.sensenova.cn/v1/images/generations';
   var FREE_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/generate';
   var DEFAULT_MODEL = 'sensenova-u1-fast';
@@ -59,6 +62,96 @@
   function removeStoredKey() {
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
   }
+
+  /* ---- Google sign-in for personal free quota ---- */
+
+  function getSession() {
+    try {
+      var raw = localStorage.getItem(SESSION_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+
+  function storeSession(session) {
+    try { localStorage.setItem(SESSION_KEY, JSON.stringify(session)); } catch (e) {}
+  }
+
+  function clearSession() {
+    try {
+      localStorage.removeItem(SESSION_KEY);
+      if (window.google && google.accounts && google.accounts.id) {
+        google.accounts.id.disableAutoSelect();
+      }
+    } catch (e) {}
+  }
+
+  var signedOutBox = document.getElementById('authSignedOut');
+  var signedInBox = document.getElementById('authSignedIn');
+  var authUserEl = document.getElementById('authUser');
+  var signOutBtn = document.getElementById('signOutBtn');
+
+  function refreshAuthState() {
+    var session = getSession();
+    if (session && session.token && session.user) {
+      signedOutBox.hidden = true;
+      signedInBox.hidden = false;
+      authUserEl.textContent = session.user.name ? (session.user.name + ' (' + session.user.email + ')') : session.user.email;
+    } else {
+      signedOutBox.hidden = false;
+      signedInBox.hidden = true;
+      authUserEl.textContent = '';
+    }
+  }
+
+  function handleGoogleCallback(response) {
+    var credential = response && response.credential;
+    if (!credential) { setStatus('Google sign-in failed. Please try again.', 'error'); return; }
+    setStatus('Signing in…', 'busy');
+    fetch(WORKER_BASE + '/auth/google', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken: credential })
+    }).then(function (resp) {
+      return resp.json().then(function (data) { return { ok: resp.ok, data: data }; });
+    }).then(function (result) {
+      if (!result.ok || !result.data || !result.data.token) {
+        throw new Error(result.data && result.data.error ? result.data.error : 'Sign-in failed.');
+      }
+      storeSession({ token: result.data.token, user: result.data.user });
+      refreshAuthState();
+      setStatus('Signed in. Your personal free quota is now active.', 'success');
+    }).catch(function (err) {
+      setStatus(err && err.message ? err.message : 'Sign-in failed.', 'error');
+    });
+  }
+
+  function initGoogleButton() {
+    if (!(window.google && google.accounts && google.accounts.id)) {
+      setTimeout(initGoogleButton, 400);
+      return;
+    }
+    google.accounts.id.initialize({ client_id: GOOGLE_CLIENT_ID, callback: handleGoogleCallback });
+    google.accounts.id.renderButton(document.getElementById('googleBtnWrap'), {
+      theme: 'outline', size: 'large', shape: 'pill', text: 'continue_with', width: 240
+    });
+  }
+
+  (function loadGsi() {
+    var gsi = document.createElement('script');
+    gsi.src = 'https://accounts.google.com/gsi/client';
+    gsi.async = true;
+    gsi.defer = true;
+    document.head.appendChild(gsi);
+    initGoogleButton();
+  })();
+
+  signOutBtn.addEventListener('click', function () {
+    clearSession();
+    refreshAuthState();
+    setStatus('Signed out. Using the shared visitor quota.', 'success');
+  });
+
+  refreshAuthState();
 
   function refreshKeyState() {
     var key = getStoredKey();
@@ -138,7 +231,12 @@
     if (!apiKey) {
       return fetch(FREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: (function () {
+          var session = getSession();
+          var h = { 'Content-Type': 'application/json' };
+          if (session && session.token) h['Authorization'] = 'Bearer ' + session.token;
+          return h;
+        })(),
         body: JSON.stringify({ prompt: prompt, size: size, seed: seed })
       }).then(function (response) {
         return response.json().catch(function () {
