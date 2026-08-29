@@ -8,9 +8,9 @@ const ALLOWED_SIZES = new Set([
   '1536x2752', '3072x1376', '1344x3136', '2560x720',
   '3072x864'
 ]);
-const RATE_LIMIT = 20;
-const USER_RATE_LIMIT = 60;
-const RATE_WINDOW_MS = 60 * 60 * 1000;
+const RATE_LIMIT = 5;
+const USER_RATE_LIMIT = 20;
+const RATE_WINDOW_MS = 24 * 60 * 60 * 1000;
 const SESSION_TTL_SECONDS = 7 * 86400;
 const rateLimits = new Map();
 
@@ -200,7 +200,7 @@ export default {
     if (isRateLimited(quotaKey, quotaLimit)) {
       return jsonResponse(
         origin,
-        { error: 'Free quota reached for this hour. Please try again later.' },
+        { error: 'Daily free quota reached. Please try again later.' },
         429
       );
     }

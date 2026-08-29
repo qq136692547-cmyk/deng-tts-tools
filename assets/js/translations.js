@@ -159,7 +159,7 @@ window.TTCALC_I18N = {
     'photo.ratio': '比例',
     'photo.count': '生成数量',
     'photo.account': '免费额度账户',
-    'photo.authHint': '登录 Google 获取个人免费额度（每小时 60 张），未登录为每位访客共享每小时 20 张。',
+    'photo.authHint': '登录 Google 获取个人免费额度（每天 20 张），未登录为每位访客共享每天 5 张。',
     'photo.signOut': '退出登录',
     'photo.scene.white': '白底棚拍',
     'photo.scene.podium': '极简展台',
