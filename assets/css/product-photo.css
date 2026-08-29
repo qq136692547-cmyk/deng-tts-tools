@@ -196,4 +196,4 @@ body.tool-calc .calc-field textarea:focus {
 }
 .photo-upload-preview .ghost-button { min-height: 36px; padding: 0 12px; }
 
-.photo-preview-canvas { width: 68px; height: 68px; object-fit: contain; border: 1px solid rgba(255, 255, 255, .16); border-radius: 10px; background: #fff; }
+.photo-preview-canvas { width: 68px; height: 68px; border: 1px solid rgba(255, 255, 255, .16); border-radius: 10px; background: conic-gradient(#d8dce2 0 25%, #fff 0 50%, #d8dce2 0 75%, #fff 0) 0 0 / 16px 16px; }

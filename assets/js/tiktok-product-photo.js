@@ -70,8 +70,7 @@
     var width = image.naturalWidth || image.width;
     var height = image.naturalHeight || image.height;
     var context = previewCanvas.getContext('2d');
-    context.fillStyle = '#ffffff';
-    context.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+    context.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
     var scale = Math.min(previewCanvas.width / width, previewCanvas.height / height);
     var drawWidth = Math.max(1, Math.round(width * scale));
     var drawHeight = Math.max(1, Math.round(height * scale));
@@ -94,10 +93,26 @@
   }
 
   function loadImage(file) {
+    if (window.createImageBitmap) {
+      return createImageBitmap(file, { imageOrientation: 'from-image' }).then(function (bitmap) {
+        return {
+          source: bitmap,
+          cleanup: function () { if (bitmap.close) bitmap.close(); }
+        };
+      }).catch(function () {
+        return loadImageWithUrl(file);
+      });
+    }
+    return loadImageWithUrl(file);
+  }
+
+  function loadImageWithUrl(file) {
     return new Promise(function (resolve, reject) {
       var objectUrl = URL.createObjectURL(file);
       var image = new Image();
-      image.onload = function () { URL.revokeObjectURL(objectUrl); resolve(image); };
+      image.onload = function () {
+        resolve({ source: image, cleanup: function () { URL.revokeObjectURL(objectUrl); } });
+      };
       image.onerror = function () {
         URL.revokeObjectURL(objectUrl);
         reject(new Error('That file could not be read as an image.'));
@@ -120,11 +135,15 @@
       return;
     }
     setStatus('Preparing product photo…', 'busy');
-    loadImage(file).then(function (image) {
+    loadImage(file).then(function (loaded) {
+      var image = loaded.source;
+      var width = image.naturalWidth || image.width;
+      var height = image.naturalHeight || image.height;
       drawPreview(image);
       sourceImage = createEditImage(image);
       refreshUploadState();
-      setStatus('Product photo ready. Describe the scene you want, then generate.', 'success');
+      setStatus('Product photo ready: ' + width + '×' + height + '. Describe the scene you want, then generate.', 'success');
+      if (loaded.cleanup) loaded.cleanup();
     }).catch(function (error) {
       clearSelectedImage();
       setStatus(error && error.message ? error.message : 'The product photo could not be prepared.', 'error');
