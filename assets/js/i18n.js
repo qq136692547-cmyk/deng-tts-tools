@@ -3,6 +3,18 @@
   'use strict';
   var LANG_KEY = 'ttcalc_lang';
   var translations = window.TTCALC_I18N || {};
+  var originalContent = new Map();
+
+  function captureOriginals() {
+    document.querySelectorAll('[data-i18n], [data-i18n-placeholder], [data-i18n-title]').forEach(function (el) {
+      if (originalContent.has(el)) return;
+      originalContent.set(el, {
+        html: el.innerHTML,
+        placeholder: el.getAttribute('placeholder'),
+        title: el.getAttribute('title')
+      });
+    });
+  }
 
   function getLang() {
     try { return localStorage.getItem(LANG_KEY) || ''; } catch (e) { return ''; }
@@ -19,15 +31,30 @@
     if (!dict) return;
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.textContent = dict[key];
+      var original = originalContent.get(el);
+      if (dict[key] !== undefined) {
+        el.textContent = dict[key];
+      } else if (lang === 'en' && original) {
+        el.innerHTML = original.html;
+      }
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-placeholder');
-      if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+      var original = originalContent.get(el);
+      if (dict[key] !== undefined) {
+        el.setAttribute('placeholder', dict[key]);
+      } else if (lang === 'en' && original && original.placeholder !== null) {
+        el.setAttribute('placeholder', original.placeholder);
+      }
     });
     document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-title');
-      if (dict[key] !== undefined) el.setAttribute('title', dict[key]);
+      var original = originalContent.get(el);
+      if (dict[key] !== undefined) {
+        el.setAttribute('title', dict[key]);
+      } else if (lang === 'en' && original && original.title !== null) {
+        el.setAttribute('title', original.title);
+      }
     });
   }
 
@@ -49,6 +76,7 @@
     var btn = document.getElementById('lang-toggle');
     if (btn) btn.addEventListener('click', toggleLang);
 
+    captureOriginals();
     var saved = getLang();
     if (saved) {
       document.documentElement.lang = saved;

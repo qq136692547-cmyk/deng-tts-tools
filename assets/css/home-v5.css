@@ -12,6 +12,7 @@ body.home-v5 {
   --line: #E4E1DA;
   --line-soft: #EFEEE8;
   --accent: #F97316;
+  --accent-text: #C2410C;
   --radius: 18px;
   --shadow: 0 32px 80px -52px rgba(24, 24, 24, .45);
   --bg: var(--paper);
@@ -57,6 +58,10 @@ body.home-v5 ::selection {
 
 body.home-v5 :focus-visible {
   outline-color: var(--ink);
+}
+
+body.home-v5 .v5-cta :focus-visible {
+  outline-color: var(--paper);
 }
 
 body.home-v5 [data-reveal] {
@@ -140,7 +145,7 @@ body.home-v5 [data-reveal] {
 }
 
 .v5-hero-title em {
-  color: var(--accent);
+  color: var(--accent-text);
   font-style: italic;
 }
 
@@ -509,7 +514,7 @@ body.home-v5 [data-reveal] {
 
 .v5-tool:hover .v5-tool-link {
   gap: 13px;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* Fee facts */
@@ -556,7 +561,7 @@ body.home-v5 [data-reveal] {
 .v5-fact-number {
   display: block;
   margin-bottom: 8px;
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: var(--font-mono);
   font-size: .82rem;
   font-weight: 500;
@@ -612,7 +617,7 @@ body.home-v5 [data-reveal] {
 }
 
 .v5-faq summary:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .v5-faq .sign {

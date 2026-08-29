@@ -18,7 +18,7 @@ window.TTCALC_I18N = {
     'hero.byline': '作者',
     'hero.updated': '更新于2026年8月',
     'hero.cta1': '打开计算器',
-    'hero.cta2': '工作原理',
+    'hero.cta2': '生成商品图',
 
     // Hero stats
     'stat.free': '始终免费 · 无需注册',
@@ -48,12 +48,12 @@ window.TTCALC_I18N = {
     'tools.headline': '把上架前的每个决策算清。',
     'home.fact32.label': '真实费用示例',
     'home.fact32.title': '大多数卖家漏算的例子。',
-    'home.fact32.body': '一个$30产品使用FBT并给10%创作者佣金，总费用堆叠可能达到$9.62。这是32.1%，不是6%。',
+    'home.fact32.body': '一个$30产品包含$0.30交易费、FBT和10%创作者佣金，总费用堆叠可能达到$9.62。这是32.1%，不是6%。',
 
     // Section: hidden fee stack
     'section.eyebrow': '隐藏的费用堆叠',
     'section.title': '你实际在向TikTok支付什么。',
-    'section.sub': '卖家中心显示的6%是头版数字，不是真实成本。下面这三项费用才是大多数卖家失去利润的地方。',
+    'section.sub': '卖家中心显示的6%是头版数字，不是真实成本。交易费、履约费和创作者佣金才是大多数卖家失去利润的地方。',
     'block.quote': '在$30美妆产品上，FBT+10%创作者佣金的真实费率是22.5%——不是6%。大多数卖家在第一次收款后才意识到。',
 
     // Bento cards
@@ -91,7 +91,7 @@ window.TTCALC_I18N = {
     'faq.1.q': '为什么TikTok Shop利润和卖家中心后台不一致？',
     'faq.1.a': 'TikTok后台显示的是佣金后的总额，但没有单独扣除支付处理费、FBT履约费或创作者佣金。加上这些后，你的实际到手通常比后台显示低12–15%。',
     'faq.2.q': '6%是TikTok收取的全部费用吗？',
-    'faq.2.a': '6%佣金包含支付处理。在此之上还有FBT履约费（$4.28–$9.63/件）、跨境费（~1%）和创作者佣金（0–30%）。$30产品+FBT+10%创作者的实际费用堆叠是$9.62（32.1%）——不只是$1.80（6%）。',
+    'faq.2.a': '6%佣金包含支付处理。在此之上还有$0.30交易费、FBT履约费（$4.28–$9.63/件）、跨境费（~1%）和创作者佣金（0–30%）。$30产品+FBT+10%创作者的实际费用堆叠是$9.62（32.1%）——不只是$1.80（6%）。',
     'faq.3.q': '创作者佣金是否叠加在TikTok费用之上？',
     'faq.3.a': '是的。如果你设置10%创作者佣金，这10%给TikTok达人，叠加在6%佣金+FBT履约费之上。$30产品+FBT（$4.52）的费用是$9.62（32.1%）——你还要负担COGS、运费和退货。',
     'faq.4.q': 'TikTok Shop和亚马逊FBA哪个更好？',
@@ -109,6 +109,9 @@ window.TTCALC_I18N = {
     'footer.tools': '工具',
     'footer.learn': '学习',
     'footer.site': '网站',
+    'footer.profit': '利润计算器',
+    'footer.roas': 'ROAS计算器',
+    'footer.vsAmazon': 'TikTok对比亚马逊',
     'footer.privacy': '隐私',
     'footer.source': '源码',
     'footer.feedback': '反馈',
