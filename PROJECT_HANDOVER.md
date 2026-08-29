@@ -99,6 +99,7 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 
 ## 8. 最近变更记录（续）
 
+- 2026-08-30 — 引流 + 生图 QC：① X 发布 2 条带图帖（首帖 https://x.com/Denney_UG/status/2093767038967878061 + 新空白商品图帖）；② Quora 回答「How do I improve my Shopify product photos?」带图发布并通过 https://www.quora.com/How-do-I-improve-my-Shopify-product-photos/answer/D-L-7-2 可见；③ Reddit 无链接交互 3 条全部可见（r/TikTokshop 回复、r/Entrepreneurs p6ncx29、r/ecommerce p6nekfk）；④ 新增 5 张电商图，其中 `2026-08-30-ttcalc-photo-blank-01.jpg` 与 `2026-08-30-ttcalc-photo-blank-02.jpg` 通过视觉 QC 且无 AI 文字乱码，已用于 X/Quora；另 3 张 `scene-01/02/03.jpg` 视觉高级但标签文字乱码，仅保留测试不用作外发。Facebook 当日群评暂缓，因当前 feed 无强匹配照片帖，优先用了更贴合的 Quora 图文回答。
 - 2026-08-21 — SOP 固化并首次执行：复查 X/FB 全部近期内容，无新回复（仅点赞增长：X 首帖 3、Light Silver 评论 3、Jason Barnard 评论 1）；FB 利润帖评论计数 6 无回复通知；无需回复，无阻塞。
 
 - 2026-08-21 — X/FB 引流实测完成：X 首帖 + Jason Barnard 帖评论 + Light Silver「What are you building?」回复（带 geoscore.help UTM）已发布并复查可见；FB「Tiktok Seller Support」群运费帖 Tagalog 评论可见，35 PHP 成本定价帖首条带链接评论被 FB 隐藏，已补发无链接版本即时可见；FB 简介已同步两站文案；Reddit 2 条草稿待 24h 冷却后补发。
