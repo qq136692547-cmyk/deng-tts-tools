@@ -1,0 +1,3 @@
+name = "ttcalc-photo-proxy"
+main = "worker/index.js"
+compatibility_date = "2026-08-01"

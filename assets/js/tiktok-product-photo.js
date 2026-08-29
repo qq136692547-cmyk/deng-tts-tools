@@ -4,6 +4,7 @@
 
   var STORAGE_KEY = 'ttcalc_sensenova_api_key';
   var DEFAULT_ENDPOINT = 'https://token.sensenova.cn/v1/images/generations';
+  var FREE_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/generate';
   var DEFAULT_MODEL = 'sensenova-u1-fast';
 
   var form = document.getElementById('photoForm');
@@ -134,6 +135,22 @@
   }
 
   function requestPhoto(prompt, size, apiKey, seed) {
+    if (!apiKey) {
+      return fetch(FREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: prompt, size: size, seed: seed })
+      }).then(function (response) {
+        return response.json().catch(function () {
+          throw new Error('HTTP ' + response.status + ': the free quota service did not return JSON.');
+        }).then(function (data) {
+          if (!response.ok) throw new Error(data && data.error ? data.error : 'HTTP ' + response.status);
+          if (!data || !data.url) throw new Error('The model returned no image URL.');
+          return data.url;
+        });
+      });
+    }
+
     var payload = {
       model: DEFAULT_MODEL,
       prompt: prompt,
@@ -173,7 +190,7 @@
     var product = productInput.value.trim();
     var apiKey = apiKeyInput.value.trim() || getStoredKey();
     if (!product) { setStatus('Describe your product first.', 'error'); productInput.focus(); return; }
-    if (!apiKey) { setStatus('Add your free SenseNova API key, then save or generate.', 'error'); apiKeyInput.focus(); return; }
+    if (product.length > 1000) { setStatus('Please keep the product description under 1000 characters.', 'error'); productInput.focus(); return; }
 
     var scene = scenes[sceneSelect.value] || scenes.white;
     var size = sizes[ratioSelect.value] || sizes.square;

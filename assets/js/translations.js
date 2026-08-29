@@ -130,7 +130,7 @@ window.TTCALC_I18N = {
 
     // Product photo generator
     'photo.title': 'TikTok Shop商品图生成器',
-    'photo.subtitle': '输入商品描述，选择场景和比例，即可生成上架可用的图片。API Key仅保存在浏览器中，请求直连商汤。',
+    'photo.subtitle': '输入商品描述，选择场景和比例，即可生成上架可用的图片。无需填写 API Key 也可直接使用免费额度。',
     'photo.setup': '生成设置',
     'photo.prompt': '产品描述',
     'photo.promptPlaceholder': '示例：哑光陶瓷马克杯，鼠尾草绿，竹盖，12盎司',
@@ -149,8 +149,8 @@ window.TTCALC_I18N = {
     'photo.ratio.fourFive': '4:5 · Feed',
     'photo.ratio.fourThree': '4:3 · 详情图',
     'photo.ratio.threeTwo': '3:2 · 编辑图',
-    'photo.key': 'SenseNova API Key',
-    'photo.keyHint': '仅保存在本设备。不会发送到 TTCalc 服务器。',
+    'photo.key': '可选 SenseNova API Key',
+    'photo.keyHint': '不填 Key 可使用站点免费额度；填写自己的 Key 则使用你自己的商汤额度。Key 仅保存在本设备。',
     'photo.generate': '生成商品图',
     'photo.generating': '生成中…',
     'photo.saveKey': '保存Key',

@@ -134,3 +134,11 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Updated tools index, sitemap, llms.txt, translations, and page-specific CSS.
 - Validation: `node --check` passed for the generator/i18n scripts; Playwright desktop and mobile screenshots rendered without layout breakage; direct SenseNova API test returned a valid image URL.
 - Deployment note: push only the tracked changes; do not commit local Playwright artifacts or unused demo image binaries.
+
+## 2026-08-29 — Free no-key image proxy
+
+- Added `ttcalc-photo-proxy` Cloudflare Worker at `https://ttcalc-photo-proxy.geoscore.help/generate` with backend secret `SN_API_KEY`.
+- CORS only allows `https://ttcalc.shop` and `https://www.ttcalc.shop`; request sizes are whitelisted, prompts are 1–1000 chars, and an in-memory limit allows 20 requests/IP/hour.
+- Frontend now uses the free proxy when no key is entered, and keeps direct SenseNova BYOK when a key is present; optional key wording was updated in English/Chinese.
+- Verified: OPTIONS 204, bad origin 403, bad size 400, and real generation 200 with a signed PNG URL.
+- Rollback: revert the frontend commit, remove the Worker custom-domain binding, then delete the Worker.
