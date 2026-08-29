@@ -1,6 +1,6 @@
 # TTCalc.shop 项目移交文档
 
-**最近更新**: 2026-08-21
+**最近更新**: 2026-08-29
 **项目路径**: `D:\Codex\projects\deng-tts-tools`
 **仓库**: https://github.com/qq136692547-cmyk/deng-tts-tools.git
 **线上地址**: https://ttcalc.shop
@@ -106,6 +106,7 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - 2026-08-22 — Reddit 被删评论核查：r/SEO 两条评论被 AutoMod 以低 CQS Score 移除、r/TikTokShop「New brand cold start」评论因含 ttcalc.shop 链接被 AutoMod 移除（提示 links are not allowed，编辑无效需重发）；r/SideProject 原帖被版主删除。教训固化：**Reddit 评论一律禁链接**，只提工具名。
 - 2026-08-22 — 发布记录：X 首帖（Most SEO audits...）+ Light Silver 帖回复（带 UTM）可见；FB「Tiktok Seller Support」群 2 条无链接 Tagalog 评论即时可见；Reddit r/TikTokshop「affiliate 设置」帖无链接评论（提 TTCalc）可见。
 - 2026-08-22 — AlternativeTo 提交 GeoScore GEO Audit 成功进审核队列（软件目录页，slug geoscore-geo-audit）；ttcalc.shop 后续可按同法建目录条目（搜索 tiktok shop fee calculator 分类）。
+- 2026-08-29 `ee3c820` — 首页 v5 复查修复上线：① i18n.js captureOriginals 扩展捕获 data-i18n-placeholder/title（修复图片页占位符 zh→en 不还原）；② 页脚 7 个功能链接补挂 data-i18n，新增 footer.profit/footer.roas/footer.vsAmazon 中文键（修复中文模式页脚混排）；③ .v5-tool:hover 链接改用 --accent-text #C2410C（对比度 2.66→4.9:1）；④ 首页中英文案与 JSON-LD 统一补充 $0.30 交易费口径。验证：多脑复查（deepseek-v4-flash + glm-5.3 双主脑独立审查）+ Playwright 17/17 通过（桌面 1440x900/移动 390x844 无横向溢出、en→zh→en 语言往返、图片页占位符往返、无页面错误、图片全载）+ 线上三项资源 200 且新内容核验通过。遗留：图片页（tools/tiktok-product-photo）页脚英文混排未处理（HTML 未挂 data-i18n，词典键已备）。
 
 - 2026-08-22 — 新平台首日发布（规则已先调研）：LinkedIn 专业短帖（审计数据+链接）已发布 https://www.linkedin.com/feed/update/urn:li:activity:7496794327352897537/；Medium 全文转载《Why Doesnt ChatGPT Cite My Website?》 https://medium.com/@qq136692547/why-doesnt-chatgpt-cite-my-website-7-reasons-and-how-to-fix-them-d7d2a6526f44；Quora 回答「How can brands get cited in AI answers」 https://www.quora.com/How-can-brands-get-cited-in-AI-answers-like-ChatGPT-instead-of-just-ranking-on-Google/answer/D-L-7-2；DEV 开发者向文章 https://dev.to/l_d_985a85beff7511/i-built-a-free-cli-mcp-server-for-geo-audits-here-is-what-1200-sites-taught-me-d17。全部已核验可见。
 - 2026-08-22 — AlternativeTo 提交 **TTCalc - TikTok Shop Fee Calculator** 成功（slug https://alternativeto.net/software/ttcalc--tiktok-shop-fee-calculator/）：Free 定价 + Source available（仓库公开但无 LICENSE）+ 源码 https://github.com/qq136692547-cmyk/deng-tts-tools + 图标 og-default.jpg URL 上传；作者 L.D. Studio（CN），tags=tiktok/e-commerce/calculator，平台 Online/Web；my-submissions 现 2 apps waiting（GeoScore GEO Audit + TTCalc）。
