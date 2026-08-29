@@ -75,14 +75,19 @@ body.home-v5 [data-reveal] {
   to { background-position: 48px 48px; }
 }
 
+@keyframes v5-hero-flow {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 100%; }
+}
+
 @keyframes v5-aurora-drift {
   from {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: .68;
+    transform: translate3d(-8%, -5%, 0) scale(.9) rotate(-5deg);
+    opacity: .38;
   }
   to {
-    transform: translate3d(-70px, 44px, 0) scale(1.18);
-    opacity: 1;
+    transform: translate3d(18%, 15%, 0) scale(1.35) rotate(7deg);
+    opacity: .9;
   }
 }
 
@@ -91,18 +96,20 @@ body.home-v5 [data-reveal] {
   padding: 96px 0 78px;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  background: linear-gradient(125deg, #FAF9F6 0%, #FFF2E0 28%, #F6F0E8 55%, #F2E8DC 78%, #FAF9F6 100%);
+  background-size: 240% 240%;
+  animation: v5-hero-flow 20s ease-in-out infinite alternate;
 }
 
 .v5-hero::before {
   content: "";
-  animation: v5-grid-drift 26s linear infinite;
+  animation: v5-grid-drift 18s linear infinite;
   position: absolute;
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(to right, rgba(24,24,24,.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(24,24,24,.055) 1px, transparent 1px);
+    linear-gradient(to right, rgba(24,24,24,.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24,24,24,.08) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(circle at 28% 18%, #000 0%, transparent 72%);
   -webkit-mask-image: radial-gradient(circle at 28% 18%, #000 0%, transparent 72%);
@@ -113,13 +120,15 @@ body.home-v5 [data-reveal] {
   animation: v5-aurora-drift 17s ease-in-out infinite alternate;
   will-change: transform, opacity;
   position: absolute;
-  top: -140px;
-  right: -180px;
+  top: -320px;
+  right: -280px;
   z-index: -1;
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, rgba(249,115,22,.13), transparent 65%);
-  filter: blur(12px);
+  width: 1050px;
+  height: 1050px;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(249,115,22,.26), transparent 56%),
+    radial-gradient(circle at 68% 68%, rgba(255,170,110,.24), transparent 58%);
+  filter: blur(30px);
 }
 
 .v5-hero-grid {
@@ -936,10 +945,16 @@ body.home-v5 .copyright {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .v5-hero,
   .v5-hero::before,
   .v5-hero::after,
   .v5-cta::before {
     animation: none !important;
+  }
+
+  .v5-hero {
+    background-position: 50% 50%;
+    background-size: 100% 100%;
   }
 
   body.home-v5 [data-reveal] {
