@@ -71,6 +71,21 @@
             <textarea id="productPrompt" rows="4" required data-i18n-placeholder="photo.promptPlaceholder" placeholder="Example: matte ceramic mug, sage green, bamboo lid, 12 oz"></textarea>
           </div>
 
+          <div class="calc-field photo-upload-field">
+            <span data-i18n="photo.upload">Product photo (optional)</span>
+            <div class="photo-upload">
+              <input type="file" id="productImage" class="photo-file-input" accept="image/png,image/jpeg,image/webp" />
+              <label for="productImage" id="photoDrop" class="photo-drop">
+                <strong data-i18n="photo.drop">Drop a photo here or browse</strong>
+                <span data-i18n="photo.uploadHint">PNG/JPG/WebP. Compressed locally before upload.</span>
+              </label>
+              <div id="uploadPreview" class="photo-upload-preview" hidden>
+                <img id="previewImage" alt="Selected product photo" />
+                <button type="button" id="removeImage" class="ghost-button" data-i18n="photo.removeImage">Remove photo</button>
+              </div>
+            </div>
+          </div>
+
           <div class="calc-field">
             <label for="scenePreset" data-i18n="photo.scene">Scene</label>
             <select id="scenePreset">

@@ -8,6 +8,7 @@
   var GOOGLE_CLIENT_ID = '154080569698-1e94rhuipkvgboc6fqfp94fndkodmtea.apps.googleusercontent.com';
   var DEFAULT_ENDPOINT = 'https://token.sensenova.cn/v1/images/generations';
   var FREE_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/generate';
+  var FREE_EDIT_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/edit';
   var DEFAULT_MODEL = 'sensenova-u1-fast';
 
   var form = document.getElementById('photoForm');
@@ -22,6 +23,12 @@
   var generateBtn = document.getElementById('generateBtn');
   var statusEl = document.getElementById('photoStatus');
   var galleryEl = document.getElementById('photoGallery');
+  var productFileInput = document.getElementById('productImage');
+  var photoDrop = document.getElementById('photoDrop');
+  var uploadPreview = document.getElementById('uploadPreview');
+  var previewImage = document.getElementById('previewImage');
+  var removeImageBtn = document.getElementById('removeImage');
+  var sourceImage = null;
 
   var scenes = {
     white: 'studio product photograph, seamless pure white background, soft shadow, professional commercial lighting, centered composition, crisp focus, high detail',
@@ -45,6 +52,94 @@
     statusEl.textContent = message || '';
     statusEl.className = type ? 'photo-status is-' + type : 'photo-status';
   }
+
+  function refreshUploadState() {
+    uploadPreview.hidden = !sourceImage;
+    photoDrop.parentElement.classList.toggle('is-filled', Boolean(sourceImage));
+  }
+
+  function clearSelectedImage() {
+    sourceImage = null;
+    productFileInput.value = '';
+    previewImage.removeAttribute('src');
+    refreshUploadState();
+  }
+
+  function loadImage(file) {
+    return new Promise(function (resolve, reject) {
+      var objectUrl = URL.createObjectURL(file);
+      var image = new Image();
+      image.onload = function () { resolve({ image: image, objectUrl: objectUrl }); };
+      image.onerror = function () {
+        URL.revokeObjectURL(objectUrl);
+        reject(new Error('That file could not be read as an image.'));
+      };
+      image.src = objectUrl;
+    });
+  }
+
+  function compressImage(file) {
+    return loadImage(file).then(function (loaded) {
+      var maxSide = 2048;
+      var width = loaded.image.naturalWidth || loaded.image.width;
+      var height = loaded.image.naturalHeight || loaded.image.height;
+      var scale = Math.min(1, maxSide / Math.max(width, height));
+      var canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(width * scale));
+      canvas.height = Math.max(1, Math.round(height * scale));
+      var context = canvas.getContext('2d');
+      context.fillStyle = '#ffffff';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(loaded.image, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(loaded.objectUrl);
+      return canvas.toDataURL('image/jpeg', 0.92);
+    });
+  }
+
+  function handlePhotoFile(file) {
+    if (!file) return;
+    if (!file.type || file.type.indexOf('image/') !== 0) {
+      setStatus('Please choose a PNG, JPG, or WebP image.', 'error');
+      clearSelectedImage();
+      return;
+    }
+    if (file.size > 12 * 1024 * 1024) {
+      setStatus('Please use an image smaller than 12MB.', 'error');
+      clearSelectedImage();
+      return;
+    }
+    setStatus('Preparing product photo…', 'busy');
+    compressImage(file).then(function (dataUrl) {
+      sourceImage = dataUrl;
+      previewImage.src = dataUrl;
+      refreshUploadState();
+      setStatus('Product photo ready. Describe the scene you want, then generate.', 'success');
+    }).catch(function (error) {
+      clearSelectedImage();
+      setStatus(error && error.message ? error.message : 'The product photo could not be prepared.', 'error');
+    });
+  }
+
+  productFileInput.addEventListener('change', function () {
+    handlePhotoFile(this.files && this.files[0]);
+  });
+
+  photoDrop.addEventListener('dragover', function (event) {
+    event.preventDefault();
+    photoDrop.classList.add('is-dragover');
+  });
+
+  photoDrop.addEventListener('dragleave', function () {
+    photoDrop.classList.remove('is-dragover');
+  });
+
+  photoDrop.addEventListener('drop', function (event) {
+    event.preventDefault();
+    photoDrop.classList.remove('is-dragover');
+    handlePhotoFile(event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]);
+  });
+
+  removeImageBtn.addEventListener('click', clearSelectedImage);
 
   function text(key, fallback) {
     var dict = translations[document.documentElement.lang || 'en'] || translations.en || {};
@@ -282,6 +377,63 @@
     });
   }
 
+  function requestEdit(prompt, image, size, seed) {
+    if (apiKeyInput.value.trim() || getStoredKey()) {
+      var payload = {
+        model: 'sensenova-u1.5-lite',
+        prompt: prompt,
+        image: [image],
+        size: size,
+        response_format: 'url',
+        watermark: false,
+        output_format: 'png'
+      };
+      if (typeof seed === 'number') payload.seed = seed;
+
+      return fetch(DEFAULT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + (apiKeyInput.value.trim() || getStoredKey()),
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).then(function (response) {
+        return response.json().catch(function () {
+          throw new Error('HTTP ' + response.status + ': the image service did not return JSON.');
+        }).then(function (data) {
+          if (!response.ok) {
+            var detail = data && data.error && (data.error.message || data.error.code);
+            throw new Error(detail ? 'HTTP ' + response.status + ': ' + detail : 'HTTP ' + response.status);
+          }
+          var urls = (data && data.data ? data.data : [])
+            .map(function (item) { return item && item.url; })
+            .filter(Boolean);
+          if (!urls.length) throw new Error('The model returned no image URL.');
+          return urls[0];
+        });
+      });
+    }
+
+    return fetch(FREE_EDIT_ENDPOINT, {
+      method: 'POST',
+      headers: (function () {
+        var session = getSession();
+        var h = { 'Content-Type': 'application/json' };
+        if (session && session.token) h['Authorization'] = 'Bearer ' + session.token;
+        return h;
+      })(),
+      body: JSON.stringify({ prompt: prompt, image: image, size: size, seed: seed })
+    }).then(function (response) {
+      return response.json().catch(function () {
+        throw new Error('HTTP ' + response.status + ': the free quota service did not return JSON.');
+      }).then(function (data) {
+        if (!response.ok) throw new Error(data && data.error ? data.error : 'HTTP ' + response.status);
+        if (!data || !data.url) throw new Error('The model returned no image URL.');
+        return data.url;
+      });
+    });
+  }
+
   form.addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -293,7 +445,12 @@
     var scene = scenes[sceneSelect.value] || scenes.white;
     var size = sizes[ratioSelect.value] || sizes.square;
     var count = Math.max(1, Math.min(4, parseInt(countSelect.value, 10) || 1));
-    var prompt = product + '. ' + scene + '. No watermarks, no logos, no extra text.';
+    var prompt;
+    if (sourceImage) {
+      prompt = 'Replace the background and scene: ' + scene + '. User instructions: ' + product + '. Keep the original product exactly unchanged, including shape, materials, colors, labels, and any text. No watermarks, no logos, no extra text.';
+    } else {
+      prompt = product + '. ' + scene + '. No watermarks, no logos, no extra text.';
+    }
 
     generateBtn.disabled = true;
     generateBtn.textContent = text('photo.generating', 'Generating…');
@@ -302,7 +459,11 @@
 
     var jobs = [];
     for (var i = 0; i < count; i += 1) {
-      jobs.push(requestPhoto(prompt, size, apiKey, Date.now() + i));
+      if (sourceImage) {
+        jobs.push(requestEdit(prompt, sourceImage, size, Date.now() + i));
+      } else {
+        jobs.push(requestPhoto(prompt, size, apiKey, Date.now() + i));
+      }
     }
 
     Promise.allSettled(jobs).then(function (results) {

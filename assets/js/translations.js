@@ -82,7 +82,7 @@ window.TTCALC_I18N = {
     'tool.4.desc': '找到扣除所有费用后的盈亏平衡ROAS，查看每件和每月的净利润。',
     'tool.4.cta': '检查你的ROAS',
     'tool.5.title': 'AI商品图生成器',
-    'tool.5.desc': '输入商品描述，选择场景和比例，快速生成上架可用的商品图。',
+    'tool.5.desc': '输入描述或上传产品图，选择场景和比例，快速生成上架可用商品图。',
     'tool.5.cta': '生成商品图',
 
     // FAQ
@@ -151,7 +151,7 @@ window.TTCALC_I18N = {
 
     // Product photo generator
     'photo.title': 'TikTok Shop商品图生成器',
-    'photo.subtitle': '输入商品描述，选择场景和比例，即可生成上架可用的图片。无需填写 API Key 也可直接使用免费额度。',
+    'photo.subtitle': '输入商品描述，或上传产品图换背景/场景，选择比例后生成上架可用图片。无需 API Key 也可使用免费额度。',
     'photo.setup': '生成设置',
     'photo.prompt': '产品描述',
     'photo.promptPlaceholder': '示例：哑光陶瓷马克杯，鼠尾草绿，竹盖，12盎司',
@@ -175,6 +175,10 @@ window.TTCALC_I18N = {
     'photo.ratio.threeTwo': '3:2 · 编辑图',
     'photo.key': '可选 API Key',
     'photo.keyHint': '不填 Key 可使用站点免费额度；填写自己的 Key 则使用你自己的图片服务额度。Key 仅保存在本设备。',
+    'photo.upload': '产品图（可选）',
+    'photo.drop': '拖入产品图或点击上传',
+    'photo.uploadHint': '支持 PNG/JPG/WebP，上传前仅在本机压缩。',
+    'photo.removeImage': '移除图片',
     'photo.generate': '生成商品图',
     'photo.generating': '生成中…',
     'photo.saveKey': '保存Key',

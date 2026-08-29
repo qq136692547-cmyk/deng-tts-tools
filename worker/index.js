@@ -176,6 +176,10 @@ export default {
       return handleGoogleAuth(request, env, origin);
     }
 
+    if (request.method === 'POST' && url.pathname === '/edit') {
+      return handleEdit(request, env, origin);
+    }
+
     if (request.method !== 'POST' || url.pathname !== '/generate') {
       return jsonResponse(origin, { error: 'Not found.' }, 404);
     }
@@ -265,3 +269,86 @@ export default {
     return jsonResponse(origin, { url: imageUrl });
   }
 };
+/* ---- Image editing (img2img via SenseNova U1.5 Lite) ---- */
+
+async function handleEdit(request, env, origin) {
+  let session = null;
+  const authHeader = request.headers.get('Authorization') || '';
+  if (authHeader.startsWith('Bearer ') && env.JWT_SECRET) {
+    session = await verifySession(authHeader.slice(7), env.JWT_SECRET);
+  }
+
+  let quotaKey;
+  let quotaLimit;
+  if (session && session.uid) {
+    quotaKey = 'user:' + session.uid;
+    quotaLimit = USER_RATE_LIMIT;
+  } else {
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    quotaKey = 'ip:' + ip;
+    quotaLimit = RATE_LIMIT;
+  }
+
+  if (isRateLimited(quotaKey, quotaLimit)) {
+    return jsonResponse(origin, { error: 'Daily free quota reached. Please try again later.' }, 429);
+  }
+
+  let input;
+  try {
+    input = await request.json();
+  } catch {
+    return jsonResponse(origin, { error: 'Invalid JSON body.' }, 400);
+  }
+
+  const image = typeof input.image === 'string' ? input.image : '';
+  if (!(image.startsWith('data:image/') || image.startsWith('https://'))) {
+    return jsonResponse(origin, { error: 'Provide a data URL or https image.' }, 400);
+  }
+  const prompt = typeof input.prompt === 'string' ? input.prompt.trim() : '';
+  if (!prompt || prompt.length > 1000) {
+    return jsonResponse(origin, { error: 'Prompt must be 1-1000 characters.' }, 400);
+  }
+  const size = input.size;
+  if (size !== undefined && !ALLOWED_SIZES.has(size)) {
+    return jsonResponse(origin, { error: 'Unsupported image size.' }, 400);
+  }
+  if (!env.SN_API_KEY) {
+    return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
+  }
+
+  const payload = {
+    model: env.SN_EDIT_MODEL || 'sensenova-u1.5-lite',
+    prompt: prompt,
+    image: [image],
+    response_format: 'url',
+    watermark: false,
+    output_format: 'png'
+  };
+  if (size !== undefined) payload.size = size;
+  if (Number.isInteger(input.seed)) payload.seed = input.seed;
+
+  const endpoint = (env.SN_IMAGE_GEN_BASE_URL || 'https://token.sensenova.cn/v1') + '/images/generations';
+  const upstream = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + env.SN_API_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+  const result = await upstream.json().catch(function () { return null; });
+
+  if (!upstream.ok || !result) {
+    const detail = result && result.error && (result.error.message || result.error.code);
+    return jsonResponse(origin, { error: detail || ('Image service returned HTTP ' + upstream.status + '.') }, upstream.status === 401 || upstream.status === 403 ? 502 : upstream.status);
+  }
+
+  const imageUrl = result.data && result.data[0] && result.data[0].url;
+  if (!imageUrl) {
+    return jsonResponse(origin, { error: 'The model returned no image URL.' }, 502);
+  }
+
+  return jsonResponse(origin, { url: imageUrl });
+}
+
+/* ---- Google sign-in ---- */
