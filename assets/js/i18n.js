@@ -2,6 +2,9 @@
 (function () {
   'use strict';
   var LANG_KEY = 'ttcalc_lang';
+  // The EN dictionary is intentionally empty: original text is captured from the DOM and
+  // restored on switch-back. If content with data-i18n is injected via JS after load,
+  // call captureOriginals() again before applying translations.
   var translations = window.TTCALC_I18N || {};
   var originalContent = new Map();
 
