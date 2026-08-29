@@ -153,3 +153,14 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Preserved canonical, title/meta, GA, AdSense, manifest, sitemap, and consolidated JSON-LD (`WebApplication`, `WebSite`, `Organization`, `FAQPage`).
 - Kept bilingual UI via `data-i18n`; added Chinese copy for the new preview, quick paths, headline, and fee-fact sections.
 - Local validation: `node --check` passed for `translations.js`, `i18n.js`, and `ux.js`; all 4 JSON-LD blocks parsed; all 77 homepage `data-i18n` keys have Chinese definitions; desktop/mobile Playwright screenshots had no horizontal overflow; browser check reported no console errors and zero failed local asset requests.
+
+## 2026-08-29 — Image-to-image editing
+
+- Added `POST /edit` to the same `ttcalc-photo-proxy` Worker. It calls SenseNova `sensenova-u1.5-lite` with the image supplied as a one-element data-URL array and reuses the shared daily quota model: 5/day/IP anonymous, 20/day signed-in user.
+- Enforced the same origin allowlist before `/edit`; the temporary `/probe` endpoint was removed.
+- Added an optional product-photo upload/drop zone, preview, and remove control. The browser compresses images locally to a maximum side of 2048px as JPEG before sending them to `/edit`.
+- When no key is present, the page uses the Worker proxy. With a user key, it calls SenseNova directly with the edit model. Edit prompts append instructions to keep product shape, materials, colors, labels, and text unchanged.
+- Updated photo-page copy in English/Chinese and scoped upload styles.
+- Deployed Worker version: `ad309de2-1f2e-4369-811f-0f49fb6f22b5`.
+- Validation: direct Worker `/edit` test returned HTTP 200 with a signed image URL; final `/probe` returned 404, bad origin 403, and a missing-image request returned 400. Local Playwright verified upload, preview, remove, and a mocked `/edit` submit reached the endpoint and rendered a result card. `node --check` passed for the Worker and frontend scripts. Only local Google sign-in failed because `127.0.0.1` is not an authorized origin.
+- Code commit: `0e89dd8` (frontend + Worker). This handover update is a follow-up commit.
