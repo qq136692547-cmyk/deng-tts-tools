@@ -26,10 +26,9 @@
   var productFileInput = document.getElementById('productImage');
   var photoDrop = document.getElementById('photoDrop');
   var uploadPreview = document.getElementById('uploadPreview');
-  var previewImage = document.getElementById('previewImage');
+  var previewCanvas = document.getElementById('previewCanvas');
   var removeImageBtn = document.getElementById('removeImage');
   var sourceImage = null;
-  var previewObjectUrl = null;
 
   var scenes = {
     white: 'studio product photograph, seamless pure white background, soft shadow, professional commercial lighting, centered composition, crisp focus, high detail',
@@ -62,49 +61,48 @@
   function clearSelectedImage() {
     sourceImage = null;
     productFileInput.value = '';
-    if (previewObjectUrl) {
-      URL.revokeObjectURL(previewObjectUrl);
-      previewObjectUrl = null;
-    }
-    previewImage.removeAttribute('src');
+    var context = previewCanvas.getContext('2d');
+    context.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
     refreshUploadState();
+  }
+
+  function drawPreview(image) {
+    var width = image.naturalWidth || image.width;
+    var height = image.naturalHeight || image.height;
+    var context = previewCanvas.getContext('2d');
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+    var scale = Math.min(previewCanvas.width / width, previewCanvas.height / height);
+    var drawWidth = Math.max(1, Math.round(width * scale));
+    var drawHeight = Math.max(1, Math.round(height * scale));
+    context.drawImage(image, Math.round((previewCanvas.width - drawWidth) / 2), Math.round((previewCanvas.height - drawHeight) / 2), drawWidth, drawHeight);
+  }
+
+  function createEditImage(image) {
+    var maxSide = 2048;
+    var width = image.naturalWidth || image.width;
+    var height = image.naturalHeight || image.height;
+    var scale = Math.min(1, maxSide / Math.max(width, height));
+    var canvas = document.createElement('canvas');
+    canvas.width = Math.max(1, Math.round(width * scale));
+    canvas.height = Math.max(1, Math.round(height * scale));
+    var context = canvas.getContext('2d');
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL('image/jpeg', 0.92);
   }
 
   function loadImage(file) {
     return new Promise(function (resolve, reject) {
       var objectUrl = URL.createObjectURL(file);
       var image = new Image();
-      image.onload = function () { resolve({ image: image, objectUrl: objectUrl }); };
+      image.onload = function () { URL.revokeObjectURL(objectUrl); resolve(image); };
       image.onerror = function () {
         URL.revokeObjectURL(objectUrl);
         reject(new Error('That file could not be read as an image.'));
       };
       image.src = objectUrl;
-    });
-  }
-
-  function compressImage(file) {
-    return loadImage(file).then(function (loaded) {
-      return new Promise(function (resolve, reject) {
-        var maxSide = 2048;
-        var width = loaded.image.naturalWidth || loaded.image.width;
-        var height = loaded.image.naturalHeight || loaded.image.height;
-        var scale = Math.min(1, maxSide / Math.max(width, height));
-        var canvas = document.createElement('canvas');
-        canvas.width = Math.max(1, Math.round(width * scale));
-        canvas.height = Math.max(1, Math.round(height * scale));
-        var context = canvas.getContext('2d');
-        context.fillStyle = '#ffffff';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(loaded.image, 0, 0, canvas.width, canvas.height);
-        URL.revokeObjectURL(loaded.objectUrl);
-
-        var dataUrl = canvas.toDataURL('image/jpeg', 0.92);
-        canvas.toBlob(function (blob) {
-          if (blob) resolve({ dataUrl: dataUrl, previewUrl: URL.createObjectURL(blob) });
-          else resolve({ dataUrl: dataUrl, previewUrl: null });
-        }, 'image/jpeg', 0.92);
-      });
     });
   }
 
@@ -121,17 +119,10 @@
       clearSelectedImage();
       return;
     }
-    if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
-    previewObjectUrl = URL.createObjectURL(file);
-    previewImage.src = previewObjectUrl;
     setStatus('Preparing product photo…', 'busy');
-    compressImage(file).then(function (result) {
-      sourceImage = result.dataUrl;
-      if (result.previewUrl) {
-        if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
-        previewObjectUrl = result.previewUrl;
-        previewImage.src = previewObjectUrl;
-      }
+    loadImage(file).then(function (image) {
+      drawPreview(image);
+      sourceImage = createEditImage(image);
       refreshUploadState();
       setStatus('Product photo ready. Describe the scene you want, then generate.', 'success');
     }).catch(function (error) {

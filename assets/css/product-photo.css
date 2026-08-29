@@ -195,3 +195,5 @@ body.tool-calc .calc-field textarea:focus {
   border-radius: 10px;
 }
 .photo-upload-preview .ghost-button { min-height: 36px; padding: 0 12px; }
+
+.photo-preview-canvas { width: 68px; height: 68px; object-fit: contain; border: 1px solid rgba(255, 255, 255, .16); border-radius: 10px; background: #fff; }
