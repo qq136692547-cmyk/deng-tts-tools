@@ -164,3 +164,4 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Deployed Worker version: `ad309de2-1f2e-4369-811f-0f49fb6f22b5`.
 - Validation: direct Worker `/edit` test returned HTTP 200 with a signed image URL; final `/probe` returned 404, bad origin 403, and a missing-image request returned 400. Local Playwright verified upload, preview, remove, and a mocked `/edit` submit reached the endpoint and rendered a result card. `node --check` passed for the Worker and frontend scripts. Only local Google sign-in failed because `127.0.0.1` is not an authorized origin.
 - Code commit: `0e89dd8` (frontend + Worker). This handover update is a follow-up commit.
+- Preview fix: the upload preview now uses a temporary object URL; the compressed JPEG data URL is sent only to the editing request. File types are now restricted to PNG/JPG/WebP.

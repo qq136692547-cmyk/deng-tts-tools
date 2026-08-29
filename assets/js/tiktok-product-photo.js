@@ -29,6 +29,7 @@
   var previewImage = document.getElementById('previewImage');
   var removeImageBtn = document.getElementById('removeImage');
   var sourceImage = null;
+  var previewObjectUrl = null;
 
   var scenes = {
     white: 'studio product photograph, seamless pure white background, soft shadow, professional commercial lighting, centered composition, crisp focus, high detail',
@@ -61,6 +62,10 @@
   function clearSelectedImage() {
     sourceImage = null;
     productFileInput.value = '';
+    if (previewObjectUrl) {
+      URL.revokeObjectURL(previewObjectUrl);
+      previewObjectUrl = null;
+    }
     previewImage.removeAttribute('src');
     refreshUploadState();
   }
@@ -98,7 +103,8 @@
 
   function handlePhotoFile(file) {
     if (!file) return;
-    if (!file.type || file.type.indexOf('image/') !== 0) {
+    var allowedTypes = ['image/png', 'image/jpeg', 'image/webp'];
+    if (!file.type || allowedTypes.indexOf(file.type) === -1) {
       setStatus('Please choose a PNG, JPG, or WebP image.', 'error');
       clearSelectedImage();
       return;
@@ -108,10 +114,12 @@
       clearSelectedImage();
       return;
     }
+    if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
+    previewObjectUrl = URL.createObjectURL(file);
+    previewImage.src = previewObjectUrl;
     setStatus('Preparing product photo…', 'busy');
     compressImage(file).then(function (dataUrl) {
       sourceImage = dataUrl;
-      previewImage.src = dataUrl;
       refreshUploadState();
       setStatus('Product photo ready. Describe the scene you want, then generate.', 'success');
     }).catch(function (error) {
