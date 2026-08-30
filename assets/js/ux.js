@@ -140,8 +140,14 @@
     window.gtag('event', name, payload);
   };
 
+  var calculatorTimers = {};
   window.ttcalcTrackCalculator = function (calculatorName) {
-    window.ttcalcTrackEvent('calculator_computed', { calculator_name: calculatorName });
+    if (!calculatorName) return;
+    if (calculatorTimers[calculatorName]) clearTimeout(calculatorTimers[calculatorName]);
+    calculatorTimers[calculatorName] = setTimeout(function () {
+      window.ttcalcTrackEvent('calculator_computed', { calculator_name: calculatorName });
+      delete calculatorTimers[calculatorName];
+    }, 900);
   };
 
   // ---- Init on DOMContentLoaded ----
