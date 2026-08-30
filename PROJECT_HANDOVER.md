@@ -177,3 +177,13 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Deployment: GitHub Pages push to `41689d0`; Worker version `3c2369bb-0484-49df-bc33-14fd57e9a7e1`.
 - Live validation: `robots.txt` no longer blocks `/privacy/`; privacy, homepage, and tools content checks passed; both cross-site UTM links are live; Worker CORS preflight returned 204 with the allowed origin.
 - Rollback: static site can revert to `5bac261`; Worker can redeploy version `ad309de2-1f2e-4369-811f-0f49fb6f22b5` before the quota guardrail.
+
+## 2026-08-31 — Subagent review hardening
+
+- Subagent review requested changes; the high-risk Worker items are now fixed in `worker/index.js`: JWT base64url now encodes/decodes UTF-8 safely, global quota reservation happens after request validation and before the upstream call, `PHOTO_PROXY_DISABLED` accepts only `1/true/yes`, and `/edit` rejects `Content-Length` above 6 MB with HTTP 413 before parsing.
+- Route-level guardrails remain fail-closed for disabled state or missing KV; the KV global quota is explicitly documented as a soft cap with limited overshoot under concurrency.
+- `assets/js/ux.js` now debounces `calculator_computed` by 900 ms per calculator to avoid one event per keystroke.
+- Validation: `node --check worker/index.js` passed, Wrangler dry-run passed, and deploy produced Worker version `736f306f-ffc0-4933-95a6-c5d72f11fd1f`.
+- Live proxy validation: POST `/generate` with `{}` returned HTTP 400 (`Prompt must be 1-1000 characters.`); POST `/edit` with `{}` returned HTTP 400 (`Provide a data URL or https image.`). No global quota was reserved.
+- Static commits: `c649395` for calculator analytics debounce and `10896a3` for Worker hardening; both pushed to main.
+- Known limits: KV overshoot is tolerated by design; in-memory per-user/IP counters are approximate after Worker restart; there is no automated Worker test harness yet.
