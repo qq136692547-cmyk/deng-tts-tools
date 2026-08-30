@@ -13,6 +13,7 @@ const USER_RATE_LIMIT = 20;
 const RATE_WINDOW_MS = 24 * 60 * 60 * 1000;
 const SESSION_TTL_SECONDS = 7 * 86400;
 const rateLimits = new Map();
+const MAX_EDIT_BYTES = 6 * 1024 * 1024;
 
 function utcDateString(date) {
   return date.toISOString().slice(0, 10);
@@ -28,14 +29,21 @@ function secondsUntilUtcTomorrow() {
   return Math.max(60, Math.floor((tomorrow - now) / 1000));
 }
 
-async function checkPhotoGlobalQuota(origin, env) {
-  if (env.PHOTO_PROXY_DISABLED) {
+// Route-level guardrails stay fail-closed; only explicit truthy strings disable the proxy.
+async function assertPhotoGuardrails(origin, env) {
+  const disabled = String(env.PHOTO_PROXY_DISABLED || '').trim().toLowerCase();
+  if (disabled === '1' || disabled === 'true' || disabled === 'yes') {
     return jsonResponse(origin, { error: 'Photo generation is temporarily disabled.' }, 503);
   }
   if (!env.PHOTO_QUOTA) {
     return jsonResponse(origin, { error: 'Photo quota storage is unavailable.' }, 503);
   }
 
+  return null;
+}
+
+// KV is a soft global cap: concurrent requests may slightly exceed it (accepted in G-06).
+async function reservePhotoGlobalQuota(origin, env) {
   const key = 'daily:' + utcDateString(new Date());
   let count;
   try {
@@ -95,14 +103,19 @@ function isRateLimited(key, limit) {
 
 /* ---- session tokens (HS256, mirrors geoscore-payments) ---- */
 
-function base64Url(str) {
-  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+function base64Url(value) {
+  const bytes = new TextEncoder().encode(value);
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
-function base64UrlDecode(str) {
-  str = str.replace(/-/g, '+').replace(/_/g, '/');
-  while (str.length % 4) str += '=';
-  return atob(str);
+function base64UrlDecode(value) {
+  let base64 = value.replace(/-/g, '+').replace(/_/g, '/');
+  while (base64.length % 4) base64 += '=';
+  const binary = atob(base64);
+  const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
 }
 
 function constantTimeEqual(a, b) {
@@ -217,7 +230,7 @@ export default {
     }
 
     if (request.method === 'POST' && url.pathname === '/edit') {
-      const guard = await checkPhotoGlobalQuota(origin, env);
+      const guard = await assertPhotoGuardrails(origin, env);
       if (guard) return guard;
       return handleEdit(request, env, origin);
     }
@@ -226,8 +239,8 @@ export default {
       return jsonResponse(origin, { error: 'Not found.' }, 404);
     }
 
-    const quota = await checkPhotoGlobalQuota(origin, env);
-    if (quota) return quota;
+    const guard = await assertPhotoGuardrails(origin, env);
+    if (guard) return guard;
 
     let session = null;
     const authHeader = request.headers.get('Authorization') || '';
@@ -275,6 +288,9 @@ export default {
       return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
     }
 
+    const quota = await reservePhotoGlobalQuota(origin, env);
+    if (quota) return quota;
+
     const payload = {
       model: 'sensenova-u1-fast',
       prompt,
@@ -317,6 +333,11 @@ export default {
 /* ---- Image editing (img2img via SenseNova U1.5 Lite) ---- */
 
 async function handleEdit(request, env, origin) {
+  const contentLength = Number(request.headers.get('Content-Length'));
+  if (Number.isFinite(contentLength) && contentLength > MAX_EDIT_BYTES) {
+    return jsonResponse(origin, { error: 'Image payload is too large.' }, 413);
+  }
+
   let session = null;
   const authHeader = request.headers.get('Authorization') || '';
   if (authHeader.startsWith('Bearer ') && env.JWT_SECRET) {
@@ -360,6 +381,9 @@ async function handleEdit(request, env, origin) {
   if (!env.SN_API_KEY) {
     return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
   }
+
+  const quota = await reservePhotoGlobalQuota(origin, env);
+  if (quota) return quota;
 
   const payload = {
     model: env.SN_EDIT_MODEL || 'sensenova-u1.5-lite',
