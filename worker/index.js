@@ -14,6 +14,46 @@ const RATE_WINDOW_MS = 24 * 60 * 60 * 1000;
 const SESSION_TTL_SECONDS = 7 * 86400;
 const rateLimits = new Map();
 
+function utcDateString(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function secondsUntilUtcTomorrow() {
+  const now = new Date();
+  const tomorrow = new Date(Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate() + 1
+  ));
+  return Math.max(60, Math.floor((tomorrow - now) / 1000));
+}
+
+async function checkPhotoGlobalQuota(origin, env) {
+  if (env.PHOTO_PROXY_DISABLED) {
+    return jsonResponse(origin, { error: 'Photo generation is temporarily disabled.' }, 503);
+  }
+  if (!env.PHOTO_QUOTA) {
+    return jsonResponse(origin, { error: 'Photo quota storage is unavailable.' }, 503);
+  }
+
+  const key = 'daily:' + utcDateString(new Date());
+  let count;
+  try {
+    const raw = await env.PHOTO_QUOTA.get(key);
+    count = raw == null ? 0 : Number(raw);
+    if (!Number.isFinite(count) || count < 0) count = 0;
+    const configured = Number(env.PHOTO_GLOBAL_DAILY_LIMIT);
+    const limit = Number.isFinite(configured) && configured > 0 ? configured : 50;
+    if (count >= limit) {
+      return jsonResponse(origin, { error: 'The site-wide daily photo quota has been reached.' }, 429);
+    }
+    await env.PHOTO_QUOTA.put(key, String(count + 1), { expirationTtl: secondsUntilUtcTomorrow() });
+    return null;
+  } catch {
+    return jsonResponse(origin, { error: 'Photo quota storage is temporarily unavailable.' }, 503);
+  }
+}
+
 function corsHeaders(origin) {
   const headers = {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -230,6 +270,9 @@ export default {
       return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
     }
 
+    const quota = await checkPhotoGlobalQuota(origin, env);
+    if (quota) return quota;
+
     const payload = {
       model: 'sensenova-u1-fast',
       prompt,
@@ -315,6 +358,9 @@ async function handleEdit(request, env, origin) {
   if (!env.SN_API_KEY) {
     return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
   }
+
+  const quota = await checkPhotoGlobalQuota(origin, env);
+  if (quota) return quota;
 
   const payload = {
     model: env.SN_EDIT_MODEL || 'sensenova-u1.5-lite',
