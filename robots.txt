@@ -63,6 +63,5 @@ Allow: /
 Allow: /blog/
 Allow: /tools/
 Allow: /assets/
-Disallow: /privacy/
 
 Sitemap: https://ttcalc.shop/sitemap.xml

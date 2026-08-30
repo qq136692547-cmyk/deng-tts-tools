@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Privacy Policy — TTCalc</title>
-<meta name="description" content="TTCalc privacy policy. We do not collect, store, or sell any data you enter into our calculators." />
+<meta name="description" content="TTCalc privacy policy: what local calculators keep in your browser and what AI photo generation, Google sign-in, analytics, and advertising send." />
 <link rel="canonical" href="https://ttcalc.shop/privacy/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,27 +38,25 @@
 <main id="main" class="container" style="padding:var(--s-7) 0; max-width:780px;">
   <span class="eyebrow">Privacy</span>
   <h1>Privacy Policy</h1>
-  <p><em>Last updated: 2026-06-24.</em></p>
+  <p><em>Last updated: 2026-08-30.</em></p>
 
   <h2>Summary</h2>
-  <p>TTCalc does not collect, store, transmit, or sell any data you enter into our calculators. All calculations happen locally in your browser.</p>
+  <p>TTCalc calculators process the data you enter locally in your browser. Other features, including AI photo generation, Google sign-in, and analytics, use backend and third-party services.</p>
 
-  <h2 style="margin-top:var(--s-5);">What we don't collect</h2>
-  <ul style="color:var(--ink-soft);">
-    <li>No financial inputs (sale price, COGS, weights) — calculations are 100% client-side.</li>
-    <li>No account, no email, no name.</li>
-    <li>No IP-based tracking beyond anonymous aggregate analytics.</li>
-    <li>No cookies set by this site.</li>
-  </ul>
+  <h2 style="margin-top:var(--s-5);">Local calculators</h2>
+  <p>Financial inputs such as sale price, COGS, fees, weights, ad spend, and expected returns are processed in your browser. TTCalc does not require an account or send calculator inputs to its backend.</p>
 
-  <h2 style="margin-top:var(--s-5);">What we do collect</h2>
-  <ul style="color:var(--ink-soft);">
-    <li><strong>Aggregate, anonymized page-view counts</strong> via a privacy-respecting tool.</li>
-    <li><strong>Standard server logs</strong> retained briefly for security. Deleted after 30 days.</li>
-  </ul>
+  <h2 style="margin-top:var(--s-5);">AI photo generation</h2>
+  <p>When you use the AI product photo tool, your prompt and any image you provide are sent through TTCalc's Cloudflare Worker to an image-generation service. The Worker checks daily quota limits. Anonymous quotas are keyed by IP; signed-in quotas are keyed by a Google account identifier. No email address, phone number, full name, or raw JWT is used as a quota key.</p>
+
+  <h2 style="margin-top:var(--s-5);">Google sign-in</h2>
+  <p>Optional Google sign-in lets us distinguish your personal photo quota from the shared anonymous quota. Google sends a verified identity token to TTCalc's Worker. The signed session is stored locally in your browser. You can sign out at any time.</p>
+
+  <h2 style="margin-top:var(--s-5);">Analytics</h2>
+  <p>TTCalc uses Google Analytics 4 to measure aggregate page views, tool usage, referrers, and conversion events. We do not send calculator financial inputs, generated prompts, or images to GA4.</p>
 
   <h2 style="margin-top:var(--s-5);">Advertising</h2>
-  <p>This site may show ads in the future. If we add Google AdSense or any advertising network, we'll update this policy and serve ads only on tool pages — never on pages that ask you to enter financial data.</p>
+  <p>TTCalc uses Google AdSense. Google and its partners may use cookies or device identifiers to serve and measure ads. You can manage ad personalization through Google Ads Settings and your browser privacy controls.</p>
 </main>
 <footer class="site-footer">
   <div class="footer-grid">

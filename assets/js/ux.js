@@ -107,6 +107,33 @@
     });
   }
 
+  // ---- Cross-site funnel ----
+  function crossSource() {
+    try {
+      var params = new URLSearchParams(location.search);
+      var source = (params.get('utm_source') || '').toLowerCase();
+      var medium = (params.get('utm_medium') || '').toLowerCase();
+      if (source === 'geoscore' && medium === 'site') return 'cross_site';
+      if (source) return 'external';
+      var ref = document.referrer;
+      if (!ref) return 'direct';
+      var host = new URL(ref).hostname.toLowerCase();
+      if (/(^|\.)(google|bing|baidu|duckduckgo|yandex|ecosia|startpage|brave)\.[a-z.]+$/.test(host)) return 'search';
+      return 'external';
+    } catch (e) {
+      return 'other';
+    }
+  }
+
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('a[data-cross-site]');
+    if (!link || typeof window.gtag !== 'function') return;
+    window.gtag('event', 'cross_site_click', {
+      target_site: link.getAttribute('data-cross-site'),
+      source_type: crossSource()
+    });
+  });
+
   // ---- Init on DOMContentLoaded ----
   function init() {
     initCountUp();
