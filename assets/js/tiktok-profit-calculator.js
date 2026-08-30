@@ -77,7 +77,10 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     ['sale','cogs','ship','category','creator','ads','returnRate','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
-      var el = get(id); if (el) el.addEventListener('input', calc);
+      var el = get(id); if (el) el.addEventListener('input', function () {
+        calc();
+        if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-profit');
+      });
     });
     calc();
   });

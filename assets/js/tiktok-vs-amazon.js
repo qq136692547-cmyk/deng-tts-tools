@@ -80,7 +80,10 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','fbtUnits','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
-      var el = get(id); if (el) el.addEventListener('input', calc);
+      var el = get(id); if (el) el.addEventListener('input', function () {
+        calc();
+        if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-vs-amazon');
+      });
     });
     calc();
   });

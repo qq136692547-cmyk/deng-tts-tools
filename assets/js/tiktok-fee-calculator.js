@@ -50,7 +50,10 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     ['salePrice','category','creatorRate','shippingCharged','returnRate','fbtTier','fbtUnits','resellRate'].forEach(function (id) {
-      var el = $id(id); if (el) el.addEventListener('input', calculate);
+      var el = $id(id); if (el) el.addEventListener('input', function () {
+        calculate();
+        if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-fee');
+      });
     });
     calculate();
   });

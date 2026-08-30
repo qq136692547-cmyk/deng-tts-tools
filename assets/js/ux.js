@@ -134,6 +134,16 @@
     });
   });
 
+  window.ttcalcTrackEvent = function (name, params) {
+    if (typeof window.gtag !== 'function') return;
+    var payload = Object.assign({ source_type: crossSource() }, params || {});
+    window.gtag('event', name, payload);
+  };
+
+  window.ttcalcTrackCalculator = function (calculatorName) {
+    window.ttcalcTrackEvent('calculator_computed', { calculator_name: calculatorName });
+  };
+
   // ---- Init on DOMContentLoaded ----
   function init() {
     initCountUp();

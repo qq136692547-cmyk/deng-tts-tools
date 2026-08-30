@@ -244,6 +244,7 @@
       }
       storeSession({ token: result.data.token, user: result.data.user });
       refreshAuthState();
+      if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('sign_in', { method: 'google', state: 'completed' });
       setStatus('Signed in. Your personal free quota is now active.', 'success');
     }).catch(function (err) {
       setStatus(err && err.message ? err.message : 'Sign-in failed.', 'error');
@@ -484,6 +485,13 @@
 
     generateBtn.disabled = true;
     generateBtn.textContent = text('photo.generating', 'Generating…');
+    var startedAt = Date.now();
+    if (window.ttcalcTrackEvent) {
+      window.ttcalcTrackEvent('photo_generate_started', {
+        has_key: Boolean(apiKey),
+        signed_in: Boolean(getSession() && getSession().token)
+      });
+    }
     galleryEl.innerHTML = '';
     setStatus('Generating ' + count + (count === 1 ? ' image' : ' images') + '. This usually takes 10–30 seconds.', 'busy');
 
@@ -514,6 +522,12 @@
         setStatus(errors.length + ' of ' + count + ' images failed. Retry the failed ones for better yield.', 'warning');
       } else {
         setStatus('Done. ' + urls.length + (urls.length === 1 ? ' image is' : ' images are') + ' ready below.', 'success');
+      }
+      if (urls.length && window.ttcalcTrackEvent) {
+        window.ttcalcTrackEvent('photo_generate_completed', {
+          signed_in: Boolean(getSession() && getSession().token),
+          duration_ms: Date.now() - startedAt
+        });
       }
 
       generateBtn.disabled = false;

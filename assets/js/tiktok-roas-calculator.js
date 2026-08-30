@@ -64,7 +64,10 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     ['sale','cogs','category','fbtTier','fbtUnits','returnRate','creator','roas','monthlyUnits'].forEach(function (id) {
-      var el = get(id); if (el) el.addEventListener('input', calc);
+      var el = get(id); if (el) el.addEventListener('input', function () {
+        calc();
+        if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-roas');
+      });
     });
     calc();
   });
