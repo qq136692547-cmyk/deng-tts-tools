@@ -217,12 +217,17 @@ export default {
     }
 
     if (request.method === 'POST' && url.pathname === '/edit') {
+      const guard = await checkPhotoGlobalQuota(origin, env);
+      if (guard) return guard;
       return handleEdit(request, env, origin);
     }
 
     if (request.method !== 'POST' || url.pathname !== '/generate') {
       return jsonResponse(origin, { error: 'Not found.' }, 404);
     }
+
+    const quota = await checkPhotoGlobalQuota(origin, env);
+    if (quota) return quota;
 
     let session = null;
     const authHeader = request.headers.get('Authorization') || '';
@@ -269,9 +274,6 @@ export default {
     if (!env.SN_API_KEY) {
       return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
     }
-
-    const quota = await checkPhotoGlobalQuota(origin, env);
-    if (quota) return quota;
 
     const payload = {
       model: 'sensenova-u1-fast',
@@ -358,9 +360,6 @@ async function handleEdit(request, env, origin) {
   if (!env.SN_API_KEY) {
     return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
   }
-
-  const quota = await checkPhotoGlobalQuota(origin, env);
-  if (quota) return quota;
 
   const payload = {
     model: env.SN_EDIT_MODEL || 'sensenova-u1.5-lite',
