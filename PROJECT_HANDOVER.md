@@ -171,6 +171,7 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 
 - Static commit `b57dbb8`: corrected stale “no signup / no tracking / all local / no servers” claims, rewrote the privacy policy for calculators vs photo generation vs Google sign-in vs GA4/AdSense, removed `Disallow: /privacy/`, and clarified photo quota wording.
 - Added a TTCalc → GeoScore cross-site link with `utm_source=ttcalc&utm_medium=site&utm_campaign=geo-trust-funnel` on the homepage and tools index, plus a `cross_site_click` GA event from `assets/js/ux.js`.
+- Commit `bc4a01c` added `calculator_computed` for all four calculators, `photo_generate_started/completed`, and Google `sign_in` completion, all through a shared privacy-safe event helper.
 - Worker commits `41689d0` + `3cef6eb`: added a fail-closed global photo quota using KV namespace `ttcalc-photo-quota` (`PHOTO_QUOTA`), `PHOTO_GLOBAL_DAILY_LIMIT=50`, and `PHOTO_PROXY_DISABLED` kill switch. The route-layer guard runs before request validation for `/generate` and `/edit`; they return 503 on missing/broken KV, 429 at the global cap, and make no upstream call when disabled. Per-user/IP quotas remain.
 - Follow-up commit `47ee5d9`: added the missing GA config to the photo generator page. Excluding the intentionally noindex legacy redirect, all 36 shipped pages now have exactly one GA config.
 - Deployment: GitHub Pages push to `41689d0`; Worker version `3c2369bb-0484-49df-bc33-14fd57e9a7e1`.
