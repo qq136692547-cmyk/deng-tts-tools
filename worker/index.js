@@ -101,6 +101,58 @@ function isRateLimited(key, limit) {
   return entry.count > limit;
 }
 
+function getSenseNovaApiKeys(env) {
+  const values = [env.SN_API_KEY_1, env.SN_API_KEY_2, env.SN_API_KEY_3, env.SN_API_KEY];
+  const keys = values.map(function (value) { return String(value || '').trim(); }).filter(Boolean);
+  return [...new Set(keys)];
+}
+
+function pickSenseNovaKeyIndex(keys) {
+  if (keys.length <= 1) return 0;
+  const random = new Uint32Array(1);
+  crypto.getRandomValues(random);
+  return random[0] % keys.length;
+}
+
+async function requestSenseNovaImage(origin, env, payload) {
+  const keys = getSenseNovaApiKeys(env);
+  if (!keys.length) {
+    return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
+  }
+
+  // Worker isolates do not share module state, so use random rotation instead of a shared cursor.
+  const startIndex = pickSenseNovaKeyIndex(keys);
+  let upstream = null;
+  let result = null;
+
+  for (let attempt = 0; attempt < keys.length; attempt++) {
+    const apiKey = keys[(startIndex + attempt) % keys.length];
+    const endpoint = (env.SN_IMAGE_GEN_BASE_URL || 'https://token.sensenova.cn/v1') + '/images/generations';
+    upstream = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + apiKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).catch(function () { return null; });
+    result = upstream ? await upstream.json().catch(function () { return null; }) : null;
+
+    if (upstream && upstream.ok && result) {
+      const imageUrl = result.data && result.data[0] && result.data[0].url;
+      if (imageUrl) return jsonResponse(origin, { url: imageUrl });
+      return jsonResponse(origin, { error: 'The model returned no image URL.' }, 502);
+    }
+
+    const retryable = !upstream || [401, 403, 408, 429, 500, 502, 503, 504].includes(upstream.status);
+    if (!retryable || attempt === keys.length - 1) break;
+  }
+
+  const detail = result && result.error && (result.error.message || result.error.code);
+  const status = upstream ? (upstream.status === 401 || upstream.status === 403 ? 502 : upstream.status) : 502;
+  return jsonResponse(origin, { error: detail || ('Image service returned HTTP ' + status + '.') }, status);
+}
+
 /* ---- session tokens (HS256, mirrors geoscore-payments) ---- */
 
 function base64Url(value) {
@@ -284,9 +336,6 @@ export default {
     if (!ALLOWED_SIZES.has(size)) {
       return jsonResponse(origin, { error: 'Unsupported image size.' }, 400);
     }
-    if (!env.SN_API_KEY) {
-      return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
-    }
 
     const quota = await reservePhotoGlobalQuota(origin, env);
     if (quota) return quota;
@@ -301,33 +350,7 @@ export default {
     };
     if (seed !== undefined) payload.seed = seed;
 
-    const endpoint = (env.SN_IMAGE_GEN_BASE_URL || 'https://token.sensenova.cn/v1') +
-      '/images/generations';
-    const upstream = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + env.SN_API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    });
-    const result = await upstream.json().catch(() => null);
-
-    if (!upstream.ok || !result) {
-      const detail = result && result.error && (result.error.message || result.error.code);
-      return jsonResponse(
-        origin,
-        { error: detail || ('Image service returned HTTP ' + upstream.status + '.') },
-        upstream.status === 401 || upstream.status === 403 ? 502 : upstream.status
-      );
-    }
-
-    const imageUrl = result.data && result.data[0] && result.data[0].url;
-    if (!imageUrl) {
-      return jsonResponse(origin, { error: 'The model returned no image URL.' }, 502);
-    }
-
-    return jsonResponse(origin, { url: imageUrl });
+    return requestSenseNovaImage(origin, env, payload);
   }
 };
 /* ---- Image editing (img2img via SenseNova U1.5 Lite) ---- */
@@ -378,9 +401,6 @@ async function handleEdit(request, env, origin) {
   if (size !== undefined && !ALLOWED_SIZES.has(size)) {
     return jsonResponse(origin, { error: 'Unsupported image size.' }, 400);
   }
-  if (!env.SN_API_KEY) {
-    return jsonResponse(origin, { error: 'Image service is not configured.' }, 500);
-  }
 
   const quota = await reservePhotoGlobalQuota(origin, env);
   if (quota) return quota;
@@ -396,28 +416,7 @@ async function handleEdit(request, env, origin) {
   if (size !== undefined) payload.size = size;
   if (Number.isInteger(input.seed)) payload.seed = input.seed;
 
-  const endpoint = (env.SN_IMAGE_GEN_BASE_URL || 'https://token.sensenova.cn/v1') + '/images/generations';
-  const upstream = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer ' + env.SN_API_KEY,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  });
-  const result = await upstream.json().catch(function () { return null; });
-
-  if (!upstream.ok || !result) {
-    const detail = result && result.error && (result.error.message || result.error.code);
-    return jsonResponse(origin, { error: detail || ('Image service returned HTTP ' + upstream.status + '.') }, upstream.status === 401 || upstream.status === 403 ? 502 : upstream.status);
-  }
-
-  const imageUrl = result.data && result.data[0] && result.data[0].url;
-  if (!imageUrl) {
-    return jsonResponse(origin, { error: 'The model returned no image URL.' }, 502);
-  }
-
-  return jsonResponse(origin, { url: imageUrl });
+  return requestSenseNovaImage(origin, env, payload);
 }
 
 /* ---- Google sign-in ---- */

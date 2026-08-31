@@ -187,3 +187,11 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Live proxy validation: POST `/generate` with `{}` returned HTTP 400 (`Prompt must be 1-1000 characters.`); POST `/edit` with `{}` returned HTTP 400 (`Provide a data URL or https image.`). No global quota was reserved.
 - Static commits: `c649395` for calculator analytics debounce and `10896a3` for Worker hardening; both pushed to main.
 - Known limits: KV overshoot is tolerated by design; in-memory per-user/IP counters are approximate after Worker restart; there is no automated Worker test harness yet.
+
+## 2026-08-31 — SenseNova key rotation
+
+- Added randomized three-key rotation for SenseNova image calls. The Worker now prefers `SN_API_KEY_1`, `SN_API_KEY_2`, and `SN_API_KEY_3`; the legacy `SN_API_KEY` remains compatible and is treated as an additional fallback only when distinct.
+- If the selected key returns auth, rate-limit, timeout, or upstream-server errors, the request retries the next configured key once per remaining key. Random rotation is used because Worker isolates do not share a strict in-memory cursor.
+- Deployed Worker version: `0d571545-2984-40e3-bf19-6387a7b17b6b`.
+- Validation: `node --check` passed; Wrangler dry-run passed; live `/generate` returned HTTP 200 with a valid image URL.
+- Pending configuration: only legacy `SN_API_KEY` is currently configured. Set `SN_API_KEY_1/2/3` to enable three-key rotation; duplicate values are ignored.
