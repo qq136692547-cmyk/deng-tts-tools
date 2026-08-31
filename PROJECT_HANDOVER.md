@@ -190,6 +190,13 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 
 ## 2026-08-31 — SenseNova key rotation
 
+## 2026-08-31 — Blog round 1 (TTCalc)
+
+- Added `blog/free-ai-product-photos-2026/` as a conversion-focused workflow article for the existing product photo generator. It documents the 5/day anonymous and 20/day signed-in quotas, truthful base-photo workflow, prompt patterns, aspect ratios, and a listing checklist.
+- Updated three high-priority evergreen guides (`tiktok-shop-fees-2026`, `tiktok-shop-shipping-costs-2026`, `tiktok-shop-vs-amazon-fba-2026`) with current verification dates, useful notes, and internal links to the photo workflow.
+- Synced `blog/index.html`, `sitemap.xml`, `llms.txt`, and `ai/summary.json`; corrected the AI-facing site summary from “no signup, no tracking” to an accurate statement about optional sign-in, analytics, and ads.
+- Validation: JSON syntax passed, git diff check passed, GitHub Pages build for commit `dba838a` succeeded, and the live new blog URL returned HTTP 200.
+
 - Added randomized three-key rotation for SenseNova image calls. The Worker now prefers `SN_API_KEY_1`, `SN_API_KEY_2`, and `SN_API_KEY_3`; the legacy `SN_API_KEY` remains compatible and is treated as an additional fallback only when distinct.
 - If the selected key returns auth, rate-limit, timeout, or upstream-server errors, the request retries the next configured key once per remaining key. Random rotation is used because Worker isolates do not share a strict in-memory cursor.
 - Deployed Worker version: `0d571545-2984-40e3-bf19-6387a7b17b6b`.
