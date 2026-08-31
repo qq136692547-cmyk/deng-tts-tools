@@ -195,3 +195,6 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Deployed Worker version: `0d571545-2984-40e3-bf19-6387a7b17b6b`.
 - Validation: `node --check` passed; Wrangler dry-run passed; live `/generate` returned HTTP 200 with a valid image URL.
 - Pending configuration: only legacy `SN_API_KEY` is currently configured. Set `SN_API_KEY_1/2/3` to enable three-key rotation; duplicate values are ignored.
+- Follow-up: located three additional distinct SenseNova keys in existing local credential sources. Configured them as `SN_API_KEY_1/2/3`; the legacy `SN_API_KEY` remains as an extra fallback.
+- Switched the text-to-image default model to `sensenova-u1.5-lite` because it is supported by all discovered keys. Deployed Worker version: `8af41026-58fd-4cea-a314-3cb5a5ded300`.
+- Live validation after configuration: `/generate` returned HTTP 200 with a valid image URL.

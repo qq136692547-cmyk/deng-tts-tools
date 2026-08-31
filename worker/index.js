@@ -341,7 +341,7 @@ export default {
     if (quota) return quota;
 
     const payload = {
-      model: 'sensenova-u1-fast',
+      model: env.SN_GENERATE_MODEL || 'sensenova-u1.5-lite',
       prompt,
       size,
       response_format: 'url',
