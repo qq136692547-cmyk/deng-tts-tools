@@ -189,6 +189,12 @@
           </div>
 
           <div class="calc-field">
+            <label for="returnHandlingFee" data-i18n="calc.returnHandling">FBT return handling (per returned unit)</label>
+            <input type="number" id="returnHandlingFee" value="0.70" step="0.01" min="0" />
+            <div class="hint" data-i18n="calc.returnHandlingHint">$0.70 non-inspection or $1.00 inspection. Set 0 if not using FBT returns.</div>
+          </div>
+
+          <div class="calc-field">
             <label for="shippingCharged" data-i18n="calc.shipping">Shipping charged to buyer</label>
             <input type="number" id="shippingCharged" value="0" step="0.01" min="0" />
             <div class="hint">Set 0 if "free shipping" is baked into price</div>
@@ -214,12 +220,13 @@
           <div class="calc-result-row"><span class="lbl">&#8722; Creator commission</span><span class="val" id="r_creator">-$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">= TikTok payout</span><span class="val" id="r_payout">$24.69</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Refund admin fee</span><span class="val" id="r_refund_admin">-$0.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="r.returnHandling">&#8722; FBT return handling</span><span class="val" id="r_return_handling">-$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Return cost</span><span class="val" id="r_return_cost">-$0.00</span></div>
           <div class="calc-result-row group-end"><span class="lbl">= Net after returns</span><span class="val" id="r_net_after_returns">$0.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Total TikTok take</span><span class="val" id="r_total_fee">$6.62 (22.1%)</span></div>
 
           <p class="source-note">
-            Source: TikTok Shop Seller Center 2026 docs and third-party reports. Refund admin fee is an estimate (20% of referral, capped at $5). Does not include ad spend, FBT storage fees, inbound shipping, or removal/disposal fees. Real fees vary by region, category, and seller status.
+            Source: TikTok Shop Seller Center 2026 docs. FBT return handling starts at $0.70 per returned unit for non-inspection service ($1.00 with inspection). Refund admin fee is an estimate (20% of referral, capped at $5). Does not include ad spend, FBT storage fees, inbound shipping, or disposal fees. Real fees vary by region, category, and seller status.
           </p>
         </section>
       </div>

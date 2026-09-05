@@ -27,6 +27,7 @@
     var adsAmz = num(get('adsAmz').value) / 100;
     var adsTts = num(get('adsTts').value) / 100;
     var returnRate = num(get('returnRate').value) / 100;
+    var returnHandlingFee = num(get('returnHandlingFee').value);
     var fbtTier = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (incl. multi-item, rate card Jul 13 2026)
     var amzFuelPct = num(get('amzFuelPct').value);
     var catSel = get('category');
@@ -57,6 +58,7 @@
 
     var ttsReturnCost = sale * nonResellableRate;
     var ttsReturnFee  = ttsRefundAdmin * returnRate;
+    var ttsReturnFee  = ttsRefundAdmin * returnRate + returnHandlingFee * returnRate;
     var amzReturnCost = sale * nonResellableRate;
     var amzReturnFee  = amzRefundAdmin * returnRate;
 
@@ -79,7 +81,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','fbtTier','fbtUnits','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
+    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','returnHandlingFee','fbtTier','fbtUnits','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
         calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-vs-amazon');

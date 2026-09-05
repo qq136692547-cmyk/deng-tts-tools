@@ -205,3 +205,12 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Follow-up: located three additional distinct SenseNova keys in existing local credential sources. Configured them as `SN_API_KEY_1/2/3`; the legacy `SN_API_KEY` remains as an extra fallback.
 - Switched the text-to-image default model to `sensenova-u1.5-lite` because it is supported by all discovered keys. Deployed Worker version: `8af41026-58fd-4cea-a314-3cb5a5ded300`.
 - Live validation after configuration: `/generate` returned HTTP 200 with a valid image URL.
+
+## 2026-09-05 — Fee data refresh: FBT return handling, SIOC, bulky support
+
+- Rechecked the official TikTok Shop Seller Center FBT Rate Card and updated `data/tiktok-shop-2026.json` to version `2026.09` / `2026-09-05`.
+- Added the June 1, 2026 itemized FBT customer return handling fees (`$0.70` non-inspection, `$1.00` inspection, restocking, repackaging, disposal), the May 15 SIOC discount tiers, optional VAS fees, and the July 13 50–150 lb bulky-support record.
+- Added an editable `FBT return handling (per returned unit)` input to all four calculators and wired it into fee, profit, ROAS, and TikTok-vs-Amazon results.
+- Updated `rate-updates/` with a June 1 return-handling section, SIOC/heavy-bulky notes, fresh meta/JSON-LD dates, and baseline fee rows.
+- Validation: `node --check` passed for all four calculator scripts and translations; JSON parse passed; `git diff --check` passed.
+- Rollback: revert the single static commit; no Worker or backend secrets were changed.

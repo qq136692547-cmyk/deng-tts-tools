@@ -8,6 +8,7 @@
     var sale = num(get('sale').value);
     var cogs = num(get('cogs').value);
     var returnRate = num(get('returnRate').value) / 100;
+    var returnHandlingFee = num(get('returnHandlingFee').value);
     var catSel = get('category');
     var referralRate = catSel ? parseFloat(catSel.value) : 6;
     var creatorPct = num(get('creator').value) / 100;
@@ -25,6 +26,7 @@
 
     // Return impact: 20% of referral fee (capped $5) + product cost on returned units
     var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate;
+    var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate + returnHandlingFee * returnRate;
 
     var preAdProfit = sale - platformFees - cogs - returnImpact;
     var preAdMargin = sale > 0 ? (preAdProfit / sale) * 100 : 0;
@@ -63,7 +65,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','category','fbtTier','fbtUnits','returnRate','creator','roas','monthlyUnits'].forEach(function (id) {
+    ['sale','cogs','category','fbtTier','fbtUnits','returnRate','returnHandlingFee','creator','roas','monthlyUnits'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
         calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-roas');

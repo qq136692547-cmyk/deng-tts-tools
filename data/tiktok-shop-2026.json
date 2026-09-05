@@ -1,7 +1,7 @@
 {
-    "version": "2026.08",
-    "source": "TikTok Shop Seller Center FBT rate card (effective Jul 13 2026), verified 2026-08-21. Fees evolve frequently - verify before pricing decisions.",
-    "lastUpdated": "2026-08-21",
+    "version": "2026.09",
+    "source": "TikTok Shop Seller Center FBT rate card (effective Jul 13 2026), rechecked 2026-09-05. Fees evolve frequently - verify before pricing decisions.",
+    "lastUpdated": "2026-09-05",
     "baseCommission": {
         "default": 0.06,
         "byCategory": {
@@ -279,11 +279,47 @@
         "appliesTo": "Amazon FBA fulfillment fees",
         "note": "3.5% fuel and logistics surcharge added to FBA fulfillment fees effective Apr 17, 2026."
     },
-    "refundAdminFee": {
-        "rate": 0.2,
-        "cap": 5,
-        "appliesTo": "Original referral fee",
-        "note": "20% of referral fee, capped at $5 per SKU."
+    "customerReturnHandling": {
+        "effective": "2026-06-01",
+        "appliesTo": "FBT customer returns processed on or after June 1, 2026",
+        "previousFlatFee": 3.00,
+        "feesPerUnit": {
+            "returnHandlingNonInspection": 0.70,
+            "returnHandlingInspection": 1.00,
+            "restocking": 1.00,
+            "repackaging": 0.50
+        },
+        "disposalPerUnit": 0.40,
+        "note": "The applied fee depends on the return service selected and the final disposition. Disposal applies only to non-hazardous products. Return-to-merchant shipping is calculated after packing."
+    },
+    "siocDiscount": {
+        "effective": "2026-05-15",
+        "appliesTo": "Single-unit FBT orders with certified seller packaging",
+        "tiers": [
+            { "weight": "<=4 oz", "discountPerUnit": 0.10 },
+            { "weight": "4+ to 8 oz", "discountPerUnit": 0.20 },
+            { "weight": "8+ to 12 oz", "discountPerUnit": 0.20 },
+            { "weight": "12+ to 16 oz", "discountPerUnit": 0.20 },
+            { "weight": "1+ to 2 lb", "discountPerUnit": 0.25 },
+            { "weight": "2+ to 3 lb", "discountPerUnit": 0.30 },
+            { "weight": "3+ to 4 lb", "discountPerUnit": 0.40 },
+            { "weight": "4+ to 5 lb", "discountPerUnit": 0.45 },
+            { "weight": "5+ to 15 lb", "discountPerUnit": 0.50 },
+            { "weight": "15+ to 50 lb", "discountPerUnit": 0.80 }
+        ],
+        "note": "Effective July 13, 2026, longest-side eligibility extends to below 32 inches. Not applied to multi-unit orders or Heavy Bulky products."
+    },
+    "valueAddedServices": {
+        "kittingPerUnit": 1.00,
+        "deKittingPerUnit": 1.00,
+        "goodsIdMergeOrTransferPerUnit": 1.00,
+        "note": "Optional fees, applied only when the seller requests the service."
+    },
+    "heavyBulky": {
+        "effective": "2026-07-13",
+        "supportedWeight": "50-150 lb",
+        "maxSideInches": 108,
+        "note": "Official rate card extended beyond 50 lb. Calculators currently cover 4 oz-16 lb tiers."
     },
     "crossBorderAdditionalFee": 0.01,
     "creatorCommission": {

@@ -11,6 +11,7 @@
     var creatorPct = num(get('creator').value) / 100;
     var adsPct     = num(get('ads').value) / 100;
     var returnRate = num(get('returnRate').value) / 100;
+    var returnHandlingFee = num(get('returnHandlingFee').value);
     var monthlyUnits = num(get('monthlyUnits').value);
     var catSel = get('category');
     var referralRate = catSel ? parseFloat(catSel.value) : 6;
@@ -35,7 +36,8 @@
     var nonResellableRate = returnRate * (1 - resellRate);
     var returnCost  = sale * nonResellableRate;    // lost product cost (non-resellable only)
     var returnFee   = refundAdmin * returnRate;     // admin fee applies to all returns
-    var effectiveProfit = profit - returnCost - returnFee;
+    var returnHandling = returnHandlingFee * returnRate; // FBT customer return handling applies per returned unit
+    var effectiveProfit = profit - returnCost - returnFee - returnHandling;
 
     // Monthly view
     var monthlyProfit = effectiveProfit * monthlyUnits;
@@ -45,7 +47,7 @@
     // ROI / margin
     var margin = sale > 0 ? (effectiveProfit / sale) * 100 : 0;
     // ROI on direct costs (COGS + ship + inbound + ads + returns)
-    var directCosts = cogs + ship + inboundShip + ads + returnCost + returnFee;
+    var directCosts = cogs + ship + inboundShip + ads + returnCost + returnFee + returnHandling;
     var roiDirect = directCosts > 0 ? (effectiveProfit / directCosts) * 100 : 0;
     // ROI on all costs (direct + platform fees + storage)
     var allCosts = directCosts + ttsFees + creator + storageFee;
@@ -69,6 +71,7 @@
     if (rAll)    rAll.textContent    = roiAll.toFixed(1) + '%';
     get('r_return_cost').textContent        = '-' + fmt(returnCost);
     get('r_return_fee').textContent         = '-' + fmt(returnFee);
+    get('r_return_handling').textContent    = '-' + fmt(returnHandling);
     get('r_eff_profit').textContent         = fmt(effectiveProfit);
     get('r_monthly_revenue').textContent    = fmt(monthlyRevenue);
     get('r_monthly_profit').textContent     = fmt(monthlyProfit);
@@ -76,7 +79,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','ship','category','creator','ads','returnRate','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
+    ['sale','cogs','ship','category','creator','ads','returnRate','returnHandlingFee','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
         calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-profit');

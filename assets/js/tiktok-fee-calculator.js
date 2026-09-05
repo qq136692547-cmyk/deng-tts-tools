@@ -9,6 +9,7 @@
     var creatorRate = num($id('creatorRate').value) / 100;
     var ship   = num($id('shippingCharged').value);
     var returnRate = num($id('returnRate').value) / 100;
+    var returnHandlingFee = num($id('returnHandlingFee').value);
     var catSel = $id('category');
     var referralRate = catSel ? parseFloat(catSel.value) : 6;
     var resellRate = num($id('resellRate').value) / 100;
@@ -32,7 +33,8 @@
     var nonResellableRate = returnRate * (1 - resellRate);
     var returnCost  = price * nonResellableRate;   // lost product cost (non-resellable only)
     var returnFee   = refundAdmin * returnRate;     // admin fee applies to all returns
-    var netAfterReturns = payout - returnCost - returnFee;
+    var returnHandling = returnHandlingFee * returnRate; // FBT customer return handling applies per returned unit
+    var netAfterReturns = payout - returnCost - returnFee - returnHandling;
     var netPct = total > 0 ? ((netAfterReturns) / total) * 100 : 0;
 
     $id('r_total').textContent              = fmt(total);
@@ -44,12 +46,13 @@
     $id('r_payout').textContent             = fmt(payout);
     $id('r_total_fee').textContent          = fmt(platformFees) + ' (' + pct.toFixed(1) + '%)';
     $id('r_refund_admin').textContent       = '-' + fmt(returnFee);
+    $id('r_return_handling').textContent    = '-' + fmt(returnHandling);
     $id('r_return_cost').textContent        = '-' + fmt(returnCost);
     $id('r_net_after_returns').textContent  = fmt(netAfterReturns) + ' (' + netPct.toFixed(1) + '%)';
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['salePrice','category','creatorRate','shippingCharged','returnRate','fbtTier','fbtUnits','resellRate'].forEach(function (id) {
+    ['salePrice','category','creatorRate','shippingCharged','returnRate','returnHandlingFee','fbtTier','fbtUnits','resellRate'].forEach(function (id) {
       var el = $id(id); if (el) el.addEventListener('input', function () {
         calculate();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-fee');
