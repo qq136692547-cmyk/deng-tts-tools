@@ -214,3 +214,6 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Updated `rate-updates/` with a June 1 return-handling section, SIOC/heavy-bulky notes, fresh meta/JSON-LD dates, and baseline fee rows.
 - Validation: `node --check` passed for all four calculator scripts and translations; JSON parse passed; `git diff --check` passed.
 - Rollback: revert the single static commit; no Worker or backend secrets were changed.
+- Subagent review: found duplicate `returnImpact` / `ttsReturnFee` declarations, missing `refundAdminFee` in JSON, missing Return-to-Merchant fee, and a static default display mismatch.
+- Fixed review items: removed duplicate declarations, restored `refundAdminFee` with an estimate-only note, added `returnToMerchantPerUnit: 0.35`, updated rate-updates table, and corrected the profit page default to `-$0.03`.
+- Re-validation: all five JS files pass `node --check`; JSON parses and exposes `refundAdminFee.rate = 0.2`, `returnToMerchantPerUnit = 0.35`, `returnHandlingNonInspection = 0.7`.

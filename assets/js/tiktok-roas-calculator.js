@@ -25,7 +25,8 @@
     var platformFees = referral + fbt + txn + creator;
 
     // Return impact: 20% of referral fee (capped $5) + product cost on returned units
-    var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate;
+    // Return impact: 20% of referral fee (capped $5) + product cost on returned units + FBT return handling
+    var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate + returnHandlingFee * returnRate;
     var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate + returnHandlingFee * returnRate;
 
     var preAdProfit = sale - platformFees - cogs - returnImpact;

@@ -279,6 +279,12 @@
         "appliesTo": "Amazon FBA fulfillment fees",
         "note": "3.5% fuel and logistics surcharge added to FBA fulfillment fees effective Apr 17, 2026."
     },
+    "refundAdminFee": {
+        "rate": 0.2,
+        "cap": 5,
+        "appliesTo": "Original referral fee",
+        "note": "Estimate only; 20% of referral fee, capped at $5 per SKU. Confirm against Seller Center billing before relying on this for pricing decisions."
+    },
     "customerReturnHandling": {
         "effective": "2026-06-01",
         "appliesTo": "FBT customer returns processed on or after June 1, 2026",
@@ -290,6 +296,7 @@
             "repackaging": 0.50
         },
         "disposalPerUnit": 0.40,
+        "returnToMerchantPerUnit": 0.35,
         "note": "The applied fee depends on the return service selected and the final disposition. Disposal applies only to non-hazardous products. Return-to-merchant shipping is calculated after packing."
     },
     "siocDiscount": {

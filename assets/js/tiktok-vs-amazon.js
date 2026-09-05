@@ -57,7 +57,8 @@
     var amzRefundAdmin = Math.min(amzReferral * 0.20, 5.00);
 
     var ttsReturnCost = sale * nonResellableRate;
-    var ttsReturnFee  = ttsRefundAdmin * returnRate;
+    // TikTok return handling stacks with the estimated refund admin fee on returned units.
+    var ttsReturnFee  = ttsRefundAdmin * returnRate + returnHandlingFee * returnRate;
     var ttsReturnFee  = ttsRefundAdmin * returnRate + returnHandlingFee * returnRate;
     var amzReturnCost = sale * nonResellableRate;
     var amzReturnFee  = amzRefundAdmin * returnRate;
