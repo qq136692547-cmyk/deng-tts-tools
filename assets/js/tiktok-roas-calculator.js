@@ -27,7 +27,6 @@
     // Return impact: 20% of referral fee (capped $5) + product cost on returned units
     // Return impact: 20% of referral fee (capped $5) + product cost on returned units + FBT return handling
     var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate + returnHandlingFee * returnRate;
-    var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate + returnHandlingFee * returnRate;
 
     var preAdProfit = sale - platformFees - cogs - returnImpact;
     var preAdMargin = sale > 0 ? (preAdProfit / sale) * 100 : 0;

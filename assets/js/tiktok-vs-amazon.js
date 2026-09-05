@@ -59,7 +59,6 @@
     var ttsReturnCost = sale * nonResellableRate;
     // TikTok return handling stacks with the estimated refund admin fee on returned units.
     var ttsReturnFee  = ttsRefundAdmin * returnRate + returnHandlingFee * returnRate;
-    var ttsReturnFee  = ttsRefundAdmin * returnRate + returnHandlingFee * returnRate;
     var amzReturnCost = sale * nonResellableRate;
     var amzReturnFee  = amzRefundAdmin * returnRate;
 
