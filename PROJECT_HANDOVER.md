@@ -217,3 +217,14 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 - Subagent review: found duplicate `returnImpact` / `ttsReturnFee` declarations, missing `refundAdminFee` in JSON, missing Return-to-Merchant fee, and a static default display mismatch.
 - Fixed review items: removed duplicate declarations, restored `refundAdminFee` with an estimate-only note, added `returnToMerchantPerUnit: 0.35`, updated rate-updates table, and corrected the profit page default to `-$0.03`.
 - Re-validation: all five JS files pass `node --check`; JSON parses and exposes `refundAdminFee.rate = 0.2`, `returnToMerchantPerUnit = 0.35`, `returnHandlingNonInspection = 0.7`.
+
+### 2026-09-09 博客更新与登录系统纯化 (Google OAuth 极速秒登)
+- **TTCalc (deng-tts-tools)**:
+  - 更新 4 篇费率相关博文（eturn-rates-cost-2026、profit-calculator-guide、ees-2026、shipping-costs-2026），统一 6 月 1 日 FBT 按件退货费率口径（$0.70 / .00 / .50 / .40 / .35）并修正关联成本示例。
+  - 同步更新 log/index.html 摘要与修订日期、sitemap.xml 和 llms.txt。
+  - 提交: 67a1fb5 docs: refresh fee-related blog posts for June 1 return handling。
+- **GeoScore**:
+  - 新增产品更新博文 src/pages/blog/geoscore-update-multi-page-security.astro，详述多页深度扫描、HTTP 响应头 HSTS/CSP 检测与中文站 8 项适配优化。
+  - 同步更新中英文博客列表卡片、public/sitemap.xml 与 public/llms.txt。
+  - **登录体系精简重构**: 去除邮件验证码及发信依赖（Resend 域名限制与发信额度成本），将前端全面纯化为 **Google OAuth 一键秒登**，体验清爽极速且完全免费。
+  - 提交: ccca344 feat(auth): streamline authentication to pure Google OAuth SSO。
