@@ -38,6 +38,41 @@
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
   }
   </script>
+
+  <style>
+    .compliance-warning-box {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: rgba(234, 179, 8, 0.12);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      border-radius: 6px;
+      color: #b45309;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    .compliance-badge {
+      font-weight: 600;
+      color: #92400e;
+      margin-right: 4px;
+    }
+    .compliance-toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+      color: var(--text-muted, #64748b);
+      cursor: pointer;
+      user-select: none;
+    }
+    .compliance-toggle-wrap input[type="checkbox"] {
+      accent-color: #0f766e;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+  </style>
+  
 </head>
 <body class="tool-calc">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -76,6 +111,11 @@
           <div class="calc-field">
             <label for="productPrompt" data-i18n="photo.prompt">Product description</label>
             <textarea id="productPrompt" rows="4" required data-i18n-placeholder="photo.promptPlaceholder" placeholder="Example: matte ceramic mug, sage green, bamboo lid, 12 oz"></textarea>
+            <div id="complianceWarning" class="compliance-warning-box" hidden></div>
+            <label class="compliance-toggle-wrap">
+              <input type="checkbox" id="compliantCleanMode" checked />
+              <span data-i18n="photo.cleanMode">Clean Listing Mode (Auto-filter random AI text & watermarks for TikTok policy compliance)</span>
+            </label>
           </div>
 
           <div class="calc-field photo-upload-field">
@@ -221,7 +261,7 @@
   </p>
 </footer>
 
-<script src="/assets/js/tiktok-product-photo.js?v=20260914-u15lite"></script>
+<script src="/assets/js/tiktok-product-photo.js?v=20260914-qc-clean"></script>
 <script src="/assets/js/translations.js"></script>
 <script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/ux.js"></script>

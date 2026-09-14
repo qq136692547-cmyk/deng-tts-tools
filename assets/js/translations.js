@@ -156,6 +156,7 @@ window.TTCALC_I18N = {
     'photo.title': 'TikTok Shop商品图生成器',
     'photo.subtitle': '输入商品描述，或上传产品图换背景/场景，选择比例后生成上架可用图片。无需 API Key 也可使用免费额度。',
     'photo.setup': '生成设置',
+    'photo.cleanMode': '合规免审模式（自动过滤 AI 乱码文字与水印，符合 TikTok Shop 主图规范）',
     'photo.prompt': '产品描述',
     'photo.promptPlaceholder': '示例：哑光陶瓷马克杯，鼠尾草绿，竹盖，12盎司',
     'photo.scene': '场景',

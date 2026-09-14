@@ -477,10 +477,16 @@
     var size = sizes[ratioSelect.value] || sizes.square;
     var count = Math.max(1, Math.min(4, parseInt(countSelect.value, 10) || 1));
     var prompt;
+    var complianceNotice = document.getElementById('complianceWarning');
+    var isCompliantMode = document.getElementById('compliantCleanMode') ? document.getElementById('compliantCleanMode').checked : true;
+    var negativeAddon = isCompliantMode 
+      ? ' Clean product focus, completely seamless uncluttered background, no artificial text overlays, no promotional badges, no gibberish typography, no random words, no watermark, no border.' 
+      : ' No watermarks, no logos, no extra text.';
+
     if (sourceImage) {
-      prompt = 'Replace the background and scene: ' + scene + '. User instructions: ' + product + '. Keep the original product exactly unchanged, including shape, materials, colors, labels, and any text. No watermarks, no logos, no extra text.';
+      prompt = 'Replace the background and scene: ' + scene + '. User instructions: ' + product + '. Keep the original product exactly unchanged, including shape, materials, colors, labels, and any existing text.' + negativeAddon;
     } else {
-      prompt = product + '. ' + scene + '. No watermarks, no logos, no extra text.';
+      prompt = product + '. ' + scene + '.' + negativeAddon;
     }
 
     generateBtn.disabled = true;
