@@ -9,7 +9,7 @@
   var DEFAULT_ENDPOINT = 'https://token.sensenova.cn/v1/images/generations';
   var FREE_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/generate';
   var FREE_EDIT_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/edit';
-  var DEFAULT_MODEL = 'sensenova-u1-fast';
+  var DEFAULT_MODEL = 'sensenova-u1.5-lite';
 
   var form = document.getElementById('photoForm');
   var translations = window.TTCALC_I18N || {};
