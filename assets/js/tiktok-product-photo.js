@@ -16,6 +16,44 @@
   var productInput = document.getElementById('productPrompt');
   var sceneSelect = document.getElementById('scenePreset');
   var ratioSelect = document.getElementById('ratioPreset');
+
+  // Real-time TikTok Shop Policy Compliance Check
+  var FORBIDDEN_CLAIMS = [
+    { pattern: /\b(best\s*seller|no\.?\s*1|#\s*1|top\s*seller)\b/i, tipEn: 'TikTok Shop prohibits claiming "#1" or "Best Seller" on product cover images.', tipZh: 'TikTok Shop 规则禁止在主图宣传“#1”或“销量第一/Best Seller”等绝对化用语。' },
+    { pattern: /\b(free\s*shipping|free\s*gift|buy\s*1\s*get\s*1|bogo|50%\s*off|discount|sale)\b/i, tipEn: 'Promotional text (Free Shipping, % off, Sale) violates TikTok Shop main image guidelines.', tipZh: '主图添加促销文字（免邮/打折/促销售价）易被平台算法判定违规拒审。' },
+    { pattern: /\b(100%\s*guaranteed|money\s*back|cure|fda\s*approved|miracle)\b/i, tipEn: 'Medical, curative, or 100% guarantee claims are strictly flagged by TikTok Shop policy.', tipZh: '禁止在商品图中包含绝对功效宣称、100%保真或医疗保证等承诺词。' }
+  ];
+
+  function checkCompliance(text) {
+    var warningEl = document.getElementById('complianceWarning');
+    if (!warningEl) return;
+    if (!text || !text.trim()) {
+      warningEl.hidden = true;
+      warningEl.innerHTML = '';
+      return;
+    }
+    var matched = [];
+    var isZh = document.documentElement.lang === 'zh' || (window.localStorage && localStorage.getItem('ttcalc_lang') === 'zh');
+    for (var i = 0; i < FORBIDDEN_CLAIMS.length; i++) {
+      if (FORBIDDEN_CLAIMS[i].pattern.test(text)) {
+        matched.push(isZh ? FORBIDDEN_CLAIMS[i].tipZh : FORBIDDEN_CLAIMS[i].tipEn);
+      }
+    }
+    if (matched.length > 0) {
+      warningEl.innerHTML = '<span class="compliance-badge">⚠️ ' + (isZh ? 'TikTok 主图合规提示：' : 'TikTok Policy Tip:') + '</span>' + matched.join(' ');
+      warningEl.hidden = false;
+    } else {
+      warningEl.hidden = true;
+      warningEl.innerHTML = '';
+    }
+  }
+
+  if (productInput) {
+    productInput.addEventListener('input', function() {
+      checkCompliance(this.value);
+    });
+  }
+
   var countSelect = document.getElementById('photoCount');
   var apiKeyInput = document.getElementById('apiKey');
   var saveKeyBtn = document.getElementById('saveKey');
