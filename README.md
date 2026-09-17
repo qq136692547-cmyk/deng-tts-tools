@@ -33,4 +33,4 @@ git push origin main
 
 ## License
 
-MIT
+MIT License. See [LICENSE](LICENSE).
