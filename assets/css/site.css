@@ -497,3 +497,10 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
   border-color: rgba(255,255,255,0.25);
 }
 @media (max-width: 640px) { .main-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .main-nav::-webkit-scrollbar { display: none; } .main-nav a { white-space: nowrap; } }
+
+/* Adsterra ad slots */
+.adsterra-slot { width: 100%; max-width: 100%; margin: 32px auto; text-align: center; }
+.adsterra-slot--top { margin-top: 0; }
+.adsterra-slot--bottom { margin-bottom: 0; }
+.adsterra-banner { max-width: 100%; overflow-x: auto; margin: 0 auto 24px; -webkit-overflow-scrolling: touch; }
+.adsterra-native { max-width: 100%; margin: 0 auto; }
