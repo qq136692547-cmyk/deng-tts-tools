@@ -23,6 +23,16 @@
   }
 
   function applyState(s, dispatch) {
+    // A product saved on another tool page uses that page's field names, so
+    // expand each synonym group before filling inputs. Groups live in ux.js.
+    var groups = window.TTCALC_CARRY_GROUPS || [];
+    groups.forEach(function (group) {
+      for (var i = 0; i < group.length; i++) {
+        if (s[group[i]] === undefined) continue;
+        for (var j = 0; j < group.length; j++) s[group[j]] = s[group[i]];
+        break;
+      }
+    });
     fieldEls().forEach(function (el) {
       if (s[el.id] !== undefined && el.value !== String(s[el.id])) {
         el.value = String(s[el.id]);
@@ -70,12 +80,21 @@
     return store;
   }
 
+  // Saved products are global: one product is visible on every tool page.
+  // Older records predate productId, so fall back to id.
+  function productId(p) { return p.productId || p.id; }
+
+  function fromLabel(page) {
+    var seg = String(page || '').split('/').pop().replace(/^tiktok-/, '');
+    if (!seg) return '';
+    return seg.replace(/[-_]/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
   function render() {
     var list = getEl('wsList');
     if (!list) return;
     var store = products();
-    var mine = [];
-    store.products.forEach(function (p) { if (p.page === PAGE) mine.push(p); });
+    var mine = store.products.slice();
     if (!mine.length) {
       list.innerHTML = '<span class="ws-empty">Save current inputs to pin a product. Your inputs also auto-save on this device.</span>';
       return;
@@ -85,8 +104,11 @@
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'ws-card';
-      btn.setAttribute('data-id', p.id);
-      btn.title = 'Load this product';
+      btn.setAttribute('data-id', productId(p));
+      var from = p.page && p.page !== PAGE ? fromLabel(p.page) : '';
+      btn.title = from
+        ? 'From ' + from + ' \u00b7 only matching fields load here'
+        : 'Load this product';
       var name = document.createElement('span');
       name.className = 'ws-name';
       name.textContent = p.name || defaultName(p.state);
@@ -117,14 +139,16 @@
     var store = products();
     var idx = -1;
     for (var i = 0; i < store.products.length; i++) {
-      if (store.products[i].page === PAGE && JSON.stringify(store.products[i].state) === JSON.stringify(state)) { idx = i; break; }
+      if (JSON.stringify(store.products[i].state) === JSON.stringify(state)) { idx = i; break; }
     }
     if (idx >= 0) {
       store.products[idx].savedAt = Date.now();
       if (name) store.products[idx].name = name;
     } else {
+      var pid = 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
       store.products.unshift({
-        id: 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
+        id: pid,
+        productId: pid,
         page: PAGE,
         name: name || defaultName(state),
         state: state,
@@ -142,7 +166,7 @@
   function loadProduct(id) {
     var store = products();
     var p = null;
-    store.products.forEach(function (x) { if (x.id === id && x.page === PAGE) p = x; });
+    store.products.forEach(function (x) { if (productId(x) === id) p = x; });
     if (!p) return;
     applyState(p.state, true);
     var nameInput = getEl('wsName');
@@ -152,7 +176,7 @@
   function removeProduct(id) {
     var store = products();
     var next = [];
-    store.products.forEach(function (x) { if (!(x.id === id && x.page === PAGE)) next.push(x); });
+    store.products.forEach(function (x) { if (productId(x) !== id) next.push(x); });
     store.products = next;
     saveStore(store);
     render();

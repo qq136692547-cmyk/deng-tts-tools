@@ -108,6 +108,55 @@
   }
 
   // ---- Cross-site funnel ----
+  // ---- Field names that mean the same thing on different tool pages ----
+  // Shared with workspace.js so saved products expand the same way links do.
+  // Allow-list only: anything not listed here is dropped, which keeps utm_*
+  // (used by crossSource) and the product-photo API key out of the next URL.
+  window.TTCALC_CARRY_GROUPS = [
+    ['salePrice', 'sale'],
+    ['creatorRate', 'creator'],
+    ['cogs'], ['category'], ['fbtTier'], ['fbtUnits'],
+    ['returnRate'], ['returnHandlingFee'], ['resellRate'],
+    ['ship'], ['shipAmz'], ['shipTts'],
+    ['ads'], ['adsAmz'], ['adsTts'],
+    ['roas'], ['monthlyUnits'], ['inboundShip'], ['storageFee'],
+    ['amzFulfillRate'], ['amzRefRate'], ['amzPlacement'], ['amzLowInv'], ['amzFuelPct']
+  ];
+  var CARRY_GROUPS = window.TTCALC_CARRY_GROUPS;
+
+  function carrySearch() {
+    var fromUrl = new URLSearchParams(location.search);
+    var out = new URLSearchParams();
+    CARRY_GROUPS.forEach(function (group) {
+      var value = null;
+      for (var i = 0; i < group.length; i++) {
+        var el = document.getElementById(group[i]);
+        if (el && el.value !== '') { value = el.value; break; }
+        if (fromUrl.get(group[i]) !== null) { value = fromUrl.get(group[i]); break; }
+      }
+      if (value === null) return;
+      group.forEach(function (name) { out.set(name, value); });
+    });
+    var qs = out.toString();
+    return qs ? '?' + qs : '';
+  }
+
+  function syncNextstepLinks() {
+    var nav = document.querySelector('.nextstep');
+    if (!nav) return;
+    var suffix = carrySearch();
+    nav.querySelectorAll('a.nextstep-card[href]').forEach(function (a) {
+      a.setAttribute('href', a.getAttribute('href').split('?')[0] + suffix);
+    });
+  }
+
+  // Refresh on click so a link reflects the inputs as they are at that moment.
+  document.addEventListener('click', function (event) {
+    var link = event.target && event.target.closest
+      ? event.target.closest('a.nextstep-card[href]') : null;
+    if (link) syncNextstepLinks();
+  }, true);
+
   function crossSource() {
     try {
       var params = new URLSearchParams(location.search);
@@ -155,6 +204,9 @@
     initCountUp();
     initScrollReveal();
     initFaqAccordion();
+    // Next frame: workspace.js loads after ux.js and fills inputs from the
+    // URL, so reading values synchronously here would capture the defaults.
+    requestAnimationFrame(syncNextstepLinks);
   }
 
   if (document.readyState === 'loading') {
