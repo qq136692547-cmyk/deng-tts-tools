@@ -228,3 +228,16 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
   - 同步更新中英文博客列表卡片、public/sitemap.xml 与 public/llms.txt。
   - **登录体系精简重构**: 去除邮件验证码及发信依赖（Resend 域名限制与发信额度成本），将前端全面纯化为 **Google OAuth 一键秒登**，体验清爽极速且完全免费。
   - 提交: ccca344 feat(auth): streamline authentication to pure Google OAuth SSO。
+
+## 2026-09-27 - Batch 0 decision: calculator state model (T4)
+
+- The Batch 0 worksheet proposed restructuring the saved-product store in
+  `assets/js/workspace.js` into `{ productId, states: { [PAGE]: state } }`.
+  Reviewed and deliberately not done: the existing `page` field plus
+  `store.last[PAGE]`, together with the "From <page> · only matching fields load
+  here" line in `render()`, already satisfies both requirements — products stay
+  visible across the whole site, and only the fields belonging to the current
+  tool page are loaded into it.
+- Revisit trigger: move to per-page state maps only once a real case exists where
+  the same product needs its own separate parameters on 2 or more tool pages.
+  Until then the current structure stands.
