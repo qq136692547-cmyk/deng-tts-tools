@@ -9,7 +9,8 @@
 # 另：文档说 "Redirects are always followed, regardless of whether or not an
 # asset matches the incoming request" —— 所以这些规则能覆盖真实存在的静态文件。
 
-# Worker 源码与配置：不应对外可读（无密钥，但没必要公开实现细节和 KV namespace id）
+# Worker 源码与配置：已移出本仓库（现位于 D:\Codex\projects\ttcalc-worker\）。
+# 规则保留作防御 —— 万一将来有人误加回站点仓库，线上仍不会暴露源码与 KV namespace id。
 /wrangler.toml      /404  301
 /worker/index.js    /404  301
 
