@@ -4,6 +4,9 @@
   var $id = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
+  // Single-line summary is the only live region; announcing the whole result
+  // block made screen readers repeat every row on each keystroke.
+  function announce(text) { var el = $id('calcSummary'); if (el) el.textContent = text; }
 
   function calculate() {
     var price  = num($id('salePrice').value);
@@ -50,6 +53,8 @@
     $id('r_return_handling').textContent    = '-' + fmt(returnHandling);
     $id('r_return_cost').textContent        = '-' + fmt(returnCost);
     $id('r_net_after_returns').textContent  = fmt(netAfterReturns) + ' (' + netPct.toFixed(1) + '%)';
+
+    announce('Total TikTok Shop fees ' + fmt(platformFees) + ' (' + pct.toFixed(1) + '%), payout ' + fmt(payout) + '.');
   }
 
   document.addEventListener('DOMContentLoaded', function () {

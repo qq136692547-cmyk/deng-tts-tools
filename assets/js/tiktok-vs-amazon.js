@@ -4,6 +4,9 @@
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
+  // Single-line summary is the only live region; announcing the whole result
+  // block made screen readers repeat every row on each keystroke.
+  function announce(text) { var el = get('calcSummary'); if (el) el.textContent = text; }
 
   function amazonFbaTotal(sale, fulfillment, refRate, placement, lowInv, fuelPct) {
     var referral = Math.max(sale * (refRate / 100), R.amazonMinReferralFee);
@@ -80,6 +83,8 @@
     var diff = Math.abs(amzProfit - ttsProfit);
     var winner = ttsProfit >= amzProfit ? 'TikTok Shop' : 'Amazon FBA';
     get('r_winner').textContent = winner + ' pays ' + fmt(diff) + ' more per unit';
+
+    announce(winner + ' pays ' + fmt(diff) + ' more per unit; TikTok net ' + fmt(ttsProfit) + ', Amazon net ' + fmt(amzProfit) + '.');
   }
 
   document.addEventListener('DOMContentLoaded', function () {

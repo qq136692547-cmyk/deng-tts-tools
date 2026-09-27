@@ -4,6 +4,9 @@
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
+  // Single-line summary is the only live region; announcing the whole result
+  // block made screen readers repeat every row on each keystroke.
+  function announce(text) { var el = get('calcSummary'); if (el) el.textContent = text; }
 
   function calc() {
     var sale = num(get('sale').value);
@@ -63,6 +66,8 @@
     else if (roas < beRoas) { status = 'Below break-even'; st.classList.remove('good'); st.classList.add('bad'); }
     else { status = 'At break-even'; st.classList.remove('good', 'bad'); }
     st.textContent = status;
+
+    announce('Net profit ' + fmt(netProfit) + ' (' + netMargin.toFixed(1) + '%), ' + status + '.');
   }
 
   document.addEventListener('DOMContentLoaded', function () {

@@ -4,6 +4,9 @@
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
+  // Single-line summary is the only live region; announcing the whole result
+  // block made screen readers repeat every row on each keystroke.
+  function announce(text) { var el = get('calcSummary'); if (el) el.textContent = text; }
 
   function calc() {
     var sale       = num(get('sale').value);
@@ -77,6 +80,8 @@
     get('r_monthly_revenue').textContent    = fmt(monthlyRevenue);
     get('r_monthly_profit').textContent     = fmt(monthlyProfit);
     get('r_monthly_returns').textContent    = monthlyReturns + ' units';
+
+    announce('Effective profit ' + fmt(effectiveProfit) + ', margin ' + margin.toFixed(1) + '%.');
   }
 
   document.addEventListener('DOMContentLoaded', function () {
