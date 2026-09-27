@@ -231,13 +231,4 @@ Free TikTok Shop seller tools —— 费用计算器、利润计算器、TikTok 
 
 ## 2026-09-27 - Batch 0 decision: calculator state model (T4)
 
-- The Batch 0 worksheet proposed restructuring the saved-product store in
-  `assets/js/workspace.js` into `{ productId, states: { [PAGE]: state } }`.
-  Reviewed and deliberately not done: the existing `page` field plus
-  `store.last[PAGE]`, together with the "From <page> · only matching fields load
-  here" line in `render()`, already satisfies both requirements — products stay
-  visible across the whole site, and only the fields belonging to the current
-  tool page are loaded into it.
-- Revisit trigger: move to per-page state maps only once a real case exists where
-  the same product needs its own separate parameters on 2 or more tool pages.
-  Until then the current structure stands.
+- 当前 `page` + `store.last[PAGE]` 结构满足需求；当出现同一产品在 ≥2 个工具页需各自独立参数的真实用例时再重构。
