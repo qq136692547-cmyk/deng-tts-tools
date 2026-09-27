@@ -6,7 +6,14 @@
   function fmt(n) { return '$' + n.toFixed(2); }
   // Single-line summary is the only live region; announcing the whole result
   // block made screen readers repeat every row on each keystroke.
-  function announce(text) { var el = $id('calcSummary'); if (el) el.textContent = text; }
+  var announceTimer;
+  function announce(text) {
+    clearTimeout(announceTimer);
+    announceTimer = setTimeout(function () {
+      var el = $id('calcSummary');
+      if (el) el.textContent = text;
+    }, 200);
+  }
 
   function calculate() {
     var price  = num($id('salePrice').value);
