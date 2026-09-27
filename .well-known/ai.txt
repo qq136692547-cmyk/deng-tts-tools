@@ -6,8 +6,8 @@
 - PerplexityBot: Allow
 - ClaudeBot: Allow
 - Google-Extended: Allow
-- GPTBot: Disallow
-- anthropic-ai: Disallow
+- GPTBot: Allow
+- anthropic-ai: Allow
 
 llms.txt: https://ttcalc.shop/llms.txt
 sitemap: https://ttcalc.shop/sitemap.xml
