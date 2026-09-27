@@ -15,7 +15,8 @@
     var referral = sale * (referralRate / 100); // varies by category (default 6%)
     var fbt      = fbtTier || 0;          // weight-based FBT per unit (Seller Center 2026, incl. multi-item)
     var creator  = sale * (creatorPct / 100);
-    return referral + fbt + creator;
+    var txn      = 0.30;                  // $0.30 flat transaction fee per order
+    return referral + fbt + txn + creator;
   }
 
   function calc() {
