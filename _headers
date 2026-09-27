@@ -1,0 +1,27 @@
+# Cloudflare Pages 自定义响应头
+# 注意 1：不加 CSP —— 站上有 Adsterra 广告脚本，CSP 会打断它。
+# 注意 2：不加 Cross-Origin-Opener-Policy —— 站上有可选的 Google 登录（popup 模式
+#         依赖 window.opener），same-origin 会把它打断。
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# 字体：30 天。文件名不带内容哈希，所以不用 immutable ——
+# 否则将来换字体，老访客一年内都拿不到新版。
+/assets/fonts/*
+  Cache-Control: public, max-age=2592000, must-revalidate
+
+# CSS / JS：1 小时 + 必须回源校验
+# site.css 没有版本号后缀（只有 home-v5.css 有 ?v=20260830-motion2），不宜长缓存。
+/assets/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# 图片：7 天
+/assets/images/*
+  Cache-Control: public, max-age=604800

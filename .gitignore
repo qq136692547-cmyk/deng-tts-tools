@@ -7,4 +7,8 @@ fee-verification-report*.md
 verify-calculators.ps1
 eecca57b-*.txt
 .playwright-cli/
+.wrangler/
+
+# 本地素材/归档：体积大（910 MiB+）且不属于站点，绝不能进仓库
+.promo-profile-2026-08-30/
 assets/images/product-photo-demo.png

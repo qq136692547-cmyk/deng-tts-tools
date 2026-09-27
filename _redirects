@@ -1,0 +1,25 @@
+# Cloudflare Pages 重定向规则
+#
+# ⚠️ 重要限制：Cloudflare Pages 的 _redirects **不支持 404 / 410 等状态码**
+# （官方文档把 `/blog/* /blog/404.html 404` 明确标为 ❌，只支持
+# 301/302/303/307/308 和 200 代理）。
+# 所以这里不能写 404，改用 301 指向一个不存在的路径 /404，
+# 由 Pages 的 404.html 兜底返回真正的 404 页面。
+#
+# 另：文档说 "Redirects are always followed, regardless of whether or not an
+# asset matches the incoming request" —— 所以这些规则能覆盖真实存在的静态文件。
+
+# Worker 源码与配置：不应对外可读（无密钥，但没必要公开实现细节和 KV namespace id）
+/wrangler.toml      /404  301
+/worker/index.js    /404  301
+
+# 内部文档：已移出仓库（存于 D:\Codex\projects\ttcalc-internal\），
+# 规则保留作防御 —— 万一将来有人误加回来，线上仍不会暴露。
+/PROJECT_HANDOVER.md       /404  301
+/CODEX-TASKS.md            /404  301
+/site_audit_2026-08-08.md  /404  301
+/promo-pack-2026-08-30.md  /404  301
+/promo-2026-08-30-note.md  /404  301
+
+# 动态规则放最后（Pages 要求 static 在前、dynamic 在后）
+/worker/*           /404  301
