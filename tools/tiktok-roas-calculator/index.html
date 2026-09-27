@@ -134,6 +134,7 @@
           <div class="workspace-head">
             <span class="workspace-title">My products &middot; saved on this device</span>
             <span class="workspace-actions">
+              <label for="wsName" class="sr-only">Product name</label>
               <input type="text" id="wsName" placeholder="Name (auto)" maxlength="60" autocomplete="off" />
               <button type="button" class="copy-results-btn" id="wsSave">Save</button>
               <button type="button" class="copy-results-btn" id="wsLink">Copy link</button>
@@ -203,6 +204,7 @@
               <option value="17">14&ndash;15 lb ($11.85)</option>
               <option value="18">15&ndash;16 lb ($12.67)</option>
             </select>
+            <label for="fbtUnits">Units per order</label>
             <select id="fbtUnits">
               <option value="0" selected>1 unit (single)</option>
               <option value="1">2 units</option>
@@ -231,7 +233,7 @@
           </div>
         </section>
 
-        <section class="calc-results">
+        <section class="calc-results" role="status" aria-live="polite">
           <div class="calc-results-head">
             <span class="calc-results-title">ROAS math</span>
             <button class="copy-results-btn" type="button">Copy results</button>
