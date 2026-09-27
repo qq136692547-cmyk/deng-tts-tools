@@ -52,7 +52,15 @@
     $id('r_base').textContent               = '-' + fmt(referral);
     var lbl = $id('r_base_lbl'); if (lbl) lbl.textContent = '- Base commission (' + referralRate + '%, incl. payment processing)';
     $id('r_fbt').textContent                = '-' + fmt(fbt);
-    $id('r_txn').textContent                = '-' + fmt(txnFee);
+    var txnEl = $id('r_txn');
+    if (txnEl) {
+      txnEl.textContent = '-' + fmt(txnFee);
+      // TikTok US folded the flat transaction fee into the referral rate (no
+      // separate charge since Apr 2023); hide the row when it is 0 so the
+      // result stack stays clean. Re-shown automatically if the fee returns.
+      var txnRow = $id('row_txn');
+      if (txnRow && txnRow.style) txnRow.style.display = txnFee ? '' : 'none';
+    }
     $id('r_creator').textContent            = '-' + fmt(creator);
     $id('r_payout').textContent             = fmt(payout);
     $id('r_total_fee').textContent          = fmt(platformFees) + ' (' + pct.toFixed(1) + '%)';

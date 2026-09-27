@@ -66,7 +66,9 @@
 
     get('r_sale').textContent              = fmt(sale);
     get('r_tts_fees').textContent           = '-' + fmt(ttsFees);
-    var lbl = get('r_tts_fees_lbl'); if (lbl) lbl.textContent = '- TikTok fees (' + referralRate + '% + $' + R.transactionFee.toFixed(2) + ' + FBT)';
+    // TikTok US folded the transaction fee into the referral fee (no separate charge
+    // since Apr 2023), so only mention it when a non-zero value is configured.
+    var lbl = get('r_tts_fees_lbl'); if (lbl) lbl.textContent = '- TikTok fees (' + referralRate + '%' + (R.transactionFee ? ' + $' + R.transactionFee.toFixed(2) : '') + ' + FBT)';
     get('r_creator_fee').textContent        = '-' + fmt(creator);
     get('r_cogs').textContent               = '-' + fmt(cogs);
     get('r_ship').textContent               = '-' + fmt(ship);

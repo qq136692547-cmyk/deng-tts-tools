@@ -2,9 +2,15 @@
 // Change a rate here, not in the calculator files. Change log: /rate-updates/
 window.TTCALC_RATES = {
   effectiveDate: '2026-07-13',  // rate card in force (TikTok Seller Center)
-  verifiedDate: '2026-08-21',   // last manual cross-check against Seller Center
+  verifiedDate: '2026-09-28',   // last manual cross-check against Seller Center
   sourceUrl: 'https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087',
-  transactionFee: 0.30,         // flat transaction fee per order
+  // TikTok Shop US no longer charges a separate transaction fee. The referral fee is a
+  // unified charge that already covers payment processing; TikTok's settlement-report
+  // documentation marks the transaction fee as not applicable to orders placed after
+  // April 3, 2023. Kept as an explicit 0 (rather than deleted) so the four calculators
+  // keep working unchanged and the value can be reinstated in one place if TikTok
+  // reintroduces it. Cross-checked 2026-09-28 against seven independent fee guides.
+  transactionFee: 0,            // was 0.30 - removed 2026-09-28, see /rate-updates/
   defaultReferralRate: 6,       // % most categories; Jewelry / Pre-Owned select 5%
   refundAdminRate: 0.20,        // share of the referral fee kept when an order is refunded
   refundAdminCap: 5.00,         // per-SKU cap on that refund admin fee
