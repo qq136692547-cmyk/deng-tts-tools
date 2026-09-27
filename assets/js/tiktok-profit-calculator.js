@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
@@ -14,7 +15,7 @@
     var returnHandlingFee = num(get('returnHandlingFee').value);
     var monthlyUnits = num(get('monthlyUnits').value);
     var catSel = get('category');
-    var referralRate = catSel ? parseFloat(catSel.value) : 6;
+    var referralRate = catSel ? parseFloat(catSel.value) : R.defaultReferralRate;
     var inboundShip = num(get('inboundShip').value);
     var storageFee  = num(get('storageFee').value);
     var resellRate  = num(get('resellRate').value) / 100;
@@ -24,14 +25,14 @@
     // 2026 TikTok Shop US fees (verified Jul 2026, multi-source)
     var referral = sale * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
     var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
-    var txnFee   = 0.30;                   // $0.30 flat transaction fee per order
+    var txnFee   = R.transactionFee;       // flat transaction fee per order (rates.js)
     var ttsFees  = referral + fbt + txnFee;
     var creator  = sale * creatorPct;
     var ads      = sale * adsPct;
     var profit   = sale - ttsFees - creator - cogs - ship - inboundShip - storageFee - ads;
 
     // Return impact: 20% of referral fee, capped at $5
-    var refundAdmin = Math.min(referral * 0.20, 5.00);
+    var refundAdmin = Math.min(referral * R.refundAdminRate, R.refundAdminCap);
     // Only non-resellable returns incur full product cost loss
     var nonResellableRate = returnRate * (1 - resellRate);
     var returnCost  = sale * nonResellableRate;    // lost product cost (non-resellable only)
@@ -55,7 +56,7 @@
 
     get('r_sale').textContent              = fmt(sale);
     get('r_tts_fees').textContent           = '-' + fmt(ttsFees);
-    var lbl = get('r_tts_fees_lbl'); if (lbl) lbl.textContent = '- TikTok fees (' + referralRate + '% + $0.30 + FBT)';
+    var lbl = get('r_tts_fees_lbl'); if (lbl) lbl.textContent = '- TikTok fees (' + referralRate + '% + $' + R.transactionFee.toFixed(2) + ' + FBT)';
     get('r_creator_fee').textContent        = '-' + fmt(creator);
     get('r_cogs').textContent               = '-' + fmt(cogs);
     get('r_ship').textContent               = '-' + fmt(ship);

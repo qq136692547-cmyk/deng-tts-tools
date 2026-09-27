@@ -1,11 +1,12 @@
 (function () {
   'use strict';
+  var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
 
   function amazonFbaTotal(sale, fulfillment, refRate, placement, lowInv, fuelPct) {
-    var referral = Math.max(sale * (refRate / 100), 0.30);
+    var referral = Math.max(sale * (refRate / 100), R.amazonMinReferralFee);
     if (sale < 10) referral += 0.05;
     var fuel = fulfillment * (fuelPct / 100);
     return referral + fulfillment + fuel + placement + lowInv;
@@ -15,7 +16,7 @@
     var referral = sale * (referralRate / 100); // varies by category (default 6%)
     var fbt      = fbtTier || 0;          // weight-based FBT per unit (Seller Center 2026, incl. multi-item)
     var creator  = sale * (creatorPct / 100);
-    var txn      = 0.30;                  // $0.30 flat transaction fee per order
+    var txn      = R.transactionFee;      // flat transaction fee per order (rates.js)
     return referral + fbt + txn + creator;
   }
 
@@ -32,7 +33,7 @@
     var fbtTier = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (incl. multi-item, rate card Jul 13 2026)
     var amzFuelPct = num(get('amzFuelPct').value);
     var catSel = get('category');
-    var referralRate = catSel ? parseFloat(catSel.value) : 6;
+    var referralRate = catSel ? parseFloat(catSel.value) : R.defaultReferralRate;
     var resellRate = num(get('resellRate').value) / 100;
 
     var amzFulfill = num(get('amzFulfillRate').value);
@@ -53,9 +54,9 @@
     var nonResellableRate = returnRate * (1 - resellRate);
 
     var ttsReferral = sale * (referralRate / 100);
-    var ttsRefundAdmin = Math.min(ttsReferral * 0.20, 5.00);
-    var amzReferral = Math.max(sale * (amzRefRate / 100), 0.30);
-    var amzRefundAdmin = Math.min(amzReferral * 0.20, 5.00);
+    var ttsRefundAdmin = Math.min(ttsReferral * R.refundAdminRate, R.refundAdminCap);
+    var amzReferral = Math.max(sale * (amzRefRate / 100), R.amazonMinReferralFee);
+    var amzRefundAdmin = Math.min(amzReferral * R.refundAdminRate, R.refundAdminCap);
 
     var ttsReturnCost = sale * nonResellableRate;
     // TikTok return handling stacks with the estimated refund admin fee on returned units.

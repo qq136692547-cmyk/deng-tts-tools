@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { return '$' + n.toFixed(2); }
@@ -10,7 +11,7 @@
     var returnRate = num(get('returnRate').value) / 100;
     var returnHandlingFee = num(get('returnHandlingFee').value);
     var catSel = get('category');
-    var referralRate = catSel ? parseFloat(catSel.value) : 6;
+    var referralRate = catSel ? parseFloat(catSel.value) : R.defaultReferralRate;
     var creatorPct = num(get('creator').value) / 100;
     var roas = num(get('roas').value);
     var monthlyUnits = num(get('monthlyUnits').value);
@@ -20,13 +21,13 @@
     // 2026 TikTok Shop US fees (Seller Center, Aug 2026)
     var referral = sale * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
     var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
-    var txn      = 0.30;                         // flat transaction fee per order
+    var txn      = R.transactionFee;             // flat transaction fee per order (rates.js)
     var creator  = sale * creatorPct;
     var platformFees = referral + fbt + txn + creator;
 
     // Return impact: 20% of referral fee (capped $5) + product cost on returned units
     // Return impact: 20% of referral fee (capped $5) + product cost on returned units + FBT return handling
-    var returnImpact = sale * returnRate + Math.min(referral * 0.20, 5.00) * returnRate + returnHandlingFee * returnRate;
+    var returnImpact = sale * returnRate + Math.min(referral * R.refundAdminRate, R.refundAdminCap) * returnRate + returnHandlingFee * returnRate;
 
     var preAdProfit = sale - platformFees - cogs - returnImpact;
     var preAdMargin = sale > 0 ? (preAdProfit / sale) * 100 : 0;
