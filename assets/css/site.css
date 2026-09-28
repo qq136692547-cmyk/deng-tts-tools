@@ -578,7 +578,12 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 @media (max-width: 640px) { .main-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .main-nav::-webkit-scrollbar { display: none; } .main-nav a { white-space: nowrap; } }
 
 /* Adsterra ad slots */
-.adsterra-slot { width: 100%; max-width: 100%; margin: 32px auto; text-align: center; }
+/* Ad slots ship hidden. They only become visible once consent.js has set a src
+   on the frame inside them, which only happens after the visitor opts in.
+   Rejected visitors therefore see no ad space at all rather than an empty
+   728x90 box, and a browser with JavaScript off never requests the ad at all. */
+.adsterra-slot { width: 100%; max-width: 100%; margin: 32px auto; text-align: center; display: none; }
+.adsterra-slot--live { display: block; }
 .adsterra-slot--top { margin-top: 0; }
 .adsterra-slot--bottom { margin-bottom: 0; }
 .adsterra-banner { max-width: 100%; overflow-x: auto; margin: 0 auto 24px; -webkit-overflow-scrolling: touch; }
@@ -641,6 +646,7 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 .embed-mode .site-header,
 .embed-mode .site-footer,
 .embed-mode .adsterra-slot,
+.embed-mode .consent-bar,
 .embed-mode .quick-answer,
 .embed-mode .nextstep,
 .embed-mode main > .container > section,
@@ -652,4 +658,42 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 .embed-box { max-width: var(--content-w); margin: var(--s-4) 0 0; }
 .embed-box textarea { width: 100%; min-height: 96px; font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--ink); background: var(--surface-soft); border: 1px solid var(--line); border-radius: var(--r-md); padding: 12px; resize: vertical; }
 .embed-code-note { font-size: 13px; line-height: 1.6; color: var(--ink-dim); margin: var(--s-3) 0 0; }
+
+/* Cookie consent bar --------------------------------------------------------
+   Injected by /assets/js/consent.js. Kept out of the way with transform +
+   visibility rather than display:none so the slide-in can animate. The bar is
+   fixed to the bottom edge, so while it is open the page needs a matching
+   bottom pad - otherwise it would sit on top of the footer links. */
+.consent-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+  background: var(--surface); border-top: 1px solid var(--line);
+  box-shadow: 0 -10px 30px -20px rgba(0, 0, 0, .4);
+  transform: translateY(110%); visibility: hidden;
+  transition: transform .28s var(--ease), visibility .28s;
+}
+.consent-bar.is-open { transform: translateY(0); visibility: visible; }
+.consent-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.consent-text { flex: 1 1 380px; margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); }
+.consent-text a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.consent-actions { display: flex; gap: 10px; flex: 0 0 auto; }
+.consent-btn {
+  font: inherit; font-size: 13.5px; font-weight: 500; line-height: 1;
+  padding: 10px 16px; border-radius: var(--r-md); cursor: pointer; white-space: nowrap;
+  transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+}
+.consent-btn--ghost { background: transparent; border: 1px solid var(--line); color: var(--ink-soft); }
+.consent-btn--ghost:hover { border-color: var(--ink-dim); color: var(--ink); }
+.consent-btn--solid { background: var(--accent); border: 1px solid var(--accent); color: #FFFFFF; }
+.consent-btn--solid:hover { background: var(--accent-2); border-color: var(--accent-2); }
+.consent-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+html.consent-open body { padding-bottom: 84px; }
+@media (max-width: 640px) {
+  .consent-inner { padding: 14px 16px; gap: 12px; }
+  .consent-actions { width: 100%; }
+  .consent-btn { flex: 1 1 auto; text-align: center; }
+  html.consent-open body { padding-bottom: 132px; }
+}
 .embed-frame { width: 100%; max-width: var(--content-w); height: 620px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }

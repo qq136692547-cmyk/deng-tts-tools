@@ -120,6 +120,14 @@ window.TTCALC_I18N = {
     'footer.feeGuide': '2026费用指南',
     'footer.rateUpdates': '费率更新',
     'footer.copyright': '© 2026 TTCalc. 独立工具，与TikTok或字节跳动无关。',
+    'footer.terms': '服务条款',
+    'footer.cookieSettings': 'Cookie 设置',
+
+    // Cookie consent bar
+    'consent.text': '我们使用 Adsterra 的 Cookie 投放广告、使用 Google 的 Cookie 做匿名访问统计。在你做出选择之前，ttcalc.shop 之外的任何资源都不会加载。两种选择下计算器都能正常使用。',
+    'consent.privacy': '隐私政策',
+    'consent.reject': '拒绝非必要',
+    'consent.accept': '接受全部',
 
     // Calculator pages
     'calc.title': '费用计算器',
