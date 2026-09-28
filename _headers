@@ -1,5 +1,5 @@
 # Cloudflare Pages 自定义响应头
-# 注意 1：暂未加 CSP —— 2026-09-28 移除 Adsterra 后已无阻碍；如需可后续补 CSP（需放行 GA4/gstatic）。
+# 注意 1：不加 CSP —— 站上有 Adsterra 广告脚本，CSP 会打断它。
 # 注意 2：不加 Cross-Origin-Opener-Policy —— 站上有可选的 Google 登录（popup 模式
 #         依赖 window.opener），same-origin 会把它打断。
 
