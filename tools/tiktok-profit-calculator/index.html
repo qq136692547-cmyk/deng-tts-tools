@@ -69,26 +69,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Creator commission is the wildcard",
+      "name": "How much profit do I make per unit on TikTok Shop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On Amazon or eBay, the marketplace is the only platform taking a cut. On TikTok, you can pay creators 1%-30% on top of TikTok's fees. A product that's profitable at 0% creator commission can flip negative at 25%."
+        "text": "With the calculator's default inputs - a $29.99 sale price, $6.50 COGS, $3.00 shipping to the customer, $1.00 inbound freight and 10% ad spend - net profit is $10.02 per unit before returns and $9.81 after a 5% return rate. That is a 32.7% margin, or roughly $981 on 100 units a month. Your own number depends mainly on COGS, your FBT weight tier and whether you pay creator commission."
       }
     },
     {
       "@type": "Question",
-      "name": "Ad spend is higher",
+      "name": "Is the 6% referral fee the only fee TikTok charges?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TikTok Shop sellers typically spend 10%-20% of revenue on TikTok ads to drive traffic. Amazon sellers can usually get away with less because of organic search. Build ad spend into your unit economics."
+        "text": "No. The 6% referral fee already includes payment processing, so there is no separate transaction or processing charge. On top of it come FBT fulfillment ($4.28-$9.63 per unit by weight for a single-item order), a refund admin fee of 20% of the referral fee capped at $5 per SKU, FBT return handling at $0.70 (non-inspection) or $1.00 (inspection) per returned unit, monthly storage, and roughly 1% on cross-border orders."
       }
     },
     {
       "@type": "Question",
-      "name": "Returns run higher",
+      "name": "Why is my profit lower than the TikTok Seller Center dashboard shows?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TikTok's \"try before you buy\" culture means returns can run 15%-25%, vs Amazon's 5%-10%. Set the resellable rate to reflect how many returns you can actually resell - this dramatically impacts real profit."
+        "text": "The Seller Center reports what settled after TikTok's commission, but it does not present FBT fulfillment, monthly storage, inbound freight or ad spend as per-unit costs. Once those are deducted, real take-home per unit usually lands well below the dashboard figure - especially for heavier products where the FBT tier is high."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does creator commission change my margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creator commission is set by you, from 0% to 30%, and it stacks on top of every other fee. On a $29.99 product, a 15% commission removes $4.50 from every sale - about 46% of the $9.81 effective profit in the default example. A product that is healthy at 0% commission can turn marginal at 20%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I include returns in my profit calculation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. In the default example a 5% return rate costs $0.21 per unit, but a 20% return rate costs roughly four times that, and a returned unit you cannot resell costs the full COGS rather than the sale price. Setting the resellable rate to match what actually comes back usable is what separates a forecast from a guess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good profit margin on TikTok Shop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a working rule: below 15% is fragile and one bad returns month wipes it out; 20-30% is workable for a lean operation with no paid creators; 30-40% is healthy and absorbs a creator commission; above 40% leaves room to fund ads and affiliates at the same time. The right target for a specific product depends on its return rate and how much of its volume is creator-driven."
       }
     }
   ]
@@ -288,6 +312,11 @@
       </div>
     </div>
 
+    <div class="quick-answer">
+      <p class="quick-answer-label">Quick answer</p>
+      <p>On TikTok Shop in 2026, a $29.99 product with $6.50 COGS, $3.00 shipping, $1.00 inbound freight and 10% ad spend nets <strong>$9.81 per unit &mdash; a 32.7% margin</strong>. That is after the 6% referral fee ($1.80, which already includes payment processing), $4.52 FBT fulfillment and return costs. At 100 units a month it is about <strong>$981</strong>. Add a 15% creator commission and $4.50 of that $9.81 disappears.</p>
+    </div>
+
     <nav class="nextstep" aria-label="Next steps">
       <p class="nextstep-head">Next step</p>
       <div class="nextstep-grid">
@@ -314,6 +343,215 @@
         <div class="feature"><div class="icon">[ 02 ]</div><h3>Ad spend is higher</h3><p>TikTok Shop sellers typically spend 10%&ndash;20% of revenue on TikTok ads to drive traffic. Amazon sellers can usually get away with less because of organic search. Build ad spend into your unit economics.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Returns run higher</h3><p>TikTok's "try before you buy" culture means returns can run 15%&#8211;25%, vs Amazon's 5%&#8211;10%. Set the resellable rate to reflect how many returns you can actually resell &#8212; this dramatically impacts real profit.</p></div>
         <div class="feature"><div class="icon">[ 04 ]</div><h3>Hidden costs add up</h3><p>Inbound shipping to FBT warehouse and monthly storage fees are easy to forget but can eat 5%&#8211;10% of margin. This calculator includes them so your numbers reflect reality.</p></div>
+      </div>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>How the profit calculator works</h2>
+        <span class="section-tag">02 / method</span>
+      </div>
+      <p class="section-lede">TikTok Shop profit is not one number, it is three. Sellers who quote only the first one are the reason so many &ldquo;profitable&rdquo; products turn out not to be.</p>
+
+      <div class="features" style="margin-top:var(--s-4);">
+        <div class="feature">
+          <div class="icon">[ 01 ]</div>
+          <h3>Net profit per unit</h3>
+          <div class="formula">sale &minus; TikTok fees &minus; creator commission &minus; COGS &minus; shipping &minus; inbound freight &minus; storage &minus; ad spend</div>
+          <p>What a clean, unreturned order actually pays you.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">[ 02 ]</div>
+          <h3>Effective profit per unit</h3>
+          <div class="formula">net profit &minus; non-resellable COGS &minus; refund admin &minus; FBT return handling</div>
+          <p>What you keep once returns are averaged in. A returned unit you cannot resell costs you the full COGS, not the sale price &mdash; which is why high-return SKUs so often look healthy and are not.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">[ 03 ]</div>
+          <h3>Margin and ROI</h3>
+          <p><strong>Margin</strong> is effective profit &divide; sale price. <strong>ROI (direct)</strong> measures the return on the costs you control &mdash; COGS, shipping, inbound freight, ads and returns. <strong>ROI (all)</strong> adds platform fees and storage, which answers a different question: how hard is every dollar of total cost working?</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>Worked example: a $29.99 product, line by line</h2>
+        <span class="section-tag">03 / example</span>
+      </div>
+      <p class="section-lede">These are the calculator&rsquo;s default inputs. Change one and the whole result moves &mdash; which is the point of a calculator rather than a rule of thumb.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Line</th><th class="num">Per unit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sale price</td><td class="num">$29.99</td></tr>
+          <tr><td>&minus; Referral fee (6%, includes payment processing)</td><td class="num">&minus;$1.80</td></tr>
+          <tr><td>&minus; FBT fulfillment (4&ndash;8 oz, single unit)</td><td class="num">&minus;$4.52</td></tr>
+          <tr><td>&minus; Creator commission (0% in this run)</td><td class="num">&minus;$0.00</td></tr>
+          <tr><td>&minus; COGS</td><td class="num">&minus;$6.50</td></tr>
+          <tr><td>&minus; Shipping to customer</td><td class="num">&minus;$3.00</td></tr>
+          <tr><td>&minus; Inbound freight to FBT</td><td class="num">&minus;$1.00</td></tr>
+          <tr><td>&minus; FBT storage (monthly, per unit)</td><td class="num">&minus;$0.15</td></tr>
+          <tr><td>&minus; Ad spend (10% of sale)</td><td class="num">&minus;$3.00</td></tr>
+          <tr class="total"><td>Net profit per unit</td><td class="num">$10.02</td></tr>
+          <tr><td>&minus; Return cost, refund admin and FBT return handling (5% return rate, 50% resellable)</td><td class="num">&minus;$0.21</td></tr>
+          <tr class="total"><td>Effective profit per unit</td><td class="num">$9.81</td></tr>
+          <tr><td>Margin &middot; ROI (direct) &middot; ROI (all)</td><td class="num">32.7% &middot; 71.5% &middot; 48.6%</td></tr>
+          <tr class="total"><td>Monthly profit at 100 units</td><td class="num">$980.61</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tool-prose">
+        <p>Two things stand out. First, the platform&rsquo;s own commission is the small line: $1.80 of referral fee against <strong>$4.52 of FBT fulfillment</strong>. On TikTok Shop, logistics usually costs more than the commission does &mdash; the opposite of how most sellers picture it.</p>
+        <p>Second, the return drag is minor at a 5% return rate ($0.21) and grows roughly fourfold at 20% (about $0.86). Returns are not a rounding error on this platform. They are one of the largest single levers on the page.</p>
+      </div>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>What each 2026 fee actually is</h2>
+        <span class="section-tag">04 / rates</span>
+      </div>
+      <p class="section-lede">Every line the calculator deducts, what it is in 2026, and who charges it.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Fee</th><th>2026 rate</th><th>Charged by</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Referral fee</td><td>6% of the item price after seller discount (Jewelry and Pre-Owned 5%)</td><td>TikTok</td></tr>
+          <tr><td>Payment processing</td><td>Included in the 6% &mdash; there is no separate transaction fee</td><td>&mdash;</td></tr>
+          <tr><td>FBT fulfillment</td><td>$4.28&ndash;$9.63 per unit by weight for a single-item order; multi-item orders cost less per unit</td><td>TikTok</td></tr>
+          <tr><td>Refund admin fee</td><td>20% of the referral fee, capped at $5 per SKU &mdash; charged even when the order is fully refunded</td><td>TikTok</td></tr>
+          <tr><td>FBT return handling</td><td>$0.70 non-inspection or $1.00 inspection, per returned unit</td><td>TikTok</td></tr>
+          <tr><td>FBT storage</td><td>Monthly, per unit held</td><td>TikTok</td></tr>
+          <tr><td>Creator commission</td><td>0&ndash;30%, set by the seller</td><td>Creator</td></tr>
+          <tr><td>Cross-border fee</td><td>~1% on international orders</td><td>TikTok</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tool-prose">
+        <p>If you have seen a <strong>$0.30 per-order transaction fee</strong> quoted for TikTok Shop, that figure is out of date. TikTok US folded it into the 6% referral rate back on April 3, 2023 &mdash; the 6% already includes payment processing and there is no separate charge. We removed the retired line from every calculator and article on this site; the full note is on the <a href="/rate-updates/">rate updates page</a>.</p>
+      </div>
+      <p class="source-note">Rates effective 2026-07-13 &middot; last cross-checked against TikTok Seller Center on 2026-09-28 &middot; by L.D. Studio</p>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>What a healthy margin looks like</h2>
+        <span class="section-tag">05 / benchmarks</span>
+      </div>
+      <p class="section-lede">Effective margin is the number to judge, not net margin &mdash; net margin flatters any SKU that gets returned.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Effective margin</th><th>What it means in practice</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Below 15%</td><td>Fragile. One bad returns month, one ad-cost spike, or one FBT tier change wipes it out. Fix the unit economics before you scale volume.</td></tr>
+          <tr><td>20&ndash;30%</td><td>Workable for a lean operation with no paid creators. You have room to absorb returns but not much room to pay affiliates.</td></tr>
+          <tr><td>30&ndash;40%</td><td>Healthy. This is the band where a 10&ndash;15% creator commission is affordable and the product can still fund its own ads.</td></tr>
+          <tr><td>Above 40%</td><td>Room to pay creators and run ads at the same time. Usually means strong COGS, a light product, or a genuinely differentiated offer.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tool-prose">
+        <p>These bands are our reading rule, not a survey. The right target for a specific product depends on its return rate and how much of its volume arrives through creators rather than organic content.</p>
+      </div>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>Five inputs that quietly break your profit math</h2>
+        <span class="section-tag">06 / pitfalls</span>
+      </div>
+      <p class="section-lede">The calculator is only as honest as what you type into it. These are the five entries that go wrong most often.</p>
+
+      <div class="features" style="margin-top:var(--s-4);">
+        <div class="feature"><div class="icon">[ 01 ]</div><h3>COGS without packaging</h3><p>Boxes, mailers, inserts, labels and poly bags are COGS. Leaving them out understates cost by $0.20&ndash;$0.80 a unit, which is often the whole margin.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>Inbound freight at zero</h3><p>Getting inventory into TikTok&rsquo;s FBT warehouse is a real per-unit cost. Setting it to $0 makes any FBT product look better than it is.</p></div>
+        <div class="feature"><div class="icon">[ 03 ]</div><h3>Creator commission at 0% while the affiliate plan is open</h3><p>If your plan is live, some share of orders will carry commission. Model the blended rate, not the rate on the orders you happen to see.</p></div>
+        <div class="feature"><div class="icon">[ 04 ]</div><h3>Returns left out entirely</h3><p>A 20% return rate costs roughly four times the return drag of a 5% one. Ignoring returns is the single most common reason a profitable-looking product loses money.</p></div>
+        <div class="feature"><div class="icon">[ 05 ]</div><h3>Ad spend treated as marketing, not COGS</h3><p>If ads bring the traffic, ad cost belongs in the per-unit math. As a percentage of sale price &mdash; typically 10&ndash;20% &mdash; it is a permanent line item, not a launch expense.</p></div>
+      </div>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>How to lift margin without raising the price</h2>
+        <span class="section-tag">07 / levers</span>
+      </div>
+      <p class="section-lede">Four moves that change the output of this calculator without changing what the customer pays.</p>
+
+      <div class="features" style="margin-top:var(--s-4);">
+        <div class="feature"><div class="icon">[ 01 ]</div><h3>Drop an FBT weight tier</h3><p>Fulfillment runs $4.28 to $9.63 on a single-item order. Reworking packaging to fall into a lower tier is often worth more than a referral-fee negotiation.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>Raise units per order</h3><p>Multi-item orders cost less per unit to fulfill than single-item orders. Bundling shifts FBT from a per-item cost to a per-order one.</p></div>
+        <div class="feature"><div class="icon">[ 03 ]</div><h3>Tier the creator commission</h3><p>A flat 20% for everyone is expensive. A 10% base with a 20% tier for creators who actually convert keeps the blended rate down.</p></div>
+        <div class="feature"><div class="icon">[ 04 ]</div><h3>Raise the resellable rate</h3><p>The share of returns you can put back into sellable stock drops straight into effective profit. Better photography and clearer listing specs are margin work, not marketing work.</p></div>
+      </div>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>Frequently asked questions</h2>
+        <span class="section-tag">08 / questions</span>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>How much profit do I make per unit on TikTok Shop?<span class="sign"></span></summary>
+          <div class="answer">
+            <p>With the calculator&rsquo;s default inputs &mdash; a $29.99 sale price, $6.50 COGS, $3.00 shipping, $1.00 inbound freight and 10% ad spend &mdash; net profit is $10.02 per unit before returns and $9.81 after a 5% return rate. That is a 32.7% margin, or roughly $981 on 100 units a month. Your own number depends mainly on COGS, your FBT weight tier, and whether you pay creator commission.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Is the 6% referral fee the only fee TikTok charges?<span class="sign"></span></summary>
+          <div class="answer">
+            <p>No. The 6% referral fee already includes payment processing, so there is no separate transaction or processing charge. On top of it come FBT fulfillment ($4.28&ndash;$9.63 per unit by weight on a single-item order), a refund admin fee of 20% of the referral fee capped at $5 per SKU, FBT return handling at $0.70 or $1.00 per returned unit, monthly storage, and roughly 1% on cross-border orders.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Why is my profit lower than the Seller Center dashboard shows?<span class="sign"></span></summary>
+          <div class="answer">
+            <p>The Seller Center reports what settled after TikTok&rsquo;s commission, but it does not present FBT fulfillment, storage, inbound freight or ad spend as per-unit costs. Once those are deducted, real take-home per unit usually lands well below the dashboard figure &mdash; especially for heavier products sitting in a high FBT tier.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How much does creator commission change my margin?<span class="sign"></span></summary>
+          <div class="answer">
+            <p>Creator commission is set by you, from 0% to 30%, and it stacks on top of every other fee. On a $29.99 product, a 15% commission removes $4.50 from every sale &mdash; about 46% of the $9.81 effective profit in the default example. A product that is healthy at 0% commission can turn marginal at 20%.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Should I include returns in my profit calculation?<span class="sign"></span></summary>
+          <div class="answer">
+            <p>Yes. In the default example a 5% return rate costs $0.21 per unit, and a 20% return rate costs roughly four times that. A returned unit you cannot resell costs the full COGS rather than the sale price, so setting the resellable rate to match what actually comes back usable is what separates a forecast from a guess.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What is a good profit margin on TikTok Shop?<span class="sign"></span></summary>
+          <div class="answer">
+            <p>As a working rule: below 15% is fragile, 20&ndash;30% is workable for a lean operation with no paid creators, 30&ndash;40% is healthy and absorbs a creator commission, and above 40% leaves room to fund ads and affiliates at the same time. The right target for a specific product depends on its return rate and how much of its volume is creator-driven.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section style="margin-top:var(--s-7);">
+      <div class="section-header">
+        <h2>Keep going</h2>
+        <span class="section-tag">09 / related</span>
+      </div>
+      <div class="tool-prose">
+        <ul>
+          <li><a href="/tools/tiktok-fee-calculator/">TikTok Shop Fee Calculator</a> &mdash; see the full fee stack broken out line by line, with no COGS or profit modelling.</li>
+          <li><a href="/tools/tiktok-roas-calculator/">TikTok Shop ROAS Calculator</a> &mdash; work out what ad performance a given margin can actually afford.</li>
+          <li><a href="/tools/tiktok-vs-amazon/">TikTok Shop vs Amazon FBA</a> &mdash; the same product, both platforms, side by side.</li>
+          <li><a href="/blog/tiktok-shop-fbt-fulfillment-guide-2026/">FBT fulfillment guide 2026</a> &mdash; the weight tiers and how multi-item orders are priced.</li>
+          <li><a href="/blog/tiktok-shop-return-rates-cost-2026/">Return rates and what they cost</a> &mdash; why the return line is bigger than most sellers assume.</li>
+          <li><a href="/blog/tiktok-shop-profit-killers-2026/">Five TikTok Shop profit killers</a> &mdash; the failure patterns behind most margin collapses.</li>
+        </ul>
       </div>
     </section>
   </div>
