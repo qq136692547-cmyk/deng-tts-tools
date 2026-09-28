@@ -66,7 +66,7 @@
       "name": "What is a good ROAS for TikTok Shop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There is no universal number - a good ROAS is one that clears your own break-even floor with room to spare. On the default product ($29.99 sale, $6.50 COGS, 10% creator commission, 5% returns) the floor is 2.38x, and a 3.0x ROAS leaves just 8.7% net margin."
+        "text": "There is no universal number - a good ROAS is one that clears your own break-even floor with room to spare. On the default product ($29.99 sale, $6.50 COGS, 10% creator commission, 5% returns) the floor is 2.17x, and a 3.0x ROAS leaves just 12.7% net margin."
       }
     },
     {
@@ -74,7 +74,7 @@
       "name": "How do I calculate break-even ROAS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Divide the sale price by your profit before ad spend: sale / (sale - platform fees - COGS - return impact). At the defaults that is $29.99 / $12.62 = 2.38x. Below that line, every additional ad dollar loses money."
+        "text": "Divide the sale price by your profit before ad spend: sale / (sale - platform fees - COGS - return impact). At the defaults that is $29.99 / $13.79 = 2.17x. Below that line, every additional ad dollar loses money."
       }
     },
     {
@@ -90,7 +90,7 @@
       "name": "Does creator commission change my break-even ROAS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and heavily. Creator commission comes straight off profit before ads, so it raises the floor. Moving from 0% to 30% creator commission on the default product takes the break-even from 1.75x to 15.27x once a 20% return rate is also applied."
+        "text": "Yes, and heavily. Creator commission comes straight off profit before ads, so it raises the floor. Moving from 0% to 30% creator commission on the default product takes the break-even from 1.75x to 4.50x once a 20% return rate is also applied."
       }
     },
     {
@@ -261,14 +261,14 @@
           </div>
 
           <div class="calc-result-row"><span class="lbl">&#8722; TikTok platform fees (per unit)</span><span class="val" id="r_platform_fees">-$9.32</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Return impact (COGS + refund fee)</span><span class="val" id="r_return_impact">-$1.55</span></div>
-          <div class="calc-result-row"><span class="lbl">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$12.62 (42.1%)</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Break-even ROAS</span><span class="val" id="r_be_roas">2.38x</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; Return impact (COGS + refund fee)</span><span class="val" id="r_return_impact">-$0.38</span></div>
+          <div class="calc-result-row"><span class="lbl">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.79 (46.0%)</span></div>
+          <div class="calc-result-row highlight"><span class="lbl">Break-even ROAS</span><span class="val" id="r_be_roas">2.17x</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Ad cost at reported ROAS (per unit)</span><span class="val" id="r_ad_cost">-$10.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Corrected ROAS (after returns)</span><span class="val" id="r_corrected_roas">2.85x</span></div>
-          <div class="calc-result-row"><span class="lbl">Net profit (per unit)</span><span class="val" id="r_net_profit">$2.62 (8.7%)</span></div>
+          <div class="calc-result-row"><span class="lbl">Net profit (per unit)</span><span class="val" id="r_net_profit">$3.80 (12.7%)</span></div>
           <div class="calc-result-row"><span class="lbl">Monthly ad spend</span><span class="val" id="r_monthly_ad">-$5000.00</span></div>
-          <div class="calc-result-row"><span class="lbl">Monthly net profit</span><span class="val" id="r_monthly_profit">$1310.00</span></div>
+          <div class="calc-result-row"><span class="lbl">Monthly net profit</span><span class="val" id="r_monthly_profit">$1900.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Status</span><span class="val good" id="r_status">Above break-even</span></div>
         </section>
         <p class="sr-only" role="status" aria-live="polite" id="calcSummary"></p>
@@ -277,7 +277,7 @@
 
     <div class="quick-answer">
       <p class="quick-answer-label">Quick answer</p>
-      <p>On the default $29.99 product &mdash; $6.50 COGS, 10% creator commission, 5% returns &mdash; the break-even ROAS is <strong>2.38&times;</strong>. At a reported 3.0&times; you keep <strong>$2.62 per unit (8.7%)</strong>, or $1,310 a month on 500 units. Set creator commission and returns to zero and the floor drops to <strong>1.75&times;</strong>; push them to 30% and 20% and it jumps to <strong>15.27&times;</strong>.</p>
+      <p>On the default $29.99 product &mdash; $6.50 COGS, 10% creator commission, 5% returns &mdash; the break-even ROAS is <strong>2.17&times;</strong>. At a reported 3.0&times; you keep <strong>$3.80 per unit (12.7%)</strong>, or $1,900 a month on 500 units. Set creator commission and returns to zero and the floor drops to <strong>1.75&times;</strong>; push them to 30% and 20% and it jumps to <strong>4.50&times;</strong>.</p>
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
@@ -303,9 +303,9 @@
       <p class="section-lede">ROAS in Ads Manager measures gross revenue per ad dollar &mdash; not profit. Three things decide whether a reported ROAS actually makes you money:</p>
       <div class="features" style="margin-top:var(--s-4);">
         <div class="feature"><div class="icon">[ 01 ]</div><h3>Fees come off first</h3><p>Referral (6%, incl. payment processing), FBT fulfillment and creator commission all come out before ad spend. On the default product they total $9.32 &mdash; 31% of the sale price &mdash; before you have paid for the product or the ads.</p></div>
-        <div class="feature"><div class="icon">[ 02 ]</div><h3>Break-even ROAS is your floor</h3><p>It is simply sale price &divide; profit before ads. At the defaults, $29.99 &divide; $12.62 = 2.38&times;. Anything below that is paid traffic burning cash even while Ads Manager shows a healthy-looking ROAS.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>Break-even ROAS is your floor</h3><p>It is simply sale price &divide; profit before ads. At the defaults, $29.99 &divide; $13.79 = 2.17&times;. Anything below that is paid traffic burning cash even while Ads Manager shows a healthy-looking ROAS.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Corrected ROAS is what landed</h3><p>Reported ROAS counts revenue you later refunded. Corrected ROAS &mdash; revenue after returns &divide; ad spend &mdash; is the honest number, and it is always the lower of the two.</p></div>
-        <div class="feature"><div class="icon">[ 04 ]</div><h3>Scale only above the floor</h3><p>Budget increases are safe only when the floor is cleared with room to spare for your actual return rate. A business running at 2.5&times; against a 2.38&times; floor is not "profitable" &mdash; it is one bad returns week away from zero.</p></div>
+        <div class="feature"><div class="icon">[ 04 ]</div><h3>Scale only above the floor</h3><p>Budget increases are safe only when the floor is cleared with room to spare for your actual return rate. A business running at 2.5&times; against a 2.17&times; floor is not "profitable" &mdash; it is one bad returns week away from zero.</p></div>
       </div>
     </section>
 
@@ -324,11 +324,11 @@
         <tbody>
           <tr><td>Reported ROAS</td><td>revenue &divide; ad spend</td><td class="num">3.00&times;</td><td>What GMV Max / Ads Manager puts on your dashboard</td></tr>
           <tr><td>Corrected ROAS</td><td>revenue after returns &divide; ad spend</td><td class="num">2.85&times;</td><td>What actually landed once refunds are netted off</td></tr>
-          <tr class="total"><td>Break-even ROAS</td><td>sale price &divide; profit before ads</td><td class="num">2.38&times;</td><td>The floor you must clear to make any money at all</td></tr>
+          <tr class="total"><td>Break-even ROAS</td><td>sale price &divide; profit before ads</td><td class="num">2.17&times;</td><td>The floor you must clear to make any money at all</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>Read them together: at a reported 3.00&times; you are above the 2.38&times; floor, so the campaign is genuinely profitable &mdash; but after returns the real number is 2.85&times;, and the cushion is thinner than the dashboard implies.</p>
+        <p>Read them together: at a reported 3.00&times; you are above the 2.17&times; floor, so the campaign is genuinely profitable &mdash; but after returns the real number is 2.85&times;, and the cushion is thinner than the dashboard implies.</p>
       </div>
     </section>
 
@@ -348,16 +348,16 @@
           <tr><td>Sale price</td><td class="num">$29.99</td><td class="num">100.0%</td></tr>
           <tr><td>&#8722; TikTok platform fees</td><td class="num">&#8722;$9.32</td><td class="num">31.1%</td></tr>
           <tr><td>&#8722; COGS</td><td class="num">&#8722;$6.50</td><td class="num">21.7%</td></tr>
-          <tr><td>&#8722; Return impact</td><td class="num">&#8722;$1.55</td><td class="num">5.2%</td></tr>
-          <tr class="total"><td>= Profit before ads</td><td class="num">$12.62</td><td class="num">42.1%</td></tr>
-          <tr><td>Break-even ROAS ($29.99 &divide; $12.62)</td><td class="num">2.38&times;</td><td class="num">&#8212;</td></tr>
+          <tr><td>&#8722; Return impact</td><td class="num">&#8722;$0.38</td><td class="num">1.3%</td></tr>
+          <tr class="total"><td>= Profit before ads</td><td class="num">$13.79</td><td class="num">46.0%</td></tr>
+          <tr><td>Break-even ROAS ($29.99 &divide; $13.79)</td><td class="num">2.17&times;</td><td class="num">&#8212;</td></tr>
           <tr><td>&#8722; Ad cost at 3.0&times; ($29.99 &divide; 3.0)</td><td class="num">&#8722;$10.00</td><td class="num">33.3%</td></tr>
-          <tr class="total"><td>= Net profit per unit</td><td class="num">$2.62</td><td class="num">8.7%</td></tr>
-          <tr><td>Monthly at 500 units</td><td class="num">$1,310</td><td class="num">on $5,000 ad spend</td></tr>
+          <tr class="total"><td>= Net profit per unit</td><td class="num">$3.80</td><td class="num">12.7%</td></tr>
+          <tr><td>Monthly at 500 units</td><td class="num">$1,900</td><td class="num">on $5,000 ad spend</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>Note how little is left. A 3.0&times; ROAS <em>sounds</em> like a three-to-one return. It is actually $2.62 a unit &mdash; an 8.7% net margin &mdash; because TikTok's fees, your COGS and the ads are all paid out of the same $29.99.</p>
+        <p>Note how little is left. A 3.0&times; ROAS <em>sounds</em> like a three-to-one return. It is actually $3.80 a unit &mdash; a 12.7% net margin &mdash; because TikTok's fees, your COGS and the ads are all paid out of the same $29.99.</p>
       </div>
     </section>
 
@@ -381,21 +381,21 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <h3>Return impact &mdash; $1.55</h3>
+        <h3>Return impact &mdash; $0.38</h3>
       </div>
       <table class="data-table">
         <thead>
           <tr><th>Component</th><th>How it is charged</th><th class="num">At 5% returns</th></tr>
         </thead>
         <tbody>
-          <tr><td>Refunded revenue</td><td>sale price &times; return rate</td><td class="num">$1.50</td></tr>
+          <tr><td>Lost product cost</td><td>COGS &times; return rate</td><td class="num">$0.33</td></tr>
           <tr><td>Refund admin fee</td><td>20% of the referral fee, capped at $5 per SKU, &times; return rate</td><td class="num">$0.02</td></tr>
           <tr><td>FBT return handling</td><td>$0.70 per returned unit &times; return rate</td><td class="num">$0.04</td></tr>
-          <tr class="total"><td>Total return impact</td><td>5.2% of the sale price</td><td class="num">$1.55</td></tr>
+          <tr class="total"><td>Total return impact</td><td>1.3% of the sale price</td><td class="num">$0.38</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>Component rows are as displayed by the calculator; display rounding can differ by a cent from the total. This page charges returns on the <em>revenue</em> side &mdash; the money refunded. The <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> charges them on the <em>COGS</em> side, as product cost you cannot recover on a non-resellable return. Use one or the other; do not add them together.</p>
+<p>Component rows are as displayed by the calculator; display rounding can differ by a cent from the total. This page charges returned units against <em>your product cost (COGS)</em> &mdash; the same basis the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> uses. A return costs you the goods, not the sale price you never collected. One difference: the Profit Calculator lets you set a resale rate for returned stock, while this page has no such input and therefore treats every returned unit as unsellable. That is the conservative end &mdash; if you can resell returns, your real return cost is lower than the figure shown here.</p>
       </div>
     </section>
 
@@ -413,13 +413,13 @@
         </thead>
         <tbody>
           <tr><td class="num">0%</td><td class="num">0%</td><td class="num">$17.17 (57.3%)</td><td class="num">1.75&times;</td></tr>
-          <tr><td class="num">10%</td><td class="num">5%</td><td class="num">$12.62 (42.1%)</td><td class="num">2.38&times;</td></tr>
-          <tr><td class="num">20%</td><td class="num">10%</td><td class="num">$8.07 (26.9%)</td><td class="num">3.72&times;</td></tr>
-          <tr class="total"><td class="num">30%</td><td class="num">20%</td><td class="num">$1.96 (6.5%)</td><td class="num">15.27&times;</td></tr>
+          <tr><td class="num">10%</td><td class="num">5%</td><td class="num">$13.79 (46.0%)</td><td class="num">2.17&times;</td></tr>
+          <tr><td class="num">20%</td><td class="num">10%</td><td class="num">$10.42 (34.7%)</td><td class="num">2.88&times;</td></tr>
+          <tr class="total"><td class="num">30%</td><td class="num">20%</td><td class="num">$6.66 (22.2%)</td><td class="num">4.50&times;</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>This is why "what ROAS should I target?" has no universal answer, and why comparing your ROAS with another seller's is close to meaningless. Two sellers running identical ad accounts can have break-even floors 1.75&times; and 15.27&times; apart, purely because one pays creators heavily and eats more returns.</p>
+        <p>This is why "what ROAS should I target?" has no universal answer, and why comparing your ROAS with another seller's is close to meaningless. Two sellers running identical ad accounts can have break-even floors 1.75&times; and 4.50&times; apart, purely because one pays creators heavily and eats more returns.</p>
       </div>
     </section>
 
@@ -430,11 +430,11 @@
       </div>
       <div class="tool-prose">
         <ol>
-          <li><strong>Reading a positive ROAS as profit.</strong> A 2.0&times; ROAS is a loss on the default product, whose floor is 2.38&times;. Ads Manager will still show a positive ROAS.</li>
+          <li><strong>Reading a positive ROAS as profit.</strong> A 2.0&times; ROAS is a loss on the default product, whose floor is 2.17&times;. Ads Manager will still show a positive ROAS.</li>
           <li><strong>Treating the floor as fixed.</strong> It moves every time you change creator commission, return rate, price or weight tier. Re-run it after any of those.</li>
           <li><strong>Scaling on reported ROAS alone.</strong> Check corrected ROAS first &mdash; that is the revenue that actually survived refunds.</li>
           <li><strong>Benchmarking against someone else's ROAS.</strong> Different COGS, price and creator terms put the two of you on different floors.</li>
-          <li><strong>Assuming a price rise makes things worse.</strong> It usually lowers your floor: FBT and COGS are fixed, so raising $29.99 to $39.99 drops the break-even from 2.38&times; to about 1.95&times;.</li>
+          <li><strong>Assuming a price rise makes things worse.</strong> It usually lowers your floor: FBT and COGS are fixed, so raising $29.99 to $39.99 drops the break-even from 2.17&times; to about 1.80&times;.</li>
         </ol>
       </div>
     </section>
@@ -448,13 +448,13 @@
         <details>
           <summary>What is a good ROAS for TikTok Shop?<span class="sign"></span></summary>
           <div class="answer">
-            <p>There is no universal number &mdash; a good ROAS is one that clears <em>your</em> break-even floor with room to spare. On the default product ($29.99 sale, $6.50 COGS, 10% creator, 5% returns) the floor is 2.38&times;, and a 3.0&times; ROAS leaves just 8.7% net margin.</p>
+            <p>There is no universal number &mdash; a good ROAS is one that clears <em>your</em> break-even floor with room to spare. On the default product ($29.99 sale, $6.50 COGS, 10% creator, 5% returns) the floor is 2.17&times;, and a 3.0&times; ROAS leaves just 12.7% net margin.</p>
           </div>
         </details>
         <details>
           <summary>How do I calculate break-even ROAS?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Divide the sale price by your profit before ad spend: sale &divide; (sale &minus; platform fees &minus; COGS &minus; return impact). At the defaults that is $29.99 &divide; $12.62 = 2.38&times;. Below that line, every additional ad dollar loses money.</p>
+            <p>Divide the sale price by your profit before ad spend: sale &divide; (sale &minus; platform fees &minus; COGS &minus; return impact). At the defaults that is $29.99 &divide; $13.79 = 2.17&times;. Below that line, every additional ad dollar loses money.</p>
           </div>
         </details>
         <details>
@@ -466,7 +466,7 @@
         <details>
           <summary>Does creator commission change my break-even ROAS?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Yes, and heavily. Creator commission comes straight off profit before ads, so it raises the floor. Moving from 0% to 30% creator commission on the default product takes the break-even from 1.75&times; to 15.27&times; once a 20% return rate is also applied.</p>
+            <p>Yes, and heavily. Creator commission comes straight off profit before ads, so it raises the floor. Moving from 0% to 30% creator commission on the default product takes the break-even from 1.75&times; to 4.50&times; once a 20% return rate is also applied.</p>
           </div>
         </details>
         <details>

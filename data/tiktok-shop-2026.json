@@ -11,7 +11,7 @@
             "jewelry": 0.05,
             "preOwned": 0.05
         },
-        "appliesTo": "Order subtotal (item price plus platform discounts; excludes buyer-paid shipping and sales tax)",
+        "appliesTo": "Total sale price (including shipping)",
         "note": "6% flat for most US categories; payment processing is included. Jewelry and Pre-Owned categories are 5%."
     },
     "fbtFulfillment": {
