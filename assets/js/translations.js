@@ -16,7 +16,7 @@ window.TTCALC_I18N = {
     'hero.title2': '再把它卖好。',
     'hero.lede': '费用层层叠加：6%佣金（含支付处理）、履约费、创作者佣金。大多数卖家只看到6%的头版数字——实际成本接近12%。算清每件产品的真实费用，再与亚马逊FBA对比。',
     'hero.byline': '作者',
-    'hero.updated': '更新于2026年8月',
+    'hero.updated': '费率核验于2026年9月',
     'hero.cta1': '打开计算器',
     'hero.cta2': '生成商品图',
 
@@ -38,7 +38,8 @@ window.TTCALC_I18N = {
     'home.preview.example': '$29.99产品示例',
     'home.preview.updated': '2026费率',
     'home.preview.sale': '售价',
-    'home.preview.fees': 'TikTok费用',
+    'home.preview.platform': '平台费用 (6% + FBT)',
+    'home.preview.creator': '达人佣金 (10%)',
     'home.preview.cogs': '成本 + 运费',
     'home.preview.net': '单件净利润',
     'home.quick.price': '算清定价',

@@ -3,7 +3,7 @@
   var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
-  function fmt(n) { return '$' + n.toFixed(2); }
+  function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   // Single-line summary is the only live region; announcing the whole result
   // block made screen readers repeat every row on each keystroke.
   var announceTimer;

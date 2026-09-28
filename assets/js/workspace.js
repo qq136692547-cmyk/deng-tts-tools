@@ -160,6 +160,7 @@
     store.last[PAGE] = state;
     render();
 
+    if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('save_product');
     flash(getEl('wsSave'), 'Saved');
   }
 
@@ -197,7 +198,7 @@
     var p = new URLSearchParams();
     fieldEls().forEach(function (el) { p.set(el.id, el.value); });
     var url = location.origin + location.pathname + '?' + p.toString();
-    var done = function () { flash(btn, 'Copied'); };
+    var done = function () { flash(btn, 'Copied'); if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('copy_share_link'); };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(done).catch(function () { fallbackCopy(url); done(); });
     } else {

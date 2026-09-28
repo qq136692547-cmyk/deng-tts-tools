@@ -28,6 +28,7 @@
     });
     var text = lines.join('\n');
     var done = function () {
+      if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('copy_results');
       var orig = btn.textContent;
       btn.textContent = '\u2713 Copied';
       btn.classList.add('copied');
@@ -42,6 +43,36 @@
     var btn = e.target.closest('.copy-results-btn, [data-copy-results]');
     if (btn) { e.preventDefault(); doCopy(btn); }
   });
+
+  // Deep-conversion interest in the rate changelog (our moat asset).
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a[href*="/rate-updates/"]') : null;
+    if (link && window.ttcalcTrackEvent) window.ttcalcTrackEvent('rate_updates_click');
+  });
+
+  // C1: never show a silent $0.00 stack - warn when the sale price is empty or zero.
+  function initSaleGuard() {
+    var input = document.getElementById('salePrice') || document.getElementById('sale');
+    var panel = document.querySelector('.calc-results');
+    if (!input || !panel) return;
+    var warn = document.createElement('p');
+    warn.className = 'calc-warning';
+    warn.textContent = 'Enter a sale price to see fees.';
+    warn.style.display = 'none';
+    var head = panel.querySelector('.calc-results-head');
+    if (head && head.nextSibling) { panel.insertBefore(warn, head.nextSibling); }
+    else { panel.insertBefore(warn, panel.firstChild); }
+    function check() {
+      var v = parseFloat(input.value);
+      var empty = input.value.trim() === '' || isNaN(v) || v <= 0;
+      warn.style.display = empty ? '' : 'none';
+    }
+    input.addEventListener('input', check);
+    input.addEventListener('change', check);
+    check();
+    // workspace.js fills inputs from the URL after this point; re-check once.
+    setTimeout(check, 350);
+  }
 
   // ---- Hero stats count-up ----
   function animateCount(el, target, duration) {
@@ -204,6 +235,7 @@
     initCountUp();
     initScrollReveal();
     initFaqAccordion();
+    initSaleGuard();
     // Next frame: workspace.js loads after ux.js and fills inputs from the
     // URL, so reading values synchronously here would capture the defaults.
     requestAnimationFrame(syncNextstepLinks);

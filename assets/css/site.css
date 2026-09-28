@@ -206,6 +206,9 @@ body.home { color: #111114; overflow-x: hidden; }
 @media (max-width: 480px) { .calc-inputs, .calc-results { padding: 20px 18px 24px; } }
 .calc-inputs { border-right: 1px solid rgba(255,255,255,.08); }
 .calc-results { display: flex; flex-direction: column; background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 100%); }
+
+/* C1: visible warning when sale price is empty or zero (no silent $0.00) */
+.calc-warning { margin: 0 0 12px; padding: 10px 14px; border-radius: 8px; background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.35); color: #FBBF24; font-size: .85rem; font-weight: 600; font-family: var(--font-body); }
 .calc-field { margin-bottom: 16px; }
 .calc-field label { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,.85); margin-bottom: 6px; }
 .calc-field .input { display: flex; align-items: center; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 14px 18px; min-height: 48px; box-shadow: inset 0 1px 2px rgba(0,0,0,.3); font-family: var(--font-mono); font-size: 15px; color: #fff; }

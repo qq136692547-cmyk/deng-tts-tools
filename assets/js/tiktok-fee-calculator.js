@@ -3,7 +3,7 @@
   var R = window.TTCALC_RATES;
   var $id = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
-  function fmt(n) { return '$' + n.toFixed(2); }
+  function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   // Single-line summary is the only live region; announcing the whole result
   // block made screen readers repeat every row on each keystroke.
   var announceTimer;
@@ -71,6 +71,12 @@
     $id('r_refund_admin').textContent       = '-' + fmt(returnFee);
     $id('r_return_handling').textContent    = '-' + fmt(returnHandling);
     $id('r_net_after_returns').textContent  = fmt(netAfterReturns) + ' (' + netPct.toFixed(1) + '%)';
+    // With returns at 0% these two rows are always $0.00 and the payout row is
+    // duplicated by "Net after returns" - hide them, same pattern as the txn row.
+    var showReturns = returnRate > 0;
+    var raRow = $id('row_refund_admin'), rhRow = $id('row_return_handling');
+    if (raRow && raRow.style) raRow.style.display = showReturns ? '' : 'none';
+    if (rhRow && rhRow.style) rhRow.style.display = showReturns ? '' : 'none';
 
     announce('Total TikTok Shop fees ' + fmt(platformFees) + ' (' + pct.toFixed(1) + '%), payout ' + fmt(payout) + '.');
   }

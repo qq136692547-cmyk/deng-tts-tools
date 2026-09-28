@@ -11,25 +11,28 @@
 - [TikTok Shop Product Photo Generator](https://ttcalc.shop/tools/tiktok-product-photo/): Generate marketplace-ready product photos from a description, with scene and aspect-ratio presets.
 - [Embed a calculator](https://ttcalc.shop/embed/): Copy an iframe snippet to place any of the five calculators on your own blog, course or seller resource. Free, no attribution required.
 
+## Rate data
+
+- [TikTok Shop Fee Rate Updates](https://ttcalc.shop/rate-updates/): Dated log of every 2026 TikTok Shop fee change we track — referral rate, FBT rate card, refund admin fee — each entry with its effective date, the date we verified it, and a link to the official source.
+
 ## Guides
 
 - [TikTok Shop Fees on a $20 Product](https://ttcalc.shop/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/): A $19.99 product carries $5.72 of platform fees, 28.6% of the sale price, because the referral fee scales with price and FBT does not. Line-by-line worked example.
 - [FBT Fee Per Unit 2026](https://ttcalc.shop/blog/tiktok-shop-fbt-fee-per-unit-2026/): Every FBT weight tier from $4.28 to $12.67 per unit, why the tier matters more than the price, and how multi-item orders price per order instead of per unit.
-- [Break-Even ROAS Formula](https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/): Break-even ROAS = sale price ÷ profit before ad spend. Worked on a $29.99 product, with creator-commission and return sensitivity up to 15.27×.
+- [Break-Even ROAS Formula](https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/): Break-even ROAS = sale price ÷ profit before ad spend. Worked on a $29.99 product, with creator-commission and return sensitivity up to 4.50×.
 - [TikTok Shop Fees vs Shopify](https://ttcalc.shop/blog/tiktok-shop-fees-vs-shopify-2026/): Commission vs subscription plus payment processing. Cost per unit at $15, $30 and $100, and where each channel wins.
 - [Best TikTok Shop Product Research Tools 2026](https://ttcalc.shop/blog/best-tiktok-shop-product-research-tools-2026/): What the free tier covers, when a paid research tool pays for itself, and the per-unit cost of a subscription at different volumes.
 - [FastMoss vs Kalodata 2026](https://ttcalc.shop/blog/fastmoss-vs-kalodata-2026/): Published pricing, history windows and daily quotas compared, plus which tool suits creator outreach vs long-run category history.
 - [TikTok Shop Payout Methods 2026](https://ttcalc.shop/blog/tiktok-shop-payout-methods-payoneer-vs-wise-2026/): Payoneer vs Wise vs bank transfer, including the exchange-rate spread neither provider publishes and the break-even size for fixed vs percentage fees.
-- [TikTok Shop Fees in 2026: A Complete Breakdown](https://ttcalc.shop/blog/tiktok-shop-fees-2026/): Every fee TikTok charges sellers in 2026 — referral, transaction, FBT fulfillment, creator commissions, refund administration.
+- [TikTok Shop Fees in 2026: A Complete Breakdown](https://ttcalc.shop/blog/tiktok-shop-fees-2026/): Every fee TikTok charges sellers in 2026 — referral, FBT fulfillment, creator commissions, refund administration.
 - [Free AI Product Photos for TikTok Shop 2026](https://ttcalc.shop/blog/free-ai-product-photos-2026/): A repeatable workflow for turning one truthful product photo into marketplace-ready scene variations, with prompt, ratio, and listing checks.
 - [TikTok Shop Profit Killers: 5 Hidden Mistakes](https://ttcalc.shop/blog/tiktok-shop-profit-killers-2026/): Five mistakes that silently destroy TikTok Shop margins.
 - [GMV Max on TikTok Shop 2026](https://ttcalc.shop/blog/tiktok-shop-gmv-max-2026/): Budget rules (10x AOV), ROAS benchmarks (2.5x), scaling strategy for TikTok's automated ad system.
 - [TikTok Shop Affiliate Program 2026](https://ttcalc.shop/blog/tiktok-shop-affiliate-program-2026/): Open vs Target plans, commission rates (13.02% US average), clawback mechanics.
 - [TikTok Shop Return Rates Guide](https://ttcalc.shop/blog/tiktok-shop-return-rates-cost-2026/): Return rates by category and the true cost of returns, including refund admin and June 2026 FBT per-item handling fees.
-- [TikTok Shop Taxes 2026](https://ttcalc.shop/blog/tiktok-shop-taxes-2026/): 1091-K threshold ($20,000+200tx), marketplace facilitator sales tax, deductible fees.
+- [TikTok Shop Taxes 2026](https://ttcalc.shop/blog/tiktok-shop-taxes-2026/): 1099-K threshold ($20,000+200tx), marketplace facilitator sales tax, deductible fees.
 - [FBT Fulfillment Costs 2026](https://ttcalc.shop/blog/tiktok-shop-fbt-fulfillment-guide-2026/): Fulfilled by TikTok fee tiers, storage, and comparison vs self-fulfillment and Amazon FBA.
 - [TikTok Shop vs Amazon FBA 2026](https://ttcalc.shop/blog/tiktok-shop-vs-amazon-fba-2026/): Complete fee and profit comparison with real $30 product examples.
-- [How to Calculate TikTok Shop Profit Per Unit](https://ttcalc.shop/blog/tiktok-shop-profit-per-unit-2026/): Step-by-step formula for real profit per unit at multiple price points.
 - [TikTok Shop SEO Guide](https://ttcalc.shop/blog/tiktok-shop-seo-guide-2026/): Product listing optimization for TikTok Shop search in 2026.
 - [TikTok Shop Live Shopping Strategy 2026](https://ttcalc.shop/blog/tiktok-shop-live-shopping-strategy-2026/): How to plan broadcasts, structure deals, choose products, and convert viewers into buyers.
 - [TikTok Shop Account Health Rating 2026](https://ttcalc.shop/blog/tiktok-shop-account-health-rating-2026/): How the Account Health Rating works, what triggers violations, and how to maintain good standing.
@@ -37,7 +40,7 @@
 - [TikTok Shop Seller Tools 2026](https://ttcalc.shop/blog/tiktok-shop-seller-tools-2026/): 15 essential tools across product research, listing optimization, analytics, logistics, and content creation — with free alternatives for every budget.
 - [TikTok Shop Payment Terms 2026](https://ttcalc.shop/blog/tiktok-shop-payment-terms-2026/): 2026 settlement cycles (Southeast Asia 4-tier, US 7-31 days), Storfund Daily Advance cash flow solution, and how to optimize your account for faster payouts.
 - [TikTok Shop Account Suspension 2026](https://ttcalc.shop/blog/tiktok-shop-account-suspension-appeal-2026/): Why TikTok Shop suspends seller accounts in 2026 — the Account Health Rating system, the most common causes, a step-by-step appeal process with evidence tips, and a prevention checklist.
-- [TikTok Shop Shipping Costs 2026](https://ttcalc.shop/blog/tiktok-shop-shipping-costs-2026/): FBT per-unit rates by weight, multi-item discounts, commission-on-shipping and transaction fees, and when self-shipping or Upgraded TikTok Shipping wins.
+- [TikTok Shop Shipping Costs 2026](https://ttcalc.shop/blog/tiktok-shop-shipping-costs-2026/): FBT per-unit rates by weight, multi-item discounts, commission on shipping, and when self-shipping or Upgraded TikTok Shipping wins.
 - [TikTok Shop First Sale Playbook 2026](https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/): Registration docs, first-product selection, real 2026 fee math, listing and content that converts, and a first-30-days checklist for new sellers.
 - [Profit Per Unit Guide](https://ttcalc.shop/blog/tiktok-shop-profit-per-unit-2026/): The complete profit-per-unit formula for 2026 — worked examples at three price points, with and without creator commissions.
 - [TikTok Shop Product Research Guide](https://ttcalc.shop/blog/tiktok-shop-product-research-2026/): A repeatable 4-step framework to identify winning products before they trend, using free tools and demand signals.

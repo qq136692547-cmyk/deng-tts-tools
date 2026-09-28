@@ -23,8 +23,22 @@
       "name": "TikTok vs Amazon FBA",
       "url": "https://ttcalc.shop/tools/tiktok-vs-amazon/",
       "description": "Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point."
+    },
+    {
+      "name": "TikTok Shop ROAS Calculator",
+      "url": "https://ttcalc.shop/tools/tiktok-roas-calculator/",
+      "description": "Break-even ROAS plus net profit per unit and per month after TikTok fees, COGS, creator commissions, and ad spend."
+    },
+    {
+      "name": "TikTok Shop Product Photo Generator",
+      "url": "https://ttcalc.shop/tools/tiktok-product-photo/",
+      "description": "Generate marketplace-ready product photos from a description, with scene and aspect-ratio presets."
     }
   ],
+  "rate_updates": {
+    "url": "https://ttcalc.shop/rate-updates/",
+    "description": "Dated changelog of every TikTok Shop fee change we track, with effective dates, verified dates and source links"
+  },
   "fee_structure": {
     "referral_fee": "6% flat (includes payment processing)",
     "transaction_fee": "None. TikTok Shop US has no separate per-order transaction fee; the flat 6% referral rate took effect 1 April 2024 and already includes payment processing. The April 2023 date cited on other sites is the start of a 2023 promotion that temporarily cut the old 2% rate to 0% (US).",
@@ -33,7 +47,7 @@
     "creator_commission": "0-30% (13.02% US average)",
     "last_verified": "2026-09-28"
   },
-  "blog_count": 20,
+  "blog_count": 27,
   "blog_index": "https://ttcalc.shop/blog/",
   "blog_topics": [
     { "title": "Free AI Product Photos for TikTok Shop: A 2026 Workflow", "url": "https://ttcalc.shop/blog/free-ai-product-photos-2026/" },
@@ -55,7 +69,14 @@
     { "title": "TikTok Shop Payment Terms 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-payment-terms-2026/" },
     { "title": "TikTok Shop Shipping Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-shipping-costs-2026/" },
     { "title": "TikTok Shop Account Suspension Appeal 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-account-suspension-appeal-2026/" },
-    { "title": "TikTok Shop First Sale Playbook 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/" }
+    { "title": "TikTok Shop First Sale Playbook 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/" },
+    { "title": "TikTok Shop Fees on a $20 Product", "url": "https://ttcalc.shop/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/" },
+    { "title": "TikTok Shop FBT Fee Per Unit 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fee-per-unit-2026/" },
+    { "title": "Break-Even ROAS Formula 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/" },
+    { "title": "TikTok Shop Fees vs Shopify 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fees-vs-shopify-2026/" },
+    { "title": "Best TikTok Shop Product Research Tools 2026", "url": "https://ttcalc.shop/blog/best-tiktok-shop-product-research-tools-2026/" },
+    { "title": "FastMoss vs Kalodata 2026", "url": "https://ttcalc.shop/blog/fastmoss-vs-kalodata-2026/" },
+    { "title": "TikTok Shop Payout Methods 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-payout-methods-payoneer-vs-wise-2026/" }
   ],
-  "last_updated": "2026-09-28"
+  "last_updated": "2026-09-29"
 }
