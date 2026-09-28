@@ -27,7 +27,11 @@
     var total = price + ship;
 
     // 2026 TikTok Shop US fee structure (verified Jul 2026, multi-source)
-    var referral = total * (referralRate / 100); // referral varies by category (default 6%, Jewelry/Pre-Owned 5%)
+    // Referral base is the order subtotal: TikTok's fee formula is
+    // rate x (Customer Payment + Platform Discount - Tax), so buyer-paid
+    // shipping and sales tax are excluded from the base. All four calculators
+    // now share this one definition - see /rate-updates/ (2026-09-28).
+    var referral = price * (referralRate / 100); // referral varies by category (default 6%, Jewelry/Pre-Owned 5%)
     var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+$id('fbtTier').value || 0].rates[+$id('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
     var txnFee   = R.transactionFee;     // flat transaction fee per order (rates.js)
     var creator  = total * creatorRate;

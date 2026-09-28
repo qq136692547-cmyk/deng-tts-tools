@@ -35,9 +35,13 @@
     var creator  = sale * creatorPct;
     var platformFees = referral + fbt + txn + creator;
 
-    // Return impact: 20% of referral fee (capped $5) + product cost on returned units
-    // Return impact: 20% of referral fee (capped $5) + product cost on returned units + FBT return handling
-    var returnImpact = sale * returnRate + Math.min(referral * R.refundAdminRate, R.refundAdminCap) * returnRate + returnHandlingFee * returnRate;
+    // Return impact: inventory loss on returned units is charged against COGS
+    // (not the sale price) + 20% of referral fee (capped $5) + FBT return handling.
+    // This page has no resale-rate input, so it treats returned units as fully
+    // unsellable - the conservative end, and identical to the Profit Calculator
+    // when its resale rate is 0%. We now share their cost-of-goods definition
+    // instead of writing off the full sale price. See /rate-updates/ (2026-09-28).
+    var returnImpact = cogs * returnRate + Math.min(referral * R.refundAdminRate, R.refundAdminCap) * returnRate + returnHandlingFee * returnRate;
 
     var preAdProfit = sale - platformFees - cogs - returnImpact;
     var preAdMargin = sale > 0 ? (preAdProfit / sale) * 100 : 0;
