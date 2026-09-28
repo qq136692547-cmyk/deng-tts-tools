@@ -12,18 +12,42 @@
 </head>
 <body>
 <!--
-  Adsterra 300x250 banner, deliberately isolated in a same-origin iframe.
+  Adsterra 300x250 banner, deliberately isolated in a sandboxed same-origin iframe.
 
-  Why: the invoke.js below is a render-blocking third-party script. On slow
-  connections it stalled the host page's HTML parser for 1-2s (measured), which
-  pushed the article body out of the first paint. Loading it inside an iframe
-  keeps the same ad code, same key, same size and same visual result, but the
-  host page never waits on it.
+  Two reasons it does not live inline in the host page:
+   1. Speed -- invoke.js is a render-blocking third-party script. On slow
+      connections it stalled the host page's HTML parser for 1-2s (measured),
+      pushing the article body out of the first paint.
+   2. Safety -- running in the top-level document let this script navigate the
+      whole page away to a third-party redirect destination. The host page now
+      frames it with sandbox="allow-scripts allow-same-origin" and no
+      allow-top-navigation, so the ad can render but can never navigate the
+      host page or open a popup.
 
-  Do not inline this back into the host pages.
+  Same ad code, same key, same size. Do not inline this back into the host pages.
   Kept out of search results via the robots meta above and robots.txt.
 -->
 <script>atOptions = {'key':'8b9b2140161160b12d4609d7a9c36028','format':'iframe','height':250,'width':300,'params':{}};</script>
 <script src="https://www.highrevenueformat.com/8b9b2140161160b12d4609d7a9c36028/invoke.js"></script>
+
+<!-- Grow the host iframe to fit whatever the ad renders, so a taller-than-declared
+     creative can never be clipped. Same-origin, so touching frameElement is allowed.
+     Grow only, capped. -->
+<script>
+(function () {
+  var MAX = 900, last = 0;
+  function fit() {
+    try {
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      var el = window.frameElement;
+      if (el && h > 60 && h <= MAX && h > last + 8) { last = h; el.style.height = h + 'px'; }
+    } catch (e) { /* detached or cross-origin: keep the fixed height */ }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit);
+  else fit();
+  window.addEventListener('load', fit);
+  setInterval(fit, 1500);
+})();
+</script>
 </body>
 </html>

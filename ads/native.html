@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Advertisement</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+  body { width: 100%; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<!--
+  Adsterra native unit, isolated in a sandboxed same-origin iframe.
+
+  Why: this code was previously inlined in the host page's <body>, so it ran in
+  the top-level document and could (and did) navigate the whole page away to a
+  third-party redirect destination. Sandboxing it makes that impossible while
+  leaving the ad code itself untouched.
+
+  Do not inline this back into the host pages.
+  Kept out of search results via the robots meta above and robots.txt.
+-->
+<script async="async" data-cfasync="false" src="https://pl31399151.profitableratecpmnetwork.com/e814bf832d6ea48ad1f86f47f0c1b1e9/invoke.js"></script>
+<div id="container-e814bf832d6ea48ad1f86f47f0c1b1e9"></div>
+
+<!-- Grow the host iframe to fit whatever the ad renders, so a tall native
+     widget can never be clipped. Same-origin (the frame is sandboxed with
+     allow-same-origin), so touching frameElement is allowed. Grow only. -->
+<script>
+(function () {
+  var MAX = 900, last = 0;
+  function fit() {
+    try {
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      var el = window.frameElement;
+      if (el && h > 60 && h <= MAX && h > last + 8) {
+        last = h;
+        el.style.height = h + 'px';
+      }
+    } catch (e) { /* cross-origin or detached: leave the fixed height alone */ }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit);
+  else fit();
+  window.addEventListener('load', fit);
+  setInterval(fit, 1500);
+})();
+</script>
+</body>
+</html>

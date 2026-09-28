@@ -39,6 +39,19 @@
 
 # /ads/ —— Adsterra banner 的承载页，只供本站同域 iframe 使用。
 # 不进搜索索引：robots.txt 里也有 Disallow，这里是第二道保险。
+# Cache-Control 短缓存：换广告代码要能及时生效。
+#
+# CSP 里的 sandbox 是**第二道防劫持**：
+#   宿主页面已用 <iframe sandbox="allow-scripts allow-same-origin"> 把广告框住，但那只在
+#   "被嵌入"时生效。若有人（或某个爬虫）**直接打开** /ads/banner-*，它就是顶层文档，
+#   iframe 上的 sandbox 属性无从谈起，广告脚本就能把访问者整页跳走（实测会跳到
+#   xx.cc / 33ai.my 这类落地页）。给承载页自己下发 sandbox 指令即可堵死：
+#   即使在顶层，它也没有 allow-top-navigation，跳转请求会被浏览器拒绝。
+# allow-scripts + allow-same-origin 保留脚本与同源能力 —— 广告照常渲染，
+# 承载页里那段"自适应高度"的脚本也仍能访问 window.frameElement。
+# frame-ancestors * 保留，确保仍可被本站页面嵌入。
+# ⚠️ 一条路径一个块，不要多路径共用一个缩进头块（CF Pages 会整块忽略，见上文踩坑记录）。
 /ads/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: public, max-age=3600, must-revalidate
+  Content-Security-Policy: sandbox allow-scripts allow-same-origin; frame-ancestors *

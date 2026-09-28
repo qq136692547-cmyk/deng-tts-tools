@@ -13,13 +13,32 @@
 </head>
 <body>
 <!--
-  Adsterra 728x90 leaderboard, deliberately isolated in a same-origin iframe.
-  See ads/banner-300x250.html for the rationale (render-blocking third-party
-  script). Same ad key, same size, same visual result -- host page unaffected.
+  Adsterra 728x90 leaderboard, deliberately isolated in a sandboxed same-origin iframe.
+  See ads/banner-300x250.html for the full rationale (speed + blocking the ad's
+  ability to navigate the host page away). Same ad key, same size -- the host
+  page is unaffected either way.
 
   Kept out of search results via the robots meta above and robots.txt.
 -->
 <script>atOptions = {'key':'0499f0342ad552c956e9805c564e2fc9','format':'iframe','height':90,'width':728,'params':{}};</script>
 <script src="https://www.highrevenueformat.com/0499f0342ad552c956e9805c564e2fc9/invoke.js"></script>
+
+<!-- Grow the host iframe to fit the rendered creative. Grow only, capped. -->
+<script>
+(function () {
+  var MAX = 900, last = 0;
+  function fit() {
+    try {
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      var el = window.frameElement;
+      if (el && h > 60 && h <= MAX && h > last + 8) { last = h; el.style.height = h + 'px'; }
+    } catch (e) { /* detached or cross-origin: keep the fixed height */ }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit);
+  else fit();
+  window.addEventListener('load', fit);
+  setInterval(fit, 1500);
+})();
+</script>
 </body>
 </html>

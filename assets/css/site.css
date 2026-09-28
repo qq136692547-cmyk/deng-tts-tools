@@ -584,13 +584,18 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 .adsterra-banner { max-width: 100%; overflow-x: auto; margin: 0 auto 24px; -webkit-overflow-scrolling: touch; }
 .adsterra-native { max-width: 100%; margin: 0 auto; }
 
-/* Ad iframes: the third-party banner code now lives in a same-origin iframe
-   (see /ads/banner-*.html) so a slow ad server can never stall the host page's
-   HTML parser — it used to block article pages for ~1.9s. The iframe carries
-   fixed width/height attributes, so reserved space is unchanged and CLS stays 0.
+/* Ad iframes: all third-party ad code loads in a sandboxed same-origin iframe
+   (see /ads/banner-*.html and /ads/native.html), for two reasons.
+   Speed: the banner script is render-blocking and used to stall article pages
+   for ~1-2s. Safety: in the top-level document it could navigate the visitor off
+   the site — the frames are sandboxed (allow-scripts + allow-same-origin, no
+   allow-top-navigation / no allow-popups) so it cannot any more.
+   The iframe carries fixed width/height attributes, so reserved space is
+   unchanged and CLS stays 0; carriers grow their frame if a creative is taller.
    .adsterra-banner already scrolls horizontally, keeping a 728px leaderboard
    reachable on narrow screens. */
 .adsterra-frame { border: 0; display: block; margin: 0 auto; background: transparent; }
+.adsterra-frame--native { width: 100%; max-width: 728px; }
 
 /* ── Tool page content blocks (quick answer / prose / tables) ───────────── */
 
