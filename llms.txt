@@ -9,9 +9,17 @@
 - [TikTok Shop ROAS Calculator](https://ttcalc.shop/tools/tiktok-roas-calculator/): Break-even ROAS plus net profit per unit and per month after TikTok fees, COGS, creator commissions, and ad spend.
 - [TikTok vs Amazon FBA](https://ttcalc.shop/tools/tiktok-vs-amazon/): Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point.
 - [TikTok Shop Product Photo Generator](https://ttcalc.shop/tools/tiktok-product-photo/): Generate marketplace-ready product photos from a description, with scene and aspect-ratio presets.
+- [Embed a calculator](https://ttcalc.shop/embed/): Copy an iframe snippet to place any of the five calculators on your own blog, course or seller resource. Free, no attribution required.
 
 ## Guides
 
+- [TikTok Shop Fees on a $20 Product](https://ttcalc.shop/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/): A $19.99 product carries $5.72 of platform fees, 28.6% of the sale price, because the referral fee scales with price and FBT does not. Line-by-line worked example.
+- [FBT Fee Per Unit 2026](https://ttcalc.shop/blog/tiktok-shop-fbt-fee-per-unit-2026/): Every FBT weight tier from $4.28 to $12.67 per unit, why the tier matters more than the price, and how multi-item orders price per order instead of per unit.
+- [Break-Even ROAS Formula](https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/): Break-even ROAS = sale price ÷ profit before ad spend. Worked on a $29.99 product, with creator-commission and return sensitivity up to 15.27×.
+- [TikTok Shop Fees vs Shopify](https://ttcalc.shop/blog/tiktok-shop-fees-vs-shopify-2026/): Commission vs subscription plus payment processing. Cost per unit at $15, $30 and $100, and where each channel wins.
+- [Best TikTok Shop Product Research Tools 2026](https://ttcalc.shop/blog/best-tiktok-shop-product-research-tools-2026/): What the free tier covers, when a paid research tool pays for itself, and the per-unit cost of a subscription at different volumes.
+- [FastMoss vs Kalodata 2026](https://ttcalc.shop/blog/fastmoss-vs-kalodata-2026/): Published pricing, history windows and daily quotas compared, plus which tool suits creator outreach vs long-run category history.
+- [TikTok Shop Payout Methods 2026](https://ttcalc.shop/blog/tiktok-shop-payout-methods-payoneer-vs-wise-2026/): Payoneer vs Wise vs bank transfer, including the exchange-rate spread neither provider publishes and the break-even size for fixed vs percentage fees.
 - [TikTok Shop Fees in 2026: A Complete Breakdown](https://ttcalc.shop/blog/tiktok-shop-fees-2026/): Every fee TikTok charges sellers in 2026 — referral, transaction, FBT fulfillment, creator commissions, refund administration.
 - [Free AI Product Photos for TikTok Shop 2026](https://ttcalc.shop/blog/free-ai-product-photos-2026/): A repeatable workflow for turning one truthful product photo into marketplace-ready scene variations, with prompt, ratio, and listing checks.
 - [TikTok Shop Profit Killers: 5 Hidden Mistakes](https://ttcalc.shop/blog/tiktok-shop-profit-killers-2026/): Five mistakes that silently destroy TikTok Shop margins.

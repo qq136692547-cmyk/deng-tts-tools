@@ -11,21 +11,38 @@
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>About TTCalc — Free TikTok Shop Calculators</title>
-<meta name="description" content="TTCalc is an independent free tool site for TikTok Shop sellers. Fee calculators, profit calculators, and cross-platform comparisons. Built by L.D. Studio." />
+<title>About TTCalc — Who Builds It and How the Rates Are Verified</title>
+<meta name="description" content="TTCalc is an independent, free tool site for TikTok Shop sellers. Who builds it, how the 2026 fee rates are verified against Seller Center, what we refuse to publish, and how the site is funded." />
 <link rel="canonical" href="https://ttcalc.shop/about/" />
-<meta property="og:title" content="About TTCalc — Free TikTok Shop Calculators" />
-<meta property="og:description" content="Independent free tool site for TikTok Shop sellers. Built by L.D. Studio." />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="About TTCalc — Who Builds It and How the Rates Are Verified" />
+<meta property="og:description" content="Independent free tool site for TikTok Shop sellers. How the rates are verified, what we refuse to publish, and how the site is funded." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ttcalc.shop/about/" />
+<meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="About TTCalc — Free TikTok Shop Calculators" />
-<meta name="twitter:description" content="Independent free tool site for TikTok Shop sellers. Built by L.D. Studio." />
+<meta name="twitter:title" content="About TTCalc" />
+<meta name="twitter:description" content="Independent free tool site for TikTok Shop sellers. How the rates are verified and how the site is funded." />
 <meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://ttcalc.shop/about/#aboutpage",
+  "name": "About TTCalc",
+  "url": "https://ttcalc.shop/about/",
+  "description": "Who builds TTCalc, how the TikTok Shop fee rates are verified, what the site refuses to publish, and how it is funded.",
+  "mainEntity": {"@id": "https://ttcalc.shop/about/#person"},
+  "publisher": {"@id": "https://ttcalc.shop/#organization"},
+  "isPartOf": {"@type": "WebSite", "name": "TTCalc", "url": "https://ttcalc.shop/"}
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://ttcalc.shop/#organization",
   "name": "TTCalc",
   "url": "https://ttcalc.shop/",
   "logo": {
@@ -34,22 +51,17 @@
     "width": 1200,
     "height": 630
   },
-  "description": "Free TikTok Shop seller tools — fee calculator, profit calculator, and platform comparison.",
-  "founder": {
-    "@type": "Person",
-    "name": "L.D. Studio",
-    "url": "https://ttcalc.shop/about/",
-    "jobTitle": "Founder & Developer",
-    "description": "Independent developer and TikTok Shop seller building tools for the seller community."
-  },
+  "description": "Free TikTok Shop seller tools — fee calculator, profit calculator, ROAS calculator, platform comparison, and AI product photos.",
+  "founder": {"@id": "https://ttcalc.shop/about/#person"},
   "sameAs": [
-    "https://github.com/qq136692547-cmyk/deng-tts-tools"
+    "https://github.com/qq136692547-cmyk/deng-tts-tools",
+    "https://github.com/qq136692547-cmyk"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer support",
     "url": "https://github.com/qq136692547-cmyk/deng-tts-tools/issues",
-    "availableLanguage": "English"
+    "availableLanguage": ["English", "Chinese"]
   }
 }
 </script>
@@ -57,24 +69,24 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://ttcalc.shop/about/#person",
   "name": "L.D. Studio",
   "url": "https://ttcalc.shop/about/",
   "jobTitle": "Founder & Developer",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "TTCalc",
-    "url": "https://ttcalc.shop/"
-  },
-  "description": "Independent developer and TikTok Shop seller. Built TTCalc to make the real TikTok Shop fee stack visible to all sellers.",
+  "worksFor": {"@id": "https://ttcalc.shop/#organization"},
+  "description": "Independent developer and TikTok Shop seller. Built TTCalc to make the real TikTok Shop fee stack visible before sourcing, not after.",
   "knowsAbout": [
     "TikTok Shop fees",
-    "E-commerce profitability",
-    "FBT fulfillment",
+    "Referral fee structure",
+    "FBT fulfillment costs",
+    "E-commerce unit economics",
     "Amazon FBA comparison",
-    "TikTok Shop seller tools"
+    "Break-even ROAS modelling",
+    "Creator commission structures"
   ],
   "sameAs": [
-    "https://github.com/qq136692547-cmyk/deng-tts-tools"
+    "https://github.com/qq136692547-cmyk/deng-tts-tools",
+    "https://github.com/qq136692547-cmyk"
   ]
 }
 </script>
@@ -89,9 +101,10 @@
     <nav class="main-nav" aria-label="Primary">
       <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a>
       <a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit</a>
+      <a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">ROAS</a>
       <a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">vs Amazon FBA</a>
       <a href="/blog/" data-i18n="nav.blog">Blog</a>
-    
+
       <button id="lang-toggle" class="lang-toggle" aria-label="切换到中文">中文</button>
     </nav>
   </div>
@@ -99,25 +112,62 @@
 <main id="main" class="container" style="padding:var(--s-7) 0; max-width:780px;">
   <span class="eyebrow">About</span>
   <h1>Why this site exists</h1>
-  <p class="post-lede" style="font-size:1.15rem; color:var(--c-text-secondary); margin-bottom:var(--s-5);">TikTok Shop is the fastest-growing marketplace of 2024–2026. Most new sellers only know the 6% referral commission TikTok shows in the dashboard. The real fee stack includes FBT fulfillment, cross-border fees, and creator commission — together typically 12%–15%, sometimes 22%+ with creators.</p>
-  <p>TTCalc makes the real fee stack visible. Calculator for the total TikTok fees. Profit calculator that includes creator commission and ad spend. Side-by-side comparison vs Amazon FBA on the same product — so you can decide which platform actually pays you more for the SKU you have in mind.</p>
+  <p class="post-lede" style="font-size:1.15rem; color:var(--c-text-secondary); margin-bottom:var(--s-5);">TikTok Shop is one of the fastest-growing marketplaces of 2024&ndash;2026, and most new sellers only know the 6% referral rate shown in Seller Center. The real cost of an order usually includes FBT fulfillment, return handling and, on creator-driven volume, a commission that the seller sets. Added together on a $20 product, that stack reaches 28.6% &mdash; and the first time most sellers see that number is after they have already paid for inventory.</p>
+  <p>TTCalc exists to put that number in front of you before you source. Five tools: a fee calculator that breaks the platform stack out line by line, a profit calculator that adds COGS, shipping, ad spend, creator commission and returns, a break-even ROAS calculator that converts a margin into an ad floor, a side-by-side TikTok vs Amazon FBA comparison, and an AI product photo generator for the listing itself.</p>
+
+  <h2 id="who">Who builds this</h2>
+  <p>TTCalc is built and maintained by L.D. Studio &mdash; an independent developer who sells on TikTok Shop. The site started in 2025 after a product that looked clearly profitable in Seller Center turned out not to be once FBT fulfillment, inbound freight and creator commission were counted properly. The gap was not fraud and not a hidden fee. It was that the dashboard reports what settled, while the decision had been made on a 6% assumption.</p>
 
   <div class="author-bio" style="margin: var(--s-6) 0; padding: var(--s-4); border-left: 3px solid var(--c-accent); background: var(--c-surface-2); border-radius: 0 var(--r-md) var(--r-md) 0;">
-    <p><strong>Author: L.D. Studio</strong></p>
-    <p>Independent developer and TikTok Shop seller. Built TTCalc in 2025 after losing money on a product that looked profitable on the Seller Center dashboard but wasn't once the full fee stack was accounted for. The goal: make the real numbers visible to every seller, for free.</p>
-    <p>Expertise: TikTok Shop fee structure, FBT fulfillment economics, cross-platform profitability comparison (TikTok vs Amazon FBA), creator commission modeling, and return cost analysis.</p>
-    <p><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">GitHub →</a></p>
+    <p><strong>Author: L.D. Studio</strong> &middot; Founder &amp; developer</p>
+    <p>Sells on TikTok Shop and builds the tools on this site to answer questions that come up in that work. The calculators are the ones used internally first; they are published because the arithmetic is the same for everyone.</p>
+    <p><strong>Working knowledge:</strong> TikTok Shop fee structure and the 2026 rate card &middot; FBT fulfillment economics and weight-tier selection &middot; creator commission modelling &middot; return cost and refund administration &middot; break-even ROAS and GMV Max budget maths &middot; cross-platform comparison against Amazon FBA.</p>
+    <p><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source and issue tracker on GitHub &rarr;</a></p>
   </div>
 
-  <h2 style="margin-top:var(--s-6);">Principles</h2>
+  <h2 id="verification">How the rates are verified</h2>
+  <p>Every fee number on this site comes from the same place: a single shared rate file that all five calculators read from. That file records three things &mdash; the effective date of the rate card, the date it was last checked, and the source. When a rate changes, it changes once, and every calculator and article that depends on it follows.</p>
+  <p>The verification routine behind each update:</p>
+  <ul>
+    <li><strong>Start from the platform.</strong> TikTok Shop's own Seller Center fee documentation is the primary source for referral rates, fulfillment tiers, and refund handling.</li>
+    <li><strong>Cross-check independently.</strong> Each revision is compared against multiple independent fee write-ups. Where a figure appears in several unrelated sources, confidence is higher; where sources disagree, we say so rather than picking the convenient number.</li>
+    <li><strong>Record the dates.</strong> Each calculator prints the rate's effective date and the date it was last verified, so you can tell how current a number is without asking.</li>
+    <li><strong>Log every change.</strong> Rate movements are recorded on the <a href="/rate-updates/">rate update log</a> with what changed and what it did to per-unit profit, so an older article's numbers can be reconciled against the current card.</li>
+  </ul>
+  <p>A worked example of this in practice: the $0.30 per-order transaction fee that older TikTok Shop guides still quote was folded into the 6% referral rate in April 2023 and no longer exists as a separate charge. Rather than leave it in the calculators as a trusted-looking line item, we removed it everywhere &mdash; calculators, articles, structured data, and the summary files this site publishes for AI crawlers &mdash; and left a note on the rate update page explaining why. A rate that no longer exists is worse than a missing rate, because it is invisible.</p>
+
+  <h2 id="publish">What we publish, and what we refuse to</h2>
+  <p>A calculator is only as honest as the assumptions behind it. Four rules follow from that:</p>
   <div class="features" style="margin-top:var(--s-4);">
-    <div class="feature"><div class="icon">[ 01 ]</div><h3>Free local calculators</h3><p>Calculators are free to use without an account. AI photo generation and optional sign-in use a separate quota.</p></div>
-    <div class="feature"><div class="icon">[ 02 ]</div><h3>Privacy by design</h3><p>Calculator inputs stay in your browser. The AI photo feature sends only a prompt and image to its generation service.</p></div>
-    <div class="feature"><div class="icon">[ 03 ]</div><h3>Up to date</h3><p>Fee tables refreshed whenever TikTok Shop publishes a new schedule. Last verified 2026-06-24 against TikTok Seller Center documentation.</p></div>
+    <div class="feature"><div class="icon">[ 01 ]</div><h3>No unverified precision</h3><p>Where a figure is published by a vendor, we quote that figure and link to it. Where only a third party reports it, the label says so. We would rather write "the vendor does not publish this" than fill a table with a number that looks authoritative and is not.</p></div>
+    <div class="feature"><div class="icon">[ 02 ]</div><h3>No invented examples presented as data</h3><p>Worked examples on this site are constructed from the published rate card with the assumptions stated on the page. They are illustrations of arithmetic, not surveys, and they are labelled as such. Figures presented as survey results are cited with a source.</p></div>
+    <div class="feature"><div class="icon">[ 03 ]</div><h3>No sponsored tool rankings</h3><p>Comparisons of third-party seller tools are written without affiliate links of any kind. Where we cannot verify a vendor's pricing because it sits behind a login, the comparison says so instead of estimating it.</p></div>
+    <div class="feature"><div class="icon">[ 04 ]</div><h3>No promises about outcomes</h3><p>No tool here finds winning products, guarantees a margin, or predicts a trend. Product research tools show what already sold. A calculator shows what the numbers do under the assumptions you enter. Both are useful for exactly that, and nothing more.</p></div>
   </div>
 
-  <h2 style="margin-top:var(--s-6);">What this site is not</h2>
-  <p>TTCalc is not affiliated with TikTok, ByteDance, Ltd., or any of their subsidiaries. TikTok and the TikTok logo are trademarks of ByteDance Ltd. We are an independent tool built by sellers, for sellers.</p>
+  <h2 id="funding">How this site is funded</h2>
+  <p>This matters for trust, so it is stated plainly. TTCalc is free to use, requires no account for the calculators, and carries display advertising to cover hosting and development. There is no affiliate revenue, no sponsored content, and no paid placement anywhere on the site &mdash; including in the tool comparisons, which contain no tracking links.</p>
+  <p>Two consequences worth knowing about:</p>
+  <ul>
+    <li><strong>Advertising is disclosed.</strong> Ads are served by a third-party network and their placement and privacy implications are described in the <a href="/privacy/">privacy policy</a>. Ad slots never appear above the calculators, because a slow-loading ad above the fold would cost you more in time than the ad earns.</li>
+    <li><strong>Nothing you type is transmitted.</strong> Every calculator runs in your browser. Your sale price, costs and margins are not sent anywhere, not stored on a server, and not used for anything. Saved products in the profit calculator live in your browser's local storage on your own device. The one exception is the AI photo tool, which necessarily sends the prompt you write to its generation service &mdash; that is described on the tool page and in the privacy policy.</li>
+  </ul>
+
+  <h2 id="corrections">Corrections</h2>
+  <p>If a rate here is out of date, or a calculation is wrong, the fastest route is the <a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" target="_blank" rel="noopener">public issue tracker</a>. Rate errors are treated as urgent, because a wrong fee number is worse than no fee number: it produces confident decisions on bad inputs.</p>
+  <p>When a correction changes a published figure, the page it appeared on is updated and the change is added to the rate update log rather than being quietly overwritten.</p>
+
+  <h2 id="method">How the calculators are built</h2>
+  <p>All five tools are static pages. There is no application server behind them, which is why they load quickly and work on a phone with a poor connection. The trade-off is deliberate: a calculator that shows its formula and its rate dates is easier to argue with, and disagreement with a number is how the number gets better.</p>
+  <p>Each calculator exposes its method rather than hiding it inside a single output. The <a href="/tools/tiktok-fee-calculator/">fee calculator</a> separates referral fee from fulfillment and from fixed costs. The <a href="/tools/tiktok-profit-calculator/">profit calculator</a> distinguishes net profit per unit from effective profit per unit, because those differ once returns are averaged in. The <a href="/tools/tiktok-roas-calculator/">ROAS calculator</a> reports both the break-even floor and a return-corrected ROAS, since the number in Ads Manager counts orders that later get refunded.</p>
+  <p>That structure is the point. A single "profit" number invites trust it has not earned. A breakdown invites you to check the line you disagree with.</p>
+
+  <h2 id="not">What this site is not</h2>
+  <p>TTCalc is not affiliated with TikTok, ByteDance Ltd., or any of their subsidiaries. TikTok and the TikTok logo are trademarks of ByteDance Ltd. This is an independent tool built by a seller, for sellers.</p>
+  <p>It is also not a substitute for your own account data. Third-party fee guidance and calculators are a way to model a decision before you commit money. Your settlement reports are the record of what actually happened, and where the two disagree, the settlement report is right.</p>
+
+  <h2 id="start">Where to start</h2>
+  <p>If you are pricing a product before sourcing, start with the <a href="/tools/tiktok-profit-calculator/">profit calculator</a> and read the worked example underneath it. If you are trying to understand why a product that looked fine is not, start with the <a href="/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/">$20 product fee breakdown</a>. If you are deciding whether to advertise at all, the <a href="/blog/tiktok-shop-break-even-roas-formula-2026/">break-even ROAS formula</a> answers that in one division. And if you want to put a calculator on your own site, the <a href="/embed/">embed page</a> has copy-and-paste snippets.</p>
 
 <!-- Adsterra 300x250 + Native -->
 <div class="adsterra-slot adsterra-slot--bottom">
@@ -132,43 +182,43 @@
 </div>
 </main>
 <footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a class="logo" href="/">
-        <img src="/assets/images/logo.svg" alt="" />
-        <span>TTCalc</span>
-      </a>
-      <p>Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="/"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
+        <p class="dim">Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
+      </div>
+      <div>
+        <h4>tools</h4>
+        <ul>
+          <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
+          <li><a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit Calculator</a></li>
+          <li><a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">ROAS Calculator</a></li>
+          <li><a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">TikTok vs Amazon</a></li>
+          <li><a href="/tools/tiktok-product-photo/" data-i18n="nav.photo">Product Photos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>learn</h4>
+        <ul>
+          <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/blog/tiktok-shop-fees-2026/" data-i18n="footer.feeGuide">2026 Fee Guide</a></li>
+          <li><a href="/rate-updates/" data-i18n="footer.rateUpdates">Rate Updates</a></li>
+          <li><a href="/embed/">Embed a calculator</a></li>
+          <li><a href="/about/" data-i18n="footer.about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>site</h4>
+        <ul>
+          <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></li>
+          <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" data-i18n="footer.feedback">Feedback</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Tools</h4>
-      <ul>
-        <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
-        <li><a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit Calculator</a></li>
-        <li><a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">TikTok vs Amazon</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Learn</h4>
-      <ul>
-        <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
-        <li><a href="/blog/tiktok-shop-fees-2026/" data-i18n="footer.feeGuide">2026 Fee Guide</a></li>
-        <li><a href="/about/" data-i18n="footer.about">About</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Site</h4>
-      <ul>
-        <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
-        <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></li>
-        <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" data-i18n="footer.feedback">Feedback</a></li>
-      </ul>
-    </div>
+    <p class="copyright">&copy; 2026 TTCalc &middot; Independent tool, not affiliated with TikTok or ByteDance.</p>
   </div>
-  <p class="copyright">
-    <span>&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
-    <span class="links"><a href="/privacy/" data-i18n="footer.privacy">Privacy</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></span>
-  </p>
 </footer>
 <script src="/assets/js/translations.js"></script>
 <script src="/assets/js/i18n.js"></script>

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GZBDCFNMTN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GZBDCFNMTN');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Break-Even ROAS Formula for TikTok Shop (2026, Worked Examples) | TTCalc</title>
+<meta name="description" content="The break-even ROAS formula for TikTok Shop in 2026: sale price divided by profit before ad spend, worked line by line on a $29.99 product. Plus what 3.0x actually leaves you, and why creator commission and returns move the floor so violently." />
+<link rel="canonical" href="https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/" />
+<meta property="og:title" content="Break-Even ROAS Formula for TikTok Shop (2026, Worked Examples)" />
+<meta property="og:description" content="Sale price divided by profit before ad spend. Worked line by line on a $29.99 product, including what creator commission and returns do to the floor." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/" />
+<meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Break-Even ROAS Formula for TikTok Shop (2026, Worked Examples)">
+<meta name="twitter:description" content="Sale price divided by profit before ad spend. Worked line by line on a $29.99 product.">
+<meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg">
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="stylesheet" href="/assets/css/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Break-Even ROAS Formula for TikTok Shop (2026, Worked Examples)",
+  "author": {"@type": "Person", "name": "L.D. Studio", "url": "https://ttcalc.shop/about/"},
+  "publisher": {"@type": "Organization", "name": "TTCalc", "url": "https://ttcalc.shop"},
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "description": "The break-even ROAS formula for TikTok Shop explained and worked through on a $29.99 product, with creator commission and return sensitivity.",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the break-even ROAS formula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Break-even ROAS = sale price / profit before ad spend per unit. On a $29.99 product that keeps $12.62 before ads, the floor is $29.99 / $12.62 = 2.38x. Equivalently it is 1 divided by your pre-ad profit margin: 1 / 42.1% = 2.38x."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good ROAS for TikTok Shop in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no universal number, because a good ROAS is one that clears your own floor with room to spare. On the default product - a $29.99 sale, $6.50 COGS, 10% creator commission and 5% returns - the floor is 2.38x, and a reported 3.0x leaves just 8.7% net margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does creator commission change my break-even ROAS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and heavily. Creator commission comes out of profit before ad spend, so it lifts the floor. On the default product the floor is 1.75x with zero creator commission and zero returns, and 15.27x once a 30% commission and a 20% return rate are both applied."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between ROAS and ACOS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are reciprocals of each other. ROAS is revenue divided by ad spend, and ACOS is ad spend divided by revenue. A 3.0x ROAS is a 33% ACOS. Break-even ROAS is simply 1 divided by your pre-ad profit margin, expressed as a multiple."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my corrected ROAS lower than my reported ROAS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Returns. The figure in Ads Manager counts revenue from orders that later get refunded, so a 3.0x reported ROAS on a 5% return rate behaves like roughly 2.85x of durable revenue. Both numbers need to clear the break-even floor before a campaign is worth scaling."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit</a>
+      <a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">ROAS</a>
+      <a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">vs Amazon FBA</a>
+      <a href="/blog/" data-i18n="nav.blog" class="active" aria-current="page">Blog</a>
+
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换到中文">中文</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="blog-post">
+<!-- Adsterra 728x90 -->
+<div class="adsterra-slot adsterra-slot--top">
+  <div class="adsterra-banner adsterra-banner--728">
+    <script>atOptions = {'key':'0499f0342ad552c956e9805c564e2fc9','format':'iframe','height':90,'width':728,'params':{}};</script>
+    <script src="https://www.highrevenueformat.com/0499f0342ad552c956e9805c564e2fc9/invoke.js"></script>
+  </div>
+</div>
+
+<article>
+  <p class="post-meta">
+    <span class="author">By L.D. Studio</span>
+    <span class="sep">&middot;</span>
+    <time datetime="2026-09-28">September 28, 2026</time>
+    <span class="sep">&middot;</span>
+    <span class="read-time">8 min read</span>
+  </p>
+
+  <h1>Break-Even ROAS Formula for TikTok Shop (2026, Worked Examples)</h1>
+
+  <p class="post-lede">Ads Manager reports a ROAS. It does not report whether that ROAS is profitable. Those are different questions, and the gap between them is where most TikTok Shop ad budgets quietly disappear.</p>
+
+  <div class="quick-answer">
+    <p class="quick-answer-label">Quick answer</p>
+    <p><strong>Break-even ROAS = sale price &divide; profit before ad spend.</strong> On a $29.99 product that keeps $12.62 before ads, the floor is <strong>$29.99 &divide; $12.62 = 2.38&times;</strong> &mdash; or the same thing expressed the other way: <strong>1 &divide; 42.1% margin</strong>. At a reported 3.0&times; you keep $2.62 per unit, an 8.7% net margin. Enter your own numbers in the <a href="/tools/tiktok-roas-calculator/">break-even ROAS calculator</a>.</p>
+  </div>
+
+  <h2 id="why-roas-isnt-profit">Why a ROAS number is not a profit number</h2>
+
+  <p>ROAS measures gross revenue per ad dollar. It knows nothing about your COGS, the 6% referral fee, FBT fulfillment, creator commission or returns. Two sellers can both report 3.0&times; and one can be losing money on every order while the other nets 15%.</p>
+
+  <p>What a ROAS number <em>cannot</em> tell you is the one thing you need to decide whether to keep spending. So instead of reading it, convert it: work out the ROAS at which profit is exactly zero, then compare the reported figure against that line. That line is the break-even ROAS, and it is a property of your product, not of the ad campaign.</p>
+
+  <h2 id="the-formula">The formula</h2>
+
+  <p>Two forms, same answer. Use whichever matches how you think.</p>
+
+  <div class="formula">Break-even ROAS = sale price &divide; profit before ad spend</div>
+  <div class="formula">Break-even ROAS = 1 &divide; pre-ad profit margin (%)</div>
+
+  <p>Profit before ad spend is what a sale pays you <em>after</em> every cost except advertising:</p>
+
+  <ul>
+    <li>Sale price</li>
+    <li>&minus; TikTok platform fees (referral fee + FBT fulfillment + creator commission)</li>
+    <li>&minus; COGS, including inbound freight</li>
+    <li>&minus; the expected cost of returns, averaged across all units</li>
+  </ul>
+
+  <p>The remaining figure is your pre-ad profit. Divide the sale price by it and you have the ROAS floor. Anything below the floor means the ads are buying revenue at a loss; anything above it means the campaign funds itself and leaves a margin.</p>
+
+  <h2 id="worked-example">Worked example, line by line</h2>
+
+  <p>Take the default product: a $29.99 sale price, $6.50 COGS, a 10% creator commission, a 4&ndash;8 oz FBT tier and a 5% return rate. Every line here comes from the 2026 rate card.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Line</th><th class="num">Per unit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sale price</td><td class="num">$29.99</td></tr>
+      <tr><td>&minus; Referral fee (6%, includes payment processing)</td><td class="num">&minus;$1.80</td></tr>
+      <tr><td>&minus; FBT fulfillment</td><td class="num">&minus;$4.52</td></tr>
+      <tr><td>&minus; Creator commission (10%)</td><td class="num">&minus;$3.00</td></tr>
+      <tr><td>&minus; COGS</td><td class="num">&minus;$6.50</td></tr>
+      <tr><td>&minus; Return impact (COGS share + refund admin, 5% return rate)</td><td class="num">&minus;$1.55</td></tr>
+      <tr class="total"><td>Profit before ad spend</td><td class="num">$12.62 (42.1%)</td></tr>
+      <tr class="total"><td>Break-even ROAS</td><td class="num">2.38&times;</td></tr>
+    </tbody>
+  </table>
+
+  <p>Check the arithmetic two ways. $29.99 &divide; $12.62 = 2.376, and 1 &divide; 0.421 = 2.375. Both give 2.38&times;.</p>
+
+  <p>Now apply a reported 3.0&times;. Your ad cost per unit is the sale price divided by the reported ROAS: $29.99 &divide; 3.0 = <strong>$10.00</strong>. Subtract that from the $12.62 and you keep <strong>$2.62 per unit, an 8.7% net margin</strong>. On 500 units a month that is $1,310 of profit &mdash; and $5,000 of ad spend.</p>
+
+  <p>That is the whole trick. A "3&times; ROAS" sounds healthy and is, but only because it clears a 2.38&times; floor. Had the creator commission been 20% instead of 10%, the same 3.0&times; would have produced a much thinner result, with no change to the campaign.</p>
+
+  <h2 id="what-moves-the-floor">What moves the floor</h2>
+
+  <p>The floor is set by the product, and it is far more sensitive than most sellers expect. Two inputs dominate: creator commission and return rate. Both come out of profit before ads, so both push the ROAS you need upwards.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Scenario on the same $29.99 product</th><th class="num">Pre-ad profit</th><th class="num">Break-even ROAS</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0% creator, 0% returns</td><td class="num">$17.17</td><td class="num">1.75&times;</td></tr>
+      <tr><td>10% creator, 5% returns (default)</td><td class="num">$12.62</td><td class="num">2.38&times;</td></tr>
+      <tr><td>20% creator, 10% returns</td><td class="num">$8.07</td><td class="num">3.72&times;</td></tr>
+      <tr><td>30% creator, 20% returns</td><td class="num">$1.96</td><td class="num">15.27&times;</td></tr>
+    </tbody>
+  </table>
+
+  <p>Read the last row carefully. With a 30% creator rate and a 20% return rate, the product needs a <strong>15.27&times; ROAS</strong> simply to break even. No TikTok campaign delivers that at any meaningful volume. The product is not "hard to advertise" &mdash; it is unviable at that commission structure, and the ROAS number is what exposes it.</p>
+
+  <p>This is why the floor should be checked <em>before</em> a campaign launches, not after. The <a href="/tools/tiktok-roas-calculator/">ROAS calculator</a> recalculates the floor as you drag the creator and return inputs, so you can see the cliff rather than discover it in the settlement report.</p>
+
+  <h2 id="reported-vs-corrected">Reported ROAS vs corrected ROAS</h2>
+
+  <p>There is a second gap beyond profit: returns. Ads Manager counts revenue from orders that later get refunded. On the default product, a 5% return rate means your 3.0&times; reported ROAS behaves like roughly <strong>2.85&times;</strong> of durable revenue.</p>
+
+  <p>2.85&times; still clears the 2.38&times; floor, which is why this product is worth running. But at a 15% return rate the corrected figure can fall through the floor even while the reported number looks safe all month. Both numbers matter:</p>
+
+  <ul>
+    <li><strong>Reported ROAS</strong> tells you what the campaign delivered.</li>
+    <li><strong>Corrected ROAS</strong> tells you what survived contact with reality.</li>
+    <li><strong>Break-even ROAS</strong> tells you which of the two you needed.</li>
+  </ul>
+
+  <h2 id="roas-vs-acos">ROAS, ACOS and the same number twice</h2>
+
+  <p>ACOS and ROAS are reciprocals, and mixing them up is a common source of panic. A 3.0&times; ROAS is a 33% ACOS, because 1 &divide; 3.0 = 0.333. A 4.0&times; ROAS is a 25% ACOS. When a report shows you a "target ACOS" of 25%, it is telling you the same thing as a 4.0&times; ROAS floor.</p>
+
+  <p>The only thing worth adding to that conversion is the margin check. A 25% ACOS is only comfortable if your pre-ad margin is above 25% &mdash; which, as the table above shows, is not a given on TikTok Shop once creator commission is in play.</p>
+
+  <h2 id="reading-the-number">Reading your ROAS against the floor</h2>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>ROAS vs floor</th><th>What it means</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Below the floor</td><td>Every sale loses money. Do not scale, do not "wait for the algorithm" &mdash; fix the unit economics or stop the spend.</td></tr>
+      <tr><td>0&ndash;15% above the floor</td><td>Break-even to thin. One returns spike or a creator-rate increase wipes it out. Workable for launching a listing, not for a permanent campaign.</td></tr>
+      <tr><td>15&ndash;50% above the floor</td><td>Profitable and reasonable. This is where most healthy TikTok Shop campaigns settle.</td></tr>
+      <tr><td>50%+ above the floor</td><td>Strong. Room to raise budgets, and room to test a higher creator rate if it buys volume.</td></tr>
+    </tbody>
+  </table>
+
+  <p>These are our reading bands, not a survey result. The important point is the direction of the comparison: it is the gap to your own floor that decides whether a campaign is scalable, never the ROAS in isolation. Our <a href="/blog/tiktok-shop-gmv-max-2026/">GMV Max guide</a> covers the budget and scaling rules that sit on top of this.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+
+  <div class="faq">
+    <details>
+      <summary>What is the break-even ROAS formula?<span class="sign"></span></summary>
+      <div class="answer">
+        <p>Break-even ROAS = sale price &divide; profit before ad spend per unit. On a $29.99 product that keeps $12.62 before ads, the floor is $29.99 &divide; $12.62 = 2.38&times;. Equivalently it is 1 divided by your pre-ad profit margin: 1 &divide; 42.1% = 2.38&times;.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is a good ROAS for TikTok Shop in 2026?<span class="sign"></span></summary>
+      <div class="answer">
+        <p>There is no universal number, because a good ROAS is one that clears your own floor with room to spare. On the default product &mdash; a $29.99 sale, $6.50 COGS, 10% creator commission and 5% returns &mdash; the floor is 2.38&times;, and a reported 3.0&times; leaves just 8.7% net margin.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Does creator commission change my break-even ROAS?<span class="sign"></span></summary>
+      <div class="answer">
+        <p>Yes, and heavily. Creator commission comes out of profit before ad spend, so it lifts the floor. On the default product the floor is 1.75&times; with zero creator commission and zero returns, and 15.27&times; once a 30% commission and a 20% return rate are both applied.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is the difference between ROAS and ACOS?<span class="sign"></span></summary>
+      <div class="answer">
+        <p>They are reciprocals of each other. ROAS is revenue divided by ad spend, and ACOS is ad spend divided by revenue. A 3.0&times; ROAS is a 33% ACOS. Break-even ROAS is simply 1 divided by your pre-ad profit margin, expressed as a multiple.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Why is my corrected ROAS lower than my reported ROAS?<span class="sign"></span></summary>
+      <div class="answer">
+        <p>Returns. The figure in Ads Manager counts revenue from orders that later get refunded, so a 3.0&times; reported ROAS on a 5% return rate behaves like roughly 2.85&times; of durable revenue. Both numbers need to clear the break-even floor before a campaign is worth scaling.</p>
+      </div>
+    </details>
+  </div>
+
+  <h2 id="calculator">Find your own floor</h2>
+
+  <p>Your floor is not 2.38&times; &mdash; that number belongs to one specific product. The <a href="/tools/tiktok-roas-calculator/">break-even ROAS calculator</a> takes your sale price, COGS, creator rate, return rate and weight tier and returns the floor, the corrected ROAS and the net profit per unit at whatever ROAS you are actually reporting. Then use the <a href="/tools/tiktok-profit-calculator/">profit calculator</a> for the full per-unit picture, and the <a href="/tools/tiktok-fee-calculator/">fee calculator</a> if you only need to see what TikTok takes.</p>
+
+  <div class="post-cta">
+    <p><strong>Find the ROAS your product needs &mdash; not the one TikTok reports.</strong></p>
+    <a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas" class="button">Open the ROAS Calculator &rarr;</a>
+  </div>
+
+  <p style="margin-top:12px;">Related: <a href="/blog/tiktok-shop-gmv-max-2026/">GMV Max budget and scaling rules</a> &mdash; how to raise spend without losing the floor. And <a href="/blog/tiktok-shop-profit-per-unit-2026/">how to calculate profit per unit</a> if you need to build the pre-ad figure from scratch.</p>
+  <p class="source-note">Rates effective 2026-07-13 &middot; last cross-checked against TikTok Seller Center on 2026-09-28 &middot; by L.D. Studio</p>
+</article>
+
+<!-- Adsterra 300x250 + Native -->
+<div class="adsterra-slot adsterra-slot--bottom">
+  <div class="adsterra-banner adsterra-banner--300">
+    <script>atOptions = {'key':'8b9b2140161160b12d4609d7a9c36028','format':'iframe','height':250,'width':300,'params':{}};</script>
+    <script src="https://www.highrevenueformat.com/8b9b2140161160b12d4609d7a9c36028/invoke.js"></script>
+  </div>
+  <div class="adsterra-native">
+    <script async="async" data-cfasync="false" src="https://pl31399151.profitableratecpmnetwork.com/e814bf832d6ea48ad1f86f47f0c1b1e9/invoke.js"></script>
+    <div id="container-e814bf832d6ea48ad1f86f47f0c1b1e9"></div>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="/"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
+        <p class="dim">Free TikTok Shop calculator &amp; seller tools.</p>
+      </div>
+      <div>
+        <h4>tools</h4>
+        <ul>
+          <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
+          <li><a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit Calculator</a></li>
+          <li><a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">ROAS Calculator</a></li>
+          <li><a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">TikTok vs Amazon</a></li>
+          <li><a href="/embed/">Embed a calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>learn</h4>
+        <ul>
+          <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/blog/tiktok-shop-fees-2026/" data-i18n="footer.feeGuide">2026 Fee Guide</a></li>
+          <li><a href="/blog/tiktok-shop-gmv-max-2026/">GMV Max Guide</a></li>
+          <li><a href="/blog/tiktok-shop-break-even-roas-formula-2026/">Break-Even ROAS Formula</a></li>
+          <li><a href="/rate-updates/" data-i18n="footer.rateUpdates">Rate Updates</a></li>
+          <li><a href="/about/" data-i18n="footer.about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>site</h4>
+        <ul>
+          <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></li>
+          <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" data-i18n="footer.feedback">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 TTCalc. Independent tool &mdash; not affiliated with TikTok or ByteDance.</p>
+  </div>
+</footer>
+
+<script src="/assets/js/translations.js"></script>
+<script src="/assets/js/i18n.js"></script>
+</body>
+</html>

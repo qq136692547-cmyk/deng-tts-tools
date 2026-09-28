@@ -617,3 +617,26 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 .data-table td.num, .data-table th.num { text-align: right; font-family: var(--font-mono); white-space: nowrap; }
 .data-table tr.total td { font-weight: 600; color: var(--ink); border-top: 1px solid var(--line); }
 @media (max-width: 640px) { .data-table { font-size: 13px; } .data-table th, .data-table td { padding: 8px; } }
+
+/* Embed mode ---------------------------------------------------------------
+   A calculator page loaded with ?embed=1 is being rendered inside a
+   third-party iframe. Strip the chrome - header, footer, ads, and the article
+   sections - so only the tool itself remains, and keep the wrapper free of
+   anything a host page would have to explain. The selector targets only
+   sections that are direct children of the tool page's container, so the
+   calculator's own .calc-inputs / .calc-results sections are untouched. */
+.embed-mode .site-header,
+.embed-mode .site-footer,
+.embed-mode .adsterra-slot,
+.embed-mode .quick-answer,
+.embed-mode .nextstep,
+.embed-mode main > .container > section,
+.embed-mode .skip-link { display: none !important; }
+.embed-mode .tool-header { margin-bottom: var(--s-4); }
+.embed-mode main { padding-bottom: 0 !important; }
+
+/* Embed snippet box used on the calculator pages and on /embed/ */
+.embed-box { max-width: var(--content-w); margin: var(--s-4) 0 0; }
+.embed-box textarea { width: 100%; min-height: 96px; font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--ink); background: var(--surface-soft); border: 1px solid var(--line); border-radius: var(--r-md); padding: 12px; resize: vertical; }
+.embed-code-note { font-size: 13px; line-height: 1.6; color: var(--ink-dim); margin: var(--s-3) 0 0; }
+.embed-frame { width: 100%; max-width: var(--content-w); height: 620px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
