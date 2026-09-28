@@ -12,7 +12,7 @@
     {
       "name": "TikTok Shop Fee Calculator",
       "url": "https://ttcalc.shop/tools/tiktok-fee-calculator/",
-      "description": "Calculate the full TikTok Shop fee stack: 6% referral, $0.30 transaction, FBT fulfillment, creator commissions, refund administration."
+      "description": "Calculate the full TikTok Shop fee stack: 6% referral (includes payment processing), FBT fulfillment, creator commissions, refund administration."
     },
     {
       "name": "TikTok Shop Profit Calculator",
@@ -27,20 +27,19 @@
   ],
   "fee_structure": {
     "referral_fee": "6% flat (includes payment processing)",
-    "transaction_fee": "$0.30 per order",
+    "transaction_fee": "None — folded into the 6% referral fee since April 2023 (US)",
     "fbt_fulfillment": "$4.28-$9.63 per unit (single-item, by weight)",
     "cross_border_fee": "~1% on international orders",
     "creator_commission": "0-30% (13.02% US average)",
-    "last_verified": "2026-08-31"
+    "last_verified": "2026-09-28"
   },
-  "blog_count": 25,
+  "blog_count": 20,
   "blog_index": "https://ttcalc.shop/blog/",
   "blog_topics": [
     { "title": "Free AI Product Photos for TikTok Shop: A 2026 Workflow", "url": "https://ttcalc.shop/blog/free-ai-product-photos-2026/" },
     { "title": "TikTok Shop Fees 2026: Complete Breakdown", "url": "https://ttcalc.shop/blog/tiktok-shop-fees-2026/" },
     { "title": "How to Calculate TikTok Shop Profit Per Unit", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-per-unit-2026/" },
     { "title": "5 TikTok Shop Profit Killers", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-killers-2026/" },
-    { "title": "TikTok Shop Profit Calculator Guide", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-calculator-guide/" },
     { "title": "TikTok Shop FBT Fulfillment Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fulfillment-guide-2026/" },
     { "title": "TikTok Shop vs Amazon FBA 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-vs-amazon-fba-2026/" },
     { "title": "TikTok Shop SEO Guide 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-seo-guide-2026/" },
@@ -53,11 +52,10 @@
     { "title": "TikTok Shop Product Research 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-product-research-2026/" },
     { "title": "TikTok Shop Content Strategy 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-content-strategy-2026/" },
     { "title": "TikTok Shop Seller Tools 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-seller-tools-2026/" },
-    { "title": "TikTok Shop Multi-Store Operations 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-multi-store-operations-2026/" },
     { "title": "TikTok Shop Payment Terms 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-payment-terms-2026/" },
-    { "title": "TikTok Shop Plus Membership 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-plus-membership-2026/" },
-    { "title": "TikTok Shop CRM Tool 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-crm-tool-2026/" },
-    { "title": "TikTok Shop Global Expansion 2026: New Markets & Mid-Year Boom", "url": "https://ttcalc.shop/blog/tiktok-shop-global-expansion-2026/" }
+    { "title": "TikTok Shop Shipping Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-shipping-costs-2026/" },
+    { "title": "TikTok Shop Account Suspension Appeal 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-account-suspension-appeal-2026/" },
+    { "title": "TikTok Shop First Sale Playbook 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/" }
   ],
-  "last_updated": "2026-08-14"
+  "last_updated": "2026-09-28"
 }

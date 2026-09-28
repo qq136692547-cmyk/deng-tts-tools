@@ -15,7 +15,7 @@ Free TikTok Shop seller tools — fee calculator, profit calculator, and TikTok 
 - `/tools/tiktok-vs-amazon/` — Side-by-side vs Amazon FBA
 - `/blog/` — Blog index
 - `/blog/tiktok-shop-fees-2026/` — TikTok fee breakdown
-- `/blog/tiktok-shop-vs-amazon-fba/` — TikTok vs Amazon comparison
+- `/blog/tiktok-shop-vs-amazon-fba-2026/` — TikTok vs Amazon comparison
 - `/about/` — About
 - `/privacy/` — Privacy policy
 

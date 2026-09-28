@@ -29,5 +29,23 @@
 /blog/tiktok-shop-profit-calculator-guide/   /blog/tiktok-shop-profit-per-unit-2026/  301
 /blog/tiktok-shop-profit-calculator-guide    /blog/tiktok-shop-profit-per-unit-2026/  301
 
+# T12 内容整固 第二阶段（2026-09-28）：4 篇零引用长文永久移除。
+# 判定依据：GSC 全站近 3 个月仅 11 点击 / 1,410 曝光 / 平均排名 38.9，
+# 四篇正文零外部引用（外链仅 nav 里的 GitHub），属 QRG 意义上的低努力内容。
+# 每篇 301 到主题最相关的承接页，不丢权重。
+/blog/tiktok-shop-crm-tool-2026/               /blog/tiktok-shop-seller-tools-2026/            301
+/blog/tiktok-shop-crm-tool-2026                /blog/tiktok-shop-seller-tools-2026/            301
+/blog/tiktok-shop-plus-membership-2026/        /blog/tiktok-shop-fees-2026/                    301
+/blog/tiktok-shop-plus-membership-2026         /blog/tiktok-shop-fees-2026/                    301
+/blog/tiktok-shop-global-expansion-2026/       /blog/tiktok-shop-shipping-costs-2026/          301
+/blog/tiktok-shop-global-expansion-2026        /blog/tiktok-shop-shipping-costs-2026/          301
+/blog/tiktok-shop-multi-store-operations-2026/ /blog/tiktok-shop-account-health-rating-2026/   301
+/blog/tiktok-shop-multi-store-operations-2026  /blog/tiktok-shop-account-health-rating-2026/   301
+
+# 旧版 vs-Amazon 文章：此前靠 HTML meta refresh + JS 跳转（非真正 301），
+# 存根页仅 57 词却占一个可索引 URL。改为服务器级 301 并删除存根目录。
+/blog/tiktok-shop-vs-amazon-fba/               /blog/tiktok-shop-vs-amazon-fba-2026/           301
+/blog/tiktok-shop-vs-amazon-fba                /blog/tiktok-shop-vs-amazon-fba-2026/           301
+
 # 动态规则放最后（Pages 要求 static 在前、dynamic 在后）
 /worker/*           /404  301
