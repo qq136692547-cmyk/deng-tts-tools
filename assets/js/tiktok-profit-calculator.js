@@ -41,11 +41,14 @@
     var ads      = sale * adsPct;
     var profit   = sale - ttsFees - creator - cogs - ship - inboundShip - storageFee - ads;
 
-    // Return impact: 20% of referral fee, capped at $5
+    // Return impact: TikTok keeps 20% of the referral fee on a refund (capped at $5/SKU).
     var refundAdmin = Math.min(referral * R.refundAdminRate, R.refundAdminCap);
-    // Only non-resellable returns incur full product cost loss
+    // Only non-resellable returns destroy inventory, and the loss is your COST of
+    // goods - not the sale price. Using the sale price overstated the loss by the
+    // full margin (a $29.99 item costing $6.50 was charged $29.99 of "loss"), which
+    // made healthy high-return SKUs look unprofitable.
     var nonResellableRate = returnRate * (1 - resellRate);
-    var returnCost  = sale * nonResellableRate;    // lost product cost (non-resellable only)
+    var returnCost  = cogs * nonResellableRate;    // lost product cost (non-resellable only)
     var returnFee   = refundAdmin * returnRate;     // admin fee applies to all returns
     var returnHandling = returnHandlingFee * returnRate; // FBT customer return handling applies per returned unit
     var effectiveProfit = profit - returnCost - returnFee - returnHandling;

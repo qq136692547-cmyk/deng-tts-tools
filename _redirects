@@ -22,5 +22,12 @@
 /promo-pack-2026-08-30.md  /404  301
 /promo-2026-08-30-note.md  /404  301
 
+# T9 内容合并（2026-09-28）：两篇 H1 几乎逐字相同的 "profit per unit" 文章合并为一篇。
+# 保留较新且与工具页意图错开的 /blog/tiktok-shop-profit-per-unit-2026/，
+# 旧的 /blog/tiktok-shop-profit-calculator-guide/ 永久 301 过去。
+# 源目录已删除，Pages 不会再自动补斜杠，故斜杠/无斜杠两种写法都列出。
+/blog/tiktok-shop-profit-calculator-guide/   /blog/tiktok-shop-profit-per-unit-2026/  301
+/blog/tiktok-shop-profit-calculator-guide    /blog/tiktok-shop-profit-per-unit-2026/  301
+
 # 动态规则放最后（Pages 要求 static 在前、dynamic 在后）
 /worker/*           /404  301

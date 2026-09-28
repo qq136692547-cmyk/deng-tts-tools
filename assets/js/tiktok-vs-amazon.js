@@ -68,10 +68,12 @@
     var amzReferral = Math.max(sale * (amzRefRate / 100), R.amazonMinReferralFee);
     var amzRefundAdmin = Math.min(amzReferral * R.refundAdminRate, R.refundAdminCap);
 
-    var ttsReturnCost = sale * nonResellableRate;
+    // Lost inventory on a non-resellable return is the COST of goods, not the sale
+    // price (see tiktok-profit-calculator.js) - applies to both channels.
+    var ttsReturnCost = cogs * nonResellableRate;
     // TikTok return handling stacks with the estimated refund admin fee on returned units.
     var ttsReturnFee  = ttsRefundAdmin * returnRate + returnHandlingFee * returnRate;
-    var amzReturnCost = sale * nonResellableRate;
+    var amzReturnCost = cogs * nonResellableRate;
     var amzReturnFee  = amzRefundAdmin * returnRate;
 
     amzProfit = amzProfit - amzReturnCost - amzReturnFee;

@@ -23,7 +23,6 @@
     var returnHandlingFee = num($id('returnHandlingFee').value);
     var catSel = $id('category');
     var referralRate = catSel ? parseFloat(catSel.value) : R.defaultReferralRate;
-    var resellRate = num($id('resellRate').value) / 100;
 
     var total = price + ship;
 
@@ -38,14 +37,15 @@
     var payout   = total - platformFees;
     var pct      = total > 0 ? (platformFees / total) * 100 : 0;
 
-    // Return impact: TikTok charges 20% of original referral fee, capped at $5
+    // Return impact: TikTok keeps 20% of the original referral fee (capped at $5/SKU)
+    // on a refund, and FBT adds a per-return handling fee. Lost inventory on a
+    // non-resellable return is deliberately NOT modelled here: this is a fee
+    // calculator with no COGS input, so product-cost loss lives in the Profit
+    // Calculator (which charges it against COGS, not the sale price).
     var refundAdmin = Math.min(referral * R.refundAdminRate, R.refundAdminCap);
-    // Only non-resellable returns incur full product cost loss
-    var nonResellableRate = returnRate * (1 - resellRate);
-    var returnCost  = price * nonResellableRate;   // lost product cost (non-resellable only)
     var returnFee   = refundAdmin * returnRate;     // admin fee applies to all returns
     var returnHandling = returnHandlingFee * returnRate; // FBT customer return handling applies per returned unit
-    var netAfterReturns = payout - returnCost - returnFee - returnHandling;
+    var netAfterReturns = payout - returnFee - returnHandling;
     var netPct = total > 0 ? ((netAfterReturns) / total) * 100 : 0;
 
     $id('r_total').textContent              = fmt(total);
@@ -66,14 +66,13 @@
     $id('r_total_fee').textContent          = fmt(platformFees) + ' (' + pct.toFixed(1) + '%)';
     $id('r_refund_admin').textContent       = '-' + fmt(returnFee);
     $id('r_return_handling').textContent    = '-' + fmt(returnHandling);
-    $id('r_return_cost').textContent        = '-' + fmt(returnCost);
     $id('r_net_after_returns').textContent  = fmt(netAfterReturns) + ' (' + netPct.toFixed(1) + '%)';
 
     announce('Total TikTok Shop fees ' + fmt(platformFees) + ' (' + pct.toFixed(1) + '%), payout ' + fmt(payout) + '.');
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['salePrice','category','creatorRate','shippingCharged','returnRate','returnHandlingFee','fbtTier','fbtUnits','resellRate'].forEach(function (id) {
+    ['salePrice','category','creatorRate','shippingCharged','returnRate','returnHandlingFee','fbtTier','fbtUnits'].forEach(function (id) {
       var el = $id(id); if (el) el.addEventListener('input', function () {
         calculate();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-fee');
