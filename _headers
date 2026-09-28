@@ -36,3 +36,9 @@
 # 图片：7 天
 /assets/images/*
   Cache-Control: public, max-age=604800
+
+# /ads/ —— Adsterra banner 的承载页，只供本站同域 iframe 使用。
+# 不进搜索索引：robots.txt 里也有 Disallow，这里是第二道保险。
+/ads/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=3600, must-revalidate

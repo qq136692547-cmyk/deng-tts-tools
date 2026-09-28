@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Advertisement</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+  body { width: 300px; height: 250px; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<!--
+  Adsterra 300x250 banner, deliberately isolated in a same-origin iframe.
+
+  Why: the invoke.js below is a render-blocking third-party script. On slow
+  connections it stalled the host page's HTML parser for 1-2s (measured), which
+  pushed the article body out of the first paint. Loading it inside an iframe
+  keeps the same ad code, same key, same size and same visual result, but the
+  host page never waits on it.
+
+  Do not inline this back into the host pages.
+  Kept out of search results via the robots meta above and robots.txt.
+-->
+<script>atOptions = {'key':'8b9b2140161160b12d4609d7a9c36028','format':'iframe','height':250,'width':300,'params':{}};</script>
+<script src="https://www.highrevenueformat.com/8b9b2140161160b12d4609d7a9c36028/invoke.js"></script>
+</body>
+</html>
