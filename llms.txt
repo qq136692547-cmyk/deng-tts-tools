@@ -13,7 +13,7 @@
 
 ## Rate data
 
-- [TikTok Shop Fee Rate Updates](https://ttcalc.shop/rate-updates/): Dated log of every 2026 TikTok Shop fee change we track — referral rate, FBT rate card, refund admin fee — each entry with its effective date, the date we verified it, and a link to the official source.
+- [TikTok Shop Fee Rate Updates](https://ttcalc.shop/rate-updates/): Dated log of every 2026 TikTok Shop fee change we track — referral rate, FBT rate card, refund admin fee — each entry with its effective date, the date we verified it, and a link to the official source. Two sub-sections carry the evidence: the per-claim verdict table (https://ttcalc.shop/rate-updates/#claims) and the sources-by-claim table (https://ttcalc.shop/rate-updates/#sources), which lists the individual sources behind each figure with the date we read each one.
 
 ## Guides
 

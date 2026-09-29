@@ -40,7 +40,7 @@
     // This page has no resale-rate input, so it treats returned units as fully
     // unsellable - the conservative end, and identical to the Profit Calculator
     // when its resale rate is 0%. We now share their cost-of-goods definition
-    // instead of writing off the full sale price. See /rate-updates/ (2026-09-28).
+    // instead of writing off the full sale price. See /rate-updates/ (2026-09-29).
     var returnImpact = cogs * returnRate + Math.min(referral * R.refundAdminRate, R.refundAdminCap) * returnRate + returnHandlingFee * returnRate;
 
     var preAdProfit = sale - platformFees - cogs - returnImpact;
