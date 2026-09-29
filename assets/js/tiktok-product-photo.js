@@ -9,6 +9,10 @@
   var DEFAULT_ENDPOINT = 'https://token.sensenova.cn/v1/images/generations';
   var FREE_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/generate';
   var FREE_EDIT_ENDPOINT = 'https://ttcalc-photo-proxy.geoscore.help/edit';
+  // Single source of truth for the model id on the BYO-Key path (both
+  // text-to-image and image-to-image below read this). Must stay in sync with
+  // the Worker: D:\Codex\projects\ttcalc-worker\worker\index.js — const
+  // DEFAULT_MODEL, overridable there via SN_GENERATE_MODEL / SN_EDIT_MODEL.
   var DEFAULT_MODEL = 'sensenova-u1.5-lite';
 
   var form = document.getElementById('photoForm');
@@ -449,7 +453,7 @@
   function requestEdit(prompt, image, size, seed) {
     if (apiKeyInput.value.trim() || getStoredKey()) {
       var payload = {
-        model: 'sensenova-u1.5-lite',
+        model: DEFAULT_MODEL,
         prompt: prompt,
         image: [image],
         size: size,
