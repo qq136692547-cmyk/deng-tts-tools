@@ -178,13 +178,25 @@
           </div>
 
           <div class="calc-field">
-            <label for="shipAmz">Shipping to Amazon FC (per unit)</label>
+            <label for="shipAmz">Your inbound shipping to Amazon FC (per unit)</label>
             <input type="number" id="shipAmz" value="1.20" step="0.01" />
           </div>
 
           <div class="calc-field">
-            <label for="shipTts">TikTok shipping (per unit)</label>
+            <label for="shipTts">Your shipping on TikTok (per unit)</label>
             <input type="number" id="shipTts" value="3.00" step="0.01" />
+          </div>
+
+          <div class="calc-field">
+            <label for="shippingChargedTts">Shipping charged to buyer — TikTok</label>
+            <input type="number" id="shippingChargedTts" value="0" step="0.01" min="0" />
+            <div class="hint">Set 0 if "free shipping" is baked into price</div>
+          </div>
+
+          <div class="calc-field">
+            <label for="shippingChargedAmz">Shipping charged to buyer — Amazon</label>
+            <input type="number" id="shippingChargedAmz" value="0" step="0.01" min="0" />
+            <div class="hint">Set 0 if "free shipping" is baked into price</div>
           </div>
 
           <div class="calc-field">
@@ -279,12 +291,12 @@
           </div>
 
           <div class="calc-field">
-            <label for="adsAmz">Amazon ad spend (% of sale)</label>
+            <label for="adsAmz">Amazon ad spend (% of item price)</label>
             <input type="number" id="adsAmz" value="10" step="1" min="0" max="100" />
           </div>
 
           <div class="calc-field">
-            <label for="adsTts">TikTok ad spend (% of sale)</label>
+            <label for="adsTts">TikTok ad spend (% of item price)</label>
             <input type="number" id="adsTts" value="10" step="1" min="0" max="100" />
           </div>
 
@@ -316,7 +328,7 @@
 
     <div class="quick-answer">
       <p class="quick-answer-label">Quick answer</p>
-      <p>On the default product &mdash; $29.99, $6.50 COGS, 5% returns &mdash; TikTok Shop takes <strong>$6.32</strong> in platform fees against Amazon FBA's <strong>$9.46</strong>, and nets <strong>$10.96 vs $9.62</strong>: TikTok ahead by $1.33 per unit, a 36.5% margin against 32.1%. That lead is fragile, though. Add a 15% creator commission and TikTok falls to $6.46 per unit, letting Amazon win by $3.16.</p>
+      <p>On the default product &mdash; $29.99, $6.50 COGS, 5% returns &mdash; TikTok Shop takes <strong>$6.32</strong> in platform fees against Amazon FBA's <strong>$9.46</strong>, and nets <strong>$10.96 vs $9.62</strong>: TikTok ahead by $1.33 per unit, a 36.5% margin against 32.1%. That lead is fragile, though. Add a 15% creator commission and TikTok falls to $6.46 per unit, letting Amazon win by $3.16. Every figure here assumes the buyer is charged nothing for shipping on either channel, so both referral bases are the item price alone.</p>
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
@@ -362,7 +374,7 @@
         <span class="section-tag">02 / fee comparison</span>
       </div>
       <div class="tool-prose">
-        <p>Amazon's headline referral fee (15%) is more than double TikTok's (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">6%, per TikTok's US commission policy</a>). What closes the gap is everything underneath &mdash; Amazon's fulfillment and surcharge stack against TikTok's flat <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a>.</p>
+        <p>Amazon's headline referral fee (15%) is more than double TikTok's (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">6%, per TikTok's US commission policy</a>). Both rates are charged on the buyer's total price &mdash; item plus shipping, and on Amazon also any gift-wrap charge &mdash; which is why this tool has a &ldquo;Shipping charged to buyer&rdquo; field for each channel. What closes the gap is everything underneath &mdash; Amazon's fulfillment and surcharge stack against TikTok's flat <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a>.</p>
       </div>
       <table class="data-table">
         <thead>
@@ -389,7 +401,7 @@
         <span class="section-tag">03 / worked example</span>
       </div>
       <div class="tool-prose">
-        <p>Every figure is the calculator's own output on the default inputs: $29.99 sale, $6.50 COGS, $1.20 inbound shipping to Amazon versus $3.00 on TikTok, 10% ad spend on both, 5% returns with half of them resellable, and a 0% TikTok creator commission.</p>
+        <p>Every figure is the calculator's own output on the default inputs: $29.99 sale, $6.50 COGS, $1.20 inbound shipping to Amazon versus $3.00 on TikTok, no shipping charged to the buyer on either channel, 10% ad spend on both, 5% returns with half of them resellable, and a 0% TikTok creator commission.</p>
       </div>
       <table class="data-table">
         <thead>
@@ -400,7 +412,7 @@
           <tr><td>&#8722; Platform fees</td><td class="num">&#8722;$6.32</td><td class="num">&#8722;$9.46</td></tr>
           <tr><td>&#8722; COGS</td><td class="num">&#8722;$6.50</td><td class="num">&#8722;$6.50</td></tr>
           <tr><td>&#8722; Inbound shipping</td><td class="num">&#8722;$3.00</td><td class="num">&#8722;$1.20</td></tr>
-          <tr><td>&#8722; Ad spend (10% of sale)</td><td class="num">&#8722;$3.00</td><td class="num">&#8722;$3.00</td></tr>
+          <tr><td>&#8722; Ad spend (10% of item price)</td><td class="num">&#8722;$3.00</td><td class="num">&#8722;$3.00</td></tr>
           <tr><td>&#8722; Lost COGS on non-resellable returns</td><td class="num">&#8722;$0.16</td><td class="num">&#8722;$0.16</td></tr>
           <tr><td>&#8722; Return fees (admin + handling)</td><td class="num">&#8722;$0.05</td><td class="num">&#8722;$0.04</td></tr>
           <tr class="total"><td>= Net profit per unit</td><td class="num">$10.96</td><td class="num">$9.62</td></tr>

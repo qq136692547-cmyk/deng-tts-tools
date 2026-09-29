@@ -74,7 +74,7 @@
       "name": "How do I calculate break-even ROAS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Divide the sale price by your profit before ad spend: sale / (sale - platform fees - COGS - return impact). At the defaults that is $29.99 / $13.79 = 2.17x. Below that line, every additional ad dollar loses money."
+        "text": "Divide your revenue - the item price plus any shipping you charge the buyer - by your profit before ad spend: revenue / (revenue - platform fees - COGS - return impact). At the defaults that is $29.99 / $13.79 = 2.17x. Below that line, every additional ad dollar loses money."
       }
     },
     {
@@ -173,6 +173,12 @@
           </div>
 
           <div class="calc-field">
+            <label for="shipCharged">Shipping charged to buyer</label>
+            <input type="number" id="shipCharged" value="0" step="0.01" min="0" />
+            <div class="hint">Set 0 if "free shipping" is baked into price</div>
+          </div>
+
+          <div class="calc-field">
             <label for="cogs">Product cost (COGS)</label>
             <input type="number" id="cogs" value="6.50" step="0.01" min="0" />
             <div class="hint">Unit cost including inbound shipping to FBT</div>
@@ -260,6 +266,7 @@
             <button class="copy-results-btn" type="button">Copy results</button>
           </div>
 
+          <div class="calc-result-row" id="row_ship_charged"><span class="lbl">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; TikTok platform fees (per unit)</span><span class="val" id="r_platform_fees">-$9.32</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Return impact (COGS + refund fee)</span><span class="val" id="r_return_impact">-$0.38</span></div>
           <div class="calc-result-row"><span class="lbl">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.79 (46.0%)</span></div>
@@ -278,7 +285,7 @@
 
     <div class="quick-answer">
       <p class="quick-answer-label">Quick answer</p>
-      <p>On the default $29.99 product &mdash; $6.50 COGS, 10% creator commission, 5% returns &mdash; the break-even ROAS is <strong>2.17&times;</strong>. At a reported 3.0&times; you keep <strong>$3.80 per unit (12.7%)</strong>, or $1,900 a month on 500 units. Set creator commission and returns to zero and the floor drops to <strong>1.75&times;</strong>; push them to 30% and 20% and it jumps to <strong>4.50&times;</strong>.</p>
+      <p>On the default $29.99 product &mdash; $6.50 COGS, 10% creator commission, 5% returns &mdash; the break-even ROAS is <strong>2.17&times;</strong>. At a reported 3.0&times; you keep <strong>$3.80 per unit (12.7%)</strong>, or $1,900 a month on 500 units. Set creator commission and returns to zero and the floor drops to <strong>1.75&times;</strong>; push them to 30% and 20% and it jumps to <strong>4.50&times;</strong>. Every figure here assumes the buyer is charged nothing for shipping separately, so the revenue in the formula is the item price alone.</p>
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
@@ -314,7 +321,7 @@
       <p class="section-lede">ROAS in Ads Manager measures gross revenue per ad dollar &mdash; not profit. Three things decide whether a reported ROAS actually makes you money:</p>
       <div class="features" style="margin-top:var(--s-4);">
         <div class="feature"><div class="icon">[ 01 ]</div><h3>Fees come off first</h3><p>Referral (6%, incl. payment processing), FBT fulfillment and creator commission all come out before ad spend. On the default product they total $9.32 &mdash; 31% of the sale price &mdash; before you have paid for the product or the ads.</p></div>
-        <div class="feature"><div class="icon">[ 02 ]</div><h3>Break-even ROAS is your floor</h3><p>It is simply sale price &divide; profit before ads. At the defaults, $29.99 &divide; $13.79 = 2.17&times;. Anything below that is paid traffic burning cash even while Ads Manager shows a healthy-looking ROAS.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3>Break-even ROAS is your floor</h3><p>It is simply revenue &divide; profit before ads. At the defaults, $29.99 &divide; $13.79 = 2.17&times;. Anything below that is paid traffic burning cash even while Ads Manager shows a healthy-looking ROAS.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Corrected ROAS is what landed</h3><p>Reported ROAS counts revenue you later refunded. Corrected ROAS &mdash; revenue after returns &divide; ad spend &mdash; is the honest number, and it is always the lower of the two.</p></div>
         <div class="feature"><div class="icon">[ 04 ]</div><h3>Scale only above the floor</h3><p>Budget increases are safe only when the floor is cleared with room to spare for your actual return rate. A business running at 2.5&times; against a 2.17&times; floor is not "profitable" &mdash; it is one bad returns week away from zero.</p></div>
       </div>
@@ -335,7 +342,7 @@
         <tbody>
           <tr><td>Reported ROAS</td><td>revenue &divide; ad spend</td><td class="num">3.00&times;</td><td>What GMV Max / Ads Manager puts on your dashboard</td></tr>
           <tr><td>Corrected ROAS</td><td>revenue after returns &divide; ad spend</td><td class="num">2.85&times;</td><td>What actually landed once refunds are netted off</td></tr>
-          <tr class="total"><td>Break-even ROAS</td><td>sale price &divide; profit before ads</td><td class="num">2.17&times;</td><td>The floor you must clear to make any money at all</td></tr>
+          <tr class="total"><td>Break-even ROAS</td><td>revenue &divide; profit before ads</td><td class="num">2.17&times;</td><td>The floor you must clear to make any money at all</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
@@ -385,9 +392,9 @@
           <tr><th>Component</th><th>How it is charged</th><th class="num">At the defaults</th></tr>
         </thead>
         <tbody>
-          <tr><td>Referral fee</td><td>6% of sale price, payment processing included (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td class="num">$1.80</td></tr>
+          <tr><td>Referral fee</td><td>6% of the buyer&rsquo;s total payment (item price plus any shipping the buyer pays), payment processing included (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td class="num">$1.80</td></tr>
           <tr><td>FBT fulfillment</td><td>Flat per unit, 4&#8211;8 oz tier, single item (<a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a>)</td><td class="num">$4.52</td></tr>
-          <tr><td>Creator commission</td><td>10% of sale price, set by you</td><td class="num">$3.00</td></tr>
+          <tr><td>Creator commission</td><td>10% of the item price, set by you</td><td class="num">$3.00</td></tr>
           <tr class="total"><td>Total platform fees</td><td>31.1% of the sale price</td><td class="num">$9.32</td></tr>
         </tbody>
       </table>
@@ -465,7 +472,7 @@
         <details>
           <summary>How do I calculate break-even ROAS?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Divide the sale price by your profit before ad spend: sale &divide; (sale &minus; platform fees &minus; COGS &minus; return impact). At the defaults that is $29.99 &divide; $13.79 = 2.17&times;. Below that line, every additional ad dollar loses money.</p>
+            <p>Divide your revenue by your profit before ad spend: revenue &divide; (revenue &minus; platform fees &minus; COGS &minus; return impact). At the defaults that is $29.99 &divide; $13.79 = 2.17&times;. Below that line, every additional ad dollar loses money.</p>
           </div>
         </details>
         <details>

@@ -25,14 +25,21 @@
     var creatorPct = num(get('creator').value) / 100;
     var roas = num(get('roas').value);
     var monthlyUnits = num(get('monthlyUnits').value);
+    var shipCharged = num(get('shipCharged').value);   // shipping the buyer pays us
 
     if (isNaN(sale) || sale <= 0) return;
 
+    // What the buyer pays us. TikTok charges the referral fee on this (its commission policy note:
+    // "buyer payment includes shipping paid by the buyer"), and it is the same figure the Ads
+    // Manager reports as gross revenue - "the buyer's final price, including any shipping, minus
+    // sales tax". Tax is excluded and we have no tax input, so this is the base. See /rate-updates/.
+    var revenue = sale + shipCharged;
+
     // 2026 TikTok Shop US fees (Seller Center, Aug 2026)
-    var referral = sale * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
+    var referral = revenue * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
     var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
     var txn      = R.transactionFee;             // flat transaction fee per order (rates.js)
-    var creator  = sale * creatorPct;
+    var creator  = sale * creatorPct;  // base = item price, NOT the buyer total (see tiktok-fee-calculator.js)
     var platformFees = referral + fbt + txn + creator;
 
     // Return impact: inventory loss on returned units is charged against COGS
@@ -43,16 +50,19 @@
     // instead of writing off the full sale price. See /rate-updates/ (2026-09-29).
     var returnImpact = cogs * returnRate + Math.min(referral * R.refundAdminRate, R.refundAdminCap) * returnRate + returnHandlingFee * returnRate;
 
-    var preAdProfit = sale - platformFees - cogs - returnImpact;
-    var preAdMargin = sale > 0 ? (preAdProfit / sale) * 100 : 0;
-    var beRoas = preAdProfit > 0 ? sale / preAdProfit : 0;
-    var adCost = roas > 0 ? sale / roas : 0;
+    var preAdProfit = revenue - platformFees - cogs - returnImpact;
+    var preAdMargin = revenue > 0 ? (preAdProfit / revenue) * 100 : 0;
+    // Break-even ROAS and the ad cost it is derived from must use the same revenue figure the
+    // platform reports ROAS on (buyer total, shipping included) - otherwise the two sides of
+    // netProfit = preAdProfit - adCost would be built on different revenue definitions.
+    var beRoas = preAdProfit > 0 ? revenue / preAdProfit : 0;
+    var adCost = roas > 0 ? revenue / roas : 0;
 
     // Corrected ROAS: revenue after returns divided by ad spend
-    var correctedRevenue = sale * (1 - returnRate);
+    var correctedRevenue = revenue * (1 - returnRate);
     var correctedRoas = adCost > 0 ? correctedRevenue / adCost : 0;
     var netProfit = preAdProfit - adCost;
-    var netMargin = sale > 0 ? (netProfit / sale) * 100 : 0;
+    var netMargin = revenue > 0 ? (netProfit / revenue) * 100 : 0;
     // Monthly projection uses the rounded per-unit figures shown above
     var adCostR = Math.round(adCost * 100) / 100;
     var netProfitR = Math.round(netProfit * 100) / 100;
@@ -60,6 +70,15 @@
     var monthlyProfit = netProfitR * monthlyUnits;
 
     get('r_platform_fees').textContent = '-' + fmt(platformFees);
+    // Buyer-paid shipping is only shown once there is some - same pattern as the fee calculator's
+    // hidden transaction-fee and return rows, so the default result stack is unchanged.
+    var scRow = get('row_ship_charged');
+    if (shipCharged > 0) {
+      get('r_ship_charged').textContent = fmt(shipCharged);
+      if (scRow && scRow.style) scRow.style.display = '';
+    } else if (scRow && scRow.style) {
+      scRow.style.display = 'none';
+    }
     get('r_return_impact').textContent = '-' + fmt(returnImpact);
     get('r_pre_ad_profit').textContent = fmt(preAdProfit) + ' (' + preAdMargin.toFixed(1) + '%)';
     get('r_be_roas').textContent = beRoas > 0 ? beRoas.toFixed(2) + 'x' : '—';
@@ -82,7 +101,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','category','fbtTier','fbtUnits','returnRate','returnHandlingFee','creator','roas','monthlyUnits'].forEach(function (id) {
+    ['sale','cogs','category','fbtTier','fbtUnits','returnRate','returnHandlingFee','creator','roas','monthlyUnits','shipCharged'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
         calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-roas');

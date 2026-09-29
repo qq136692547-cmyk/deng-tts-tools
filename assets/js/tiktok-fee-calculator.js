@@ -34,7 +34,11 @@
     var referral = total * (referralRate / 100); // referral varies by category (default 6%, Jewelry/Pre-Owned 5%)
     var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+$id('fbtTier').value || 0].rates[+$id('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
     var txnFee   = R.transactionFee;     // flat transaction fee per order (rates.js)
-    var creator  = total * creatorRate;
+    // EVIDENCE GRADE: SECONDARY ONLY. The creator/affiliate commission base is the item price,
+    // not the buyer's total - four independent affiliate-commission write-ups agree and none
+    // disagree (see /rate-updates/). We have NOT obtained TikTok's own affiliate policy page,
+    // so this must never be presented as an official TikTok rule in user-facing copy.
+    var creator  = price * creatorRate;
 
     // Platform fees (before returns)
     var platformFees = referral + fbt + txnFee + creator;

@@ -66,7 +66,7 @@
       "name": "How much profit do I make per unit on TikTok Shop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "With the calculator's default inputs - a $29.99 sale price, $6.50 COGS, $3.00 shipping to the customer, $1.00 inbound freight and 10% ad spend - net profit is $10.02 per unit before returns and $9.81 after a 5% return rate. That is a 32.7% margin, or roughly $981 on 100 units a month. Your own number depends mainly on COGS, your FBT weight tier and whether you pay creator commission."
+        "text": "With the calculator's default inputs - a $29.99 sale price, $6.50 COGS, $3.00 of shipping cost, $1.00 inbound freight and 10% ad spend - net profit is $10.02 per unit before returns and $9.81 after a 5% return rate. That is a 32.7% margin, or roughly $981 on 100 units a month. Your own number depends mainly on COGS, your FBT weight tier and whether you pay creator commission."
       }
     },
     {
@@ -241,8 +241,14 @@
           </div>
 
           <div class="calc-field">
-            <label for="ship">Shipping cost (per unit)</label>
+            <label for="ship">Your shipping cost (per unit)</label>
             <input type="number" id="ship" value="3.00" step="0.01" />
+          </div>
+
+          <div class="calc-field">
+            <label for="shipCharged">Shipping charged to buyer</label>
+            <input type="number" id="shipCharged" value="0" step="0.01" min="0" />
+            <div class="hint">Set 0 if "free shipping" is baked into price</div>
           </div>
 
           <div class="calc-field">
@@ -251,7 +257,7 @@
           </div>
 
           <div class="calc-field">
-            <label for="ads">TikTok ad spend (% of sale)</label>
+            <label for="ads">TikTok ad spend (% of item price)</label>
             <input type="number" id="ads" value="10" step="1" min="0" max="100" />
           </div>
 
@@ -281,10 +287,11 @@
           </div>
 
           <div class="calc-result-row"><span class="lbl">Sale price</span><span class="val" id="r_sale">$29.99</span></div>
+          <div class="calc-result-row" id="row_ship_charged"><span class="lbl">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
           <div class="calc-result-row"><span class="lbl" id="r_tts_fees_lbl">&#8722; TikTok fees (6% + FBT)</span><span class="val" id="r_tts_fees">&#8722;$6.32</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Creator commission</span><span class="val" id="r_creator_fee">&#8722;$0.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; COGS</span><span class="val" id="r_cogs">&#8722;$6.50</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Shipping to customer</span><span class="val" id="r_ship">&#8722;$3.00</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; Your shipping cost</span><span class="val" id="r_ship">&#8722;$3.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Inbound shipping to FBT</span><span class="val" id="r_inbound_ship">&#8722;$1.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; FBT storage (monthly)</span><span class="val" id="r_storage">&#8722;$0.15</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; TikTok ad spend</span><span class="val" id="r_ads">&#8722;$3.00</span></div>
@@ -309,7 +316,7 @@
 
     <div class="quick-answer">
       <p class="quick-answer-label">Quick answer</p>
-      <p>On TikTok Shop in 2026, a $29.99 product with $6.50 COGS, $3.00 shipping, $1.00 inbound freight and 10% ad spend nets <strong>$9.81 per unit &mdash; a 32.7% margin</strong>. That is after the 6% referral fee ($1.80, which already includes payment processing), $4.52 FBT fulfillment and return costs. At 100 units a month it is about <strong>$981</strong>. Add a 15% creator commission and $4.50 of that $9.81 disappears.</p>
+      <p>On TikTok Shop in 2026, a $29.99 product with $6.50 COGS, $3.00 of shipping cost, $1.00 inbound freight and 10% ad spend nets <strong>$9.81 per unit &mdash; a 32.7% margin</strong>. That is after the 6% referral fee ($1.80, which already includes payment processing), $4.52 FBT fulfillment and return costs. At 100 units a month it is about <strong>$981</strong>. Add a 15% creator commission and $4.50 of that $9.81 disappears. Every figure here assumes the buyer is charged nothing for shipping separately, so the referral base is the item price alone.</p>
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
@@ -374,7 +381,7 @@
         <div class="feature">
           <div class="icon">[ 03 ]</div>
           <h3>Margin and ROI</h3>
-          <p><strong>Margin</strong> is effective profit &divide; sale price. <strong>ROI (direct)</strong> measures the return on the costs you control &mdash; COGS, shipping, inbound freight, ads and returns. <strong>ROI (all)</strong> adds platform fees and storage, which answers a different question: how hard is every dollar of total cost working?</p>
+          <p><strong>Margin</strong> is effective profit &divide; what the buyer pays you (item price plus any shipping they were charged). <strong>ROI (direct)</strong> measures the return on the costs you control &mdash; COGS, your shipping, inbound freight, ads and returns. <strong>ROI (all)</strong> adds platform fees and storage, which answers a different question: how hard is every dollar of total cost working?</p>
         </div>
       </div>
     </section>
@@ -392,14 +399,15 @@
         </thead>
         <tbody>
           <tr><td>Sale price</td><td class="num">$29.99</td></tr>
+          <tr><td>+ Shipping charged to buyer (none in this run)</td><td class="num">$0.00</td></tr>
           <tr><td>&minus; Referral fee (6%, includes payment processing)</td><td class="num">&minus;$1.80</td></tr>
           <tr><td>&minus; FBT fulfillment (4&ndash;8 oz, single unit)</td><td class="num">&minus;$4.52</td></tr>
           <tr><td>&minus; Creator commission (0% in this run)</td><td class="num">&minus;$0.00</td></tr>
           <tr><td>&minus; COGS</td><td class="num">&minus;$6.50</td></tr>
-          <tr><td>&minus; Shipping to customer</td><td class="num">&minus;$3.00</td></tr>
+          <tr><td>&minus; Your shipping cost</td><td class="num">&minus;$3.00</td></tr>
           <tr><td>&minus; Inbound freight to FBT</td><td class="num">&minus;$1.00</td></tr>
           <tr><td>&minus; FBT storage (monthly, per unit)</td><td class="num">&minus;$0.15</td></tr>
-          <tr><td>&minus; Ad spend (10% of sale)</td><td class="num">&minus;$3.00</td></tr>
+          <tr><td>&minus; Ad spend (10% of item price)</td><td class="num">&minus;$3.00</td></tr>
           <tr class="total"><td>Net profit per unit</td><td class="num">$10.02</td></tr>
           <tr><td>&minus; Return cost, refund admin and FBT return handling (5% return rate, 50% resellable)</td><td class="num">&minus;$0.21</td></tr>
           <tr class="total"><td>Effective profit per unit</td><td class="num">$9.81</td></tr>
@@ -426,7 +434,7 @@
           <tr><th>Fee</th><th>2026 rate</th><th>Charged by</th></tr>
         </thead>
         <tbody>
-          <tr><td>Referral fee</td><td>6% of the item price after seller discount (Jewelry and Pre-Owned 5%) &mdash; <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a></td><td>TikTok</td></tr>
+          <tr><td>Referral fee</td><td>6% of the buyer&rsquo;s total payment &mdash; the item price after seller discount <em>plus any shipping the buyer pays</em> (Jewelry and Pre-Owned 5%) &mdash; <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a></td><td>TikTok</td></tr>
           <tr><td>Payment processing</td><td>Included in the 6% &mdash; there is no separate transaction fee</td><td>&mdash;</td></tr>
           <tr><td>FBT fulfillment</td><td>$4.28&ndash;$12.67 per unit by weight for a single-item order; multi-item orders cost less per unit &mdash; <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a></td><td>TikTok</td></tr>
           <tr><td>Refund admin fee</td><td>20% of the referral fee, capped at $5 per SKU &mdash; charged even when the order is fully refunded (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td>TikTok</td></tr>
@@ -479,7 +487,7 @@
         <div class="feature"><div class="icon">[ 02 ]</div><h3>Inbound freight at zero</h3><p>Getting inventory into TikTok&rsquo;s FBT warehouse is a real per-unit cost. Setting it to $0 makes any FBT product look better than it is.</p></div>
         <div class="feature"><div class="icon">[ 03 ]</div><h3>Creator commission at 0% while the affiliate plan is open</h3><p>If your plan is live, some share of orders will carry commission. Model the blended rate, not the rate on the orders you happen to see.</p></div>
         <div class="feature"><div class="icon">[ 04 ]</div><h3>Returns left out entirely</h3><p>A 20% return rate costs roughly four times the return drag of a 5% one. Ignoring returns is the single most common reason a profitable-looking product loses money.</p></div>
-        <div class="feature"><div class="icon">[ 05 ]</div><h3>Ad spend treated as marketing, not COGS</h3><p>If ads bring the traffic, ad cost belongs in the per-unit math. As a percentage of sale price &mdash; typically 10&ndash;20% &mdash; it is a permanent line item, not a launch expense.</p></div>
+        <div class="feature"><div class="icon">[ 05 ]</div><h3>Ad spend treated as marketing, not COGS</h3><p>If ads bring the traffic, ad cost belongs in the per-unit math. As a percentage of the item price &mdash; typically 10&ndash;20% &mdash; it is a permanent line item, not a launch expense.</p></div>
       </div>
     </section>
 
@@ -507,7 +515,7 @@
         <details>
           <summary>How much profit do I make per unit on TikTok Shop?<span class="sign"></span></summary>
           <div class="answer">
-            <p>With the calculator&rsquo;s default inputs &mdash; a $29.99 sale price, $6.50 COGS, $3.00 shipping, $1.00 inbound freight and 10% ad spend &mdash; net profit is $10.02 per unit before returns and $9.81 after a 5% return rate. That is a 32.7% margin, or roughly $981 on 100 units a month. Your own number depends mainly on COGS, your FBT weight tier, and whether you pay creator commission.</p>
+            <p>With the calculator&rsquo;s default inputs &mdash; a $29.99 sale price, $6.50 COGS, $3.00 of shipping cost, $1.00 inbound freight and 10% ad spend &mdash; net profit is $10.02 per unit before returns and $9.81 after a 5% return rate. That is a 32.7% margin, or roughly $981 on 100 units a month. Your own number depends mainly on COGS, your FBT weight tier, and whether you pay creator commission.</p>
           </div>
         </details>
         <details>

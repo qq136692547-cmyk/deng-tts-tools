@@ -29,17 +29,24 @@
     var inboundShip = num(get('inboundShip').value);
     var storageFee  = num(get('storageFee').value);
     var resellRate  = num(get('resellRate').value) / 100;
+    var shipCharged = num(get('shipCharged').value);   // shipping the buyer pays us
 
     if (isNaN(sale) || sale <= 0) sale = 0;
 
+    // What the buyer actually pays us. TikTok's referral fee is charged on the buyer's total
+    // payment, which includes shipping the buyer pays - its own commission policy note says
+    // "buyer payment includes shipping paid by the buyer". Tax is excluded from that base, and
+    // this calculator has no tax input, so revenue below is the base. See /rate-updates/.
+    var revenue = sale + shipCharged;
+
     // 2026 TikTok Shop US fees (verified Jul 2026, multi-source)
-    var referral = sale * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
+    var referral = revenue * (referralRate / 100); // varies by category (default 6%, Jewelry/Pre-Owned 5%)
     var fbt      = window.FBT_TIERS ? window.FBT_TIERS[+get('fbtTier').value || 0].rates[+get('fbtUnits').value || 0] : 0; // FBT per unit (Seller Center rate card, Jul 13 2026)
     var txnFee   = R.transactionFee;       // flat transaction fee per order (rates.js)
     var ttsFees  = referral + fbt + txnFee;
-    var creator  = sale * creatorPct;
+    var creator  = sale * creatorPct;  // base = item price, NOT the buyer total (see tiktok-fee-calculator.js: the creator base excludes buyer-paid shipping)
     var ads      = sale * adsPct;
-    var profit   = sale - ttsFees - creator - cogs - ship - inboundShip - storageFee - ads;
+    var profit   = revenue - ttsFees - creator - cogs - ship - inboundShip - storageFee - ads;
 
     // Return impact: TikTok keeps 20% of the referral fee on a refund (capped at $5/SKU).
     var refundAdmin = Math.min(referral * R.refundAdminRate, R.refundAdminCap);
@@ -55,11 +62,13 @@
 
     // Monthly view
     var monthlyProfit = effectiveProfit * monthlyUnits;
-    var monthlyRevenue = sale * monthlyUnits;
+    var monthlyRevenue = revenue * monthlyUnits;
     var monthlyReturns = Math.round(monthlyUnits * returnRate);
 
     // ROI / margin
-    var margin = sale > 0 ? (effectiveProfit / sale) * 100 : 0;
+    // Margin is measured against what the buyer pays us, not the item's list price: shipping the
+    // buyer pays is revenue passing through, so dividing by the item price alone would flatter it.
+    var margin = revenue > 0 ? (effectiveProfit / revenue) * 100 : 0;
     // ROI on direct costs (COGS + ship + inbound + ads + returns)
     var directCosts = cogs + ship + inboundShip + ads + returnCost + returnFee + returnHandling;
     var roiDirect = directCosts > 0 ? (effectiveProfit / directCosts) * 100 : 0;
@@ -68,6 +77,15 @@
     var roiAll = allCosts > 0 ? (effectiveProfit / allCosts) * 100 : 0;
 
     get('r_sale').textContent              = fmt(sale);
+    // Buyer-paid shipping is only shown once there is some - same pattern as the fee calculator's
+    // hidden transaction-fee and return rows, so the default result stack is unchanged.
+    var scRow = get('row_ship_charged');
+    if (shipCharged > 0) {
+      get('r_ship_charged').textContent = fmt(shipCharged);
+      if (scRow && scRow.style) scRow.style.display = '';
+    } else if (scRow && scRow.style) {
+      scRow.style.display = 'none';
+    }
     get('r_tts_fees').textContent           = '-' + fmt(ttsFees);
     // TikTok US retired that structure when the flat 6% rate took effect
     // (no separate charge since Apr 1, 2024), so only mention it when a non-zero value is configured.
@@ -97,7 +115,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','ship','category','creator','ads','returnRate','returnHandlingFee','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
+    ['sale','cogs','ship','shipCharged','category','creator','ads','returnRate','returnHandlingFee','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
         calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-profit');

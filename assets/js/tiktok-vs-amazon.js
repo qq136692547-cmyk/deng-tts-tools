@@ -15,17 +15,21 @@
     }, 200);
   }
 
-  function amazonFbaTotal(sale, fulfillment, refRate, placement, lowInv, fuelPct) {
-    var referral = Math.max(sale * (refRate / 100), R.amazonMinReferralFee);
-    if (sale < 10) referral += 0.05;
+  // BOTH channels charge their referral fee on the buyer's total price, shipping included:
+  // Amazon - "An item's total price includes its list price, as well as shipping costs and any
+  // gift-wrapping charges"; TikTok - "buyer payment includes shipping paid by the buyer".
+  // Changing only one side would compare two different bases. See /rate-updates/.
+  function amazonFbaTotal(itemPrice, buyerTotal, fulfillment, refRate, placement, lowInv, fuelPct) {
+    var referral = Math.max(buyerTotal * (refRate / 100), R.amazonMinReferralFee);
+    if (itemPrice < 10) referral += 0.05;   // media closing fee: keyed to the ITEM price, not the buyer total
     var fuel = fulfillment * (fuelPct / 100);
     return referral + fulfillment + fuel + placement + lowInv;
   }
 
-  function tiktokTotal(sale, creatorPct, fbtTier, referralRate) {
-    var referral = sale * (referralRate / 100); // varies by category (default 6%)
+  function tiktokTotal(itemPrice, buyerTotal, creatorPct, fbtTier, referralRate) {
+    var referral = buyerTotal * (referralRate / 100); // varies by category (default 6%)
     var fbt      = fbtTier || 0;          // weight-based FBT per unit (Seller Center 2026, incl. multi-item)
-    var creator  = sale * (creatorPct / 100);
+    var creator  = itemPrice * (creatorPct / 100);  // base = item price, NOT the buyer total
     var txn      = R.transactionFee;      // flat transaction fee per order (rates.js)
     return referral + fbt + txn + creator;
   }
@@ -45,6 +49,8 @@
     var catSel = get('category');
     var referralRate = catSel ? parseFloat(catSel.value) : R.defaultReferralRate;
     var resellRate = num(get('resellRate').value) / 100;
+    var shipChargedTts = num(get('shippingChargedTts').value);  // shipping the buyer pays on TikTok
+    var shipChargedAmz = num(get('shippingChargedAmz').value);  // shipping the buyer pays on Amazon
 
     var amzFulfill = num(get('amzFulfillRate').value);
     var amzRefRate = num(get('amzRefRate').value);
@@ -53,19 +59,24 @@
 
     if (isNaN(sale) || sale <= 0) return;
 
-    var amzFees = amazonFbaTotal(sale, amzFulfill, amzRefRate, amzPlacement, amzLowInv, amzFuelPct);
-    var ttsFees = tiktokTotal(sale, creatorPct, fbtTier, referralRate);
+    // What the buyer pays on each channel: item price plus whatever shipping we charge them.
+    // Tax is excluded from both platforms' referral bases and this tool has no tax input.
+    var amzRevenue = sale + shipChargedAmz;
+    var ttsRevenue = sale + shipChargedTts;
 
-    var amzProfit = sale - amzFees - cogs - shipAmz - (sale * adsAmz);
-    var ttsProfit = sale - ttsFees - cogs - shipTts - (sale * adsTts);
+    var amzFees = amazonFbaTotal(sale, amzRevenue, amzFulfill, amzRefRate, amzPlacement, amzLowInv, amzFuelPct);
+    var ttsFees = tiktokTotal(sale, ttsRevenue, creatorPct, fbtTier, referralRate);
+
+    var amzProfit = amzRevenue - amzFees - cogs - shipAmz - (sale * adsAmz);
+    var ttsProfit = ttsRevenue - ttsFees - cogs - shipTts - (sale * adsTts);
 
     // Return impact (consistent with Fee/Profit calculators)
     // Only non-resellable returns incur full product cost loss
     var nonResellableRate = returnRate * (1 - resellRate);
 
-    var ttsReferral = sale * (referralRate / 100);
+    var ttsReferral = ttsRevenue * (referralRate / 100);
     var ttsRefundAdmin = Math.min(ttsReferral * R.refundAdminRate, R.refundAdminCap);
-    var amzReferral = Math.max(sale * (amzRefRate / 100), R.amazonMinReferralFee);
+    var amzReferral = Math.max(amzRevenue * (amzRefRate / 100), R.amazonMinReferralFee);
     var amzRefundAdmin = Math.min(amzReferral * R.refundAdminRate, R.refundAdminCap);
 
     // Lost inventory on a non-resellable return is the COST of goods, not the sale
@@ -79,8 +90,8 @@
     amzProfit = amzProfit - amzReturnCost - amzReturnFee;
     ttsProfit = ttsProfit - ttsReturnCost - ttsReturnFee;
 
-    var amzMargin = sale > 0 ? (amzProfit / sale) * 100 : 0;
-    var ttsMargin = sale > 0 ? (ttsProfit / sale) * 100 : 0;
+    var amzMargin = amzRevenue > 0 ? (amzProfit / amzRevenue) * 100 : 0;
+    var ttsMargin = ttsRevenue > 0 ? (ttsProfit / ttsRevenue) * 100 : 0;
 
     get('r_amz_fees').textContent   = fmt(amzFees);
     get('r_tts_fees').textContent   = fmt(ttsFees);
@@ -97,7 +108,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','shipAmz','shipTts','creator','adsAmz','adsTts','returnRate','returnHandlingFee','fbtTier','fbtUnits','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
+    ['sale','cogs','shipAmz','shipTts','shippingChargedTts','shippingChargedAmz','creator','adsAmz','adsTts','returnRate','returnHandlingFee','fbtTier','fbtUnits','category','amzFulfillRate','amzRefRate','amzPlacement','amzLowInv','amzFuelPct','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
         calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-vs-amazon');

@@ -76,10 +76,18 @@
     },
     {
       "@type": "Question",
+      "name": "Does the 6% referral fee include shipping the buyer pays?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. TikTok's US commission policy gives the referral formula as platform commission = platform commission rate x (buyer payment + platform discounts - taxes), and the note under that formula says: \"buyer payment includes shipping paid by the buyer, net of shipping discounts provided by the seller or TikTok Shop.\" This calculator adds any shipping you charge the buyer to the referral base; the field defaults to 0, so a price with the shipping baked in changes nothing. This calculator does not model platform discounts or taxes, so if either applies to your order the real base will differ from the figure here."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Do I pay creator commission on top of everything?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Creator commission is set by you (0-30%) and is charged on the sale price, stacking on top of the referral fee and FBT fulfillment. A product that is comfortable at 0% can flip thin at 25%."
+        "text": "Yes. Creator commission is set by you (0-30%); this calculator charges it as a percentage of the item price, stacking on top of the referral fee and FBT fulfillment. A product that is comfortable at 0% can flip thin at 25%."
       }
     },
     {
@@ -224,7 +232,7 @@
           <div class="calc-field">
             <label for="creatorRate" data-i18n="calc.creator">Creator commission (%)</label>
             <input type="number" id="creatorRate" value="0" step="1" min="0" max="30" />
-            <div class="hint">Percentage of sale price. 0 if no creator. Max 30%.</div>
+            <div class="hint">Percentage of the item price. 0 if no creator. Max 30%.</div>
           </div>
 
           <div class="calc-field">
@@ -423,9 +431,15 @@
           </div>
         </details>
         <details>
+          <summary>Does the 6% referral fee include shipping the buyer pays?<span class="sign"></span></summary>
+          <div class="answer">
+            <p>Yes. TikTok&rsquo;s US commission policy gives the referral formula as platform commission = platform commission rate &times; (buyer payment + platform discounts &minus; taxes), and the note under that formula says: &ldquo;buyer payment includes shipping paid by the buyer, net of shipping discounts provided by the seller or TikTok Shop.&rdquo; This calculator adds any shipping you charge the buyer to the referral base; the field defaults to 0, so a price with the shipping baked in changes nothing. This calculator does not model platform discounts or taxes, so if either applies to your order the real base will differ from the figure here.</p>
+          </div>
+        </details>
+        <details>
           <summary>Do I pay creator commission on top of everything?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Yes. Creator commission is set by you (0&#8211;30%) and is charged on the sale price, stacking on top of the referral fee and FBT fulfillment. A product that is comfortable at 0% can flip thin at 25%.</p>
+            <p>Yes. Creator commission is set by you (0&#8211;30%); this calculator charges it as a percentage of the item price, stacking on top of the referral fee and FBT fulfillment. A product that is comfortable at 0% can flip thin at 25%.</p>
           </div>
         </details>
         <details>
