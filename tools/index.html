@@ -10,6 +10,10 @@
 <meta property="og:title" content="All Tools — Free TikTok Shop Tools" />
 <meta property="og:description" content="Free TikTok Shop seller tools: fee, profit, and ROAS calculators, a TikTok vs Amazon FBA comparison, and product photo generation." />
 <meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="All Tools — Free TikTok Shop Tools">
+<meta name="twitter:description" content="Free TikTok Shop seller tools: fee, profit, and ROAS calculators, a TikTok vs Amazon FBA comparison, and product photo generation.">
+<meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg">
 <link rel="stylesheet" href="/assets/css/site.css" />
 <script type="application/ld+json">
 {
@@ -17,7 +21,19 @@
   "@type": "CollectionPage",
   "name": "All Tools — Free TikTok Shop Tools",
   "url": "https://ttcalc.shop/tools/",
-  "description": "Free TikTok Shop seller tools: fee calculator, profit calculator, ROAS calculator, TikTok vs Amazon FBA comparison, and product photo generation."
+  "description": "Free TikTok Shop seller tools: fee calculator, profit calculator, ROAS calculator, TikTok vs Amazon FBA comparison, and product photo generation.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "numberOfItems": 5,
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "TikTok Shop Fee Calculator", "url": "https://ttcalc.shop/tools/tiktok-fee-calculator/"},
+      {"@type": "ListItem", "position": 2, "name": "TikTok Shop Profit Calculator", "url": "https://ttcalc.shop/tools/tiktok-profit-calculator/"},
+      {"@type": "ListItem", "position": 3, "name": "TikTok Shop ROAS Calculator", "url": "https://ttcalc.shop/tools/tiktok-roas-calculator/"},
+      {"@type": "ListItem", "position": 4, "name": "TikTok Shop vs Amazon FBA", "url": "https://ttcalc.shop/tools/tiktok-vs-amazon/"},
+      {"@type": "ListItem", "position": 5, "name": "TikTok Shop Product Photo Generator", "url": "https://ttcalc.shop/tools/tiktok-product-photo/"}
+    ]
+  }
 }
 </script>
 
@@ -28,7 +44,7 @@
   <div class="wrap header-inner">
     <a class="logo" href="/"><img src="/assets/images/logo.svg" alt="" /><span class="logo-text">TTCalc</span></a>
     <nav class="primary-nav">
-      <a href="/tools/" class="active">Fee Calculator</a>
+      <a href="/tools/" class="active">All Tools</a>
       <a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit</a>
       <a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">ROAS</a>
       <a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">vs Amazon FBA</a>
@@ -40,41 +56,68 @@
   </div>
 </header>
 <main id="main" class="container" style="padding:var(--s-7) 0; max-width:780px;">
-  <span class="eyebrow">5 tools · Free calculators · AI photos</span>
+  <span class="eyebrow">5 tools &middot; Free &middot; No signup</span>
   <h1>Tools for TikTok Shop sellers</h1>
-  <p>Five focused tools. Calculator math runs in your browser; photo generation uses our backend.</p>
+  <p>Five focused tools for the questions that decide your margin: what TikTok takes, what you keep, what your ads must return, and how that compares to Amazon. The calculators run entirely in your browser &mdash; no account, nothing uploaded. Photo generation runs on our backend; the calculators never touch a server.</p>
+
+  <div class="quick-answer">
+    <p class="quick-answer-label">Quick answer</p>
+    <p>All five TTCalc tools are free and need no signup. The US fee stack we model as of <strong>September 29, 2026</strong>: a <strong>6% referral fee</strong> (payment processing included, no separate transaction fee), a <strong>20% refund administration fee capped at $5</strong> per SKU type, and FBT fulfillment from <strong>$4.28 per unit</strong> (&le;4 oz, single-item orders, rate card effective July 13, 2026).</p>
+  </div>
+
+  <h2>The calculators: what each one answers</h2>
+  <p>Three calculators, three questions. Your inputs carry over between them, so you can price a product once and trace it from fees to profit to ad floor.</p>
   <ul class="blog-list">
     <li>
       <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">TikTok Shop Fee Calculator</a>
-      <div class="meta">2026 fee structure &middot; updated June 2026</div>
-      <div class="desc">Full fee breakdown: base commission platform fee, payment processing, and creator commission. See the real percentage TikTok keeps.</div>
+      <div class="meta">What does TikTok take from this order?</div>
+      <div class="desc">The full breakdown on any price: the 6% referral fee (payment processing included), FBT fulfillment by weight tier, refund administration, and optional creator commission &mdash; ending in the one number that matters, the percentage TikTok keeps. On the default $29.99 example that is $6.32, or 21.1%.</div>
     </li>
     <li>
       <a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">TikTok Shop Profit Calculator</a>
-      <div class="meta">2026 fee structure &middot; updated June 2026</div>
-      <div class="desc">Input COGS and shipping, get net profit per unit after every TikTok fee. Margin and ROI update as you type.</div>
+      <div class="meta">And what do I actually keep per unit?</div>
+      <div class="desc">Adds your COGS, shipping, and ad spend on top of the fee stack, then shows net profit, margin, and ROI as you type. Pricing decisions start from the payout, not the list price.</div>
     </li>
     <li>
       <a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">TikTok Shop ROAS Calculator</a>
-      <div class="meta">GMV Max &middot; break-even ROAS</div>
-      <div class="desc">Input your fees, COGS, and return rate to find the ROAS you need to break even and the corrected ROAS after returns.</div>
+      <div class="meta">What ROAS do I need to break even?</div>
+      <div class="desc">Turns your fee stack and return rate into an ad-efficiency floor &mdash; the return your TikTok ads must clear before a product makes money, corrected for returns.</div>
     </li>
+  </ul>
+
+  <h2>Compare platforms, then create the listing</h2>
+  <ul class="blog-list">
     <li>
       <a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">TikTok Shop vs Amazon FBA</a>
-      <div class="meta">Cross-platform &middot; side-by-side</div>
-      <div class="desc">Same product, two platforms. See which marketplace actually pays you more per unit.</div>
+      <div class="meta">Same product, two platforms</div>
+      <div class="desc">Enter your price once and see which marketplace pays you more per unit after referral and fulfillment fees &mdash; side by side, with every fee line itemized.</div>
     </li>
     <li>
       <a href="/tools/tiktok-product-photo/" data-i18n="nav.photo">TikTok Shop Product Photo Generator</a>
       <div class="meta">AI product photos &middot; SenseNova</div>
-      <div class="desc">Describe a product, choose a scene and aspect ratio, and generate up to four marketplace-ready images.</div>
+      <div class="desc">Describe a product, choose a scene and aspect ratio, and generate up to four marketplace-ready images without a photographer.</div>
     </li>
   </ul>
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="All Tools — Free TikTok Shop Tools">
-<meta name="twitter:description" content="Free TikTok Shop seller tools: fee, profit, and ROAS calculators, a TikTok vs Amazon FBA comparison, and product photo generation.">
-<meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg">
+  <h2>Where the numbers come from</h2>
+  <p>Every calculator reads from a single rate file, and each result shows three fields: the effective date, the date we last verified it by hand, and a link to TikTok&rsquo;s own rate documentation. As of our latest check on <strong>September 29, 2026</strong>, the US referral fee is 6% for most categories and 5% for select fine-jewelry and pre-owned categories, with no separate transaction fee.</p>
+  <p>Not every tool online agrees &mdash; some still charge a $0.30 line, one stacks a 1.02% &ldquo;processing fee&rdquo; on top, and several reported <a href="/rate-updates/#aug-04">an 8% hike in August 2026</a> that we could not confirm. We track every claim and every change in a dated log with official source links: <a href="/rate-updates/">see the TikTok Shop fee rate updates</a>, including <a href="/rate-updates/#claims">every referral-fee claim we&rsquo;ve checked</a>. When TikTok&rsquo;s own rate card moves, the log and every calculator change the same day.</p>
+
+  <h2>Not sure which one you need?</h2>
+  <ul>
+    <li><a href="/blog/tiktok-shop-fees-2026/">What TikTok Shop actually charges in 2026</a> &mdash; the fee stack behind the Fee Calculator, explained line by line.</li>
+    <li><a href="/blog/tiktok-shop-break-even-roas-formula-2026/">The break-even ROAS formula</a> &mdash; how the ad threshold is set before you open the ROAS Calculator.</li>
+    <li><a href="/blog/tiktok-shop-fees-vs-shopify-2026/">TikTok Shop fees vs Shopify</a> &mdash; the structure comparison for sellers deciding between platforms.</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <h3>Are these TikTok Shop calculators really free?</h3>
+  <p>Yes. All five tools are free with no signup and no account. Calculator math runs locally in your browser; your inputs are saved on your device and never uploaded.</p>
+  <h3>Where do the fee numbers come from?</h3>
+  <p>From a single rate file we verify by hand against TikTok&rsquo;s published seller documentation. Each result shows the effective date, our verification date, and the official source. The full change history is on the <a href="/rate-updates/">rate updates page</a>.</p>
+  <h3>Which calculator should I start with?</h3>
+  <p>Start with the <a href="/tools/tiktok-fee-calculator/">Fee Calculator</a> if you want to know what TikTok takes from a sale, the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> if you already know your costs, or the <a href="/tools/tiktok-roas-calculator/">ROAS Calculator</a> if you are running ads.</p>
+
 <!-- Adsterra 300x250 + Native -->
 <div class="adsterra-slot adsterra-slot--bottom">
   <div class="adsterra-banner adsterra-banner--300">
