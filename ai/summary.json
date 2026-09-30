@@ -44,7 +44,7 @@
     "transaction_fee": "None. TikTok Shop US has no separate per-order transaction fee; the flat 6% referral rate took effect 1 April 2024 and already includes payment processing. The April 2023 date cited on other sites is the start of a 2023 promotion that temporarily cut the old 2% rate to 0% (US).",
     "fbt_fulfillment": "$4.28-$12.67 per unit (single-item, by weight, up to 16 lb)",
     "cross_border_fee": "~1% on international orders",
-    "creator_commission": "0-30% (13.02% US average)",
+    "creator_commission": "seller-set; official range 1-80% (third-party US average ~13%; TikTok publishes no official average)",
     "last_verified": "2026-09-29"
   },
   "blog_count": 27,
