@@ -21,3 +21,30 @@ window.FBT_TIERS = [
   { label: '14-15 lb', rates: [11.85, 10.8, 10.8, 10.8] },
   { label: '15-16 lb', rates: [12.67, 12.67, 12.67, 12.67] },
 ];
+
+// FBT storage fees, USD per cubic foot PER DAY (not per month).
+// Source: the storage-fee table embedded as an image in "FBT Rate Card & FAQ"
+// (Seller Center, knowledge_id=3507056320268087, heading "(Starting 12/15/2025)").
+// The table is an image on the official page - a text-only read of that page
+// shows only the 60-day free window and the 14%-43% discount range, never these
+// per-tier rates, so do not "correct" these numbers from a text scrape.
+// Archived: review/evidence/tiktok-fbt-storage-rate-table-2026-09-30.jpeg
+// Governing prose ("D. FBT Storage Fee Updates (Effective Dec 15, 2025)"):
+//   "storage fees for inventory held for the first 60 days will remain free";
+//   tiers made "more granular between 91 and 270 days";
+//   beyond 270 days fees "remain unchanged"; discounts up to 270 days 14%-43%.
+// min: "The minimum chargeable volume is 0.001 cubit feet per sku per day" [sic].
+// Billing: daily at 23:59 on the total cubic feet of all units, sellable and
+// defective alike; "Storage Days = Outbound Time - Inbound Time".
+window.FBT_STORAGE_TIERS = [
+  { from: 1,   to: 30,      rate: 0,    label: '30 days or less' },
+  { from: 31,  to: 60,      rate: 0,    label: '31-60 days' },
+  { from: 61,  to: 90,      rate: 0.03, label: '61-90 days' },
+  { from: 91,  to: 120,     rate: 0.04, label: '91-120 days' },
+  { from: 121, to: 180,     rate: 0.06, label: '121-180 days' },
+  { from: 181, to: 270,     rate: 0.12, label: '181-270 days' },
+  { from: 271, to: 365,     rate: 0.14, label: '271-365 days' },
+  { from: 366, to: Infinity, rate: 0.27, label: 'Over 365 days' }
+];
+window.FBT_STORAGE_MIN_CUFT = 0.001; // per SKU per day
+window.FBT_STORAGE_EFFECTIVE = '2025-12-15';

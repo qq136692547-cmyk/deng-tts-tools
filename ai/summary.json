@@ -20,6 +20,21 @@
       "description": "Model net profit per unit after all TikTok fees, COGS, shipping, ad spend, creator commissions, and returns."
     },
     {
+      "name": "TikTok Shop Creator Commission Calculator",
+      "url": "https://ttcalc.shop/tools/tiktok-creator-commission-calculator/",
+      "description": "Work backwards from costs and a target margin to the highest creator commission rate a product can afford, against TikTok's official 1-80% range."
+    },
+    {
+      "name": "TikTok Shop FBT Calculator",
+      "url": "https://ttcalc.shop/tools/tiktok-fbt-calculator/",
+      "description": "Compute FBT chargeable weight under the official rule, find the fulfillment tier, and compare FBT against self-ship and 3PL quotes."
+    },
+    {
+      "name": "TikTok Shop Storage Fee Calculator",
+      "url": "https://ttcalc.shop/tools/tiktok-fbt-storage-calculator/",
+      "description": "Cost of holding FBT inventory by box size, unit count and days held, using the official per-cubic-foot daily storage rate tiers."
+    },
+    {
       "name": "TikTok vs Amazon FBA",
       "url": "https://ttcalc.shop/tools/tiktok-vs-amazon/",
       "description": "Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point."
@@ -43,6 +58,7 @@
     "referral_fee": "6% flat on the buyer's total payment (item price plus any buyer-paid shipping)",
     "transaction_fee": "None. TikTok's published commission policy lists no separate per-order transaction fee; the flat 6% referral rate took effect 1 April 2024. The April 2023 date cited on other sites is the start of a 2023 promotion that temporarily cut the old 2% rate to 0% (US).",
     "fbt_fulfillment": "$4.28-$12.67 per unit (single-item, by weight, up to 16 lb)",
+    "fbt_storage": "Per cubic foot PER DAY, by inventory age (rate card effective 2025-12-15): free for the first 60 days, then $0.03 (days 61-90), $0.04 (91-120), $0.06 (121-180), $0.12 (181-270), $0.14 (271-365) and $0.27 beyond 365 days. Billed daily at 23:59 on the total cubic feet of all units, sellable and defective alike; minimum chargeable volume 0.001 cu ft per SKU per day. Guides that quote a flat monthly per-cubic-foot figure omit the age escalation.",
     "cross_border_fee": "~1% on international orders",
     "creator_commission": "seller-set; official range 1-80% (third-party US average ~13%; TikTok publishes no official average)",
     "last_verified": "2026-09-29"
