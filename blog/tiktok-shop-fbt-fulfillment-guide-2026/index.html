@@ -56,7 +56,7 @@
       "name": "How much does FBT cost per unit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "FBT costs $4.52 per unit for a standard single-item order (4–8 oz); heavier items cost more. Multi-item orders get lower per-unit rates: $2.91/unit for 2 items and $1.93/unit for 4+ items at 4–8 oz. Storage is free for the first 60 days, then $0.75-$1.50 per cubic foot per month."
+        "text": "FBT costs $4.52 per unit for a standard single-item order (4–8 oz); heavier items cost more. Multi-item orders get lower per-unit rates: $2.91/unit for 2 items and $1.93/unit for 4+ items at 4–8 oz. Storage is free for the first 60 days; from day 61 it is billed per cubic foot per day, rising with age from $0.03 (days 61-90) to $0.27 past 365 days."
       }
     },
     {
@@ -167,11 +167,29 @@
 
     <h2 id="storage">Storage Fees</h2>
 
-    <p>FBT offers <strong>60 days of free storage</strong> for new inventory. After the free period, monthly storage fees apply at rates of approximately <strong>$0.75 to $1.50 per cubic foot</strong> depending on product size and turnover (<a href="https://www.darkroomagency.com/observatory/tiktok-shop-fees-seller-cost-breakdown-2026" target="_blank" rel="noopener">source: Darkroom Agency, Jun 2026</a>).</p>
+    <p><strong>The first 60 days of storage are free.</strong> From day 61, FBT bills by the cubic foot <em>per day</em>, and the rate rises with how long the inventory has been sitting. The rate card effective December 15, 2025:</p>
 
-    <p>Compared to Amazon FBA's storage fees ($0.78/cu ft standard, $2.40/cu ft Q4), TikTok's storage is competitive for fast-moving inventory. The 60-day free window is a meaningful advantage if you can maintain a sell-through rate of 30+ days.</p>
+    <table class="comparison-table">
+      <thead>
+        <tr><th>Storage days</th><th>Rate (per cu ft per day)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>30 days or less</td><td>Free</td></tr>
+        <tr><td>31&ndash;60 days</td><td>Free</td></tr>
+        <tr><td>61&ndash;90 days</td><td>$0.03</td></tr>
+        <tr><td>91&ndash;120 days</td><td>$0.04</td></tr>
+        <tr><td>121&ndash;180 days</td><td>$0.06</td></tr>
+        <tr><td>181&ndash;270 days</td><td>$0.12</td></tr>
+        <tr><td>271&ndash;365 days</td><td>$0.14</td></tr>
+        <tr><td>Over 365 days</td><td>$0.27</td></tr>
+      </tbody>
+    </table>
 
-    <p>Storage fees are charged monthly based on the average daily volume of cubic feet your inventory occupies. There's no aged-inventory surcharge (unlike Amazon's 181-day fee), which makes FBT more forgiving for slower-moving products.</p>
+    <p>Three details decide the actual invoice. Fees are calculated <strong>daily at 23:59</strong> on the total cubic feet of all your units, <em>including both sellable and defective units</em> &mdash; damaged stock keeps billing until it is removed or disposed of. Duration is <strong>Outbound Time &minus; Inbound Time</strong>, so the clock starts when the warehouse receives the shipment, not when the label was created. The minimum chargeable volume is 0.001 cubic feet per SKU per day, which only matters for very small items.</p>
+
+    <p>Put on the same basis as a monthly figure, the 61&ndash;180 day tiers work out to roughly $0.90&ndash;$1.80 per cubic foot per month, and the aged tiers above 180 days to about $3.60&ndash;$8.10. Amazon FBA publishes $0.78 per cubic foot standard and $2.40 in Q4, but FBA bills monthly and FBT bills daily &mdash; the two only compare once both are on the same basis.</p>
+
+    <p>One claim worth correcting where you see it: seller guides often quote a flat <em>monthly</em> per-cubic-foot figure and add that FBT has no aged-inventory charge. The figure itself is roughly the mid-tier rate converted to a month &mdash; but it stops there, and that is what misleads. The card charges by the day, and age is priced into it, so a unit held past 180 days pays several times the &ldquo;typical&rdquo; number and one held past a year pays nine times the day-61 rate. Run your own box and holding period through the <a href="/tools/tiktok-fbt-storage-calculator/">FBT Storage Fee Calculator</a>.</p>
 
     
     <h2 id="fbt-returns">FBT Return Handling Fees (June 2026)</h2>
@@ -237,15 +255,15 @@
         <tr><td>Per-unit fee (standard, single)</td><td>$4.52 (4–8 oz)</td><td>$4.10 (large standard, 8-12 oz)</td></tr>
         <tr><td>Multi-unit discount</td><td>Up to 24%</td><td>None (per-unit, not per-order)</td></tr>
         <tr><td>Free storage period</td><td>60 days</td><td>None</td></tr>
-        <tr><td>Monthly storage (standard)</td><td>$0.75–$1.50/cu ft</td><td>$0.78/cu ft</td></tr>
+        <tr><td>Storage (standard)</td><td>$0.03–$0.06/cu ft <em>per day</em>, days 61–180</td><td>$0.78/cu ft per month</td></tr>
         <tr><td>Fuel surcharge</td><td>None</td><td>3.5% (since Apr 17, 2026)</td></tr>
-        <tr><td>Aged inventory surcharge</td><td>None</td><td>181+ days</td></tr>
+        <tr><td>Aged inventory surcharge</td><td>No separate line — priced into the storage rates (to $0.27/cu ft/day past 365 days)</td><td>181+ days</td></tr>
         <tr><td>Low-inventory fee</td><td>None</td><td>$0.32–$2.09/unit</td></tr>
         <tr><td>Inbound placement fee</td><td>None</td><td>$0.30–$2.30/unit</td></tr>
       </tbody>
     </table>
 
-    <p>FBT is structurally simpler than Amazon FBA — fewer surcharges, no aged-inventory penalties, and a free storage window. But TikTok's fulfillment network is smaller, which can mean slower delivery to certain regions compared to Amazon's sprawling warehouse footprint (<a href="https://hyperfocus.tech/resources/tiktok-shop-fbt-guide" target="_blank" rel="noopener">source: hyperfocus.tech</a>).</p>
+    <p>FBT is structurally simpler than Amazon FBA — fewer standalone surcharge lines, age priced inside the storage card rather than as a separate penalty, and a free storage window. But TikTok's fulfillment network is smaller, which can mean slower delivery to certain regions compared to Amazon's sprawling warehouse footprint (<a href="https://hyperfocus.tech/resources/tiktok-shop-fbt-guide" target="_blank" rel="noopener">source: hyperfocus.tech</a>).</p>
 
     <h2 id="when-fbt-wins">When FBT Makes Sense</h2>
 
@@ -281,7 +299,7 @@
       <li>Single-unit FBT starts at $4.28 (standard 4–8 oz items cost $4.52), while multi-item orders cost less per unit ($2.91/unit for 2 items at 4–8 oz) — bundle strategically.</li>
       <li>60-day free storage is a real advantage over Amazon FBA, but only if you sell through within that window.</li>
       <li>For heavy or oversized products, Upgraded TikTok Shipping or CBT can save 20-30%.</li>
-      <li>FBT has fewer surcharges than FBA — no aged-inventory, low-inventory, or inbound placement fees.</li>
+      <li>FBT has fewer standalone surcharge lines than FBA — no low-inventory or inbound placement fees, and no separate aged-inventory fee (age is priced into the storage rates themselves).</li>
     </ul>
 
     <details>
@@ -290,7 +308,7 @@
     </details>
     <details>
       <summary>How much does FBT cost per unit?</summary>
-      <p>FBT costs $4.52 per unit for a standard single-item order (4–8 oz); heavier items cost more. Multi-item orders get lower per-unit rates: $2.91/unit for 2 items and $1.93/unit for 4+ items at 4–8 oz. Storage is free for the first 60 days, then $0.75-$1.50 per cubic foot per month.</p>
+      <p>FBT costs $4.52 per unit for a standard single-item order (4–8 oz); heavier items cost more. Multi-item orders get lower per-unit rates: $2.91/unit for 2 items and $1.93/unit for 4+ items at 4–8 oz. Storage is free for the first 60 days; from day 61 it is billed per cubic foot per day, rising with age from $0.03 (days 61-90) to $0.27 past 365 days.</p>
     </details>
     <details>
       <summary>Is FBT mandatory on TikTok Shop?</summary>
