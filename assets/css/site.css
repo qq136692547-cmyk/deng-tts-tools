@@ -700,3 +700,27 @@ html.consent-open body { padding-bottom: 84px; }
   html.consent-open body { padding-bottom: 132px; }
 }
 .embed-frame { width: 100%; max-width: var(--content-w); height: 620px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+
+/* ── Creator commission calculator (batch 9) ─────────────────────────── */
+.calc-presets { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--surface-2, var(--surface)); }
+.calc-presets-label { font-size: 12px; color: var(--ink-soft); }
+.target-mode { display: flex; flex-direction: column; gap: 6px; }
+.target-mode .radio { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+.target-mode .radio input { accent-color: var(--accent, #0a7d6e); }
+.max-rate-block { display: flex; flex-direction: column; gap: 8px; padding: 16px 14px; margin-bottom: 12px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-2, var(--surface)); }
+.max-rate-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+.max-rate-value { font-size: 40px; font-weight: 700; line-height: 1; color: var(--accent, #0a7d6e); font-variant-numeric: tabular-nums; }
+.max-rate-note { font-size: 12.5px; color: var(--ink-soft); }
+.rate-scale { position: relative; height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.rate-scale-fill { position: absolute; inset: 0 auto 0 0; width: 16%; border-radius: 999px; background: var(--accent, #0a7d6e); transition: width 0.25s ease; }
+.rate-scale-mark { position: absolute; top: -3px; bottom: -3px; width: 2px; transform: translateX(-1px); }
+.rate-scale-mark--bench { background: #d97706; }
+.rate-scale-mark--you { background: currentColor; color: var(--accent, #0a7d6e); width: 3px; }
+.rate-scale-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-soft); }
+.scenario-block { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); }
+.scenario-title { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); margin-bottom: 8px; }
+.scenario-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.scenario-table th, .scenario-table td { padding: 6px 8px; text-align: left; border-bottom: 1px solid var(--line); }
+.scenario-table th.num, .scenario-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.scenario-table .scenario-row--max td { background: var(--surface-2, var(--surface)); font-weight: 600; }
+.scenario-note { font-size: 12px; color: var(--ink-soft); margin-top: 8px; }
