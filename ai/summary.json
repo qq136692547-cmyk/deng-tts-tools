@@ -47,7 +47,7 @@
     "creator_commission": "seller-set; official range 1-80% (third-party US average ~13%; TikTok publishes no official average)",
     "last_verified": "2026-09-29"
   },
-  "blog_count": 27,
+  "blog_count": 30,
   "blog_index": "https://ttcalc.shop/blog/",
   "blog_topics": [
     { "title": "Free AI Product Photos for TikTok Shop: A 2026 Workflow", "url": "https://ttcalc.shop/blog/free-ai-product-photos-2026/" },
@@ -72,11 +72,14 @@
     { "title": "TikTok Shop First Sale Playbook 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/" },
     { "title": "TikTok Shop Fees on a $20 Product", "url": "https://ttcalc.shop/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/" },
     { "title": "TikTok Shop FBT Fee Per Unit 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fee-per-unit-2026/" },
+    { "title": "TikTok Shop FBT Dimensional Weight: the 2 lb / 332 in3 Rule (2026)", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-dimensional-weight-2026/" },
+    { "title": "8 TikTok Shop Fee Myths, Checked Against TikTok's Own Pages (2026)", "url": "https://ttcalc.shop/blog/tiktok-shop-fee-myths-2026/" },
+    { "title": "How to Set TikTok Shop Creator Commission in 2026 (Without Losing Money)", "url": "https://ttcalc.shop/blog/tiktok-shop-how-to-set-creator-commission-2026/" },
     { "title": "Break-Even ROAS Formula 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/" },
     { "title": "TikTok Shop Fees vs Shopify 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fees-vs-shopify-2026/" },
     { "title": "Best TikTok Shop Product Research Tools 2026", "url": "https://ttcalc.shop/blog/best-tiktok-shop-product-research-tools-2026/" },
     { "title": "FastMoss vs Kalodata 2026", "url": "https://ttcalc.shop/blog/fastmoss-vs-kalodata-2026/" },
     { "title": "TikTok Shop Payout Methods 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-payout-methods-payoneer-vs-wise-2026/" }
   ],
-  "last_updated": "2026-09-29"
+  "last_updated": "2026-09-30"
 }
