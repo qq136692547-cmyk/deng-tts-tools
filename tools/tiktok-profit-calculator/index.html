@@ -74,7 +74,7 @@
       "name": "Is the 6% referral fee the only fee TikTok charges?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate transaction or processing charge. On top of it come FBT fulfillment ($4.28-$12.67 per unit by weight for a single-item order), a refund admin fee of 20% of the referral fee capped at $5 per SKU, FBT return handling at $0.70 (non-inspection) or $1.00 (inspection) per returned unit, monthly storage, and roughly 1% on cross-border orders."
+        "text": "No. TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate transaction or processing charge. On top of it come FBT fulfillment ($4.28-$12.67 per unit by weight for a single-item order), a refund admin fee of 20% of the referral fee capped at $5 per SKU, FBT return handling at $0.70 (non-inspection) or $1.00 (inspection) per returned unit, storage billed per cubic foot per day after 60 free days, and roughly 1% on cross-border orders."
       }
     },
     {
@@ -268,9 +268,9 @@
           </div>
 
           <div class="calc-field">
-            <label for="storageFee">FBT storage fee (monthly, per unit)</label>
+            <label for="storageFee">FBT storage fee (per unit)</label>
             <input type="number" id="storageFee" value="0.15" step="0.01" min="0" />
-            <div class="hint">Monthly warehouse storage cost per unit</div>
+            <div class="hint">Per unit, over your holding period. Free for the first 60 days, then billed per cubic foot per day &mdash; the <a href="/tools/tiktok-fbt-storage-calculator/">Storage Fee Calculator</a> works it out from your box size and days held.</div>
           </div>
 
           <div class="calc-field">
@@ -293,7 +293,7 @@
           <div class="calc-result-row"><span class="lbl">&#8722; COGS</span><span class="val" id="r_cogs">&#8722;$6.50</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Your shipping cost</span><span class="val" id="r_ship">&#8722;$3.00</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; Inbound shipping to FBT</span><span class="val" id="r_inbound_ship">&#8722;$1.00</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; FBT storage (monthly)</span><span class="val" id="r_storage">&#8722;$0.15</span></div>
+          <div class="calc-result-row"><span class="lbl">&#8722; FBT storage</span><span class="val" id="r_storage">&#8722;$0.15</span></div>
           <div class="calc-result-row"><span class="lbl">&#8722; TikTok ad spend</span><span class="val" id="r_ads">&#8722;$3.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Net profit per unit</span><span class="val" id="r_profit">$10.02</span></div>
           <div class="calc-result-row roi-row group-end" id="r_roi">
@@ -406,7 +406,7 @@
           <tr><td>&minus; COGS</td><td class="num">&minus;$6.50</td></tr>
           <tr><td>&minus; Your shipping cost</td><td class="num">&minus;$3.00</td></tr>
           <tr><td>&minus; Inbound freight to FBT</td><td class="num">&minus;$1.00</td></tr>
-          <tr><td>&minus; FBT storage (monthly, per unit)</td><td class="num">&minus;$0.15</td></tr>
+          <tr><td>&minus; FBT storage (per unit)</td><td class="num">&minus;$0.15</td></tr>
           <tr><td>&minus; Ad spend (10% of item price)</td><td class="num">&minus;$3.00</td></tr>
           <tr class="total"><td>Net profit per unit</td><td class="num">$10.02</td></tr>
           <tr><td>&minus; Return cost, refund admin and FBT return handling (5% return rate, 50% resellable)</td><td class="num">&minus;$0.21</td></tr>
@@ -439,7 +439,7 @@
           <tr><td>FBT fulfillment</td><td>$4.28&ndash;$12.67 per unit by weight for a single-item order; multi-item orders cost less per unit &mdash; <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a></td><td>TikTok</td></tr>
           <tr><td>Refund admin fee</td><td>20% of the referral fee, capped at $5 per SKU &mdash; charged even when the order is fully refunded (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td>TikTok</td></tr>
           <tr><td>FBT return handling</td><td>$0.70 non-inspection or $1.00 inspection, per returned unit</td><td>TikTok</td></tr>
-          <tr><td>FBT storage</td><td>Monthly, per unit held</td><td>TikTok</td></tr>
+          <tr><td>FBT storage</td><td>Per cubic foot per day; free for the first 60 days</td><td>TikTok</td></tr>
           <tr><td>Creator commission</td><td>1&ndash;80%, set by the seller &mdash; the official range per <a href="https://ads.tiktok.com/resources/help/article/about-setting-different-affiliate-commission-rates-for-tiktok-shop-ads" target="_blank" rel="noopener">TikTok's Ads help center</a> (no official average exists)</td><td>Creator</td></tr>
           <tr><td>Cross-border fee</td><td>~1% on international orders &mdash; <em>we have not verified this rate against an official TikTok page; treat as unverified</em></td><td>TikTok</td></tr>
         </tbody>
@@ -521,7 +521,7 @@
         <details>
           <summary>Is the 6% referral fee the only fee TikTok charges?<span class="sign"></span></summary>
           <div class="answer">
-            <p>No. TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate transaction or processing charge. On top of it come FBT fulfillment ($4.28&ndash;$12.67 per unit by weight on a single-item order), a refund admin fee of 20% of the referral fee capped at $5 per SKU, FBT return handling at $0.70 or $1.00 per returned unit, monthly storage, and roughly 1% on cross-border orders.</p>
+            <p>No. TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate transaction or processing charge. On top of it come FBT fulfillment ($4.28&ndash;$12.67 per unit by weight on a single-item order), a refund admin fee of 20% of the referral fee capped at $5 per SKU, FBT return handling at $0.70 or $1.00 per returned unit, storage billed per cubic foot per day after 60 free days, and roughly 1% on cross-border orders.</p>
           </div>
         </details>
         <details>

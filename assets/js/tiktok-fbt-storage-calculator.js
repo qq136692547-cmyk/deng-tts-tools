@@ -121,6 +121,10 @@
 
     get('r_total').textContent = money(res.total);
     get('r_perunit').textContent = money(perUnitCost);
+    // Feed the per-unit figure to ux.js's carry mechanism, which reads any
+    // element with this id into the next tool's matching input.
+    var carry = get('storageFee');
+    if (carry) carry.value = units > 0 ? perUnitCost.toFixed(2) : '';
     get('r_share').textContent = price > 0 && perUnitCost > 0
       ? (perUnitCost / price * 100).toFixed(1) + '% of one unit\u2019s price'
       : '\u2014';
