@@ -5,8 +5,13 @@ window.TTCALC_RATES = {
   referralEffectiveDate: '2024-04-01', // flat 6% US referral rate took effect (see /rate-updates/)
   verifiedDate: '2026-09-29',   // last manual cross-check against Seller Center
   sourceUrl: 'https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087',
-  // TikTok Shop US no longer charges a separate transaction fee. The referral fee is a
-  // unified charge that already covers payment processing: the flat 6% structure took
+  // TikTok Shop US no longer charges a separate transaction fee. The referral fee is
+  // the only selling fee TikTok's own commission policy defines; independent fee guides
+  // read payment processing as sitting inside that 6%. NOTE ON EVIDENCE GRADE (2026-09-30):
+  // the policy page lists no separate transaction or processing line, but it never says
+  // "includes payment processing" - that phrasing is ours, sourced from the fee guides
+  // listed on /rate-updates/#sources, and must not be presented as a TikTok quote.
+  // The flat 6% structure took
   // effect 2024-04-01 and replaced the older 2% + $0.30 model. Note the widely cited
   // 2023-04-03 date is the start of a 2023 promotion that temporarily cut the old 2%
   // rate to 0% - it is NOT the date the transaction fee ended. Kept as an explicit 0
