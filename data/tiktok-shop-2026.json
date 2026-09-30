@@ -12,7 +12,7 @@
             "preOwned": 0.05
         },
         "appliesTo": "Total sale price (including shipping)",
-        "note": "6% flat for most US categories; payment processing is included. Jewelry and Pre-Owned categories are 5%."
+        "note": "6% flat for most US categories. TikTok's published policy lists no separate transaction or processing fee. Jewelry and Pre-Owned categories are 5%."
     },
     "fbtFulfillment": {
         "singleItemTiers": [
@@ -347,5 +347,5 @@
             "platformHandles": "Listing, payment, dispute"
         }
     },
-    "disclaimer": "TikTok Shop fees change frequently. Weight-based FBT tiers, the 6%/5% referral fee (which already includes payment processing since April 1, 2024, with no separate transaction fee), and 1% cross-border fees are consistent with 2026 documentation. Always confirm in TikTok Seller Center."
+    "disclaimer": "TikTok Shop fees change frequently. Weight-based FBT tiers, the 6%/5% referral fee (in effect since April 1, 2024), and 1% cross-border fees are consistent with 2026 documentation. Always confirm in TikTok Seller Center."
 }

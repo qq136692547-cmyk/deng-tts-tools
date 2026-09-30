@@ -58,7 +58,7 @@
 
     $id('r_total').textContent              = fmt(total);
     $id('r_base').textContent               = '-' + fmt(referral);
-    var lbl = $id('r_base_lbl'); if (lbl) lbl.textContent = '- Base commission (' + referralRate + '%, incl. payment processing)';
+    var lbl = $id('r_base_lbl'); if (lbl) lbl.textContent = '- Base commission (' + referralRate + '%)';
     $id('r_fbt').textContent                = '-' + fmt(fbt);
     var txnEl = $id('r_txn');
     if (txnEl) {
