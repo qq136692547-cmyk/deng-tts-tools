@@ -153,7 +153,7 @@
     <div class="tool-header">
       <span class="eyebrow"><span class="dot"></span> 2026 fee structure</span>
       <h1>TikTok Shop Fee Calculator</h1>
-      <p class="subtitle">The full fee stack. Not just the 6% referral fee. Includes FBT fulfillment, creator fees, and returns.</p>
+      <p class="subtitle" data-i18n="tools.fee.lede">The full fee stack. Not just the 6% referral fee. Includes FBT fulfillment, creator fees, and returns.</p>
     </div>
 
     <div class="calc-window">
@@ -271,9 +271,9 @@
           <div class="calc-result-row group-end"><span class="lbl">= Net after returns</span><span class="val" id="r_net_after_returns">$23.67 (78.9%)</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Total TikTok take</span><span class="val" id="r_total_fee">$6.32 (21.1%)</span></div>
 
-          <p class="source-note rate-version">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
+          <p class="source-note rate-version" data-i18n-html="tools.fee.sourceLine">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
 
-          <p class="source-note">
+          <p class="source-note" data-i18n-html="tools.fee.modelNote">
             Source: TikTok Shop Seller Center 2026 docs. FBT return handling starts at $0.70 per returned unit for non-inspection service ($1.00 with inspection). Refund admin fee is an estimate (20% of referral, capped at $5). This page models platform fees only &mdash; product cost lost on non-resellable returns is not included, so use the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> for a full net-margin view. Ad spend, FBT storage fees, inbound shipping, and disposal fees are also excluded. Real fees vary by region, category, and seller status.
           </p>
         </section>
@@ -282,8 +282,8 @@
     </div>
 
     <div class="quick-answer">
-      <p class="quick-answer-label">Quick answer</p>
-      <p>On the default $29.99 product, TikTok Shop takes <strong>$6.32 &mdash; 21.1%</strong> in platform fees: a 6% referral fee ($1.80) plus $4.52 of FBT fulfillment, leaving a $23.67 payout. Because FBT is a flat per-unit charge, that same fee is <strong>36.1% of a $15 item and 10.5% of a $100 one</strong>. Add a 25% creator commission and a 20% return rate and the take on that $29.99 item reaches <strong>46.1%</strong>.</p>
+      <p class="quick-answer-label" data-i18n="tools.fee.quickLabel">Quick answer</p>
+      <p data-i18n-html="tools.fee.quickAnswer">On the default $29.99 product, TikTok Shop takes <strong>$6.32 &mdash; 21.1%</strong> in platform fees: a 6% referral fee ($1.80) plus $4.52 of FBT fulfillment, leaving a $23.67 payout. Because FBT is a flat per-unit charge, that same fee is <strong>36.1% of a $15 item and 10.5% of a $100 one</strong>. Add a 25% creator commission and a 20% return rate and the take on that $29.99 item reaches <strong>46.1%</strong>.</p>
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
@@ -313,25 +313,25 @@
 
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
-        <h2>What each TikTok Shop fee actually is</h2>
+        <h2 data-i18n="tools.fee.h.whatEach">What each TikTok Shop fee actually is</h2>
         <span class="section-tag">01 / reference</span>
       </div>
       <div class="features" style="margin-top:var(--s-5);">
-        <div class="feature"><div class="icon">[ 01 ]</div><h3>Base commission (6%)</h3><p>6% flat for all US categories, charged on the total the buyer pays &mdash; shipping included (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">TikTok Shop US commission policy</a>). TikTok's published policy documents one commission and lists no separate processing or transaction charge. Jewelry and Pre-Owned sit at 5%.</p></div>
-        <div class="feature"><div class="icon">[ 02 ]</div><h3>FBT fulfillment</h3><p>$4.28&#8211;$12.67 per unit by weight, single-item rate for items up to 16 lb (<a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a>). This is a flat per-unit charge &mdash; it does not scale with your sale price, which is exactly why it dominates the stack on cheap items.</p></div>
-        <div class="feature"><div class="icon">[ 03 ]</div><h3>Creator commission</h3><p>1%&#8211;80% (the official range), set by you, paid to the creators and affiliates who move your product. Charged on the sale price and stacked on top of everything else.</p></div>
-        <div class="feature"><div class="icon">[ 04 ]</div><h3>Refund admin + FBT return handling</h3><p>On a refund TikTok keeps 20% of the referral fee, capped at $5 per SKU, and FBT adds $0.70&#8211;$1.00 per returned unit. Both scale with your return rate.</p></div>
-        <div class="feature"><div class="icon">[ 05 ]</div><h3>What is NOT in this calculator</h3><p>Ad spend, FBT storage fees, inbound shipping to the TikTok warehouse, aged-inventory surcharges, removal fees &mdash; and the product cost you lose on a non-resellable return. Those live in the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a>.</p></div>
+        <div class="feature"><div class="icon">[ 01 ]</div><h3 data-i18n="tools.fee.h.baseCommission">Base commission (6%)</h3><p data-i18n-html="tools.fee.baseCommission">6% flat for all US categories, charged on the total the buyer pays &mdash; shipping included (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">TikTok Shop US commission policy</a>). TikTok's published policy documents one commission and lists no separate processing or transaction charge. Jewelry and Pre-Owned sit at 5%.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3 data-i18n="tools.fee.h.fbt">FBT fulfillment</h3><p data-i18n-html="tools.fee.fbt">$4.28&#8211;$12.67 per unit by weight, single-item rate for items up to 16 lb (<a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a>). This is a flat per-unit charge &mdash; it does not scale with your sale price, which is exactly why it dominates the stack on cheap items.</p></div>
+        <div class="feature"><div class="icon">[ 03 ]</div><h3 data-i18n="tools.fee.h.creator">Creator commission</h3><p data-i18n="tools.fee.creator">1%&#8211;80% (the official range), set by you, paid to the creators and affiliates who move your product. Charged on the sale price and stacked on top of everything else.</p></div>
+        <div class="feature"><div class="icon">[ 04 ]</div><h3 data-i18n="tools.fee.h.refund">Refund admin + FBT return handling</h3><p data-i18n="tools.fee.refund">On a refund TikTok keeps 20% of the referral fee, capped at $5 per SKU, and FBT adds $0.70&#8211;$1.00 per returned unit. Both scale with your return rate.</p></div>
+        <div class="feature"><div class="icon">[ 05 ]</div><h3 data-i18n="tools.fee.h.notIncluded">What is NOT in this calculator</h3><p data-i18n-html="tools.fee.notIncluded">Ad spend, FBT storage fees, inbound shipping to the TikTok warehouse, aged-inventory surcharges, removal fees &mdash; and the product cost you lose on a non-resellable return. Those live in the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a>.</p></div>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Worked example: the default $29.99 product</h2>
+        <h2 data-i18n="tools.fee.h.worked">Worked example: the default $29.99 product</h2>
         <span class="section-tag">02 / worked example</span>
       </div>
       <div class="tool-prose">
-        <p>Everything below is the calculator's own output on the default inputs &mdash; $29.99 sale price, nothing charged to the buyer for shipping, 6% referral, the 4&#8211;8 oz FBT tier, one unit per order, 0% creator commission and a 0% return rate. Nothing is rounded up or "approximated."</p>
+        <p data-i18n="tools.fee.workedIntro">Everything below is the calculator's own output on the default inputs &mdash; $29.99 sale price, nothing charged to the buyer for shipping, 6% referral, the 4&#8211;8 oz FBT tier, one unit per order, 0% creator commission and a 0% return rate. Nothing is rounded up or "approximated."</p>
       </div>
       <table class="data-table">
         <thead>
@@ -350,17 +350,17 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>Two things stand out. First, <strong>FBT ($4.52) is more than twice the commission ($1.80)</strong> &mdash; if you think of "the TikTok fee" as 6%, you are modelling less than a third of it. Second, there is no transaction line: TikTok US retired the old 2% + $0.30 structure when the flat 6% rate took effect on 1 April 2024, and TikTok's published policy has documented a single commission with no separate transaction line ever since.</p>
+        <p data-i18n-html="tools.fee.workedTwo">Two things stand out. First, <strong>FBT ($4.52) is more than twice the commission ($1.80)</strong> &mdash; if you think of "the TikTok fee" as 6%, you are modelling less than a third of it. Second, there is no transaction line: TikTok US retired the old 2% + $0.30 structure when the flat 6% rate took effect on 1 April 2024, and TikTok's published policy has documented a single commission with no separate transaction line ever since.</p>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Why the same fee is 36% on one product and 10% on another</h2>
+        <h2 data-i18n="tools.fee.h.whySame">Why the same fee is 36% on one product and 10% on another</h2>
         <span class="section-tag">03 / price sensitivity</span>
       </div>
       <div class="tool-prose">
-        <p>The 6% commission scales with price. FBT does not &mdash; it is a flat charge per unit. Hold the 4&#8211;8 oz tier fixed and price becomes the single biggest driver of your effective take rate:</p>
+        <p data-i18n="tools.fee.whyOne">The 6% commission scales with price. FBT does not &mdash; it is a flat charge per unit. Hold the 4&#8211;8 oz tier fixed and price becomes the single biggest driver of your effective take rate:</p>
       </div>
       <table class="data-table">
         <thead>
@@ -375,17 +375,17 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>This is the arithmetic behind the well-worn advice that TikTok Shop rewards higher-ticket, lighter items. A $15 impulse buy hands TikTok more than a third of its price before you have paid a cent for the product itself; the same fulfillment cost on a $100 item is roughly a tenth. If your take rate looks alarming, check the weight tier and the price point before you start renegotiating anything else.</p>
+        <p data-i18n="tools.fee.whyTwo">This is the arithmetic behind the well-worn advice that TikTok Shop rewards higher-ticket, lighter items. A $15 impulse buy hands TikTok more than a third of its price before you have paid a cent for the product itself; the same fulfillment cost on a $100 item is roughly a tenth. If your take rate looks alarming, check the weight tier and the price point before you start renegotiating anything else.</p>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Three scenarios on the same product</h2>
+        <h2 data-i18n="tools.fee.h.three">Three scenarios on the same product</h2>
         <span class="section-tag">04 / scenarios</span>
       </div>
       <div class="tool-prose">
-        <p>Creator commission and return rate are the two inputs sellers most often leave at zero, "to keep it simple." Leaving them at zero does not make them go away &mdash; it only hides them from the model. The same $29.99 product, three ways:</p>
+        <p data-i18n="tools.fee.threeIntro">Creator commission and return rate are the two inputs sellers most often leave at zero, "to keep it simple." Leaving them at zero does not make them go away &mdash; it only hides them from the model. The same $29.99 product, three ways:</p>
       </div>
       <table class="data-table">
         <thead>
@@ -398,22 +398,22 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>Same product, same price, same weight. The gap between the lean and creator-led rows is <strong>$7.50 per unit</strong> &mdash; on 1,000 units a month that is $7,500 of margin which simply never appears in a model built on 0% and 0%. Figures are as displayed by the calculator; display rounding can differ by a cent from the sum of the individual rows.</p>
+        <p data-i18n-html="tools.fee.threeNote">Same product, same price, same weight. The gap between the lean and creator-led rows is <strong>$7.50 per unit</strong> &mdash; on 1,000 units a month that is $7,500 of margin which simply never appears in a model built on 0% and 0%. Figures are as displayed by the calculator; display rounding can differ by a cent from the sum of the individual rows.</p>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Five ways sellers mis-model TikTok Shop fees</h2>
+        <h2 data-i18n="tools.fee.h.fiveWays">Five ways sellers mis-model TikTok Shop fees</h2>
         <span class="section-tag">05 / pitfalls</span>
       </div>
       <div class="tool-prose">
         <ol>
-          <li><strong>Reading "6%" as the whole fee.</strong> On most sub-$30 items FBT is the larger line. The blended take is rarely under 20% &mdash; see <a href="/rate-updates/#claims">the claim-by-claim table behind these rates</a>.</li>
-          <li><strong>Assuming FBT scales with price.</strong> It does not. A cheap, heavy product can lose more than 40% before COGS.</li>
-          <li><strong>Leaving creator commission at zero.</strong> If your growth plan involves affiliates at all, 0% is a placeholder, not a forecast.</li>
-          <li><strong>Treating a return as "just the admin fee."</strong> This page models the fee side only. The product cost lost when a return cannot be resold is charged against COGS in the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> &mdash; run both before you set a price.</li>
-          <li><strong>Forgetting that shipping sits inside the referral base.</strong> Commission is charged on price <em>plus</em> shipping, so "free shipping" is not free to TikTok &mdash; it is priced into your fee.</li>
+          <li data-i18n-html="tools.fee.myth1"><strong>Reading "6%" as the whole fee.</strong> On most sub-$30 items FBT is the larger line. The blended take is rarely under 20% &mdash; see <a href="/rate-updates/#claims">the claim-by-claim table behind these rates</a>.</li>
+          <li data-i18n-html="tools.fee.myth2"><strong>Assuming FBT scales with price.</strong> It does not. A cheap, heavy product can lose more than 40% before COGS.</li>
+          <li data-i18n-html="tools.fee.myth3"><strong>Leaving creator commission at zero.</strong> If your growth plan involves affiliates at all, 0% is a placeholder, not a forecast.</li>
+          <li data-i18n-html="tools.fee.myth4"><strong>Treating a return as "just the admin fee."</strong> This page models the fee side only. The product cost lost when a return cannot be resold is charged against COGS in the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> &mdash; run both before you set a price.</li>
+          <li data-i18n-html="tools.fee.myth5"><strong>Forgetting that shipping sits inside the referral base.</strong> Commission is charged on price <em>plus</em> shipping, so "free shipping" is not free to TikTok &mdash; it is priced into your fee.</li>
         </ol>
       </div>
     </section>
@@ -425,45 +425,45 @@
       </div>
       <div class="faq">
         <details>
-          <summary>Is the 6% referral fee all TikTok takes?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.fee.faq1q">Is the 6% referral fee all TikTok takes?<span class="sign"></span></summary>
           <div class="answer">
-            <p>No. TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate transaction or processing charge &mdash; but FBT fulfillment ($4.28&#8211;$12.67 per unit), creator commission (0&#8211;30%) and refund-related fees all stack on top. On the default $29.99 product the blended take is 21.1%.</p>
+            <p data-i18n="tools.fee.faq1a">No. TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate transaction or processing charge &mdash; but FBT fulfillment ($4.28&#8211;$12.67 per unit), creator commission (0&#8211;30%) and refund-related fees all stack on top. On the default $29.99 product the blended take is 21.1%.</p>
           </div>
         </details>
         <details>
-          <summary>Does the 6% referral fee include shipping the buyer pays?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.fee.faq2q">Does the 6% referral fee include shipping the buyer pays?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Yes. TikTok&rsquo;s US commission policy gives the referral formula as platform commission = platform commission rate &times; (buyer payment + platform discounts &minus; taxes), and the note under that formula says, in TikTok&rsquo;s own Chinese wording (page last revised 2026/2/11), translated here: &ldquo;buyer payment includes shipping paid by the buyer, net of shipping discounts provided by the seller or TikTok Shop.&rdquo; This calculator adds any shipping you charge the buyer to the referral base; the field defaults to 0, so a price with the shipping baked in changes nothing. This calculator does not model platform discounts or taxes, so if either applies to your order the real base will differ from the figure here.</p>
+            <p data-i18n="tools.fee.faq2a">Yes. TikTok&rsquo;s US commission policy gives the referral formula as platform commission = platform commission rate &times; (buyer payment + platform discounts &minus; taxes), and the note under that formula says, in TikTok&rsquo;s own Chinese wording (page last revised 2026/2/11), translated here: &ldquo;buyer payment includes shipping paid by the buyer, net of shipping discounts provided by the seller or TikTok Shop.&rdquo; This calculator adds any shipping you charge the buyer to the referral base; the field defaults to 0, so a price with the shipping baked in changes nothing. This calculator does not model platform discounts or taxes, so if either applies to your order the real base will differ from the figure here.</p>
           </div>
         </details>
         <details>
-          <summary>Do I pay creator commission on top of everything?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.fee.faq3q">Do I pay creator commission on top of everything?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Yes. Creator commission is set by you (0&#8211;30%); this calculator charges it as a percentage of the item price, stacking on top of the referral fee and FBT fulfillment. A product that is comfortable at 0% can flip thin at 25%.</p>
+            <p data-i18n="tools.fee.faq3a">Yes. Creator commission is set by you (0&#8211;30%); this calculator charges it as a percentage of the item price, stacking on top of the referral fee and FBT fulfillment. A product that is comfortable at 0% can flip thin at 25%.</p>
           </div>
         </details>
         <details>
-          <summary>Is there still a $0.30 transaction fee?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.fee.faq4q">Is there still a $0.30 transaction fee?<span class="sign"></span></summary>
           <div class="answer">
-            <p>No. TikTok's published commission policy lists no separate per-order transaction fee. The flat 6% referral rate that took effect on 1 April 2024 replaced the older 2% + $0.30 structure, so the transaction line in the results panel reads $0.00 and is hidden by default.</p>
+            <p data-i18n="tools.fee.faq4a">No. TikTok's published commission policy lists no separate per-order transaction fee. The flat 6% referral rate that took effect on 1 April 2024 replaced the older 2% + $0.30 structure, so the transaction line in the results panel reads $0.00 and is hidden by default.</p>
           </div>
         </details>
         <details>
-          <summary>What does FBT return handling cost?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.fee.faq5q">What does FBT return handling cost?<span class="sign"></span></summary>
           <div class="answer">
-            <p>FBT charges a per-return handling fee &mdash; $0.70 for non-inspection service and $1.00 with inspection &mdash; for each returned unit, so it scales with your return rate. Separately, TikTok keeps 20% of the referral fee on a refund, capped at $5 per SKU.</p>
+            <p data-i18n="tools.fee.faq5a">FBT charges a per-return handling fee &mdash; $0.70 for non-inspection service and $1.00 with inspection &mdash; for each returned unit, so it scales with your return rate. Separately, TikTok keeps 20% of the referral fee on a refund, capped at $5 per SKU.</p>
           </div>
         </details>
         <details>
-          <summary>Why is FBT bigger than the commission on my product?</summary>
+          <summary data-i18n="tools.fee.faq6q">Why is FBT bigger than the commission on my product?</summary>
           <div class="answer">
-            <p>Because FBT is a flat per-unit charge while the commission is a percentage. On a $29.99 item, a $4.52 fulfillment fee is 15.1% of the price while the 6% commission is only $1.80. Raising the price dilutes FBT; lowering it magnifies it.</p>
+            <p data-i18n="tools.fee.faq6a">Because FBT is a flat per-unit charge while the commission is a percentage. On a $29.99 item, a $4.52 fulfillment fee is 15.1% of the price while the 6% commission is only $1.80. Raising the price dilutes FBT; lowering it magnifies it.</p>
           </div>
         </details>
         <details>
-          <summary>How do TikTok Shop fees compare to Amazon FBA?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.fee.faq7q">How do TikTok Shop fees compare to Amazon FBA?<span class="sign"></span></summary>
           <div class="answer">
-            <p>On headline commission, TikTok (6%) sits far below Amazon's typical referral fee (15%). On the full stack, TikTok's 6% plus FBT usually still comes out ahead of Amazon's referral fee plus fulfillment, placement and low-inventory surcharges &mdash; but Amazon's fee includes Prime shipping and warehousing. The <a href="/tools/tiktok-vs-amazon/">side-by-side calculator</a> puts both on the same inputs.</p>
+            <p data-i18n-html="tools.fee.faq7a">On headline commission, TikTok (6%) sits far below Amazon's typical referral fee (15%). On the full stack, TikTok's 6% plus FBT usually still comes out ahead of Amazon's referral fee plus fulfillment, placement and low-inventory surcharges &mdash; but Amazon's fee includes Prime shipping and warehousing. The <a href="/tools/tiktok-vs-amazon/">side-by-side calculator</a> puts both on the same inputs.</p>
           </div>
         </details>
       </div>
@@ -476,27 +476,27 @@
       </div>
       <div class="tool-prose">
         <ul>
-          <li><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> &mdash; the fee stack plus COGS, shipping, inbound freight and ad spend, down to net profit per unit.</li>
-          <li><a href="/tools/tiktok-vs-amazon/">TikTok Shop vs Amazon FBA</a> &mdash; the same product costed on both platforms.</li>
-          <li><a href="/blog/tiktok-shop-fees-2026/">TikTok Shop fees in 2026</a> &mdash; the written guide behind this rate card.</li>
-          <li><a href="/blog/tiktok-shop-fee-myths-2026/">8 TikTok Shop fee myths</a> &mdash; the 2.9% + $0.30 transaction fee and seven other numbers, checked against TikTok&rsquo;s own pages.</li>
-          <li><a href="/blog/tiktok-shop-fbt-fulfillment-guide-2026/">FBT fulfillment explained</a> &mdash; weight tiers, storage, and the costs this page leaves out.</li>
-          <li><a href="/blog/tiktok-shop-fbt-fee-per-unit-2026/">FBT fee per unit</a> &mdash; the 2026 weight-tier table, from $4.28 to $12.67 (single items up to 16 lb).</li>
-          <li><a href="/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/">Fees on a $20 product</a> &mdash; why the 6% headline becomes 28.6% below $25.</li>
-          <li><a href="/blog/tiktok-shop-fees-vs-shopify-2026/">TikTok Shop fees vs Shopify</a> &mdash; commission versus subscription and payment processing.</li>
+          <li data-i18n-html="tools.fee.rel1"><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> &mdash; the fee stack plus COGS, shipping, inbound freight and ad spend, down to net profit per unit.</li>
+          <li data-i18n-html="tools.fee.rel2"><a href="/tools/tiktok-vs-amazon/">TikTok Shop vs Amazon FBA</a> &mdash; the same product costed on both platforms.</li>
+          <li data-i18n-html="tools.fee.rel3"><a href="/blog/tiktok-shop-fees-2026/">TikTok Shop fees in 2026</a> &mdash; the written guide behind this rate card.</li>
+          <li data-i18n-html="tools.fee.rel4"><a href="/blog/tiktok-shop-fee-myths-2026/">8 TikTok Shop fee myths</a> &mdash; the 2.9% + $0.30 transaction fee and seven other numbers, checked against TikTok&rsquo;s own pages.</li>
+          <li data-i18n-html="tools.fee.rel5"><a href="/blog/tiktok-shop-fbt-fulfillment-guide-2026/">FBT fulfillment explained</a> &mdash; weight tiers, storage, and the costs this page leaves out.</li>
+          <li data-i18n-html="tools.fee.rel6"><a href="/blog/tiktok-shop-fbt-fee-per-unit-2026/">FBT fee per unit</a> &mdash; the 2026 weight-tier table, from $4.28 to $12.67 (single items up to 16 lb).</li>
+          <li data-i18n-html="tools.fee.rel7"><a href="/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/">Fees on a $20 product</a> &mdash; why the 6% headline becomes 28.6% below $25.</li>
+          <li data-i18n-html="tools.fee.rel8"><a href="/blog/tiktok-shop-fees-vs-shopify-2026/">TikTok Shop fees vs Shopify</a> &mdash; commission versus subscription and payment processing.</li>
         </ul>
       </div>
     </section>
 
     <section style="margin-top:var(--s-7);" id="embed">
       <div class="section-header">
-        <h2>Embed this calculator</h2>
+        <h2 data-i18n="tools.fee.h.embed">Embed this calculator</h2>
         <span class="section-tag">08 / embed</span>
       </div>
-      <p class="section-lede">Free to place on your own site, no attribution required. The snippet loads the calculator without our header, footer, ads or article text.</p>
+      <p class="section-lede" data-i18n="tools.fee.embed">Free to place on your own site, no attribution required. The snippet loads the calculator without our header, footer, ads or article text.</p>
       <div class="embed-box">
         <textarea readonly rows="4" onclick="this.select(); if(window.ttcalcTrackEvent)ttcalcTrackEvent('embed_code_copy')">&lt;iframe src="https://ttcalc.shop/tools/tiktok-fee-calculator/?embed=1" width="100%" height="1150" loading="lazy" style="border:1px solid #ddd;border-radius:8px" title="TikTok Shop Fee Calculator 2026"&gt;&lt;/iframe&gt;</textarea>
-        <p class="embed-code-note">Adjust the <code>height</code> to suit your column width. All five embeddable calculators are listed at <a href="/embed/">ttcalc.shop/embed/</a>.</p>
+        <p class="embed-code-note" data-i18n-html="tools.fee.embedNote">Adjust the <code>height</code> to suit your column width. All five embeddable calculators are listed at <a href="/embed/">ttcalc.shop/embed/</a>.</p>
       </div>
     </section>
   </div>
@@ -519,7 +519,7 @@
         <img src="/assets/images/logo.svg" alt="" />
         <span>TTCalc</span>
       </a>
-      <p>Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
+      <p data-i18n="tools.fee.independent">Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.tools">Tools</h4>

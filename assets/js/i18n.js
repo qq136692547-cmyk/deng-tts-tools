@@ -9,7 +9,7 @@
   var originalContent = new Map();
 
   function captureOriginals() {
-    document.querySelectorAll('[data-i18n], [data-i18n-placeholder], [data-i18n-title]').forEach(function (el) {
+    document.querySelectorAll('[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-title]').forEach(function (el) {
       if (originalContent.has(el)) return;
       originalContent.set(el, {
         html: el.innerHTML,
@@ -37,6 +37,18 @@
       var original = originalContent.get(el);
       if (dict[key] !== undefined) {
         el.textContent = dict[key];
+      } else if (lang === 'en' && original) {
+        el.innerHTML = original.html;
+      }
+    });
+    // data-i18n-html is for prose that carries inline markup (<a>, <strong>) that a
+    // translation must be able to reposition - textContent would strip it. Values come
+    // from our own static dictionary (assets/js/translations.js), never from user input.
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      var original = originalContent.get(el);
+      if (dict[key] !== undefined) {
+        el.innerHTML = dict[key];
       } else if (lang === 'en' && original) {
         el.innerHTML = original.html;
       }
