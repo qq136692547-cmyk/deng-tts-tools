@@ -140,8 +140,8 @@
   <div class="container">
     <div class="tool-header">
       <span class="eyebrow"><span class="dot"></span> GMV Max &middot; break-even ROAS</span>
-      <h1>TikTok Shop ROAS Calculator</h1>
-      <p class="subtitle">What ROAS do you actually need to break even &mdash; and what do you keep at your reported ROAS?</p>
+      <h1 data-i18n="tools.roas.h1">TikTok Shop ROAS Calculator</h1>
+      <p class="subtitle" data-i18n="tools.roas.lede">What ROAS do you actually need to break even &mdash; and what do you keep at your reported ROAS?</p>
     </div>
 
     <div class="calc-window">
@@ -277,15 +277,15 @@
           <div class="calc-result-row"><span class="lbl">Monthly ad spend</span><span class="val" id="r_monthly_ad">-$5000.00</span></div>
           <div class="calc-result-row"><span class="lbl">Monthly net profit</span><span class="val" id="r_monthly_profit">$1900.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl">Status</span><span class="val good" id="r_status">Above break-even</span></div>
-          <p class="source-note rate-version">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
+          <p class="source-note rate-version" data-i18n-html="tools.roas.sourceLine">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
         </section>
         <p class="sr-only" role="status" aria-live="polite" id="calcSummary"></p>
       </div>
     </div>
 
     <div class="quick-answer">
-      <p class="quick-answer-label">Quick answer</p>
-      <p>On the default $29.99 product &mdash; $6.50 COGS, 10% creator commission, 5% returns &mdash; the break-even ROAS is <strong>2.17&times;</strong>. At a reported 3.0&times; you keep <strong>$3.80 per unit (12.7%)</strong>, or $1,900 a month on 500 units. Set creator commission and returns to zero and the floor drops to <strong>1.75&times;</strong>; push them to 30% and 20% and it jumps to <strong>4.50&times;</strong>. Every figure here assumes the buyer is charged nothing for shipping separately, so the revenue in the formula is the item price alone.</p>
+      <p class="quick-answer-label" data-i18n="tools.roas.quickLabel">Quick answer</p>
+      <p data-i18n-html="tools.roas.quickAnswer">On the default $29.99 product &mdash; $6.50 COGS, 10% creator commission, 5% returns &mdash; the break-even ROAS is <strong>2.17&times;</strong>. At a reported 3.0&times; you keep <strong>$3.80 per unit (12.7%)</strong>, or $1,900 a month on 500 units. Set creator commission and returns to zero and the floor drops to <strong>1.75&times;</strong>; push them to 30% and 20% and it jumps to <strong>4.50&times;</strong>. Every figure here assumes the buyer is charged nothing for shipping separately, so the revenue in the formula is the item price alone.</p>
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
@@ -315,25 +315,25 @@
 
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
-        <h2>How to read your break-even ROAS</h2>
+        <h2 data-i18n="tools.roas.h.howToRead">How to read your break-even ROAS</h2>
         <span class="section-tag">01 / explainer</span>
       </div>
-      <p class="section-lede">ROAS in Ads Manager measures gross revenue per ad dollar &mdash; not profit. Three things decide whether a reported ROAS actually makes you money:</p>
+      <p class="section-lede" data-i18n="tools.roas.howToReadIntro">ROAS in Ads Manager measures gross revenue per ad dollar &mdash; not profit. Three things decide whether a reported ROAS actually makes you money:</p>
       <div class="features" style="margin-top:var(--s-4);">
-        <div class="feature"><div class="icon">[ 01 ]</div><h3>Fees come off first</h3><p>Referral (6%), FBT fulfillment and creator commission all come out before ad spend. On the default product they total $9.32 &mdash; 31% of the buyer&rsquo;s total &mdash; before you have paid for the product or the ads.</p></div>
-        <div class="feature"><div class="icon">[ 02 ]</div><h3>Break-even ROAS is your floor</h3><p>It is simply revenue &divide; profit before ads. At the defaults, $29.99 &divide; $13.79 = 2.17&times;. Anything below that is paid traffic burning cash even while Ads Manager shows a healthy-looking ROAS.</p></div>
-        <div class="feature"><div class="icon">[ 03 ]</div><h3>Corrected ROAS is what landed</h3><p>Reported ROAS counts revenue you later refunded. Corrected ROAS &mdash; revenue after returns &divide; ad spend &mdash; is the honest number, and it is always the lower of the two.</p></div>
-        <div class="feature"><div class="icon">[ 04 ]</div><h3>Scale only above the floor</h3><p>Budget increases are safe only when the floor is cleared with room to spare for your actual return rate. A business running at 2.5&times; against a 2.17&times; floor is not "profitable" &mdash; it is one bad returns week away from zero.</p></div>
+        <div class="feature"><div class="icon">[ 01 ]</div><h3 data-i18n="tools.roas.h.feesFirst">Fees come off first</h3><p data-i18n="tools.roas.feesFirst">Referral (6%), FBT fulfillment and creator commission all come out before ad spend. On the default product they total $9.32 &mdash; 31% of the buyer&rsquo;s total &mdash; before you have paid for the product or the ads.</p></div>
+        <div class="feature"><div class="icon">[ 02 ]</div><h3 data-i18n="tools.roas.h.floor">Break-even ROAS is your floor</h3><p data-i18n="tools.roas.floor">It is simply revenue &divide; profit before ads. At the defaults, $29.99 &divide; $13.79 = 2.17&times;. Anything below that is paid traffic burning cash even while Ads Manager shows a healthy-looking ROAS.</p></div>
+        <div class="feature"><div class="icon">[ 03 ]</div><h3 data-i18n="tools.roas.h.corrected">Corrected ROAS is what landed</h3><p data-i18n="tools.roas.corrected">Reported ROAS counts revenue you later refunded. Corrected ROAS &mdash; revenue after returns &divide; ad spend &mdash; is the honest number, and it is always the lower of the two.</p></div>
+        <div class="feature"><div class="icon">[ 04 ]</div><h3 data-i18n="tools.roas.h.scaleAbove">Scale only above the floor</h3><p data-i18n="tools.roas.scaleAbove">Budget increases are safe only when the floor is cleared with room to spare for your actual return rate. A business running at 2.5&times; against a 2.17&times; floor is not "profitable" &mdash; it is one bad returns week away from zero.</p></div>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Three ROAS numbers, and only one of them pays you</h2>
+        <h2 data-i18n="tools.roas.h.threeNumbers">Three ROAS numbers, and only one of them pays you</h2>
         <span class="section-tag">02 / definitions</span>
       </div>
       <div class="tool-prose">
-        <p>Most sellers argue about "a good TikTok Shop ROAS" while quoting three different numbers. They are not interchangeable:</p>
+        <p data-i18n="tools.roas.threeIntro">Most sellers argue about "a good TikTok Shop ROAS" while quoting three different numbers. They are not interchangeable:</p>
       </div>
       <table class="data-table">
         <thead>
@@ -346,17 +346,17 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>Read them together: at a reported 3.00&times; you are above the 2.17&times; floor, so the campaign is genuinely profitable &mdash; but after returns the real number is 2.85&times;, and the cushion is thinner than the dashboard implies.</p>
+        <p data-i18n="tools.roas.readTogether">Read them together: at a reported 3.00&times; you are above the 2.17&times; floor, so the campaign is genuinely profitable &mdash; but after returns the real number is 2.85&times;, and the cushion is thinner than the dashboard implies.</p>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Worked example on the default inputs</h2>
+        <h2 data-i18n="tools.roas.h.worked">Worked example on the default inputs</h2>
         <span class="section-tag">03 / worked example</span>
       </div>
       <div class="tool-prose">
-        <p>$29.99 sale price, $6.50 COGS, 6% referral, 4&#8211;8 oz FBT tier (one unit per order), 10% creator commission, 5% return rate at $0.70 handling, 3.0&times; reported ROAS and 500 units a month. Every figure below is the calculator's own output.</p>
+        <p data-i18n="tools.roas.workedInputs">$29.99 sale price, $6.50 COGS, 6% referral, 4&#8211;8 oz FBT tier (one unit per order), 10% creator commission, 5% return rate at $0.70 handling, 3.0&times; reported ROAS and 500 units a month. Every figure below is the calculator's own output.</p>
       </div>
       <table class="data-table">
         <thead>
@@ -375,17 +375,17 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>Note how little is left. A 3.0&times; ROAS <em>sounds</em> like a three-to-one return. It is actually $3.80 a unit &mdash; a 12.7% net margin &mdash; because TikTok's fees, your COGS and the ads are all paid out of the same $29.99.</p>
+        <p data-i18n-html="tools.roas.workedNote">Note how little is left. A 3.0&times; ROAS <em>sounds</em> like a three-to-one return. It is actually $3.80 a unit &mdash; a 12.7% net margin &mdash; because TikTok's fees, your COGS and the ads are all paid out of the same $29.99.</p>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>What the two deductions are made of</h2>
+        <h2 data-i18n="tools.roas.h.twoDeductions">What the two deductions are made of</h2>
         <span class="section-tag">04 / breakdown</span>
       </div>
       <div class="tool-prose">
-        <h3>Platform fees &mdash; $9.32</h3>
+        <h3 data-i18n="tools.roas.h.platformFees">Platform fees &mdash; $9.32</h3>
       </div>
       <table class="data-table">
         <thead>
@@ -399,7 +399,7 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <h3>Return impact &mdash; $0.38</h3>
+        <h3 data-i18n="tools.roas.h.returnImpact">Return impact &mdash; $0.38</h3>
       </div>
       <table class="data-table">
         <thead>
@@ -413,17 +413,17 @@
         </tbody>
       </table>
       <div class="tool-prose">
-<p>Component rows are as displayed by the calculator; display rounding can differ by a cent from the total. This page charges returned units against <em>your product cost (COGS)</em> &mdash; the same basis the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> uses. A return costs you the goods, not the sale price you never collected. One difference: the Profit Calculator lets you set a resale rate for returned stock, while this page has no such input and therefore treats every returned unit as unsellable. That is the conservative end &mdash; if you can resell returns, your real return cost is lower than the figure shown here.</p>
+<p data-i18n-html="tools.roas.componentNote">Component rows are as displayed by the calculator; display rounding can differ by a cent from the total. This page charges returned units against <em>your product cost (COGS)</em> &mdash; the same basis the <a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> uses. A return costs you the goods, not the sale price you never collected. One difference: the Profit Calculator lets you set a resale rate for returned stock, while this page has no such input and therefore treats every returned unit as unsellable. That is the conservative end &mdash; if you can resell returns, your real return cost is lower than the figure shown here.</p>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Your break-even ROAS is not a fixed number</h2>
+        <h2 data-i18n="tools.roas.h.notFixed">Your break-even ROAS is not a fixed number</h2>
         <span class="section-tag">05 / sensitivity</span>
       </div>
       <div class="tool-prose">
-        <p>Same product, same price, same weight &mdash; only creator commission and return rate change. The floor moves by almost an order of magnitude:</p>
+        <p data-i18n="tools.roas.notFixedIntro">Same product, same price, same weight &mdash; only creator commission and return rate change. The floor moves by almost an order of magnitude:</p>
       </div>
       <table class="data-table">
         <thead>
@@ -437,22 +437,22 @@
         </tbody>
       </table>
       <div class="tool-prose">
-        <p>This is why "what ROAS should I target?" has no universal answer, and why comparing your ROAS with another seller's is close to meaningless. Two sellers running identical ad accounts can have break-even floors 1.75&times; and 4.50&times; apart, purely because one pays creators heavily and eats more returns.</p>
+        <p data-i18n="tools.roas.noUniversal">This is why "what ROAS should I target?" has no universal answer, and why comparing your ROAS with another seller's is close to meaningless. Two sellers running identical ad accounts can have break-even floors 1.75&times; and 4.50&times; apart, purely because one pays creators heavily and eats more returns.</p>
       </div>
     </section>
 
     <section>
       <div class="section-header">
-        <h2>Five ROAS mistakes that cost real money</h2>
+        <h2 data-i18n="tools.roas.h.fiveMistakes">Five ROAS mistakes that cost real money</h2>
         <span class="section-tag">06 / pitfalls</span>
       </div>
       <div class="tool-prose">
         <ol>
-          <li><strong>Reading a positive ROAS as profit.</strong> A 2.0&times; ROAS is a loss on the default product, whose floor is 2.17&times;. Ads Manager will still show a positive ROAS.</li>
-          <li><strong>Treating the floor as fixed.</strong> It moves every time you change creator commission, return rate, price or weight tier. Re-run it after any of those.</li>
-          <li><strong>Scaling on reported ROAS alone.</strong> Check corrected ROAS first &mdash; that is the revenue that actually survived refunds.</li>
-          <li><strong>Benchmarking against someone else's ROAS.</strong> Different COGS, price and creator terms put the two of you on different floors.</li>
-          <li><strong>Assuming a price rise makes things worse.</strong> It usually lowers your floor: FBT and COGS are fixed, so raising $29.99 to $39.99 drops the break-even from 2.17&times; to about 1.80&times;.</li>
+          <li data-i18n-html="tools.roas.mistake1"><strong>Reading a positive ROAS as profit.</strong> A 2.0&times; ROAS is a loss on the default product, whose floor is 2.17&times;. Ads Manager will still show a positive ROAS.</li>
+          <li data-i18n-html="tools.roas.mistake2"><strong>Treating the floor as fixed.</strong> It moves every time you change creator commission, return rate, price or weight tier. Re-run it after any of those.</li>
+          <li data-i18n-html="tools.roas.mistake3"><strong>Scaling on reported ROAS alone.</strong> Check corrected ROAS first &mdash; that is the revenue that actually survived refunds.</li>
+          <li data-i18n-html="tools.roas.mistake4"><strong>Benchmarking against someone else's ROAS.</strong> Different COGS, price and creator terms put the two of you on different floors.</li>
+          <li data-i18n-html="tools.roas.mistake5"><strong>Assuming a price rise makes things worse.</strong> It usually lowers your floor: FBT and COGS are fixed, so raising $29.99 to $39.99 drops the break-even from 2.17&times; to about 1.80&times;.</li>
         </ol>
       </div>
     </section>
@@ -464,39 +464,39 @@
       </div>
       <div class="faq">
         <details>
-          <summary>What is a good ROAS for TikTok Shop?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.roas.faq1q">What is a good ROAS for TikTok Shop?<span class="sign"></span></summary>
           <div class="answer">
-            <p>There is no universal number &mdash; a good ROAS is one that clears <em>your</em> break-even floor with room to spare. On the default product ($29.99 sale, $6.50 COGS, 10% creator, 5% returns) the floor is 2.17&times;, and a 3.0&times; ROAS leaves just 12.7% net margin.</p>
+            <p data-i18n-html="tools.roas.faq1a">There is no universal number &mdash; a good ROAS is one that clears <em>your</em> break-even floor with room to spare. On the default product ($29.99 sale, $6.50 COGS, 10% creator, 5% returns) the floor is 2.17&times;, and a 3.0&times; ROAS leaves just 12.7% net margin.</p>
           </div>
         </details>
         <details>
-          <summary>How do I calculate break-even ROAS?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.roas.faq2q">How do I calculate break-even ROAS?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Divide your revenue by your profit before ad spend: revenue &divide; (revenue &minus; platform fees &minus; COGS &minus; return impact). At the defaults that is $29.99 &divide; $13.79 = 2.17&times;. Below that line, every additional ad dollar loses money.</p>
+            <p data-i18n="tools.roas.faq2a">Divide your revenue by your profit before ad spend: revenue &divide; (revenue &minus; platform fees &minus; COGS &minus; return impact). At the defaults that is $29.99 &divide; $13.79 = 2.17&times;. Below that line, every additional ad dollar loses money.</p>
           </div>
         </details>
         <details>
-          <summary>Why is my corrected ROAS lower than the ROAS GMV Max shows?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.roas.faq3q">Why is my corrected ROAS lower than the ROAS GMV Max shows?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Because the reported figure counts revenue you later refunded. Corrected ROAS nets returns off the revenue first. At a 5% return rate the gap is about 5% of revenue &mdash; small per order, but it is the difference between a comfortable and a thin margin across a month of ads.</p>
+            <p data-i18n="tools.roas.faq3a">Because the reported figure counts revenue you later refunded. Corrected ROAS nets returns off the revenue first. At a 5% return rate the gap is about 5% of revenue &mdash; small per order, but it is the difference between a comfortable and a thin margin across a month of ads.</p>
           </div>
         </details>
         <details>
-          <summary>Does creator commission change my break-even ROAS?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.roas.faq4q">Does creator commission change my break-even ROAS?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Yes, and heavily. Creator commission comes straight off profit before ads, so it raises the floor. Moving from 0% to 30% creator commission on the default product takes the break-even from 1.75&times; to 4.50&times; once a 20% return rate is also applied.</p>
+            <p data-i18n="tools.roas.faq4a">Yes, and heavily. Creator commission comes straight off profit before ads, so it raises the floor. Moving from 0% to 30% creator commission on the default product takes the break-even from 1.75&times; to 4.50&times; once a 20% return rate is also applied.</p>
           </div>
         </details>
         <details>
-          <summary>Is it safe to scale once I am above break-even?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.roas.faq5q">Is it safe to scale once I am above break-even?<span class="sign"></span></summary>
           <div class="answer">
-            <p>Only with a cushion. Scaling increases volume, and returns scale with volume too. Check that both reported <em>and</em> corrected ROAS clear the floor, then increase budget in steps and watch whether the corrected number holds.</p>
+            <p data-i18n-html="tools.roas.faq5a">Only with a cushion. Scaling increases volume, and returns scale with volume too. Check that both reported <em>and</em> corrected ROAS clear the floor, then increase budget in steps and watch whether the corrected number holds.</p>
           </div>
         </details>
         <details>
-          <summary>What is the difference between ROAS and ACOS?<span class="sign"></span></summary>
+          <summary data-i18n-html="tools.roas.faq6q">What is the difference between ROAS and ACOS?<span class="sign"></span></summary>
           <div class="answer">
-            <p>They are reciprocals. ROAS is revenue &divide; ad spend; ACOS is ad spend &divide; revenue. A 3.0&times; ROAS is a 33% ACOS. Break-even ROAS is simply 1 &divide; your profit-before-ads margin, expressed as a multiple.</p>
+            <p data-i18n="tools.roas.faq6a">They are reciprocals. ROAS is revenue &divide; ad spend; ACOS is ad spend &divide; revenue. A 3.0&times; ROAS is a 33% ACOS. Break-even ROAS is simply 1 &divide; your profit-before-ads margin, expressed as a multiple.</p>
           </div>
         </details>
       </div>
@@ -509,25 +509,25 @@
       </div>
       <div class="tool-prose">
         <ul>
-          <li><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> &mdash; per-unit net profit including storage, inbound freight and ad spend.</li>
-          <li><a href="/tools/tiktok-fee-calculator/">Fee Calculator</a> &mdash; every TikTok fee line, before COGS.</li>
-          <li><a href="/tools/tiktok-vs-amazon/">TikTok Shop vs Amazon FBA</a> &mdash; how the two fee stacks compare on the same product.</li>
-          <li><a href="/blog/tiktok-shop-fees-2026/">TikTok Shop fees in 2026</a> &mdash; the written guide behind the rate card.</li>
-          <li><a href="/blog/tiktok-shop-break-even-roas-formula-2026/">Break-even ROAS formula, worked step by step</a> &mdash; the maths on this page, explained with examples.</li>
-          <li><a href="/blog/best-tiktok-shop-product-research-tools-2026/">Product research tools by stage</a> &mdash; what a monthly subscription costs per unit at your volume.</li>
+          <li data-i18n-html="tools.roas.rel1"><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> &mdash; per-unit net profit including storage, inbound freight and ad spend.</li>
+          <li data-i18n-html="tools.roas.rel2"><a href="/tools/tiktok-fee-calculator/">Fee Calculator</a> &mdash; every TikTok fee line, before COGS.</li>
+          <li data-i18n-html="tools.roas.rel3"><a href="/tools/tiktok-vs-amazon/">TikTok Shop vs Amazon FBA</a> &mdash; how the two fee stacks compare on the same product.</li>
+          <li data-i18n-html="tools.roas.rel4"><a href="/blog/tiktok-shop-fees-2026/">TikTok Shop fees in 2026</a> &mdash; the written guide behind the rate card.</li>
+          <li data-i18n-html="tools.roas.rel5"><a href="/blog/tiktok-shop-break-even-roas-formula-2026/">Break-even ROAS formula, worked step by step</a> &mdash; the maths on this page, explained with examples.</li>
+          <li data-i18n-html="tools.roas.rel6"><a href="/blog/best-tiktok-shop-product-research-tools-2026/">Product research tools by stage</a> &mdash; what a monthly subscription costs per unit at your volume.</li>
         </ul>
       </div>
     </section>
 
     <section style="margin-top:var(--s-7);" id="embed">
       <div class="section-header">
-        <h2>Embed this calculator</h2>
+        <h2 data-i18n="tools.roas.h.embed">Embed this calculator</h2>
         <span class="section-tag">09 / embed</span>
       </div>
-      <p class="section-lede">Free to place on your own site, no attribution required. The snippet loads the calculator without our header, footer, ads or article text.</p>
+      <p class="section-lede" data-i18n="tools.roas.embed">Free to place on your own site, no attribution required. The snippet loads the calculator without our header, footer, ads or article text.</p>
       <div class="embed-box">
         <textarea readonly rows="4" onclick="this.select(); if(window.ttcalcTrackEvent)ttcalcTrackEvent('embed_code_copy')">&lt;iframe src="https://ttcalc.shop/tools/tiktok-roas-calculator/?embed=1" width="100%" height="1300" loading="lazy" style="border:1px solid #ddd;border-radius:8px" title="TikTok Shop Break-Even ROAS Calculator"&gt;&lt;/iframe&gt;</textarea>
-        <p class="embed-code-note">Adjust the <code>height</code> to suit your column width. All five embeddable calculators are listed at <a href="/embed/">ttcalc.shop/embed/</a>.</p>
+        <p class="embed-code-note" data-i18n-html="tools.roas.embedNote">Adjust the <code>height</code> to suit your column width. All five embeddable calculators are listed at <a href="/embed/">ttcalc.shop/embed/</a>.</p>
       </div>
     </section>
   </div>
@@ -550,7 +550,7 @@
         <img src="/assets/images/logo.svg" alt="" />
         <span>TTCalc</span>
       </a>
-      <p>Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
+      <p data-i18n="tools.roas.independent">Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.tools">Tools</h4>
