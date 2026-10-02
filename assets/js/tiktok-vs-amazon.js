@@ -2,6 +2,10 @@
   'use strict';
   var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
+
+  // Copy built in JS goes through the shared dictionary when it is available
+  // (i18n.js loads after this file, but always before DOMContentLoaded).
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   // Single-line summary is the only live region; announcing the whole result
@@ -101,10 +105,14 @@
     get('r_tts_margin').textContent = ttsMargin.toFixed(1) + '%';
 
     var diff = Math.abs(amzProfit - ttsProfit);
-    var winner = ttsProfit >= amzProfit ? 'TikTok Shop' : 'Amazon FBA';
-    get('r_winner').textContent = winner + ' pays ' + fmt(diff) + ' more per unit';
+    var winner = ttsProfit >= amzProfit
+      ? T('va.chan.tts', 'TikTok Shop')
+      : T('va.chan.amz', 'Amazon FBA');
+    get('r_winner').textContent = T('va.winner', '{0} pays {1} more per unit').replace('{0}', winner).replace('{1}', fmt(diff));
 
-    announce(winner + ' pays ' + fmt(diff) + ' more per unit; TikTok net ' + fmt(ttsProfit) + ', Amazon net ' + fmt(amzProfit) + '.');
+    announce(T('va.announce', '{0} pays {1} more per unit; TikTok net {2}, Amazon net {3}.')
+      .replace('{0}', winner).replace('{1}', fmt(diff))
+      .replace('{2}', fmt(ttsProfit)).replace('{3}', fmt(amzProfit)));
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -116,4 +124,7 @@
     });
     calc();
   });
+  // i18n sets the language after this script runs, and the winner line is built
+  // here - so re-render on a switch or it keeps the previous language.
+  document.addEventListener('ttcalc:langchange', calc);
 })();
