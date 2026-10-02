@@ -119,7 +119,7 @@
 <meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg">
 </head>
 <body class="tool-calc">
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
@@ -139,7 +139,7 @@
 <main id="main" class="tool-calc">
   <div class="container">
     <div class="tool-header">
-      <span class="eyebrow"><span class="dot"></span> GMV Max &middot; break-even ROAS</span>
+      <span data-i18n-html="eyebrow.gmvRoas" class="eyebrow"><span class="dot"></span> <span data-i18n="tools.roas.eyebrow">GMV Max &middot; break-even ROAS</span></span>
       <h1 data-i18n="tools.roas.h1">TikTok Shop ROAS Calculator</h1>
       <p class="subtitle" data-i18n="tools.roas.lede">What ROAS do you actually need to break even &mdash; and what do you keep at your reported ROAS?</p>
     </div>
@@ -148,135 +148,135 @@
       <div class="calc-titlebar">
         <div class="traffic"><span></span><span></span><span></span></div>
         <span class="calc-name">ttcalc &mdash; roas-calculator.js</span>
-        <span class="calc-badge">2026 rates</span>
+        <span class="calc-badge" data-i18n="calc.shell.badge">2026 rates</span>
       </div>
       <div class="calc-body">
         <div class="calc-workspace">
           <div class="workspace-head">
-            <span class="workspace-title">My products &middot; saved on this device</span>
+            <span class="workspace-title" data-i18n="calc.shell.workspaceTitle">My products &middot; saved on this device</span>
             <span class="workspace-actions">
-              <label for="wsName" class="sr-only">Product name</label>
-              <input type="text" id="wsName" placeholder="Name (auto)" maxlength="60" autocomplete="off" />
-              <button type="button" class="copy-results-btn" id="wsSave">Save</button>
-              <button type="button" class="copy-results-btn" id="wsLink">Copy link</button>
+              <label for="wsName" class="sr-only" data-i18n="calc.shell.productName">Product name</label>
+              <input type="text" id="wsName" placeholder="Name (auto)" data-i18n-placeholder="calc.shell.namePlaceholder" maxlength="60" autocomplete="off" />
+              <button type="button" class="copy-results-btn" id="wsSave" data-i18n="calc.shell.save">Save</button>
+              <button type="button" class="copy-results-btn" id="wsLink" data-i18n="calc.shell.copyLink">Copy link</button>
             </span>
           </div>
           <div class="workspace-list" id="wsList"></div>
         </div>
 
         <section class="calc-inputs">
-          <h2>Inputs</h2>
+          <h2 data-i18n="calc.shell.inputs">Inputs</h2>
 
           <div class="calc-field">
-            <label for="sale">Sale price (USD)</label>
+            <label for="sale" data-i18n="calc.salePrice">Sale price (USD)</label>
             <input type="number" id="sale" value="29.99" step="0.01" min="0" />
           </div>
 
           <div class="calc-field">
-            <label for="shipCharged">Shipping charged to buyer</label>
+            <label for="shipCharged" data-i18n="calc.shipping">Shipping charged to buyer</label>
             <input type="number" id="shipCharged" value="0" step="0.01" min="0" />
-            <div class="hint">Set 0 if "free shipping" is baked into price</div>
+            <div class="hint" data-i18n="calc.hint.freeShipping">Set 0 if "free shipping" is baked into price</div>
           </div>
 
           <div class="calc-field">
-            <label for="cogs">Product cost (COGS)</label>
+            <label for="cogs" data-i18n="calc.label.cogs">Product cost (COGS)</label>
             <input type="number" id="cogs" value="6.50" step="0.01" min="0" />
-            <div class="hint">Unit cost including inbound shipping to FBT</div>
+            <div class="hint" data-i18n="calc.hint.cogsInbound">Unit cost including inbound shipping to FBT</div>
           </div>
 
           <div class="calc-field">
-            <label for="returnRate">Return rate (%)</label>
+            <label for="returnRate" data-i18n="calc.returnRate">Return rate (%)</label>
             <input type="number" id="returnRate" value="5" step="1" min="0" max="50" />
-            <div class="hint">Expected return rate (e.g. 5 for 5%). Deducted before break-even ROAS.</div>
+            <div class="hint" data-i18n="calc.hint.roasReturnRate">Expected return rate (e.g. 5 for 5%). Deducted before break-even ROAS.</div>
           </div>
 
           <div class="calc-field">
-            <label for="returnHandlingFee">FBT return handling (per returned unit)</label>
+            <label for="returnHandlingFee" data-i18n="calc.returnHandling">FBT return handling (per returned unit)</label>
             <input type="number" id="returnHandlingFee" value="0.70" step="0.01" min="0" />
-            <div class="hint">$0.70 non-inspection or $1.00 inspection. Set 0 if not using FBT returns.</div>
+            <div class="hint" data-i18n="calc.returnHandlingHint">$0.70 non-inspection or $1.00 inspection. Set 0 if not using FBT returns.</div>
           </div>
 
           <div class="calc-field">
-            <label for="category">Product category</label>
+            <label for="category" data-i18n="calc.category">Product category</label>
             <select id="category">
-              <option value="6" selected>Default (most categories, 6%)</option>
-              <option value="6">Fashion (6%)</option>
-              <option value="6">Beauty (6%)</option>
-              <option value="5">Jewelry (5%)</option>
-              <option value="5">Pre-Owned (5%)</option>
+              <option value="6" selected data-i18n="calc.cat.default">Default (most categories, 6%)</option>
+              <option value="6" data-i18n="calc.cat.fashion">Fashion (6%)</option>
+              <option value="6" data-i18n="calc.cat.beauty">Beauty (6%)</option>
+              <option value="5" data-i18n="calc.cat.jewelry">Jewelry (5%)</option>
+              <option value="5" data-i18n="calc.cat.preowned">Pre-Owned (5%)</option>
             </select>
-            <div class="hint">Referral fee varies by category; Jewelry &amp; Pre-Owned are 5%</div>
+            <div class="hint" data-i18n="calc.hint.referralByCat">Referral fee varies by category; Jewelry &amp; Pre-Owned are 5%</div>
           </div>
 
           <div class="calc-field">
-            <label for="fbtTier">FBT fulfillment</label>
+            <label for="fbtTier" data-i18n="calc.label.fbtFulfillment">FBT fulfillment</label>
             <select id="fbtTier">
-              <option value="0">&le;4 oz ($4.28)</option>
-              <option value="1" selected>4&ndash;8 oz ($4.52)</option>
-              <option value="2">8&ndash;12 oz ($4.70)</option>
-              <option value="3">12&ndash;16 oz ($5.10)</option>
-              <option value="4">1&ndash;2 lb ($5.71)</option>
-              <option value="5">2&ndash;3 lb ($6.27)</option>
-              <option value="6">3&ndash;4 lb ($6.92)</option>
-              <option value="7">4&ndash;5 lb ($7.66)</option>
-              <option value="8">5&ndash;6 lb ($8.58)</option>
-              <option value="9">6&ndash;7 lb ($8.88)</option>
-              <option value="10">7&ndash;8 lb ($9.22)</option>
-              <option value="11">8&ndash;9 lb ($9.42)</option>
-              <option value="12">9&ndash;10 lb ($9.63)</option>
-              <option value="13">10&ndash;11 lb ($10.64)</option>
-              <option value="14">11&ndash;12 lb ($10.75)</option>
-              <option value="15">12&ndash;13 lb ($10.98)</option>
-              <option value="16">13&ndash;14 lb ($11.44)</option>
-              <option value="17">14&ndash;15 lb ($11.85)</option>
-              <option value="18">15&ndash;16 lb ($12.67)</option>
+              <option value="0" data-i18n="calc.tier.le4oz">&le;4 oz ($4.28)</option>
+              <option value="1" selected data-i18n="calc.tier.4to8oz">4&ndash;8 oz ($4.52)</option>
+              <option value="2" data-i18n="calc.tier.8to12oz">8&ndash;12 oz ($4.70)</option>
+              <option value="3" data-i18n="calc.tier.12to16oz">12&ndash;16 oz ($5.10)</option>
+              <option value="4" data-i18n="calc.tier.1to2lb">1&ndash;2 lb ($5.71)</option>
+              <option value="5" data-i18n="calc.tier.2to3lb">2&ndash;3 lb ($6.27)</option>
+              <option value="6" data-i18n="calc.tier.3to4lb">3&ndash;4 lb ($6.92)</option>
+              <option value="7" data-i18n="calc.tier.4to5lb">4&ndash;5 lb ($7.66)</option>
+              <option value="8" data-i18n="calc.tier.5to6lb">5&ndash;6 lb ($8.58)</option>
+              <option value="9" data-i18n="calc.tier.6to7lb">6&ndash;7 lb ($8.88)</option>
+              <option value="10" data-i18n="calc.tier.7to8lb">7&ndash;8 lb ($9.22)</option>
+              <option value="11" data-i18n="calc.tier.8to9lb">8&ndash;9 lb ($9.42)</option>
+              <option value="12" data-i18n="calc.tier.9to10lb">9&ndash;10 lb ($9.63)</option>
+              <option value="13" data-i18n="calc.tier.10to11lb">10&ndash;11 lb ($10.64)</option>
+              <option value="14" data-i18n="calc.tier.11to12lb">11&ndash;12 lb ($10.75)</option>
+              <option value="15" data-i18n="calc.tier.12to13lb">12&ndash;13 lb ($10.98)</option>
+              <option value="16" data-i18n="calc.tier.13to14lb">13&ndash;14 lb ($11.44)</option>
+              <option value="17" data-i18n="calc.tier.14to15lb">14&ndash;15 lb ($11.85)</option>
+              <option value="18" data-i18n="calc.tier.15to16lb">15&ndash;16 lb ($12.67)</option>
             </select>
-            <label for="fbtUnits">Units per order</label>
+            <label for="fbtUnits" data-i18n="calc.label.unitsPerOrder">Units per order</label>
             <select id="fbtUnits">
-              <option value="0" selected>1 unit (single)</option>
-              <option value="1">2 units</option>
-              <option value="2">3 units</option>
-              <option value="3">4+ units</option>
+              <option value="0" selected data-i18n="calc.units.one">1 unit (single)</option>
+              <option value="1" data-i18n="calc.units.two">2 units</option>
+              <option value="2" data-i18n="calc.units.three">3 units</option>
+              <option value="3" data-i18n="calc.units.fourPlus">4+ units</option>
             </select>
-            <div class="hint">2026 rate card (Jul 13): single-unit rate shown; multi-item orders cost less per unit.</div>
+            <div class="hint" data-i18n="calc.hint.rateCardShort">2026 rate card (Jul 13): single-unit rate shown; multi-item orders cost less per unit.</div>
           </div>
 
           <div class="calc-field">
-            <label for="creator">Creator commission (%)</label>
+            <label for="creator" data-i18n="calc.creator">Creator commission (%)</label>
             <input type="number" id="creator" value="10" step="1" min="0" max="30" />
-            <div class="hint">Affiliate creator share. 0 if you don't run creators.</div>
+            <div class="hint" data-i18n="calc.hint.roasCreatorShare">Affiliate creator share. 0 if you don't run creators.</div>
           </div>
 
           <div class="calc-field">
-            <label for="roas">Reported ROAS (&times;)</label>
+            <label for="roas" data-i18n="calc.label.reportedRoas">Reported ROAS (&times;)</label>
             <input type="number" id="roas" value="3.0" step="0.1" min="0" />
-            <div class="hint">Revenue &divide; ad spend, as shown in GMV Max / Ads Manager</div>
+            <div class="hint" data-i18n="calc.hint.reportedRoas">Revenue &divide; ad spend, as shown in GMV Max / Ads Manager</div>
           </div>
 
           <div class="calc-field">
-            <label for="monthlyUnits">Monthly units sold</label>
+            <label for="monthlyUnits" data-i18n="calc.label.monthlyUnits">Monthly units sold</label>
             <input type="number" id="monthlyUnits" value="500" step="50" min="0" />
-            <div class="hint">For the monthly projection</div>
+            <div class="hint" data-i18n="calc.hint.monthlyProjection">For the monthly projection</div>
           </div>
         </section>
 
         <section class="calc-results">
           <div class="calc-results-head">
-            <span class="calc-results-title">ROAS math</span>
-            <button class="copy-results-btn" type="button">Copy results</button>
+            <span class="calc-results-title" data-i18n="calc.roas.resultsTitle">ROAS math</span>
+            <button class="copy-results-btn" type="button" data-i18n="calc.shell.copyResults">Copy results</button>
           </div>
 
-          <div class="calc-result-row" id="row_ship_charged"><span class="lbl">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; TikTok platform fees (per unit)</span><span class="val" id="r_platform_fees">-$9.32</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Return impact (COGS + refund fee)</span><span class="val" id="r_return_impact">-$0.38</span></div>
-          <div class="calc-result-row"><span class="lbl">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.79 (46.0%)</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Break-even ROAS</span><span class="val" id="r_be_roas">2.17x</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Ad cost at reported ROAS (per unit)</span><span class="val" id="r_ad_cost">-$10.00</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Corrected ROAS (after returns)</span><span class="val" id="r_corrected_roas">2.85x</span></div>
-          <div class="calc-result-row"><span class="lbl">Net profit (per unit)</span><span class="val" id="r_net_profit">$3.80 (12.7%)</span></div>
-          <div class="calc-result-row"><span class="lbl">Monthly ad spend</span><span class="val" id="r_monthly_ad">-$5000.00</span></div>
-          <div class="calc-result-row"><span class="lbl">Monthly net profit</span><span class="val" id="r_monthly_profit">$1900.00</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Status</span><span class="val good" id="r_status">Above break-even</span></div>
+          <div class="calc-result-row" id="row_ship_charged"><span class="lbl" data-i18n="calc.row.shipCharged">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.platformFees">&#8722; TikTok platform fees (per unit)</span><span class="val" id="r_platform_fees">-$9.32</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.returnImpact">&#8722; Return impact (COGS + refund fee)</span><span class="val" id="r_return_impact">-$0.38</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.preAdProfit">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.79 (46.0%)</span></div>
+          <div class="calc-result-row highlight"><span class="lbl" data-i18n="tbl.roas.beRoas">Break-even ROAS</span><span class="val" id="r_be_roas">2.17x</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.adCost">&#8722; Ad cost at reported ROAS (per unit)</span><span class="val" id="r_ad_cost">-$10.00</span></div>
+          <div class="calc-result-row highlight"><span class="lbl" data-i18n="calc.roas.row.correctedRoas">Corrected ROAS (after returns)</span><span class="val" id="r_corrected_roas">2.85x</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.netProfit">Net profit (per unit)</span><span class="val" id="r_net_profit">$3.80 (12.7%)</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.monthlyAd">Monthly ad spend</span><span class="val" id="r_monthly_ad">-$5000.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.monthlyProfit">Monthly net profit</span><span class="val" id="r_monthly_profit">$1900.00</span></div>
+          <div class="calc-result-row highlight"><span class="lbl" data-i18n="calc.roas.row.status">Status</span><span class="val good" id="r_status">Above break-even</span></div>
           <p class="source-note rate-version" data-i18n-html="tools.roas.sourceLine">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
         </section>
         <p class="sr-only" role="status" aria-live="polite" id="calcSummary"></p>
@@ -289,7 +289,7 @@
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
-      <p class="nextstep-head">Next step</p>
+      <p class="nextstep-head" data-i18n="nextstep.head">Next step</p>
       <div class="nextstep-grid">
         <a class="nextstep-card" href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">
           <span class="nextstep-name">Profit Calculator</span>
@@ -316,7 +316,7 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.roas.h.howToRead">How to read your break-even ROAS</h2>
-        <span class="section-tag">01 / explainer</span>
+        <span class="section-tag" data-i18n="seclabel.01explainer">01 / explainer</span>
       </div>
       <p class="section-lede" data-i18n="tools.roas.howToReadIntro">ROAS in Ads Manager measures gross revenue per ad dollar &mdash; not profit. Three things decide whether a reported ROAS actually makes you money:</p>
       <div class="features" style="margin-top:var(--s-4);">
@@ -330,19 +330,19 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.roas.h.threeNumbers">Three ROAS numbers, and only one of them pays you</h2>
-        <span class="section-tag">02 / definitions</span>
+        <span class="section-tag" data-i18n="seclabel.02definitions">02 / definitions</span>
       </div>
       <div class="tool-prose">
         <p data-i18n="tools.roas.threeIntro">Most sellers argue about "a good TikTok Shop ROAS" while quoting three different numbers. They are not interchangeable:</p>
       </div>
       <table class="data-table">
         <thead>
-          <tr><th>Number</th><th>Formula</th><th class="num">On the defaults</th><th>What it tells you</th></tr>
+          <tr><th data-i18n="tbl.roas.numberCol">Number</th><th data-i18n="tbl.roas.formulaCol">Formula</th><th class="num" data-i18n="tbl.onDefaults">On the defaults</th><th data-i18n="tbl.roas.tellsCol">What it tells you</th></tr>
         </thead>
         <tbody>
-          <tr><td>Reported ROAS</td><td>revenue &divide; ad spend</td><td class="num">3.00&times;</td><td>What GMV Max / Ads Manager puts on your dashboard</td></tr>
-          <tr><td>Corrected ROAS</td><td>revenue after returns &divide; ad spend</td><td class="num">2.85&times;</td><td>What actually landed once refunds are netted off</td></tr>
-          <tr class="total"><td>Break-even ROAS</td><td>revenue &divide; profit before ads</td><td class="num">2.17&times;</td><td>The floor you must clear to make any money at all</td></tr>
+          <tr><td data-i18n="tbl.roas.reportedRow">Reported ROAS</td><td data-i18n="tbl.roas.reportedFormula">revenue &divide; ad spend</td><td class="num">3.00&times;</td><td data-i18n="tbl.roas.reportedNote">What GMV Max / Ads Manager puts on your dashboard</td></tr>
+          <tr><td data-i18n="tbl.roas.correctedRow">Corrected ROAS</td><td data-i18n="tbl.roas.correctedFormula">revenue after returns &divide; ad spend</td><td class="num">2.85&times;</td><td data-i18n="tbl.roas.correctedNote">What actually landed once refunds are netted off</td></tr>
+          <tr class="total"><td data-i18n="tbl.roas.beRoas">Break-even ROAS</td><td data-i18n="tbl.roas.beFormula">revenue &divide; profit before ads</td><td class="num">2.17&times;</td><td data-i18n="tbl.roas.beNote">The floor you must clear to make any money at all</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
@@ -353,25 +353,25 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.roas.h.worked">Worked example on the default inputs</h2>
-        <span class="section-tag">03 / worked example</span>
+        <span class="section-tag" data-i18n="seclabel.03workedExample">03 / worked example</span>
       </div>
       <div class="tool-prose">
         <p data-i18n="tools.roas.workedInputs">$29.99 sale price, $6.50 COGS, 6% referral, 4&#8211;8 oz FBT tier (one unit per order), 10% creator commission, 5% return rate at $0.70 handling, 3.0&times; reported ROAS and 500 units a month. Every figure below is the calculator's own output.</p>
       </div>
       <table class="data-table">
         <thead>
-          <tr><th>Line</th><th class="num">Amount</th><th class="num">% of sale</th></tr>
+          <tr><th data-i18n="tbl.line">Line</th><th class="num" data-i18n="tbl.amount">Amount</th><th class="num" data-i18n="tbl.pctOfSale">% of sale</th></tr>
         </thead>
         <tbody>
-          <tr><td>Sale price</td><td class="num">$29.99</td><td class="num">100.0%</td></tr>
-          <tr><td>&#8722; TikTok platform fees</td><td class="num">&#8722;$9.32</td><td class="num">31.1%</td></tr>
-          <tr><td>&#8722; COGS</td><td class="num">&#8722;$6.50</td><td class="num">21.7%</td></tr>
-          <tr><td>&#8722; Return impact</td><td class="num">&#8722;$0.38</td><td class="num">1.3%</td></tr>
-          <tr class="total"><td>= Profit before ads</td><td class="num">$13.79</td><td class="num">46.0%</td></tr>
-          <tr><td>Break-even ROAS ($29.99 &divide; $13.79)</td><td class="num">2.17&times;</td><td class="num">&#8212;</td></tr>
-          <tr><td>&#8722; Ad cost at 3.0&times; ($29.99 &divide; 3.0)</td><td class="num">&#8722;$10.00</td><td class="num">33.3%</td></tr>
-          <tr class="total"><td>= Net profit per unit</td><td class="num">$3.80</td><td class="num">12.7%</td></tr>
-          <tr><td>Monthly at 500 units</td><td class="num">$1,900</td><td class="num">on $5,000 ad spend</td></tr>
+          <tr><td data-i18n="tbl.salePrice">Sale price</td><td class="num">$29.99</td><td class="num">100.0%</td></tr>
+          <tr><td data-i18n="tbl.roas.platformFees">&#8722; TikTok platform fees</td><td class="num">&#8722;$9.32</td><td class="num">31.1%</td></tr>
+          <tr><td data-i18n="tbl.roas.cogs">&#8722; COGS</td><td class="num">&#8722;$6.50</td><td class="num">21.7%</td></tr>
+          <tr><td data-i18n="tbl.roas.returnImpact">&#8722; Return impact</td><td class="num">&#8722;$0.38</td><td class="num">1.3%</td></tr>
+          <tr class="total"><td data-i18n="tbl.roas.preAdProfit">= Profit before ads</td><td class="num">$13.79</td><td class="num">46.0%</td></tr>
+          <tr><td data-i18n="tbl.roas.beRoasCalc">Break-even ROAS ($29.99 &divide; $13.79)</td><td class="num">2.17&times;</td><td class="num">&#8212;</td></tr>
+          <tr><td data-i18n="tbl.roas.adCostCalc">&#8722; Ad cost at 3.0&times; ($29.99 &divide; 3.0)</td><td class="num">&#8722;$10.00</td><td class="num">33.3%</td></tr>
+          <tr class="total"><td data-i18n="tbl.roas.netProfit">= Net profit per unit</td><td class="num">$3.80</td><td class="num">12.7%</td></tr>
+          <tr><td data-i18n="tbl.roas.monthly">Monthly at 500 units</td><td class="num">$1,900</td><td class="num" data-i18n="tbl.roas.adSpendNote">on $5,000 ad spend</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
@@ -382,20 +382,20 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.roas.h.twoDeductions">What the two deductions are made of</h2>
-        <span class="section-tag">04 / breakdown</span>
+        <span class="section-tag" data-i18n="seclabel.04breakdown">04 / breakdown</span>
       </div>
       <div class="tool-prose">
         <h3 data-i18n="tools.roas.h.platformFees">Platform fees &mdash; $9.32</h3>
       </div>
       <table class="data-table">
         <thead>
-          <tr><th>Component</th><th>How it is charged</th><th class="num">At the defaults</th></tr>
+          <tr><th data-i18n="tbl.roas.componentCol">Component</th><th data-i18n="tbl.roas.chargedCol">How it is charged</th><th class="num" data-i18n="tbl.atDefaults">At the defaults</th></tr>
         </thead>
         <tbody>
-          <tr><td>Referral fee</td><td>6% of the buyer&rsquo;s total payment (item price plus any shipping the buyer pays); TikTok's policy documents no separate transaction fee (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td class="num">$1.80</td></tr>
-          <tr><td>FBT fulfillment</td><td>Flat per unit, 4&#8211;8 oz tier, single item (<a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a>)</td><td class="num">$4.52</td></tr>
-          <tr><td>Creator commission</td><td>10% of the item price, set by you</td><td class="num">$3.00</td></tr>
-          <tr class="total"><td>Total platform fees</td><td>31.1% of the buyer&rsquo;s total</td><td class="num">$9.32</td></tr>
+          <tr><td data-i18n="tbl.referralRow">Referral fee</td><td data-i18n-html="tbl.roas.referralRate">6% of the buyer&rsquo;s total payment (item price plus any shipping the buyer pays); TikTok's policy documents no separate transaction fee (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td class="num">$1.80</td></tr>
+          <tr><td data-i18n="calc.label.fbtFulfillment">FBT fulfillment</td><td data-i18n-html="tbl.roas.fbtRate">Flat per unit, 4&#8211;8 oz tier, single item (<a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a>)</td><td class="num">$4.52</td></tr>
+          <tr><td data-i18n="tbl.creatorRow">Creator commission</td><td data-i18n="tbl.roas.creatorRate">10% of the item price, set by you</td><td class="num">$3.00</td></tr>
+          <tr class="total"><td data-i18n="tbl.roas.totalPlatform">Total platform fees</td><td data-i18n="tbl.roas.totalPlatformPct">31.1% of the buyer&rsquo;s total</td><td class="num">$9.32</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
@@ -403,13 +403,13 @@
       </div>
       <table class="data-table">
         <thead>
-          <tr><th>Component</th><th>How it is charged</th><th class="num">At 5% returns</th></tr>
+          <tr><th data-i18n="tbl.roas.componentCol">Component</th><th data-i18n="tbl.roas.chargedCol">How it is charged</th><th class="num" data-i18n="tbl.returnImpactCol">At 5% returns</th></tr>
         </thead>
         <tbody>
-          <tr><td>Lost product cost</td><td>COGS &times; return rate</td><td class="num">$0.33</td></tr>
-          <tr><td>Refund admin fee</td><td>20% of the referral fee, capped at $5 per SKU, &times; return rate</td><td class="num">$0.02</td></tr>
-          <tr><td>FBT return handling</td><td>$0.70 per returned unit &times; return rate</td><td class="num">$0.04</td></tr>
-          <tr class="total"><td>Total return impact</td><td>1.3% of the buyer&rsquo;s total</td><td class="num">$0.38</td></tr>
+          <tr><td data-i18n="tbl.roas.lostCogs">Lost product cost</td><td data-i18n="tbl.roas.lostCogsFormula">COGS &times; return rate</td><td class="num">$0.33</td></tr>
+          <tr><td data-i18n="tbl.refundRow">Refund admin fee</td><td data-i18n="tbl.roas.refundFormula">20% of the referral fee, capped at $5 per SKU, &times; return rate</td><td class="num">$0.02</td></tr>
+          <tr><td data-i18n="tbl.returnHandlingRow">FBT return handling</td><td data-i18n="tbl.roas.handlingFormula">$0.70 per returned unit &times; return rate</td><td class="num">$0.04</td></tr>
+          <tr class="total"><td data-i18n="tbl.roas.totalReturnImpact">Total return impact</td><td data-i18n="tbl.roas.totalReturnPct">1.3% of the buyer&rsquo;s total</td><td class="num">$0.38</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
@@ -420,14 +420,14 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.roas.h.notFixed">Your break-even ROAS is not a fixed number</h2>
-        <span class="section-tag">05 / sensitivity</span>
+        <span class="section-tag" data-i18n="seclabel.05sensitivity">05 / sensitivity</span>
       </div>
       <div class="tool-prose">
         <p data-i18n="tools.roas.notFixedIntro">Same product, same price, same weight &mdash; only creator commission and return rate change. The floor moves by almost an order of magnitude:</p>
       </div>
       <table class="data-table">
         <thead>
-          <tr><th class="num">Creator commission</th><th class="num">Return rate</th><th class="num">Profit before ads</th><th class="num">Break-even ROAS</th></tr>
+          <tr><th class="num" data-i18n="tbl.creatorRow">Creator commission</th><th class="num" data-i18n="tbl.roas.returnRateCol">Return rate</th><th class="num" data-i18n="tbl.roas.preAdProfitCol">Profit before ads</th><th class="num" data-i18n="tbl.roas.beRoas">Break-even ROAS</th></tr>
         </thead>
         <tbody>
           <tr><td class="num">0%</td><td class="num">0%</td><td class="num">$17.17 (57.3%)</td><td class="num">1.75&times;</td></tr>
@@ -444,7 +444,7 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.roas.h.fiveMistakes">Five ROAS mistakes that cost real money</h2>
-        <span class="section-tag">06 / pitfalls</span>
+        <span class="section-tag" data-i18n="seclabel.06pitfalls">06 / pitfalls</span>
       </div>
       <div class="tool-prose">
         <ol>
@@ -459,8 +459,8 @@
 
     <section>
       <div class="section-header">
-        <h2>FAQ</h2>
-        <span class="section-tag">07 / questions</span>
+        <h2 data-i18n="section.faq">FAQ</h2>
+        <span class="section-tag" data-i18n="seclabel.07questions">07 / questions</span>
       </div>
       <div class="faq">
         <details>
@@ -504,8 +504,8 @@
 
     <section>
       <div class="section-header">
-        <h2>Keep going</h2>
-        <span class="section-tag">08 / related</span>
+        <h2 data-i18n="section.keepGoing">Keep going</h2>
+        <span class="section-tag" data-i18n="seclabel.08related">08 / related</span>
       </div>
       <div class="tool-prose">
         <ul>
@@ -522,7 +522,7 @@
     <section style="margin-top:var(--s-7);" id="embed">
       <div class="section-header">
         <h2 data-i18n="tools.roas.h.embed">Embed this calculator</h2>
-        <span class="section-tag">09 / embed</span>
+        <span class="section-tag" data-i18n="seclabel.09embed">09 / embed</span>
       </div>
       <p class="section-lede" data-i18n="tools.roas.embed">Free to place on your own site, no attribution required. The snippet loads the calculator without our header, footer, ads or article text.</p>
       <div class="embed-box">
@@ -582,7 +582,7 @@
     </div>
   </div>
   <p class="copyright">
-    <span>&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
+    <span data-i18n="footer.copyright">&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
     <span class="links"><a href="/terms/" data-i18n="footer.terms">Terms</a> <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> <a href="#" data-consent-open data-i18n="footer.cookieSettings">Cookie settings</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></span>
   </p>
 </footer>

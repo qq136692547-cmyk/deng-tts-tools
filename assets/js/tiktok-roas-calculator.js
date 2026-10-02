@@ -3,6 +3,8 @@
   var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
+  // JS-built strings go through the shared dictionary when it is available.
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
   function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   // Single-line summary is the only live region; announcing the whole result
   // block made screen readers repeat every row on each keystroke.
@@ -90,14 +92,15 @@
 
     var st = get('r_status');
     var status = '';
-    if (roas <= 0) { status = 'Enter a reported ROAS'; st.classList.remove('good', 'bad'); }
-    else if (beRoas <= 0) { status = 'Not profitable before ads'; st.classList.remove('good'); st.classList.add('bad'); }
-    else if (roas > beRoas) { status = 'Above break-even'; st.classList.remove('bad'); st.classList.add('good'); }
-    else if (roas < beRoas) { status = 'Below break-even'; st.classList.remove('good'); st.classList.add('bad'); }
-    else { status = 'At break-even'; st.classList.remove('good', 'bad'); }
+    if (roas <= 0) { status = T('calc.roas.status.enter', 'Enter a reported ROAS'); st.classList.remove('good', 'bad'); }
+    else if (beRoas <= 0) { status = T('calc.roas.status.notProfitable', 'Not profitable before ads'); st.classList.remove('good'); st.classList.add('bad'); }
+    else if (roas > beRoas) { status = T('calc.roas.status.above', 'Above break-even'); st.classList.remove('bad'); st.classList.add('good'); }
+    else if (roas < beRoas) { status = T('calc.roas.status.below', 'Below break-even'); st.classList.remove('good'); st.classList.add('bad'); }
+    else { status = T('calc.roas.status.at', 'At break-even'); st.classList.remove('good', 'bad'); }
     st.textContent = status;
 
-    announce('Net profit ' + fmt(netProfit) + ' (' + netMargin.toFixed(1) + '%), ' + status + '.');
+    announce(T('calc.roas.announce', 'Net profit {0} ({1}%), {2}.')
+      .replace('{0}', fmt(netProfit)).replace('{1}', netMargin.toFixed(1)).replace('{2}', status));
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -109,4 +112,6 @@
     });
     calc();
   });
+  // See tiktok-fee-calculator.js: the first pass runs before the language is set.
+  document.addEventListener('ttcalc:langchange', calc);
 })();

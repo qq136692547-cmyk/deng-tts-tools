@@ -128,7 +128,7 @@
 
 </head>
 <body class="tool-calc">
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo">
@@ -151,7 +151,7 @@
 <main id="main" class="tool-calc">
   <div class="container">
     <div class="tool-header">
-      <span class="eyebrow"><span class="dot"></span> 2026 fee structure</span>
+      <span data-i18n-html="eyebrow.feeStructure" class="eyebrow"><span class="dot"></span> <span data-i18n="tools.fee.eyebrow">2026 fee structure</span></span>
       <h1 data-i18n="tools.fee.h1">TikTok Shop Fee Calculator</h1>
       <p class="subtitle" data-i18n="tools.fee.lede">The full fee stack. Not just the 6% referral fee. Includes FBT fulfillment, creator fees, and returns.</p>
     </div>
@@ -168,7 +168,7 @@
             <span class="workspace-title" data-i18n="calc.shell.workspaceTitle">My products &middot; saved on this device</span>
             <span class="workspace-actions">
               <label for="wsName" class="sr-only" data-i18n="calc.shell.productName">Product name</label>
-              <input type="text" id="wsName" placeholder="Name (auto)" maxlength="60" autocomplete="off" />
+              <input type="text" id="wsName" placeholder="Name (auto)" data-i18n-placeholder="calc.shell.namePlaceholder" maxlength="60" autocomplete="off" />
               <button type="button" class="copy-results-btn" id="wsSave" data-i18n="calc.shell.save">Save</button>
               <button type="button" class="copy-results-btn" id="wsLink" data-i18n="calc.shell.copyLink">Copy link</button>
             </span>
@@ -287,7 +287,7 @@
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
-      <p class="nextstep-head">Next step</p>
+      <p class="nextstep-head" data-i18n="nextstep.head">Next step</p>
       <div class="nextstep-grid">
         <a class="nextstep-card" href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">
           <span class="nextstep-name">Profit Calculator</span>
@@ -314,7 +314,7 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.fee.h.whatEach">What each TikTok Shop fee actually is</h2>
-        <span class="section-tag">01 / reference</span>
+        <span class="section-tag" data-i18n="seclabel.01reference">01 / reference</span>
       </div>
       <div class="features" style="margin-top:var(--s-5);">
         <div class="feature"><div class="icon">[ 01 ]</div><h3 data-i18n="tools.fee.h.baseCommission">Base commission (6%)</h3><p data-i18n-html="tools.fee.baseCommission">6% flat for all US categories, charged on the total the buyer pays &mdash; shipping included (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">TikTok Shop US commission policy</a>). TikTok's published policy documents one commission and lists no separate processing or transaction charge. Jewelry and Pre-Owned sit at 5%.</p></div>
@@ -328,25 +328,25 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.fee.h.worked">Worked example: the default $29.99 product</h2>
-        <span class="section-tag">02 / worked example</span>
+        <span class="section-tag" data-i18n="seclabel.02workedExample">02 / worked example</span>
       </div>
       <div class="tool-prose">
         <p data-i18n="tools.fee.workedIntro">Everything below is the calculator's own output on the default inputs &mdash; $29.99 sale price, nothing charged to the buyer for shipping, 6% referral, the 4&#8211;8 oz FBT tier, one unit per order, 0% creator commission and a 0% return rate. Nothing is rounded up or "approximated."</p>
       </div>
       <table class="data-table">
         <thead>
-          <tr><th>Line</th><th class="num">Amount</th><th class="num">% of sale</th></tr>
+          <tr><th data-i18n="tbl.line">Line</th><th class="num" data-i18n="tbl.amount">Amount</th><th class="num" data-i18n="tbl.pctOfSale">% of sale</th></tr>
         </thead>
         <tbody>
-          <tr><td>Buyer&rsquo;s total (item price + shipping)</td><td class="num">$29.99</td><td class="num">100.0%</td></tr>
-          <tr><td>&#8722; Base commission (6%)</td><td class="num">&#8722;$1.80</td><td class="num">6.0%</td></tr>
-          <tr><td>&#8722; FBT fulfillment (4&#8211;8 oz, 1 unit)</td><td class="num">&#8722;$4.52</td><td class="num">15.1%</td></tr>
-          <tr><td>&#8722; Creator commission (0%)</td><td class="num">&#8722;$0.00</td><td class="num">0.0%</td></tr>
-          <tr><td>= TikTok payout</td><td class="num">$23.67</td><td class="num">78.9%</td></tr>
-          <tr><td>&#8722; Refund admin fee (0% returns)</td><td class="num">&#8722;$0.00</td><td class="num">0.0%</td></tr>
-          <tr><td>&#8722; FBT return handling (0% returns)</td><td class="num">&#8722;$0.00</td><td class="num">0.0%</td></tr>
-          <tr><td>= Net after returns</td><td class="num">$23.67</td><td class="num">78.9%</td></tr>
-          <tr class="total"><td>Total TikTok take</td><td class="num">$6.32</td><td class="num">21.1%</td></tr>
+          <tr><td data-i18n="tbl.fee.buyerTotal">Buyer&rsquo;s total (item price + shipping)</td><td class="num">$29.99</td><td class="num">100.0%</td></tr>
+          <tr><td data-i18n="tbl.fee.baseCommission">&#8722; Base commission (6%)</td><td class="num">&#8722;$1.80</td><td class="num">6.0%</td></tr>
+          <tr><td data-i18n="tbl.fee.fbt">&#8722; FBT fulfillment (4&#8211;8 oz, 1 unit)</td><td class="num">&#8722;$4.52</td><td class="num">15.1%</td></tr>
+          <tr><td data-i18n="tbl.fee.creator">&#8722; Creator commission (0%)</td><td class="num">&#8722;$0.00</td><td class="num">0.0%</td></tr>
+          <tr><td data-i18n="tbl.fee.payout">= TikTok payout</td><td class="num">$23.67</td><td class="num">78.9%</td></tr>
+          <tr><td data-i18n="tbl.fee.refundAdmin">&#8722; Refund admin fee (0% returns)</td><td class="num">&#8722;$0.00</td><td class="num">0.0%</td></tr>
+          <tr><td data-i18n="tbl.fee.returnHandling">&#8722; FBT return handling (0% returns)</td><td class="num">&#8722;$0.00</td><td class="num">0.0%</td></tr>
+          <tr><td data-i18n="tbl.fee.netAfterReturns">= Net after returns</td><td class="num">$23.67</td><td class="num">78.9%</td></tr>
+          <tr class="total"><td data-i18n="tbl.fee.totalTake">Total TikTok take</td><td class="num">$6.32</td><td class="num">21.1%</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
@@ -357,14 +357,14 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.fee.h.whySame">Why the same fee is 36% on one product and 10% on another</h2>
-        <span class="section-tag">03 / price sensitivity</span>
+        <span class="section-tag" data-i18n="seclabel.03priceSensitivity">03 / price sensitivity</span>
       </div>
       <div class="tool-prose">
         <p data-i18n="tools.fee.whyOne">The 6% commission scales with price. FBT does not &mdash; it is a flat charge per unit. Hold the 4&#8211;8 oz tier fixed and price becomes the single biggest driver of your effective take rate:</p>
       </div>
       <table class="data-table">
         <thead>
-          <tr><th class="num">Sale price</th><th class="num">Base commission (6%)</th><th class="num">FBT (4&#8211;8 oz, 1 unit)</th><th class="num">Total take</th><th class="num">Take %</th></tr>
+          <tr><th class="num" data-i18n="tbl.salePrice">Sale price</th><th class="num" data-i18n="tbl.baseCommission">Base commission (6%)</th><th class="num" data-i18n="tbl.fee.fbtCol">FBT (4&#8211;8 oz, 1 unit)</th><th class="num" data-i18n="tbl.fee.totalTakeCol">Total take</th><th class="num" data-i18n="tbl.fee.takePct">Take %</th></tr>
         </thead>
         <tbody>
           <tr><td class="num">$15.00</td><td class="num">$0.90</td><td class="num">$4.52</td><td class="num">$5.42</td><td class="num">36.1%</td></tr>
@@ -382,19 +382,19 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.fee.h.three">Three scenarios on the same product</h2>
-        <span class="section-tag">04 / scenarios</span>
+        <span class="section-tag" data-i18n="seclabel.04scenarios">04 / scenarios</span>
       </div>
       <div class="tool-prose">
         <p data-i18n="tools.fee.threeIntro">Creator commission and return rate are the two inputs sellers most often leave at zero, "to keep it simple." Leaving them at zero does not make them go away &mdash; it only hides them from the model. The same $29.99 product, three ways:</p>
       </div>
       <table class="data-table">
         <thead>
-          <tr><th>Scenario</th><th class="num">Total take</th><th class="num">Take %</th><th class="num">Payout</th><th class="num">Net after returns</th></tr>
+          <tr><th data-i18n="tbl.fee.scenario">Scenario</th><th class="num" data-i18n="tbl.fee.totalTakeCol">Total take</th><th class="num" data-i18n="tbl.fee.takePct">Take %</th><th class="num" data-i18n="tbl.fee.payoutCol">Payout</th><th class="num" data-i18n="tbl.fee.netAfterReturnsCol">Net after returns</th></tr>
         </thead>
         <tbody>
-          <tr><td>Lean &mdash; 0% creator, 0% returns</td><td class="num">$6.32</td><td class="num">21.1%</td><td class="num">$23.67</td><td class="num">$23.67 (78.9%)</td></tr>
-          <tr><td>Typical &mdash; 15% creator, 10% returns</td><td class="num">$10.82</td><td class="num">36.1%</td><td class="num">$19.17</td><td class="num">$19.07 (63.6%)</td></tr>
-          <tr class="total"><td>Creator-led &mdash; 25% creator, 20% returns</td><td class="num">$13.82</td><td class="num">46.1%</td><td class="num">$16.17</td><td class="num">$15.96 (53.2%)</td></tr>
+          <tr><td data-i18n="tbl.fee.lean">Lean &mdash; 0% creator, 0% returns</td><td class="num">$6.32</td><td class="num">21.1%</td><td class="num">$23.67</td><td class="num">$23.67 (78.9%)</td></tr>
+          <tr><td data-i18n="tbl.fee.typical">Typical &mdash; 15% creator, 10% returns</td><td class="num">$10.82</td><td class="num">36.1%</td><td class="num">$19.17</td><td class="num">$19.07 (63.6%)</td></tr>
+          <tr class="total"><td data-i18n="tbl.fee.creatorLed">Creator-led &mdash; 25% creator, 20% returns</td><td class="num">$13.82</td><td class="num">46.1%</td><td class="num">$16.17</td><td class="num">$15.96 (53.2%)</td></tr>
         </tbody>
       </table>
       <div class="tool-prose">
@@ -405,7 +405,7 @@
     <section>
       <div class="section-header">
         <h2 data-i18n="tools.fee.h.fiveWays">Five ways sellers mis-model TikTok Shop fees</h2>
-        <span class="section-tag">05 / pitfalls</span>
+        <span class="section-tag" data-i18n="seclabel.05pitfalls">05 / pitfalls</span>
       </div>
       <div class="tool-prose">
         <ol>
@@ -420,8 +420,8 @@
 
     <section>
       <div class="section-header">
-        <h2>FAQ</h2>
-        <span class="section-tag">06 / questions</span>
+        <h2 data-i18n="section.faq">FAQ</h2>
+        <span class="section-tag" data-i18n="seclabel.06questions">06 / questions</span>
       </div>
       <div class="faq">
         <details>
@@ -471,8 +471,8 @@
 
     <section>
       <div class="section-header">
-        <h2>Keep going</h2>
-        <span class="section-tag">07 / related</span>
+        <h2 data-i18n="section.keepGoing">Keep going</h2>
+        <span class="section-tag" data-i18n="seclabel.07related">07 / related</span>
       </div>
       <div class="tool-prose">
         <ul>
@@ -491,7 +491,7 @@
     <section style="margin-top:var(--s-7);" id="embed">
       <div class="section-header">
         <h2 data-i18n="tools.fee.h.embed">Embed this calculator</h2>
-        <span class="section-tag">08 / embed</span>
+        <span class="section-tag" data-i18n="seclabel.08embed">08 / embed</span>
       </div>
       <p class="section-lede" data-i18n="tools.fee.embed">Free to place on your own site, no attribution required. The snippet loads the calculator without our header, footer, ads or article text.</p>
       <div class="embed-box">
@@ -550,7 +550,7 @@
     </div>
   </div>
   <p class="copyright">
-    <span>&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
+    <span data-i18n="footer.copyright">&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
     <span class="links"><a href="/terms/" data-i18n="footer.terms">Terms</a> <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> <a href="#" data-consent-open data-i18n="footer.cookieSettings">Cookie settings</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></span>
   </p>
 </footer>

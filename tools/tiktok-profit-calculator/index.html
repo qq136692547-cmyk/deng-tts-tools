@@ -119,7 +119,7 @@
 <meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg">
 </head>
 <body class="tool-calc">
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo"><img src="/assets/images/logo.svg" alt="" /><span>TTCalc</span></a>
@@ -139,7 +139,7 @@
 <main id="main" class="tool-calc">
   <div class="container">
     <div class="tool-header">
-      <span class="eyebrow"><span class="dot"></span> 2026 fee structure</span>
+      <span data-i18n-html="eyebrow.feeStructure" class="eyebrow"><span class="dot"></span> <span data-i18n="tools.fee.eyebrow">2026 fee structure</span></span>
       <h1 data-i18n="tools.profit.h1">TikTok Shop Profit Calculator</h1>
       <p class="subtitle" data-i18n="tools.profit.lede">Real net profit per unit. After every TikTok fee, your COGS, and your shipping cost.</p>
     </div>
@@ -156,7 +156,7 @@
             <span class="workspace-title" data-i18n="calc.shell.workspaceTitle">My products &middot; saved on this device</span>
             <span class="workspace-actions">
               <label for="wsName" class="sr-only" data-i18n="calc.shell.productName">Product name</label>
-              <input type="text" id="wsName" placeholder="Name (auto)" maxlength="60" autocomplete="off" />
+              <input type="text" id="wsName" placeholder="Name (auto)" data-i18n-placeholder="calc.shell.namePlaceholder" maxlength="60" autocomplete="off" />
               <button type="button" class="copy-results-btn" id="wsSave" data-i18n="calc.shell.save">Save</button>
               <button type="button" class="copy-results-btn" id="wsLink" data-i18n="calc.shell.copyLink">Copy link</button>
             </span>
@@ -320,7 +320,7 @@
     </div>
 
     <nav class="nextstep" aria-label="Next steps">
-      <p class="nextstep-head">Next step</p>
+      <p class="nextstep-head" data-i18n="nextstep.head">Next step</p>
       <div class="nextstep-grid">
         <a class="nextstep-card" href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">
           <span class="nextstep-name">Fee Calculator</span>
@@ -347,7 +347,7 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.whyDifferent">Why TikTok Shop profit math is different</h2>
-        <span class="section-tag">01 / explainer</span>
+        <span class="section-tag" data-i18n="seclabel.01explainer">01 / explainer</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.whyIntro">Three things make TikTok Shop's profit math unique compared to Amazon or eBay:</p>
       <div class="features" style="margin-top:var(--s-4);">
@@ -361,7 +361,7 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.howItWorks">How the profit calculator works</h2>
-        <span class="section-tag">02 / method</span>
+        <span class="section-tag" data-i18n="seclabel.02method">02 / method</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.threeNumbers">TikTok Shop profit is not one number, it is three. Sellers who quote only the first one are the reason so many &ldquo;profitable&rdquo; products turn out not to be.</p>
 
@@ -369,13 +369,13 @@
         <div class="feature">
           <div class="icon">[ 01 ]</div>
           <h3 data-i18n="tools.profit.h.netPerUnit">Net profit per unit</h3>
-          <div class="formula">sale &minus; TikTok fees &minus; creator commission &minus; COGS &minus; shipping &minus; inbound freight &minus; storage &minus; ad spend</div>
+          <div class="formula" data-i18n="tools.profit.formula1">sale &minus; TikTok fees &minus; creator commission &minus; COGS &minus; shipping &minus; inbound freight &minus; storage &minus; ad spend</div>
           <p data-i18n="tools.profit.netPerUnit">What a clean, unreturned order actually pays you.</p>
         </div>
         <div class="feature">
           <div class="icon">[ 02 ]</div>
           <h3 data-i18n="tools.profit.h.effectivePerUnit">Effective profit per unit</h3>
-          <div class="formula">net profit &minus; non-resellable COGS &minus; refund admin &minus; FBT return handling</div>
+          <div class="formula" data-i18n="tools.profit.formula2">net profit &minus; non-resellable COGS &minus; refund admin &minus; FBT return handling</div>
           <p data-i18n="tools.profit.effectivePerUnit">What you keep once returns are averaged in. A returned unit you cannot resell costs you the full COGS, not the sale price &mdash; which is why high-return SKUs so often look healthy and are not.</p>
         </div>
         <div class="feature">
@@ -389,30 +389,30 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.worked">Worked example: a $29.99 product, line by line</h2>
-        <span class="section-tag">03 / example</span>
+        <span class="section-tag" data-i18n="seclabel.03example">03 / example</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.workedIntro">These are the calculator&rsquo;s default inputs. Change one and the whole result moves &mdash; which is the point of a calculator rather than a rule of thumb.</p>
 
       <table class="data-table">
         <thead>
-          <tr><th>Line</th><th class="num">Per unit</th></tr>
+          <tr><th data-i18n="tbl.line">Line</th><th class="num" data-i18n="tbl.perUnit">Per unit</th></tr>
         </thead>
         <tbody>
-          <tr><td>Sale price</td><td class="num">$29.99</td></tr>
-          <tr><td>+ Shipping charged to buyer (none in this run)</td><td class="num">$0.00</td></tr>
-          <tr><td>&minus; Referral fee (6%)</td><td class="num">&minus;$1.80</td></tr>
-          <tr><td>&minus; FBT fulfillment (4&ndash;8 oz, single unit)</td><td class="num">&minus;$4.52</td></tr>
-          <tr><td>&minus; Creator commission (0% in this run)</td><td class="num">&minus;$0.00</td></tr>
-          <tr><td>&minus; COGS</td><td class="num">&minus;$6.50</td></tr>
-          <tr><td>&minus; Your shipping cost</td><td class="num">&minus;$3.00</td></tr>
-          <tr><td>&minus; Inbound freight to FBT</td><td class="num">&minus;$1.00</td></tr>
-          <tr><td>&minus; FBT storage (per unit)</td><td class="num">&minus;$0.15</td></tr>
-          <tr><td>&minus; Ad spend (10% of item price)</td><td class="num">&minus;$3.00</td></tr>
-          <tr class="total"><td>Net profit per unit</td><td class="num">$10.02</td></tr>
-          <tr><td>&minus; Return cost, refund admin and FBT return handling (5% return rate, 50% resellable)</td><td class="num">&minus;$0.21</td></tr>
-          <tr class="total"><td>Effective profit per unit</td><td class="num">$9.81</td></tr>
-          <tr><td>Margin &middot; ROI (direct) &middot; ROI (all)</td><td class="num">32.7% &middot; 71.5% &middot; 48.6%</td></tr>
-          <tr class="total"><td>Monthly profit at 100 units</td><td class="num">$980.61</td></tr>
+          <tr><td data-i18n="tbl.salePrice">Sale price</td><td class="num">$29.99</td></tr>
+          <tr><td data-i18n="tbl.profit.shipCharged">+ Shipping charged to buyer (none in this run)</td><td class="num">$0.00</td></tr>
+          <tr><td data-i18n="tbl.profit.referral">&minus; Referral fee (6%)</td><td class="num">&minus;$1.80</td></tr>
+          <tr><td data-i18n="tbl.profit.fbt">&minus; FBT fulfillment (4&ndash;8 oz, single unit)</td><td class="num">&minus;$4.52</td></tr>
+          <tr><td data-i18n="tbl.profit.creator">&minus; Creator commission (0% in this run)</td><td class="num">&minus;$0.00</td></tr>
+          <tr><td data-i18n="tbl.profit.cogsRow">&minus; COGS</td><td class="num">&minus;$6.50</td></tr>
+          <tr><td data-i18n="tbl.profit.yourShipping">&minus; Your shipping cost</td><td class="num">&minus;$3.00</td></tr>
+          <tr><td data-i18n="tbl.profit.inbound">&minus; Inbound freight to FBT</td><td class="num">&minus;$1.00</td></tr>
+          <tr><td data-i18n="tbl.profit.storage">&minus; FBT storage (per unit)</td><td class="num">&minus;$0.15</td></tr>
+          <tr><td data-i18n="tbl.profit.adSpend">&minus; Ad spend (10% of item price)</td><td class="num">&minus;$3.00</td></tr>
+          <tr class="total"><td data-i18n="tbl.profit.netProfit">Net profit per unit</td><td class="num">$10.02</td></tr>
+          <tr><td data-i18n="tbl.profit.returnCost">&minus; Return cost, refund admin and FBT return handling (5% return rate, 50% resellable)</td><td class="num">&minus;$0.21</td></tr>
+          <tr class="total"><td data-i18n="tbl.profit.effective">Effective profit per unit</td><td class="num">$9.81</td></tr>
+          <tr><td data-i18n="tbl.profit.marginRoi">Margin &middot; ROI (direct) &middot; ROI (all)</td><td class="num">32.7% &middot; 71.5% &middot; 48.6%</td></tr>
+          <tr class="total"><td data-i18n="tbl.profit.monthly">Monthly profit at 100 units</td><td class="num">$980.61</td></tr>
         </tbody>
       </table>
 
@@ -425,23 +425,23 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.whatEach">What each 2026 fee actually is</h2>
-        <span class="section-tag">04 / rates</span>
+        <span class="section-tag" data-i18n="seclabel.04rates">04 / rates</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.whatEachIntro">Every line the calculator deducts, what it is in 2026, and who charges it.</p>
 
       <table class="data-table">
         <thead>
-          <tr><th>Fee</th><th>2026 rate</th><th>Charged by</th></tr>
+          <tr><th data-i18n="tbl.profit.feeCol">Fee</th><th data-i18n="tbl.profit.rateCol">2026 rate</th><th data-i18n="tbl.profit.chargedBy">Charged by</th></tr>
         </thead>
         <tbody>
-          <tr><td>Referral fee</td><td>6% of the buyer&rsquo;s total payment &mdash; the item price after seller discount <em>plus any shipping the buyer pays</em> (Jewelry and Pre-Owned 5%) &mdash; <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a></td><td>TikTok</td></tr>
-          <tr><td>Payment processing</td><td>TikTok's fee policy documents no separate transaction fee</td><td>&mdash;</td></tr>
-          <tr><td>FBT fulfillment</td><td>$4.28&ndash;$12.67 per unit by weight for a single-item order; multi-item orders cost less per unit &mdash; <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a></td><td>TikTok</td></tr>
-          <tr><td>Refund admin fee</td><td>20% of the referral fee, capped at $5 per SKU &mdash; charged even when the order is fully refunded (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td>TikTok</td></tr>
-          <tr><td>FBT return handling</td><td>$0.70 non-inspection or $1.00 inspection, per returned unit</td><td>TikTok</td></tr>
-          <tr><td>FBT storage</td><td>Per cubic foot per day; free for the first 60 days</td><td>TikTok</td></tr>
-          <tr><td>Creator commission</td><td>1&ndash;80%, set by the seller &mdash; the official range per <a href="https://ads.tiktok.com/resources/help/article/about-setting-different-affiliate-commission-rates-for-tiktok-shop-ads" target="_blank" rel="noopener">TikTok's Ads help center</a> (no official average exists)</td><td>Creator</td></tr>
-          <tr><td>Cross-border fee</td><td>~1% on international orders &mdash; <em>we have not verified this rate against an official TikTok page; treat as unverified</em></td><td>TikTok</td></tr>
+          <tr><td data-i18n="tbl.referralRow">Referral fee</td><td data-i18n-html="tbl.profit.referralRate">6% of the buyer&rsquo;s total payment &mdash; the item price after seller discount <em>plus any shipping the buyer pays</em> (Jewelry and Pre-Owned 5%) &mdash; <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a></td><td>TikTok</td></tr>
+          <tr><td data-i18n="tbl.profit.paymentProcessing">Payment processing</td><td data-i18n="tbl.profit.noTxnFee">TikTok's fee policy documents no separate transaction fee</td><td>&mdash;</td></tr>
+          <tr><td data-i18n="calc.label.fbtFulfillment">FBT fulfillment</td><td data-i18n-html="tbl.profit.fbtRate">$4.28&ndash;$12.67 per unit by weight for a single-item order; multi-item orders cost less per unit &mdash; <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT Rate Card</a></td><td>TikTok</td></tr>
+          <tr><td data-i18n="tbl.refundRow">Refund admin fee</td><td data-i18n-html="tbl.profit.refundRate">20% of the referral fee, capped at $5 per SKU &mdash; charged even when the order is fully refunded (<a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>)</td><td>TikTok</td></tr>
+          <tr><td data-i18n="tbl.returnHandlingRow">FBT return handling</td><td data-i18n="tbl.profit.returnHandlingRate">$0.70 non-inspection or $1.00 inspection, per returned unit</td><td>TikTok</td></tr>
+          <tr><td data-i18n="tbl.profit.storageRow">FBT storage</td><td data-i18n="tbl.profit.storageRate">Per cubic foot per day; free for the first 60 days</td><td>TikTok</td></tr>
+          <tr><td data-i18n="tbl.creatorRow">Creator commission</td><td data-i18n-html="tbl.profit.creatorRate">1&ndash;80%, set by the seller &mdash; the official range per <a href="https://ads.tiktok.com/resources/help/article/about-setting-different-affiliate-commission-rates-for-tiktok-shop-ads" target="_blank" rel="noopener">TikTok's Ads help center</a> (no official average exists)</td><td data-i18n="tbl.profit.creatorWho">Creator</td></tr>
+          <tr><td data-i18n="tbl.profit.crossBorderRow">Cross-border fee</td><td data-i18n-html="tbl.profit.crossBorderRate">~1% on international orders &mdash; <em>we have not verified this rate against an official TikTok page; treat as unverified</em></td><td>TikTok</td></tr>
         </tbody>
       </table>
 
@@ -454,19 +454,19 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.healthy">What a healthy margin looks like</h2>
-        <span class="section-tag">05 / benchmarks</span>
+        <span class="section-tag" data-i18n="seclabel.05benchmarks">05 / benchmarks</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.healthyIntro">Effective margin is the number to judge, not net margin &mdash; net margin flatters any SKU that gets returned.</p>
 
       <table class="data-table">
         <thead>
-          <tr><th>Effective margin</th><th>What it means in practice</th></tr>
+          <tr><th data-i18n="tbl.profit.marginCol">Effective margin</th><th data-i18n="tbl.profit.meaningCol">What it means in practice</th></tr>
         </thead>
         <tbody>
-          <tr><td>Below 15%</td><td>Fragile. One bad returns month, one ad-cost spike, or one FBT tier change wipes it out. Fix the unit economics before you scale volume.</td></tr>
-          <tr><td>20&ndash;30%</td><td>Workable for a lean operation with no paid creators. You have room to absorb returns but not much room to pay affiliates.</td></tr>
-          <tr><td>30&ndash;40%</td><td>Healthy. This is the band where a 10&ndash;15% creator commission is affordable and the product can still fund its own ads.</td></tr>
-          <tr><td>Above 40%</td><td>Room to pay creators and run ads at the same time. Usually means strong COGS, a light product, or a genuinely differentiated offer.</td></tr>
+          <tr><td data-i18n="tbl.profit.below15">Below 15%</td><td data-i18n="tbl.profit.fragile">Fragile. One bad returns month, one ad-cost spike, or one FBT tier change wipes it out. Fix the unit economics before you scale volume.</td></tr>
+          <tr><td>20&ndash;30%</td><td data-i18n="tbl.profit.workable">Workable for a lean operation with no paid creators. You have room to absorb returns but not much room to pay affiliates.</td></tr>
+          <tr><td>30&ndash;40%</td><td data-i18n="tbl.profit.healthy">Healthy. This is the band where a 10&ndash;15% creator commission is affordable and the product can still fund its own ads.</td></tr>
+          <tr><td data-i18n="tbl.profit.above40">Above 40%</td><td data-i18n="tbl.profit.roomToPay">Room to pay creators and run ads at the same time. Usually means strong COGS, a light product, or a genuinely differentiated offer.</td></tr>
         </tbody>
       </table>
 
@@ -478,7 +478,7 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.fiveInputs">Five inputs that quietly break your profit math</h2>
-        <span class="section-tag">06 / pitfalls</span>
+        <span class="section-tag" data-i18n="seclabel.06pitfalls">06 / pitfalls</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.fiveIntro">The calculator is only as honest as what you type into it. These are the five entries that go wrong most often.</p>
 
@@ -494,7 +494,7 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.lift">How to lift margin without raising the price</h2>
-        <span class="section-tag">07 / levers</span>
+        <span class="section-tag" data-i18n="seclabel.07levers">07 / levers</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.liftIntro">Four moves that change the output of this calculator without changing what the customer pays.</p>
 
@@ -509,7 +509,7 @@
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.faq">Frequently asked questions</h2>
-        <span class="section-tag">08 / questions</span>
+        <span class="section-tag" data-i18n="seclabel.08questions">08 / questions</span>
       </div>
       <div class="faq">
         <details>
@@ -553,8 +553,8 @@
 
     <section style="margin-top:var(--s-7);">
       <div class="section-header">
-        <h2>Keep going</h2>
-        <span class="section-tag">09 / related</span>
+        <h2 data-i18n="section.keepGoing">Keep going</h2>
+        <span class="section-tag" data-i18n="seclabel.09related">09 / related</span>
       </div>
       <div class="tool-prose">
         <ul>
@@ -574,7 +574,7 @@
     <section style="margin-top:var(--s-7);" id="embed">
       <div class="section-header">
         <h2 data-i18n="tools.profit.h.embed">Embed this calculator</h2>
-        <span class="section-tag">10 / embed</span>
+        <span class="section-tag" data-i18n="seclabel.10embed">10 / embed</span>
       </div>
       <p class="section-lede" data-i18n="tools.profit.embed">Free to place on your own site, no attribution required. The snippet loads the calculator without our header, footer, ads or article text.</p>
       <div class="embed-box">
@@ -633,7 +633,7 @@
     </div>
   </div>
   <p class="copyright">
-    <span>&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
+    <span data-i18n="footer.copyright">&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
     <span class="links"><a href="/terms/" data-i18n="footer.terms">Terms</a> <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> <a href="#" data-consent-open data-i18n="footer.cookieSettings">Cookie settings</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></span>
   </p>
 </footer>
