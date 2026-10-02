@@ -735,5 +735,26 @@ window.TTCALC_I18N = {
     'home.v5faq.fbtPerUnit': '我们在 <a href="/blog/tiktok-shop-fbt-fee-per-unit-2026/">FBT 单件费用</a> 里把这套算术走了一遍。',
     'home.v5faq.feeGuide': '在我们的 <a href="/blog/tiktok-shop-fees-2026/">2026 TikTok Shop 费用指南</a> 里有完整拆解。',
     'home.v5faq.vsAmazon': '完整对比：<a href="/blog/tiktok-shop-vs-amazon-fba-2026/">TikTok Shop 对比亚马逊 FBA</a>。',
+
+    // Next-step card names and descriptions (batch 22 close-out)
+    'nextstep.desc.already_have_a_rate_in_mind_check_': '心里已有佣金率？看看它每件还能留下多少',
+    'nextstep.desc.break_down_every_tiktok_fee_line_b': '逐项拆解 TikTok 的每一笔费用',
+    'nextstep.desc.carry_this_storage_line_into_net_p': '把这条仓储费代进单件净利润',
+    'nextstep.desc.check_whether_your_ad_spend_clears': '检查你的广告支出是否跨过了利润下限',
+    'nextstep.desc.compare_the_all_in_take_rate_acros': '对比两个平台的综合抽成率',
+    'nextstep.desc.compare_tiktok_shop_fees_against_a': '把 TikTok Shop 与亚马逊 FBA 的费用并排对比',
+    'nextstep.desc.fbt_against_amazon_fba_on_the_same': '同一件商品上 FBT 与亚马逊 FBA 的对比',
+    'nextstep.desc.feed_this_tier_into_the_full_per_u': '把这个档位代进完整的单件利润测算',
+    'nextstep.desc.find_the_roas_you_need_to_break_ev': '算出你广告支出打平所需的 ROAS',
+    'nextstep.desc.full_per_unit_profit_after_returns': '扣除退货、仓储与入仓运费后的完整单件利润',
+    'nextstep.desc.generate_the_creative_your_ads_wil': '生成广告要投放的素材图',
+    'nextstep.desc.generate_the_listing_images_your_b': '生成买家最先看到的商品图',
+    'nextstep.desc.same_product_two_platforms_side_by': '同一件商品，两个平台，并排比较',
+    'nextstep.desc.see_net_profit_after_cogs_shipping': '看清扣除货成本、运费与广告支出后的单件净利润',
+    'nextstep.desc.see_what_the_ad_spend_behind_that_': '看这份素材背后的广告支出必须回报多少',
+    'nextstep.desc.sell_through_faster_the_ad_floor_b': '加快周转：周转速度背后的广告下限',
+    'nextstep.desc.shoot_the_listing_images_for_which': '为你选定的平台拍出商品图',
+    'nextstep.desc.translate_platform_margins_into_a_': '把平台利润率换算成盈亏平衡 ROAS',
+    'nextstep.desc.turn_a_product_description_into_ma': '把商品描述变成可直接上架的图片',
 }
 };
