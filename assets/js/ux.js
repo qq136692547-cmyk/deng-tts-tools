@@ -3,6 +3,10 @@
 (function () {
   'use strict';
 
+  // Panel copy built in JS goes through the shared dictionary when it is
+  // available (i18n.js loads before this file).
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
+
   // ---- Copy all calc-result-rows ----
   function fallbackCopy(text) {
     var ta = document.createElement('textarea');
@@ -30,7 +34,7 @@
     var done = function () {
       if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('copy_results');
       var orig = btn.textContent;
-      btn.textContent = '\u2713 Copied';
+      btn.textContent = '\u2713 ' + T('ui.copied', 'Copied');
       btn.classList.add('copied');
       setTimeout(function () { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
     };
@@ -57,7 +61,7 @@
     if (!input || !panel) return;
     var warn = document.createElement('p');
     warn.className = 'calc-warning';
-    warn.textContent = 'Enter a sale price to see fees.';
+    warn.textContent = T('calc.warn.enterSalePrice', 'Enter a sale price to see fees.');
     warn.style.display = 'none';
     var head = panel.querySelector('.calc-results-head');
     if (head && head.nextSibling) { panel.insertBefore(warn, head.nextSibling); }
@@ -72,6 +76,10 @@
     check();
     // workspace.js fills inputs from the URL after this point; re-check once.
     setTimeout(check, 350);
+    // This node is created here, so i18n's DOM pass can never reach it.
+    document.addEventListener('ttcalc:langchange', function () {
+      warn.textContent = T('calc.warn.enterSalePrice', 'Enter a sale price to see fees.');
+    });
   }
 
   // ---- Hero stats count-up ----

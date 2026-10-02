@@ -3,6 +3,8 @@
   var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
+  // JS-built strings go through the shared dictionary when it is available.
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
   function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   // Single-line summary is the only live region; announcing the whole result
   // block made screen readers repeat every row on each keystroke.
@@ -89,7 +91,10 @@
     get('r_tts_fees').textContent           = '-' + fmt(ttsFees);
     // TikTok US retired that structure when the flat 6% rate took effect
     // (no separate charge since Apr 1, 2024), so only mention it when a non-zero value is configured.
-    var lbl = get('r_tts_fees_lbl'); if (lbl) lbl.textContent = '- TikTok fees (' + referralRate + '%' + (R.transactionFee ? ' + $' + R.transactionFee.toFixed(2) : '') + ' + FBT)';
+    var lbl = get('r_tts_fees_lbl');
+    if (lbl) lbl.textContent = T('calc.js.ttsFees', '- TikTok fees ({0}%{1} + FBT)')
+      .replace('{0}', referralRate)
+      .replace('{1}', R.transactionFee ? ' + $' + R.transactionFee.toFixed(2) : '');
     get('r_creator_fee').textContent        = '-' + fmt(creator);
     get('r_cogs').textContent               = '-' + fmt(cogs);
     get('r_ship').textContent               = '-' + fmt(ship);
@@ -109,9 +114,11 @@
     get('r_eff_profit').textContent         = fmt(effectiveProfit);
     get('r_monthly_revenue').textContent    = fmt(monthlyRevenue);
     get('r_monthly_profit').textContent     = fmt(monthlyProfit);
-    get('r_monthly_returns').textContent    = monthlyReturns + ' units';
+    get('r_monthly_returns').textContent    = T('calc.js.units', '{0} units')
+      .replace('{0}', monthlyReturns);
 
-    announce('Effective profit ' + fmt(effectiveProfit) + ', margin ' + margin.toFixed(1) + '%.');
+    announce(T('calc.js.profitAnnounce', 'Effective profit {0}, margin {1}%.')
+      .replace('{0}', fmt(effectiveProfit)).replace('{1}', margin.toFixed(1)));
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -123,4 +130,6 @@
     });
     calc();
   });
+  // See tiktok-fee-calculator.js: the first pass runs before the language is set.
+  document.addEventListener('ttcalc:langchange', calc);
 })();

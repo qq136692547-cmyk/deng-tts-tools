@@ -3,6 +3,8 @@
   var R = window.TTCALC_RATES;
   var $id = function (s) { return document.getElementById(s); };
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
+  // JS-built strings go through the shared dictionary when it is available.
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
   function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   // Single-line summary is the only live region; announcing the whole result
   // block made screen readers repeat every row on each keystroke.
@@ -58,7 +60,9 @@
 
     $id('r_total').textContent              = fmt(total);
     $id('r_base').textContent               = '-' + fmt(referral);
-    var lbl = $id('r_base_lbl'); if (lbl) lbl.textContent = '- Base commission (' + referralRate + '%)';
+    var lbl = $id('r_base_lbl');
+    if (lbl) lbl.textContent = T('calc.js.baseCommission', '- Base commission ({0}%)')
+      .replace('{0}', referralRate);
     $id('r_fbt').textContent                = '-' + fmt(fbt);
     var txnEl = $id('r_txn');
     if (txnEl) {
@@ -82,7 +86,8 @@
     if (raRow && raRow.style) raRow.style.display = showReturns ? '' : 'none';
     if (rhRow && rhRow.style) rhRow.style.display = showReturns ? '' : 'none';
 
-    announce('Total TikTok Shop fees ' + fmt(platformFees) + ' (' + pct.toFixed(1) + '%), payout ' + fmt(payout) + '.');
+    announce(T('calc.js.feeAnnounce', 'Total TikTok Shop fees {0} ({1}%), payout {2}.')
+      .replace('{0}', fmt(platformFees)).replace('{1}', pct.toFixed(1)).replace('{2}', fmt(payout)));
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -94,4 +99,7 @@
     });
     calculate();
   });
+  // The script runs before i18n.js sets the language, so the first pass is always
+  // English; re-run once the switch has happened.
+  document.addEventListener('ttcalc:langchange', calculate);
 })();

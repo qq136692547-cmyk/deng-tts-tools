@@ -71,7 +71,22 @@
         el.setAttribute('title', original.title);
       }
     });
+    // Strings the calculators build in JS never exist as DOM text until runtime, so
+    // the data-i18n pass above cannot reach them. Tell them to re-render.
+    try {
+      document.dispatchEvent(new CustomEvent('ttcalc:langchange', { detail: { lang: lang } }));
+    } catch (e) {}
   }
+
+  // Lookup for those JS-built strings. Values come from the same static dictionary
+  // (assets/js/translations.js), never from user input. {0}-style placeholders are
+  // filled in by the caller, so the template can sit in the dictionary verbatim.
+  window.ttcalcT = function (key, fallback) {
+    var lang = document.documentElement.lang || 'en';
+    var dict = translations[lang] || {};
+    if (lang === 'zh' && dict[key] !== undefined) return dict[key];
+    return fallback;
+  };
 
   function toggleLang() {
     var current = document.documentElement.lang || 'en';

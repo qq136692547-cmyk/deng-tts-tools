@@ -148,166 +148,166 @@
       <div class="calc-titlebar">
         <div class="traffic"><span></span><span></span><span></span></div>
         <span class="calc-name">ttcalc &mdash; profit-calculator.js</span>
-        <span class="calc-badge">2026 rates</span>
+        <span class="calc-badge" data-i18n="calc.shell.badge">2026 rates</span>
       </div>
       <div class="calc-body">
         <div class="calc-workspace">
           <div class="workspace-head">
-            <span class="workspace-title">My products &middot; saved on this device</span>
+            <span class="workspace-title" data-i18n="calc.shell.workspaceTitle">My products &middot; saved on this device</span>
             <span class="workspace-actions">
-              <label for="wsName" class="sr-only">Product name</label>
+              <label for="wsName" class="sr-only" data-i18n="calc.shell.productName">Product name</label>
               <input type="text" id="wsName" placeholder="Name (auto)" maxlength="60" autocomplete="off" />
-              <button type="button" class="copy-results-btn" id="wsSave">Save</button>
-              <button type="button" class="copy-results-btn" id="wsLink">Copy link</button>
+              <button type="button" class="copy-results-btn" id="wsSave" data-i18n="calc.shell.save">Save</button>
+              <button type="button" class="copy-results-btn" id="wsLink" data-i18n="calc.shell.copyLink">Copy link</button>
             </span>
           </div>
           <div class="workspace-list" id="wsList"></div>
         </div>
 
         <section class="calc-inputs">
-          <h2>Inputs</h2>
+          <h2 data-i18n="calc.shell.inputs">Inputs</h2>
 
           <div class="calc-field">
-            <label for="sale">Sale price (USD)</label>
+            <label for="sale" data-i18n="calc.salePrice">Sale price (USD)</label>
             <input type="number" id="sale" value="29.99" step="0.01" />
           </div>
 
           <div class="calc-field">
-            <label for="cogs">Product cost (COGS)</label>
+            <label for="cogs" data-i18n="calc.label.cogs">Product cost (COGS)</label>
             <input type="number" id="cogs" value="6.50" step="0.01" />
           </div>
 
           <div class="calc-field">
-            <label for="returnRate">Return rate (%)</label>
+            <label for="returnRate" data-i18n="calc.returnRate">Return rate (%)</label>
             <input type="number" id="returnRate" value="5" step="1" min="0" max="50" />
-            <div class="hint">% of units returned</div>
+            <div class="hint" data-i18n="calc.hint.returnPct">% of units returned</div>
           </div>
 
           <div class="calc-field">
-            <label for="returnHandlingFee">FBT return handling (per returned unit)</label>
+            <label for="returnHandlingFee" data-i18n="calc.returnHandling">FBT return handling (per returned unit)</label>
             <input type="number" id="returnHandlingFee" value="0.70" step="0.01" min="0" />
-            <div class="hint">$0.70 non-inspection or $1.00 inspection. Set 0 if not using FBT returns.</div>
+            <div class="hint" data-i18n="calc.returnHandlingHint">$0.70 non-inspection or $1.00 inspection. Set 0 if not using FBT returns.</div>
           </div>
 
           <div class="calc-field">
-            <label for="monthlyUnits">Monthly units sold</label>
+            <label for="monthlyUnits" data-i18n="calc.label.monthlyUnits">Monthly units sold</label>
             <input type="number" id="monthlyUnits" value="100" step="10" min="0" />
-            <div class="hint">For monthly projection</div>
+            <div class="hint" data-i18n="calc.hint.monthlyProjection">For monthly projection</div>
           </div>
 
                     <div class="calc-field">
-            <label for="category">Product category</label>
+            <label for="category" data-i18n="calc.category">Product category</label>
             <select id="category">
-              <option value="6" selected>Default (most categories, 6%)</option>
-              <option value="6">Fashion (6%)</option>
-              <option value="6">Beauty (6%)</option>
-              <option value="5">Jewelry (5%)</option>
-              <option value="5">Pre-Owned (5%)</option>
+              <option value="6" selected data-i18n="calc.cat.default">Default (most categories, 6%)</option>
+              <option value="6" data-i18n="calc.cat.fashion">Fashion (6%)</option>
+              <option value="6" data-i18n="calc.cat.beauty">Beauty (6%)</option>
+              <option value="5" data-i18n="calc.cat.jewelry">Jewelry (5%)</option>
+              <option value="5" data-i18n="calc.cat.preowned">Pre-Owned (5%)</option>
             </select>
-            <div class="hint">Referral fee varies by category; Jewelry &amp; Pre-Owned are 5%</div>
+            <div class="hint" data-i18n="calc.hint.referralByCat">Referral fee varies by category; Jewelry &amp; Pre-Owned are 5%</div>
           </div>
 
 <div class="calc-field">
-            <label for="fbtTier">FBT fulfillment</label>
+            <label for="fbtTier" data-i18n="calc.label.fbtFulfillment">FBT fulfillment</label>
             <select id="fbtTier">
-              <option value="0">≤4 oz ($4.28)</option>
-              <option value="1" selected>4–8 oz ($4.52)</option>
-              <option value="2">8–12 oz ($4.70)</option>
-              <option value="3">12–16 oz ($5.10)</option>
-              <option value="4">1–2 lb ($5.71)</option>
-              <option value="5">2–3 lb ($6.27)</option>
-              <option value="6">3–4 lb ($6.92)</option>
-              <option value="7">4–5 lb ($7.66)</option>
-              <option value="8">5–6 lb ($8.58)</option>
-              <option value="9">6–7 lb ($8.88)</option>
-              <option value="10">7–8 lb ($9.22)</option>
-              <option value="11">8–9 lb ($9.42)</option>
-              <option value="12">9–10 lb ($9.63)</option>
-              <option value="13">10–11 lb ($10.64)</option>
-              <option value="14">11–12 lb ($10.75)</option>
-              <option value="15">12–13 lb ($10.98)</option>
-              <option value="16">13–14 lb ($11.44)</option>
-              <option value="17">14–15 lb ($11.85)</option>
-              <option value="18">15–16 lb ($12.67)</option>
+              <option value="0" data-i18n="calc.tier.le4oz">≤4 oz ($4.28)</option>
+              <option value="1" selected data-i18n="calc.tier.4to8oz">4–8 oz ($4.52)</option>
+              <option value="2" data-i18n="calc.tier.8to12oz">8–12 oz ($4.70)</option>
+              <option value="3" data-i18n="calc.tier.12to16oz">12–16 oz ($5.10)</option>
+              <option value="4" data-i18n="calc.tier.1to2lb">1–2 lb ($5.71)</option>
+              <option value="5" data-i18n="calc.tier.2to3lb">2–3 lb ($6.27)</option>
+              <option value="6" data-i18n="calc.tier.3to4lb">3–4 lb ($6.92)</option>
+              <option value="7" data-i18n="calc.tier.4to5lb">4–5 lb ($7.66)</option>
+              <option value="8" data-i18n="calc.tier.5to6lb">5–6 lb ($8.58)</option>
+              <option value="9" data-i18n="calc.tier.6to7lb">6–7 lb ($8.88)</option>
+              <option value="10" data-i18n="calc.tier.7to8lb">7–8 lb ($9.22)</option>
+              <option value="11" data-i18n="calc.tier.8to9lb">8–9 lb ($9.42)</option>
+              <option value="12" data-i18n="calc.tier.9to10lb">9–10 lb ($9.63)</option>
+              <option value="13" data-i18n="calc.tier.10to11lb">10–11 lb ($10.64)</option>
+              <option value="14" data-i18n="calc.tier.11to12lb">11–12 lb ($10.75)</option>
+              <option value="15" data-i18n="calc.tier.12to13lb">12–13 lb ($10.98)</option>
+              <option value="16" data-i18n="calc.tier.13to14lb">13–14 lb ($11.44)</option>
+              <option value="17" data-i18n="calc.tier.14to15lb">14–15 lb ($11.85)</option>
+              <option value="18" data-i18n="calc.tier.15to16lb">15–16 lb ($12.67)</option>
             </select>
-            <label for="fbtUnits">Units per order</label>
+            <label for="fbtUnits" data-i18n="calc.label.unitsPerOrder">Units per order</label>
             <select id="fbtUnits">
-              <option value="0" selected>1 unit (single)</option>
-              <option value="1">2 units</option>
-              <option value="2">3 units</option>
-              <option value="3">4+ units</option>
+              <option value="0" selected data-i18n="calc.units.one">1 unit (single)</option>
+              <option value="1" data-i18n="calc.units.two">2 units</option>
+              <option value="2" data-i18n="calc.units.three">3 units</option>
+              <option value="3" data-i18n="calc.units.fourPlus">4+ units</option>
             </select>
-            <div class="hint">2026 rate card (Jul 13): single-unit rate shown; multi-item orders cost less per unit.</div>
+            <div class="hint" data-i18n="calc.hint.rateCardShort">2026 rate card (Jul 13): single-unit rate shown; multi-item orders cost less per unit.</div>
           </div>
 
           <div class="calc-field">
-            <label for="ship">Your shipping cost (per unit)</label>
+            <label for="ship" data-i18n="calc.label.yourShipping">Your shipping cost (per unit)</label>
             <input type="number" id="ship" value="3.00" step="0.01" />
           </div>
 
           <div class="calc-field">
-            <label for="shipCharged">Shipping charged to buyer</label>
+            <label for="shipCharged" data-i18n="calc.shipping">Shipping charged to buyer</label>
             <input type="number" id="shipCharged" value="0" step="0.01" min="0" />
-            <div class="hint">Set 0 if "free shipping" is baked into price</div>
+            <div class="hint" data-i18n="calc.hint.freeShipping">Set 0 if "free shipping" is baked into price</div>
           </div>
 
           <div class="calc-field">
-            <label for="creator">Creator commission (%)</label>
+            <label for="creator" data-i18n="calc.creator">Creator commission (%)</label>
             <input type="number" id="creator" value="0" step="1" min="0" max="30" />
           </div>
 
           <div class="calc-field">
-            <label for="ads">TikTok ad spend (% of item price)</label>
+            <label for="ads" data-i18n="calc.label.adSpend">TikTok ad spend (% of item price)</label>
             <input type="number" id="ads" value="10" step="1" min="0" max="100" />
           </div>
 
           <div class="calc-field">
-            <label for="inboundShip">Inbound shipping to FBT (per unit)</label>
+            <label for="inboundShip" data-i18n="calc.label.inboundShip">Inbound shipping to FBT (per unit)</label>
             <input type="number" id="inboundShip" value="1.00" step="0.01" min="0" />
-            <div class="hint">Cost to ship bulk inventory to TikTok's FBT warehouse</div>
+            <div class="hint" data-i18n="calc.hint.inboundShip">Cost to ship bulk inventory to TikTok's FBT warehouse</div>
           </div>
 
           <div class="calc-field">
-            <label for="storageFee">FBT storage fee (per unit)</label>
+            <label for="storageFee" data-i18n="calc.label.storageFee">FBT storage fee (per unit)</label>
             <input type="number" id="storageFee" value="0.15" step="0.01" min="0" />
-            <div class="hint">Per unit, over your holding period. Free for the first 60 days, then billed per cubic foot per day &mdash; the <a href="/tools/tiktok-fbt-storage-calculator/">Storage Fee Calculator</a> works it out from your box size and days held.</div>
+            <div class="hint" data-i18n-html="calc.hint.storageFee">Per unit, over your holding period. Free for the first 60 days, then billed per cubic foot per day &mdash; the <a href="/tools/tiktok-fbt-storage-calculator/">Storage Fee Calculator</a> works it out from your box size and days held.</div>
           </div>
 
           <div class="calc-field">
-            <label for="resellRate">Resellable return rate (%)</label>
+            <label for="resellRate" data-i18n="calc.label.resellRate">Resellable return rate (%)</label>
             <input type="number" id="resellRate" value="50" step="5" min="0" max="100" />
-            <div class="hint">% of returned units that can be resold. 100% = all returns are reusable.</div>
+            <div class="hint" data-i18n="calc.hint.resellRate">% of returned units that can be resold. 100% = all returns are reusable.</div>
           </div>
         </section>
 
         <section class="calc-results">
           <div class="calc-results-head">
-            <span class="calc-results-title">Profit breakdown</span>
-            <button class="copy-results-btn" type="button">Copy results</button>
+            <span class="calc-results-title" data-i18n="calc.profit.resultsTitle">Profit breakdown</span>
+            <button class="copy-results-btn" type="button" data-i18n="calc.shell.copyResults">Copy results</button>
           </div>
 
-          <div class="calc-result-row"><span class="lbl">Sale price</span><span class="val" id="r_sale">$29.99</span></div>
-          <div class="calc-result-row" id="row_ship_charged"><span class="lbl">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.salePrice">Sale price</span><span class="val" id="r_sale">$29.99</span></div>
+          <div class="calc-result-row" id="row_ship_charged"><span class="lbl" data-i18n="calc.row.shipCharged">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
           <div class="calc-result-row"><span class="lbl" id="r_tts_fees_lbl">&#8722; TikTok fees (6% + FBT)</span><span class="val" id="r_tts_fees">&#8722;$6.32</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Creator commission</span><span class="val" id="r_creator_fee">&#8722;$0.00</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; COGS</span><span class="val" id="r_cogs">&#8722;$6.50</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Your shipping cost</span><span class="val" id="r_ship">&#8722;$3.00</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; Inbound shipping to FBT</span><span class="val" id="r_inbound_ship">&#8722;$1.00</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; FBT storage</span><span class="val" id="r_storage">&#8722;$0.15</span></div>
-          <div class="calc-result-row"><span class="lbl">&#8722; TikTok ad spend</span><span class="val" id="r_ads">&#8722;$3.00</span></div>
-          <div class="calc-result-row highlight"><span class="lbl">Net profit per unit</span><span class="val" id="r_profit">$10.02</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.creatorCommission">&#8722; Creator commission</span><span class="val" id="r_creator_fee">&#8722;$0.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.cogs">&#8722; COGS</span><span class="val" id="r_cogs">&#8722;$6.50</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.yourShipping">&#8722; Your shipping cost</span><span class="val" id="r_ship">&#8722;$3.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.inboundShip">&#8722; Inbound shipping to FBT</span><span class="val" id="r_inbound_ship">&#8722;$1.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.storage">&#8722; FBT storage</span><span class="val" id="r_storage">&#8722;$0.15</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.adSpend">&#8722; TikTok ad spend</span><span class="val" id="r_ads">&#8722;$3.00</span></div>
+          <div class="calc-result-row highlight"><span class="lbl" data-i18n="calc.row.netProfit">Net profit per unit</span><span class="val" id="r_profit">$10.02</span></div>
           <div class="calc-result-row roi-row group-end" id="r_roi">
-            <div class="roi-line"><span class="roi-lbl">Margin</span><span class="roi-val" id="r_roi_margin">32.7%</span></div>
-            <div class="roi-line"><span class="roi-lbl">ROI (direct)</span><span class="roi-val" id="r_roi_direct">71.5%</span></div>
-            <div class="roi-line"><span class="roi-lbl">ROI (all)</span><span class="roi-val" id="r_roi_all">48.6%</span></div>
+            <div class="roi-line"><span class="roi-lbl" data-i18n="calc.row.margin">Margin</span><span class="roi-val" id="r_roi_margin">32.7%</span></div>
+            <div class="roi-line"><span class="roi-lbl" data-i18n="calc.row.roiDirect">ROI (direct)</span><span class="roi-val" id="r_roi_direct">71.5%</span></div>
+            <div class="roi-line"><span class="roi-lbl" data-i18n="calc.row.roiAll">ROI (all)</span><span class="roi-val" id="r_roi_all">48.6%</span></div>
           </div>
-          <div class="calc-result-row"><span class="lbl">Return cost (non-resellable, at COGS)</span><span class="val" id="r_return_cost">-$0.16</span></div>
-          <div class="calc-result-row"><span class="lbl">Refund admin fee</span><span class="val" id="r_return_fee">-$0.02</span></div>
-          <div class="calc-result-row"><span class="lbl">FBT return handling</span><span class="val" id="r_return_handling">-$0.03</span></div>
-          <div class="calc-result-row"><span class="lbl">Effective profit</span><span class="val" id="r_eff_profit">$9.81</span></div>
-          <div class="calc-result-row"><span class="lbl">Monthly revenue</span><span class="val" id="r_monthly_revenue">$2999.00</span></div>
-          <div class="calc-result-row"><span class="lbl">Monthly profit</span><span class="val" id="r_monthly_profit">$980.61</span></div>
-          <div class="calc-result-row"><span class="lbl">Monthly returns</span><span class="val" id="r_monthly_returns">5 units</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.returnCost">Return cost (non-resellable, at COGS)</span><span class="val" id="r_return_cost">-$0.16</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.refundAdmin">Refund admin fee</span><span class="val" id="r_return_fee">-$0.02</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.returnHandling">FBT return handling</span><span class="val" id="r_return_handling">-$0.03</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.effectiveProfit">Effective profit</span><span class="val" id="r_eff_profit">$9.81</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyRevenue">Monthly revenue</span><span class="val" id="r_monthly_revenue">$2999.00</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyProfit">Monthly profit</span><span class="val" id="r_monthly_profit">$980.61</span></div>
+          <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyReturns">Monthly returns</span><span class="val" id="r_monthly_returns">5 units</span></div>
           <p class="source-note rate-version" data-i18n-html="tools.profit.sourceLine">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
         </section>
         <p class="sr-only" role="status" aria-live="polite" id="calcSummary"></p>

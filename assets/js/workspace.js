@@ -5,6 +5,10 @@
   var PAGE = location.pathname.replace(/^\/+|\/+$/g, '');
   var getEl = function (s) { return document.getElementById(s); };
 
+  // Panel copy built in JS goes through the shared dictionary when it is
+  // available (i18n.js loads before this file).
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
+
   function fieldEls() {
     var out = [];
     var section = document.querySelector('.calc-inputs');
@@ -70,7 +74,7 @@
     if (units && units.indexOf('1 unit') !== 0) parts.push(units);
     var cat = optText('category', s.category);
     if (cat && cat.indexOf('%') >= 0) parts.push(cat);
-    if (!parts.length) parts.push('Saved calculation');
+    if (!parts.length) parts.push(T('ws.savedCalc', 'Saved calculation'));
     return parts.join(' \u00b7 ');
   }
 
@@ -96,7 +100,8 @@
     var store = products();
     var mine = store.products.slice();
     if (!mine.length) {
-      list.innerHTML = '<span class="ws-empty">Save current inputs to pin a product. Your inputs also auto-save on this device.</span>';
+      list.innerHTML = '<span class="ws-empty">'
+        + T('ws.empty', 'Save current inputs to pin a product. Your inputs also auto-save on this device.') + '</span>';
       return;
     }
     list.innerHTML = '';
@@ -107,8 +112,9 @@
       btn.setAttribute('data-id', productId(p));
       var from = p.page && p.page !== PAGE ? fromLabel(p.page) : '';
       btn.title = from
-        ? 'From ' + from + ' \u00b7 only matching fields load here'
-        : 'Load this product';
+        ? T('ws.fromPrefix', 'From ') + from
+          + T('ws.onlyMatching', ' \u00b7 only matching fields load here')
+        : T('ws.loadProduct', 'Load this product');
       var name = document.createElement('span');
       name.className = 'ws-name';
       name.textContent = p.name || defaultName(p.state);
@@ -161,7 +167,7 @@
     render();
 
     if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('save_product');
-    flash(getEl('wsSave'), 'Saved');
+    flash(getEl('wsSave'), T('ws.saved', 'Saved'));
   }
 
   function loadProduct(id) {
@@ -198,7 +204,7 @@
     var p = new URLSearchParams();
     fieldEls().forEach(function (el) { p.set(el.id, el.value); });
     var url = location.origin + location.pathname + '?' + p.toString();
-    var done = function () { flash(btn, 'Copied'); if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('copy_share_link'); };
+    var done = function () { flash(btn, T('ui.copied', 'Copied')); if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('copy_share_link'); };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(done).catch(function () { fallbackCopy(url); done(); });
     } else {
@@ -270,4 +276,7 @@
       }
     }
   });
+  // i18n sets the language after this script runs, so refresh the list it
+  // builds or the pinned-product copy keeps the old language.
+  document.addEventListener('ttcalc:langchange', render);
 })();
