@@ -69,82 +69,82 @@
 </header>
 <main id="main" class="container" style="padding:var(--s-7) 0; max-width:780px;">
   <span data-i18n="eyebrow.privacy" class="eyebrow">Privacy</span>
-  <h1>Privacy Policy</h1>
-  <p><em>Last updated: 2026-09-28.</em></p>
+  <h1 data-i18n="privacy.h1">Privacy Policy</h1>
+  <p><em data-i18n="privacy.updated">Last updated: 2026-09-28.</em></p>
 
-  <h2>Summary</h2>
-  <p>TTCalc calculators process the data you enter locally in your browser. Other features, including AI photo generation, Google sign-in, and analytics, use backend and third-party services.</p>
+  <h2 data-i18n="privacy.h.summary">Summary</h2>
+  <p data-i18n="privacy.summary.p">TTCalc calculators process the data you enter locally in your browser. Other features, including AI photo generation, Google sign-in, and analytics, use backend and third-party services.</p>
 
-  <h2 style="margin-top:var(--s-5);">Local calculators</h2>
-  <p>Financial inputs such as sale price, COGS, fees, weights, ad spend, and expected returns are processed in your browser. TTCalc does not require an account or send calculator inputs to its backend.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.local">Local calculators</h2>
+  <p data-i18n="privacy.local.p">Financial inputs such as sale price, COGS, fees, weights, ad spend, and expected returns are processed in your browser. TTCalc does not require an account or send calculator inputs to its backend.</p>
 
-  <h2 style="margin-top:var(--s-5);">AI photo generation</h2>
-  <p>When you use the AI product photo tool, your prompt and any image you provide are sent through TTCalc's Cloudflare Worker to an image-generation service. The Worker checks daily quota limits. Anonymous quotas are keyed by IP; signed-in quotas are keyed by a Google account identifier. No email address, phone number, full name, or raw JWT is used as a quota key.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.ai">AI photo generation</h2>
+  <p data-i18n="privacy.ai.p">When you use the AI product photo tool, your prompt and any image you provide are sent through TTCalc's Cloudflare Worker to an image-generation service. The Worker checks daily quota limits. Anonymous quotas are keyed by IP; signed-in quotas are keyed by a Google account identifier. No email address, phone number, full name, or raw JWT is used as a quota key.</p>
 
-  <h2 style="margin-top:var(--s-5);">Google sign-in</h2>
-  <p>Optional Google sign-in lets us distinguish your personal photo quota from the shared anonymous quota. Google sends a verified identity token to TTCalc's Worker. The signed session is stored locally in your browser. You can sign out at any time.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.signin">Google sign-in</h2>
+  <p data-i18n="privacy.signin.p">Optional Google sign-in lets us distinguish your personal photo quota from the shared anonymous quota. Google sends a verified identity token to TTCalc's Worker. The signed session is stored locally in your browser. You can sign out at any time.</p>
 
-  <h2 style="margin-top:var(--s-5);">Analytics</h2>
-  <p>TTCalc uses Google Analytics 4 to measure aggregate page views, tool usage, referrers, and conversion events. We do not send calculator financial inputs, generated prompts, or images to GA4.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.analytics">Analytics</h2>
+  <p data-i18n="privacy.analytics.p">TTCalc uses Google Analytics 4 to measure aggregate page views, tool usage, referrers, and conversion events. We do not send calculator financial inputs, generated prompts, or images to GA4.</p>
 
-  <h2 style="margin-top:var(--s-5);">Advertising</h2>
-  <p>TTCalc uses Adsterra to display ads. Adsterra and its partners may use cookies, device identifiers, or similar technologies to serve and measure ads. You can manage cookies through your browser privacy controls and review the <a href="https://adsterra.com/privacy-policy/" target="_blank" rel="noopener">Adsterra Privacy Policy</a>.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.ads">Advertising</h2>
+  <p data-i18n-html="privacy.ads.p">TTCalc uses Adsterra to display ads. Adsterra and its partners may use cookies, device identifiers, or similar technologies to serve and measure ads. You can manage cookies through your browser privacy controls and review the <a href="https://adsterra.com/privacy-policy/" target="_blank" rel="noopener">Adsterra Privacy Policy</a>.</p>
 
-  <h2 style="margin-top:var(--s-5);">Third-party services and sub-processors</h2>
-  <p>These are the only parties that touch data connected to TTCalc, and what each one actually sees:</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.third">Third-party services and sub-processors</h2>
+  <p data-i18n="privacy.third.p">These are the only parties that touch data connected to TTCalc, and what each one actually sees:</p>
   <table class="data-table">
     <thead>
-      <tr><th>Provider</th><th>Role</th><th>Data it processes</th></tr>
+      <tr><th data-i18n="privacy.th.provider">Provider</th><th data-i18n="privacy.th.role">Role</th><th data-i18n="privacy.th.data">Data it processes</th></tr>
     </thead>
     <tbody>
-      <tr><td>Cloudflare, Inc.</td><td>Hosting, CDN, and the Worker that proxies photo requests</td><td>Request metadata (IP address, user agent, requested URL). On photo-tool requests, the prompt and any image you submit.</td></tr>
-      <tr><td>Google LLC</td><td>Optional sign-in; Google Analytics 4</td><td>An identity token on sign-in. Aggregate page views, referrers, and conversion events. No calculator inputs, prompts, or images.</td></tr>
-      <tr><td>Image-generation provider</td><td>Renders the product photo you ask for</td><td>The prompt and image submitted to the photo tool, for the duration of the request.</td></tr>
-      <tr><td>Adsterra</td><td>Advertising — an independent controller, not a sub-processor of ours</td><td>Request and device data used to serve and measure ads. Loaded only after you accept ad cookies.</td></tr>
+      <tr><td data-i18n="privacy.t1.name">Cloudflare, Inc.</td><td data-i18n="privacy.t1.role">Hosting, CDN, and the Worker that proxies photo requests</td><td data-i18n="privacy.t1.data">Request metadata (IP address, user agent, requested URL). On photo-tool requests, the prompt and any image you submit.</td></tr>
+      <tr><td data-i18n="privacy.t2.name">Google LLC</td><td data-i18n="privacy.t2.role">Optional sign-in; Google Analytics 4</td><td data-i18n="privacy.t2.data">An identity token on sign-in. Aggregate page views, referrers, and conversion events. No calculator inputs, prompts, or images.</td></tr>
+      <tr><td data-i18n="privacy.t3.name">Image-generation provider</td><td data-i18n="privacy.t3.role">Renders the product photo you ask for</td><td data-i18n="privacy.t3.data">The prompt and image submitted to the photo tool, for the duration of the request.</td></tr>
+      <tr><td data-i18n="privacy.t4.name">Adsterra</td><td data-i18n="privacy.t4.role">Advertising — an independent controller, not a sub-processor of ours</td><td data-i18n="privacy.t4.data">Request and device data used to serve and measure ads. Loaded only after you accept ad cookies.</td></tr>
     </tbody>
   </table>
-  <p>TTCalc does not sell your personal data, does not share calculator inputs with any of the parties above, and does not run an advertising profile of its own.</p>
+  <p data-i18n="privacy.third.p2">TTCalc does not sell your personal data, does not share calculator inputs with any of the parties above, and does not run an advertising profile of its own.</p>
 
-  <h2 style="margin-top:var(--s-5);">International transfers and the Data Privacy Framework</h2>
-  <p>TTCalc is operated from outside the European Economic Area, and the services above process data in the United States and other countries. Where personal data protected by the GDPR, the UK GDPR, or the Swiss FDPA is transferred out of the EEA, the UK, or Switzerland, we rely on the transfer safeguards our processors maintain.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.transfer">International transfers and the Data Privacy Framework</h2>
+  <p data-i18n="privacy.transfer.p">TTCalc is operated from outside the European Economic Area, and the services above process data in the United States and other countries. Where personal data protected by the GDPR, the UK GDPR, or the Swiss FDPA is transferred out of the EEA, the UK, or Switzerland, we rely on the transfer safeguards our processors maintain.</p>
   <ul>
-    <li><strong>Cloudflare, Inc.</strong> — self-certified under the EU-U.S. Data Privacy Framework (EU-U.S. DPF), the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF). Cloudflare states that, should those certifications lapse or be invalidated, it falls back to the standard contractual clauses.</li>
-    <li><strong>Google LLC</strong> — self-certified under the EU-U.S. DPF (relied on for EEA transfers since 1 September 2023) and, since 16 September 2024, under the UK Extension and the Swiss-U.S. DPF. Google also makes standard contractual clauses available for its advertising and analytics products.</li>
+    <li data-i18n-html="privacy.transfer.li1"><strong>Cloudflare, Inc.</strong> — self-certified under the EU-U.S. Data Privacy Framework (EU-U.S. DPF), the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF). Cloudflare states that, should those certifications lapse or be invalidated, it falls back to the standard contractual clauses.</li>
+    <li data-i18n-html="privacy.transfer.li2"><strong>Google LLC</strong> — self-certified under the EU-U.S. DPF (relied on for EEA transfers since 1 September 2023) and, since 16 September 2024, under the UK Extension and the Swiss-U.S. DPF. Google also makes standard contractual clauses available for its advertising and analytics products.</li>
   </ul>
-  <p><strong>What TTCalc does not claim.</strong> TTCalc is not itself a participant in the Data Privacy Framework. We do not self-certify under it, and we cannot extend a certification we do not hold. The two bullets above describe frameworks our processors are certified under — that is the transfer mechanism our data flows actually depend on, and describing it as our own certification would be inaccurate.</p>
-  <p>Advertising is served by <strong>Adsterra</strong> as an independent controller. TTCalc does not direct how Adsterra or its demand partners transfer data and cannot make transfer commitments on their behalf; see the <a href="https://adsterra.com/privacy-policy/" target="_blank" rel="noopener">Adsterra Privacy Policy</a>. If you would rather have no advertising data processed at all, choose <em>Reject non-essential</em> in the consent banner — the ad frames are then never requested.</p>
+  <p data-i18n-html="privacy.transfer.p2"><strong>What TTCalc does not claim.</strong> TTCalc is not itself a participant in the Data Privacy Framework. We do not self-certify under it, and we cannot extend a certification we do not hold. The two bullets above describe frameworks our processors are certified under — that is the transfer mechanism our data flows actually depend on, and describing it as our own certification would be inaccurate.</p>
+  <p data-i18n-html="privacy.transfer.p3">Advertising is served by <strong>Adsterra</strong> as an independent controller. TTCalc does not direct how Adsterra or its demand partners transfer data and cannot make transfer commitments on their behalf; see the <a href="https://adsterra.com/privacy-policy/" target="_blank" rel="noopener">Adsterra Privacy Policy</a>. If you would rather have no advertising data processed at all, choose <em>Reject non-essential</em> in the consent banner — the ad frames are then never requested.</p>
 
-  <h2 style="margin-top:var(--s-5);">Data retention</h2>
-  <p>Calculator inputs are not stored — they stay in your browser tab and are discarded when you close it. Photo-generation quotas are counters with no associated content: anonymous counters expire daily, and signed-in counters persist only as long as your local session. Generated images are not retained by TTCalc after delivery. Analytics data follows Google Analytics 4 retention settings.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.retention">Data retention</h2>
+  <p data-i18n="privacy.retention.p">Calculator inputs are not stored — they stay in your browser tab and are discarded when you close it. Photo-generation quotas are counters with no associated content: anonymous counters expire daily, and signed-in counters persist only as long as your local session. Generated images are not retained by TTCalc after delivery. Analytics data follows Google Analytics 4 retention settings.</p>
 
-  <h2 style="margin-top:var(--s-5);">Your rights</h2>
-  <p>Depending on where you live, you may have the right to access, correct, delete, or export personal data about you, and to object to or restrict certain processing (for example, rights under the GDPR in the EU/UK, or the CCPA/CPRA in California). Because TTCalc holds no account database and no stored calculator data, there is usually nothing to export or delete beyond what your browser holds locally — clearing site data in your browser removes your local session and preferences.</p>
-  <p>To make a request, or to ask what data a specific feature touched, open an issue at the <a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" target="_blank" rel="noopener">project repository</a>. TTCalc does not knowingly discriminate against users who exercise privacy rights.</p>
-  <p>Withdrawing consent is not a request you have to send us: the <a href="#" data-consent-open>Cookie settings</a> control in the footer withdraws it directly, and the effect is immediate.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.rights">Your rights</h2>
+  <p data-i18n="privacy.rights.p1">Depending on where you live, you may have the right to access, correct, delete, or export personal data about you, and to object to or restrict certain processing (for example, rights under the GDPR in the EU/UK, or the CCPA/CPRA in California). Because TTCalc holds no account database and no stored calculator data, there is usually nothing to export or delete beyond what your browser holds locally — clearing site data in your browser removes your local session and preferences.</p>
+  <p data-i18n-html="privacy.rights.p2">To make a request, or to ask what data a specific feature touched, open an issue at the <a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" target="_blank" rel="noopener">project repository</a>. TTCalc does not knowingly discriminate against users who exercise privacy rights.</p>
+  <p data-i18n-html="privacy.rights.p3">Withdrawing consent is not a request you have to send us: the <a href="#" data-consent-open>Cookie settings</a> control in the footer withdraws it directly, and the effect is immediate.</p>
 
-  <h2 style="margin-top:var(--s-5);">How to complain</h2>
-  <p>If you believe TTCalc has mishandled your data, please raise it through the repository issue tracker first — at this scale it is the fastest route to a real answer, and we will respond.</p>
-  <p>If you are in the EEA, the UK, or Switzerland and are not satisfied with our response, you have the right to lodge a complaint with your national supervisory authority — in the UK, the Information Commissioner's Office (ICO); in Switzerland, the Federal Data Protection and Information Commissioner (FDPIC).</p>
-  <p>Where data was received by one of our processors under the Data Privacy Framework, you may also raise the complaint directly with that processor. Both Cloudflare and Google publish an independent dispute-resolution process for DPF complaints, and that route is available to you whether or not you have contacted us first.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.complain">How to complain</h2>
+  <p data-i18n="privacy.complain.p1">If you believe TTCalc has mishandled your data, please raise it through the repository issue tracker first — at this scale it is the fastest route to a real answer, and we will respond.</p>
+  <p data-i18n="privacy.complain.p2">If you are in the EEA, the UK, or Switzerland and are not satisfied with our response, you have the right to lodge a complaint with your national supervisory authority — in the UK, the Information Commissioner's Office (ICO); in Switzerland, the Federal Data Protection and Information Commissioner (FDPIC).</p>
+  <p data-i18n="privacy.complain.p3">Where data was received by one of our processors under the Data Privacy Framework, you may also raise the complaint directly with that processor. Both Cloudflare and Google publish an independent dispute-resolution process for DPF complaints, and that route is available to you whether or not you have contacted us first.</p>
 
-  <h2 style="margin-top:var(--s-5);">Children's privacy</h2>
-  <p>TTCalc is a business tool intended for sellers aged 18 and over. It is not directed at children, and TTCalc does not knowingly collect personal data from anyone under 16. If you believe a child has submitted data through the photo tool, contact us through the repository above and we will remove it.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.children">Children's privacy</h2>
+  <p data-i18n="privacy.children.p">TTCalc is a business tool intended for sellers aged 18 and over. It is not directed at children, and TTCalc does not knowingly collect personal data from anyone under 16. If you believe a child has submitted data through the photo tool, contact us through the repository above and we will remove it.</p>
 
-  <h2 style="margin-top:var(--s-5);">Cookies and your consent choice</h2>
-  <p>Cookies and similar technologies on TTCalc come from three places: the site's own stored preferences (your language choice and your consent record, both kept in your browser only), Google Analytics measurement, and Adsterra advertising.</p>
-  <p><strong>Analytics and advertising are opt-in.</strong> Until you select <em>Accept all</em> in the consent banner, TTCalc does not load the Google Analytics script or the Adsterra ad frames at all — no request is made to either, so nothing is set. Selecting <em>Reject non-essential</em> leaves every calculator, blog post, and page working exactly as before. The ad space is not simply left blank: it is never inserted.</p>
-  <p>You can change your mind at any time through the <a href="#" data-consent-open>Cookie settings</a> link in the footer of every page. Switching from accepted to rejected reloads the page, which is what stops Google Analytics from continuing to run. Clearing site data in your browser also clears the stored choice, and the banner will ask again on your next visit.</p>
-  <p>Blocking or deleting cookies through your browser settings still works as well, and will not affect any calculator.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.cookies">Cookies and your consent choice</h2>
+  <p data-i18n="privacy.cookies.p1">Cookies and similar technologies on TTCalc come from three places: the site's own stored preferences (your language choice and your consent record, both kept in your browser only), Google Analytics measurement, and Adsterra advertising.</p>
+  <p data-i18n-html="privacy.cookies.p2"><strong>Analytics and advertising are opt-in.</strong> Until you select <em>Accept all</em> in the consent banner, TTCalc does not load the Google Analytics script or the Adsterra ad frames at all — no request is made to either, so nothing is set. Selecting <em>Reject non-essential</em> leaves every calculator, blog post, and page working exactly as before. The ad space is not simply left blank: it is never inserted.</p>
+  <p data-i18n-html="privacy.cookies.p3">You can change your mind at any time through the <a href="#" data-consent-open>Cookie settings</a> link in the footer of every page. Switching from accepted to rejected reloads the page, which is what stops Google Analytics from continuing to run. Clearing site data in your browser also clears the stored choice, and the banner will ask again on your next visit.</p>
+  <p data-i18n="privacy.cookies.p4">Blocking or deleting cookies through your browser settings still works as well, and will not affect any calculator.</p>
 
-  <h2 style="margin-top:var(--s-5);">No financial advice</h2>
-  <p>TTCalc outputs are estimates based on the rate tables and inputs you provide. Fee schedules change, and your actual settlement can differ because of promotions, category rules, returns timing, taxes, and shipping variables the calculators do not model. TTCalc is not a financial, tax, or legal advisor. Verify figures against your own Seller Center statements before making pricing or inventory decisions.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.noAdvice">No financial advice</h2>
+  <p data-i18n="privacy.noAdvice.p">TTCalc outputs are estimates based on the rate tables and inputs you provide. Fee schedules change, and your actual settlement can differ because of promotions, category rules, returns timing, taxes, and shipping variables the calculators do not model. TTCalc is not a financial, tax, or legal advisor. Verify figures against your own Seller Center statements before making pricing or inventory decisions.</p>
 
-  <h2 style="margin-top:var(--s-5);">Who runs this site</h2>
-  <p>TTCalc is an independent project, not affiliated with TikTok or ByteDance, and not affiliated with Amazon. It is operated as a non-commercial reference tool. For questions about this policy, use the public issue tracker linked above.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.who">Who runs this site</h2>
+  <p data-i18n="privacy.who.p">TTCalc is an independent project, not affiliated with TikTok or ByteDance, and not affiliated with Amazon. It is operated as a non-commercial reference tool. For questions about this policy, use the public issue tracker linked above.</p>
 
-  <h2 style="margin-top:var(--s-5);">Changes to this policy</h2>
-  <p>When this policy changes, the "Last updated" date at the top is revised. Material changes will also be noted on the site.</p>
-  <p>This page covers data. The rules for using the site and the calculators &mdash; including what you may do with the output &mdash; are in the <a href="/terms/">Terms of Service</a>.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.changes">Changes to this policy</h2>
+  <p data-i18n="privacy.changes.p">When this policy changes, the "Last updated" date at the top is revised. Material changes will also be noted on the site.</p>
+  <p data-i18n-html="privacy.cross">This page covers data. The rules for using the site and the calculators &mdash; including what you may do with the output &mdash; are in the <a href="/terms/">Terms of Service</a>.</p>
 
 <!-- Adsterra 300x250 + Native -->
 <div class="adsterra-slot adsterra-slot--bottom">
@@ -163,7 +163,7 @@
         <img src="/assets/images/logo.svg" alt="" />
         <span>TTCalc</span>
       </a>
-      <p>Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
+      <p data-i18n="footer.desc">Free TikTok Shop calculator &amp; seller tools. Independent project, not affiliated with TikTok or ByteDance.</p>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.tools">Tools</h4>

@@ -124,63 +124,63 @@
 </header>
 <main id="main" class="container" style="padding:var(--s-7) 0; max-width:780px;">
   <span data-i18n="eyebrow.about" class="eyebrow">About</span>
-  <h1>Why this site exists</h1>
-  <p class="post-lede" style="font-size:1.15rem; color:var(--c-text-secondary); margin-bottom:var(--s-5);">TikTok Shop is one of the fastest-growing marketplaces of 2024&ndash;2026, and most new sellers only know the 6% referral rate shown in Seller Center. The real cost of an order usually includes FBT fulfillment, return handling and, on creator-driven volume, a commission that the seller sets. Added together on a $20 product, that stack reaches 28.6% &mdash; and the first time most sellers see that number is after they have already paid for inventory.</p>
-  <p>TTCalc exists to put that number in front of you before you source. Five tools: a fee calculator that breaks the platform stack out line by line, a profit calculator that adds COGS, shipping, ad spend, creator commission and returns, a break-even ROAS calculator that converts a margin into an ad floor, a side-by-side TikTok vs Amazon FBA comparison, and an AI product photo generator for the listing itself.</p>
+  <h1 data-i18n="about.h1">Why this site exists</h1>
+  <p class="post-lede" style="font-size:1.15rem; color:var(--c-text-secondary); margin-bottom:var(--s-5);" data-i18n="about.lede">TikTok Shop is one of the fastest-growing marketplaces of 2024&ndash;2026, and most new sellers only know the 6% referral rate shown in Seller Center. The real cost of an order usually includes FBT fulfillment, return handling and, on creator-driven volume, a commission that the seller sets. Added together on a $20 product, that stack reaches 28.6% &mdash; and the first time most sellers see that number is after they have already paid for inventory.</p>
+  <p data-i18n="about.p1">TTCalc exists to put that number in front of you before you source. Five tools: a fee calculator that breaks the platform stack out line by line, a profit calculator that adds COGS, shipping, ad spend, creator commission and returns, a break-even ROAS calculator that converts a margin into an ad floor, a side-by-side TikTok vs Amazon FBA comparison, and an AI product photo generator for the listing itself.</p>
 
-  <h2 id="who">Who builds this</h2>
-  <p>TTCalc is built and maintained by L.D. Studio &mdash; an independent developer who sells on TikTok Shop. The site started in 2025 after a product that looked clearly profitable in Seller Center turned out not to be once FBT fulfillment, inbound freight and creator commission were counted properly. The gap was not fraud and not a hidden fee. It was that the dashboard reports what settled, while the decision had been made on a 6% assumption.</p>
+  <h2 id="who" data-i18n="about.h.who">Who builds this</h2>
+  <p data-i18n="about.who.p1">TTCalc is built and maintained by L.D. Studio &mdash; an independent developer who sells on TikTok Shop. The site started in 2025 after a product that looked clearly profitable in Seller Center turned out not to be once FBT fulfillment, inbound freight and creator commission were counted properly. The gap was not fraud and not a hidden fee. It was that the dashboard reports what settled, while the decision had been made on a 6% assumption.</p>
 
   <div class="author-bio" style="margin: var(--s-6) 0; padding: var(--s-4); border-left: 3px solid var(--c-accent); background: var(--c-surface-2); border-radius: 0 var(--r-md) var(--r-md) 0;">
-    <p><strong>Author: L.D. Studio</strong> &middot; Founder &amp; developer</p>
-    <p>Sells on TikTok Shop and builds the tools on this site to answer questions that come up in that work. The calculators are the ones used internally first; they are published because the arithmetic is the same for everyone.</p>
-    <p><strong>Working knowledge:</strong> TikTok Shop fee structure and the 2026 rate card &middot; FBT fulfillment economics and weight-tier selection &middot; creator commission modelling &middot; return cost and refund administration &middot; break-even ROAS and GMV Max budget maths &middot; cross-platform comparison against Amazon FBA.</p>
+    <p data-i18n-html="about.who.author"><strong>Author: L.D. Studio</strong> &middot; Founder &amp; developer</p>
+    <p data-i18n="about.who.p2">Sells on TikTok Shop and builds the tools on this site to answer questions that come up in that work. The calculators are the ones used internally first; they are published because the arithmetic is the same for everyone.</p>
+    <p data-i18n-html="about.who.knowledge"><strong>Working knowledge:</strong> TikTok Shop fee structure and the 2026 rate card &middot; FBT fulfillment economics and weight-tier selection &middot; creator commission modelling &middot; return cost and refund administration &middot; break-even ROAS and GMV Max budget maths &middot; cross-platform comparison against Amazon FBA.</p>
     <p><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source and issue tracker on GitHub &rarr;</a></p>
   </div>
 
-  <h2 id="verification">How the rates are verified</h2>
-  <p>Every fee number on this site comes from the same place: a single shared rate file that all four calculators read from. That file records three things &mdash; the effective date of the rate card, the date it was last checked, and the source. When a rate changes, it changes once, and every calculator and article that depends on it follows.</p>
-  <p>The verification routine behind each update:</p>
+  <h2 id="verification" data-i18n="about.h.verify">How the rates are verified</h2>
+  <p data-i18n="about.verify.p1">Every fee number on this site comes from the same place: a single shared rate file that all four calculators read from. That file records three things &mdash; the effective date of the rate card, the date it was last checked, and the source. When a rate changes, it changes once, and every calculator and article that depends on it follows.</p>
+  <p data-i18n="about.verify.p2">The verification routine behind each update:</p>
   <ul>
-    <li><strong>Start from the platform.</strong> TikTok Shop's own Seller Center fee documentation is the primary source for referral rates, fulfillment tiers, and refund handling.</li>
-    <li><strong>Cross-check independently.</strong> Each revision is compared against multiple independent fee write-ups. Where a figure appears in several unrelated sources, confidence is higher; where sources disagree, we say so rather than picking the convenient number.</li>
-    <li><strong>Record the dates.</strong> Each calculator prints the rate's effective date and the date it was last verified, so you can tell how current a number is without asking.</li>
-    <li><strong>Log every change.</strong> Rate movements are recorded on the <a href="/rate-updates/">rate update log</a> with what changed and what it did to per-unit profit, so an older article's numbers can be reconciled against the current card.</li>
+    <li data-i18n-html="about.verify.li1"><strong>Start from the platform.</strong> TikTok Shop's own Seller Center fee documentation is the primary source for referral rates, fulfillment tiers, and refund handling.</li>
+    <li data-i18n-html="about.verify.li2"><strong>Cross-check independently.</strong> Each revision is compared against multiple independent fee write-ups. Where a figure appears in several unrelated sources, confidence is higher; where sources disagree, we say so rather than picking the convenient number.</li>
+    <li data-i18n-html="about.verify.li3"><strong>Record the dates.</strong> Each calculator prints the rate's effective date and the date it was last verified, so you can tell how current a number is without asking.</li>
+    <li data-i18n-html="about.verify.li4"><strong>Log every change.</strong> Rate movements are recorded on the <a href="/rate-updates/">rate update log</a> with what changed and what it did to per-unit profit, so an older article's numbers can be reconciled against the current card.</li>
   </ul>
-  <p>A worked example of this in practice: the $0.30 per-order transaction fee that older TikTok Shop guides still quote ended when the flat 6% referral rate took effect in April 2024 and no longer exists as a separate charge. Rather than leave it in the calculators as a trusted-looking line item, we removed it everywhere &mdash; calculators, articles, structured data, and the summary files this site publishes for AI crawlers &mdash; and left a note on the rate update page explaining why. A rate that no longer exists is worse than a missing rate, because it is invisible.</p>
+  <p data-i18n="about.verify.p3">A worked example of this in practice: the $0.30 per-order transaction fee that older TikTok Shop guides still quote ended when the flat 6% referral rate took effect in April 2024 and no longer exists as a separate charge. Rather than leave it in the calculators as a trusted-looking line item, we removed it everywhere &mdash; calculators, articles, structured data, and the summary files this site publishes for AI crawlers &mdash; and left a note on the rate update page explaining why. A rate that no longer exists is worse than a missing rate, because it is invisible.</p>
 
-  <h2 id="publish">What we publish, and what we refuse to</h2>
-  <p>A calculator is only as honest as the assumptions behind it. Four rules follow from that:</p>
+  <h2 id="publish" data-i18n="about.h.refuse">What we publish, and what we refuse to</h2>
+  <p data-i18n="about.refuse.p1">A calculator is only as honest as the assumptions behind it. Four rules follow from that:</p>
   <div class="features" style="margin-top:var(--s-4);">
-    <div class="feature"><div class="icon">[ 01 ]</div><h3>No unverified precision</h3><p>Where a figure is published by a vendor, we quote that figure and link to it. Where only a third party reports it, the label says so. We would rather write "the vendor does not publish this" than fill a table with a number that looks authoritative and is not.</p></div>
-    <div class="feature"><div class="icon">[ 02 ]</div><h3>No invented examples presented as data</h3><p>Worked examples on this site are constructed from the published rate card with the assumptions stated on the page. They are illustrations of arithmetic, not surveys, and they are labelled as such. Figures presented as survey results are cited with a source.</p></div>
-    <div class="feature"><div class="icon">[ 03 ]</div><h3>No sponsored tool rankings</h3><p>Comparisons of third-party seller tools are written without affiliate links of any kind. Where we cannot verify a vendor's pricing because it sits behind a login, the comparison says so instead of estimating it.</p></div>
-    <div class="feature"><div class="icon">[ 04 ]</div><h3>No promises about outcomes</h3><p>No tool here finds winning products, guarantees a margin, or predicts a trend. Product research tools show what already sold. A calculator shows what the numbers do under the assumptions you enter. Both are useful for exactly that, and nothing more.</p></div>
+    <div class="feature"><div class="icon">[ 01 ]</div><h3 data-i18n="about.refuse.h1">No unverified precision</h3><p data-i18n="about.refuse.r1">Where a figure is published by a vendor, we quote that figure and link to it. Where only a third party reports it, the label says so. We would rather write "the vendor does not publish this" than fill a table with a number that looks authoritative and is not.</p></div>
+    <div class="feature"><div class="icon">[ 02 ]</div><h3 data-i18n="about.refuse.h2">No invented examples presented as data</h3><p data-i18n="about.refuse.r2">Worked examples on this site are constructed from the published rate card with the assumptions stated on the page. They are illustrations of arithmetic, not surveys, and they are labelled as such. Figures presented as survey results are cited with a source.</p></div>
+    <div class="feature"><div class="icon">[ 03 ]</div><h3 data-i18n="about.refuse.h3">No sponsored tool rankings</h3><p data-i18n="about.refuse.r3">Comparisons of third-party seller tools are written without affiliate links of any kind. Where we cannot verify a vendor's pricing because it sits behind a login, the comparison says so instead of estimating it.</p></div>
+    <div class="feature"><div class="icon">[ 04 ]</div><h3 data-i18n="about.refuse.h4">No promises about outcomes</h3><p data-i18n="about.refuse.r4">No tool here finds winning products, guarantees a margin, or predicts a trend. Product research tools show what already sold. A calculator shows what the numbers do under the assumptions you enter. Both are useful for exactly that, and nothing more.</p></div>
   </div>
 
-  <h2 id="funding">How this site is funded</h2>
-  <p>This matters for trust, so it is stated plainly. TTCalc is free to use, requires no account for the calculators, and carries display advertising to cover hosting and development. There is no affiliate revenue, no sponsored content, and no paid placement anywhere on the site &mdash; including in the tool comparisons, which contain no tracking links.</p>
-  <p>Two consequences worth knowing about:</p>
+  <h2 id="funding" data-i18n="about.h.funded">How this site is funded</h2>
+  <p data-i18n="about.funded.p1">This matters for trust, so it is stated plainly. TTCalc is free to use, requires no account for the calculators, and carries display advertising to cover hosting and development. There is no affiliate revenue, no sponsored content, and no paid placement anywhere on the site &mdash; including in the tool comparisons, which contain no tracking links.</p>
+  <p data-i18n="about.funded.p2">Two consequences worth knowing about:</p>
   <ul>
-    <li><strong>Advertising is disclosed.</strong> Ads are served by a third-party network and their placement and privacy implications are described in the <a href="/privacy/">privacy policy</a>. Ad slots never appear above the calculators, because a slow-loading ad above the fold would cost you more in time than the ad earns.</li>
-    <li><strong>Nothing you type is transmitted.</strong> Every calculator runs in your browser. Your sale price, costs and margins are not sent anywhere, not stored on a server, and not used for anything. Saved products in the profit calculator live in your browser's local storage on your own device. The one exception is the AI photo tool, which necessarily sends the prompt you write to its generation service &mdash; that is described on the tool page and in the privacy policy.</li>
+    <li data-i18n-html="about.funded.li1"><strong>Advertising is disclosed.</strong> Ads are served by a third-party network and their placement and privacy implications are described in the <a href="/privacy/">privacy policy</a>. Ad slots never appear above the calculators, because a slow-loading ad above the fold would cost you more in time than the ad earns.</li>
+    <li data-i18n-html="about.funded.li2"><strong>Nothing you type is transmitted.</strong> Every calculator runs in your browser. Your sale price, costs and margins are not sent anywhere, not stored on a server, and not used for anything. Saved products in the profit calculator live in your browser's local storage on your own device. The one exception is the AI photo tool, which necessarily sends the prompt you write to its generation service &mdash; that is described on the tool page and in the privacy policy.</li>
   </ul>
 
-  <h2 id="corrections">Corrections</h2>
-  <p>If a rate here is out of date, or a calculation is wrong, the fastest route is the <a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" target="_blank" rel="noopener">public issue tracker</a>. Rate errors are treated as urgent, because a wrong fee number is worse than no fee number: it produces confident decisions on bad inputs.</p>
-  <p>When a correction changes a published figure, the page it appeared on is updated and the change is added to the rate update log rather than being quietly overwritten.</p>
+  <h2 id="corrections" data-i18n="about.h.corrections">Corrections</h2>
+  <p data-i18n-html="about.corrections.p1">If a rate here is out of date, or a calculation is wrong, the fastest route is the <a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" target="_blank" rel="noopener">public issue tracker</a>. Rate errors are treated as urgent, because a wrong fee number is worse than no fee number: it produces confident decisions on bad inputs.</p>
+  <p data-i18n="about.corrections.p2">When a correction changes a published figure, the page it appeared on is updated and the change is added to the rate update log rather than being quietly overwritten.</p>
 
-  <h2 id="method">How the calculators are built</h2>
-  <p>All five tools are static pages. There is no application server behind them, which is why they load quickly and work on a phone with a poor connection. The trade-off is deliberate: a calculator that shows its formula and its rate dates is easier to argue with, and disagreement with a number is how the number gets better.</p>
-  <p>Each calculator exposes its method rather than hiding it inside a single output. The <a href="/tools/tiktok-fee-calculator/">fee calculator</a> separates referral fee from fulfillment and from fixed costs. The <a href="/tools/tiktok-profit-calculator/">profit calculator</a> distinguishes net profit per unit from effective profit per unit, because those differ once returns are averaged in. The <a href="/tools/tiktok-roas-calculator/">ROAS calculator</a> reports both the break-even floor and a return-corrected ROAS, since the number in Ads Manager counts orders that later get refunded.</p>
-  <p>That structure is the point. A single "profit" number invites trust it has not earned. A breakdown invites you to check the line you disagree with.</p>
+  <h2 id="method" data-i18n="about.h.built">How the calculators are built</h2>
+  <p data-i18n="about.built.p1">All five tools are static pages. There is no application server behind them, which is why they load quickly and work on a phone with a poor connection. The trade-off is deliberate: a calculator that shows its formula and its rate dates is easier to argue with, and disagreement with a number is how the number gets better.</p>
+  <p data-i18n-html="about.built.p2">Each calculator exposes its method rather than hiding it inside a single output. The <a href="/tools/tiktok-fee-calculator/">fee calculator</a> separates referral fee from fulfillment and from fixed costs. The <a href="/tools/tiktok-profit-calculator/">profit calculator</a> distinguishes net profit per unit from effective profit per unit, because those differ once returns are averaged in. The <a href="/tools/tiktok-roas-calculator/">ROAS calculator</a> reports both the break-even floor and a return-corrected ROAS, since the number in Ads Manager counts orders that later get refunded.</p>
+  <p data-i18n="about.built.p3">That structure is the point. A single "profit" number invites trust it has not earned. A breakdown invites you to check the line you disagree with.</p>
 
-  <h2 id="not">What this site is not</h2>
-  <p>TTCalc is not affiliated with TikTok, ByteDance Ltd., or any of their subsidiaries. TikTok and the TikTok logo are trademarks of ByteDance Ltd. This is an independent tool built by a seller, for sellers.</p>
-  <p>It is also not a substitute for your own account data. Third-party fee guidance and calculators are a way to model a decision before you commit money. Your settlement reports are the record of what actually happened, and where the two disagree, the settlement report is right.</p>
+  <h2 id="not" data-i18n="about.h.not">What this site is not</h2>
+  <p data-i18n="about.not.p1">TTCalc is not affiliated with TikTok, ByteDance Ltd., or any of their subsidiaries. TikTok and the TikTok logo are trademarks of ByteDance Ltd. This is an independent tool built by a seller, for sellers.</p>
+  <p data-i18n="about.not.p2">It is also not a substitute for your own account data. Third-party fee guidance and calculators are a way to model a decision before you commit money. Your settlement reports are the record of what actually happened, and where the two disagree, the settlement report is right.</p>
 
-  <h2 id="start">Where to start</h2>
-  <p>If you are pricing a product before sourcing, start with the <a href="/tools/tiktok-profit-calculator/">profit calculator</a> and read the worked example underneath it. If you are trying to understand why a product that looked fine is not, start with the <a href="/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/">$20 product fee breakdown</a>. If you are deciding whether to advertise at all, the <a href="/blog/tiktok-shop-break-even-roas-formula-2026/">break-even ROAS formula</a> answers that in one division. And if you want to put a calculator on your own site, the <a href="/embed/">embed page</a> has copy-and-paste snippets.</p>
+  <h2 id="start" data-i18n="about.h.start">Where to start</h2>
+  <p data-i18n-html="about.start.p1">If you are pricing a product before sourcing, start with the <a href="/tools/tiktok-profit-calculator/">profit calculator</a> and read the worked example underneath it. If you are trying to understand why a product that looked fine is not, start with the <a href="/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/">$20 product fee breakdown</a>. If you are deciding whether to advertise at all, the <a href="/blog/tiktok-shop-break-even-roas-formula-2026/">break-even ROAS formula</a> answers that in one division. And if you want to put a calculator on your own site, the <a href="/embed/">embed page</a> has copy-and-paste snippets.</p>
 
 <!-- Adsterra 300x250 + Native -->
 <div class="adsterra-slot adsterra-slot--bottom">
@@ -215,7 +215,7 @@
           <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
           <li><a href="/blog/tiktok-shop-fees-2026/" data-i18n="footer.feeGuide">2026 Fee Guide</a></li>
           <li><a href="/rate-updates/" data-i18n="footer.rateUpdates">Rate Updates</a></li>
-          <li><a href="/embed/">Embed a calculator</a></li>
+          <li><a href="/embed/" data-i18n="about.embedLink">Embed a calculator</a></li>
           <li><a href="/about/" data-i18n="footer.about">About</a></li>
         </ul>
       </div>
