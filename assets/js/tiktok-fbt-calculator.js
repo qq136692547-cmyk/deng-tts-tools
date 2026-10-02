@@ -24,9 +24,16 @@
   var CARD_MAX_LB = 16;
 
   var get = function (s) { return document.getElementById(s); };
+
+  // Calculator copy built in JS goes through the shared dictionary when it is
+  // available (i18n.js loads after this file, but always before DOMContentLoaded).
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-  function fmtW(n) { return n >= 1 ? n.toFixed(2) + ' lb' : (n * 16).toFixed(1) + ' oz'; }
+  function fmtW(n) {
+    return n >= 1 ? n.toFixed(2) + T('fbt.unit.lb', ' lb')
+                  : (n * 16).toFixed(1) + T('fbt.unit.oz', ' oz');
+  }
 
   var announceTimer;
   function announce(text) {
@@ -35,6 +42,20 @@
       var el = get('calcSummary');
       if (el) el.textContent = text;
     }, 200);
+  }
+
+  // Weight-tier labels arrive from the rate card as English ranges ('2-3 lb').
+  // TIER_KEYS is index-aligned with BOUNDS/FBT_TIERS, so the tier line reads in
+  // the page language without touching the numbers.
+  var TIER_KEYS = ['le4oz', '4to8oz', '8to12oz', '12to16oz', '1to2lb', '2to3lb',
+                   '3to4lb', '4to5lb', '5to6lb', '6to7lb', '7to8lb', '8to9lb',
+                   '9to10lb', '10to11lb', '11to12lb', '12to13lb', '13to14lb',
+                   '14to15lb', '15to16lb'];
+  function tierName(i) {
+    if (i >= 0 && i < TIER_KEYS.length && TIERS[i]) {
+      return T('fbt.tier.' + TIER_KEYS[i], TIERS[i].label);
+    }
+    return T('fbt.tier.beyond', 'beyond rate card');
   }
 
   function tierIndex(wLb) {
@@ -59,26 +80,26 @@
     var vol = L * W * H;
     var maxSide = Math.max(L, W, H);
     var dim = vol / DIM_DIVISOR;
+    var volTxt = vol.toFixed(0) + T('fbt.unit.cuin', ' in\u00b3');
 
     var basis, chargeable;
     if (wLb <= LIGHT_LB && vol <= LIGHT_VOL) {
       chargeable = wLb;
-      basis = 'Actual weight only - this unit is at or under 2 lb and ' + vol.toFixed(0) +
-              ' in\u00b3 is at or under the 332 in\u00b3 threshold (official rule effective May 1, 2026).';
+      basis = T('fbt.basis.light', 'Actual weight only - this unit is at or under 2 lb and {0} is at or under the 332 in\u00b3 threshold (official rule effective May 1, 2026).').replace('{0}', volTxt);
     } else {
       chargeable = Math.max(wLb, dim);
       basis = dim > wLb
-        ? 'Dimensional weight governs - L\u00d7W\u00d7H\u00f7166 = ' + dim.toFixed(2) + ' lb exceeds the actual ' + fmtW(wLb) + '.'
-        : 'Actual weight governs - ' + fmtW(wLb) + ' exceeds the dimensional ' + dim.toFixed(2) + ' lb.';
+        ? T('fbt.basis.dim', 'Dimensional weight governs - L\u00d7W\u00d7H\u00f7166 = {0} lb exceeds the actual {1}.').replace('{0}', dim.toFixed(2)).replace('{1}', fmtW(wLb))
+        : T('fbt.basis.actual', 'Actual weight governs - {0} exceeds the dimensional {1} lb.').replace('{0}', fmtW(wLb)).replace('{1}', dim.toFixed(2));
     }
 
     // Eligibility warnings straight from the official footnote.
     var warns = [];
-    if (wLb > MAX_LB) warns.push('Actual weight ' + fmtW(wLb) + ' exceeds the 150 lb FBT eligibility limit.');
-    if (maxSide > MAX_SIDE) warns.push('Longest side ' + maxSide.toFixed(0) + ' in exceeds the 108 in FBT eligibility limit.');
+    if (wLb > MAX_LB) warns.push(T('fbt.warn.weight', 'Actual weight {0} exceeds the 150 lb FBT eligibility limit.').replace('{0}', fmtW(wLb)));
+    if (maxSide > MAX_SIDE) warns.push(T('fbt.warn.side', 'Longest side {0} in exceeds the 108 in FBT eligibility limit.').replace('{0}', maxSide.toFixed(0)));
     var tier = tierIndex(chargeable);
     var beyondCard = tier === -1;
-    if (beyondCard) warns.push('Chargeable weight ' + fmtW(chargeable) + ' is above the published per-unit rate card (to 16 lb). Items up to 150 lb are served by the extended heavy/bulky tiers priced on a separate schedule - this calculator does not model them.');
+    if (beyondCard) warns.push(T('fbt.warn.beyond', 'Chargeable weight {0} is above the published per-unit rate card (to 16 lb). Items up to 150 lb are served by the extended heavy/bulky tiers priced on a separate schedule - this calculator does not model them.').replace('{0}', fmtW(chargeable)));
 
     var warnBox = get('fbt_warn');
     if (warnBox) {
@@ -99,15 +120,17 @@
     }
 
     get('r_actual').textContent = fmtW(wLb);
-    get('r_volume').textContent = vol.toFixed(0) + ' in\u00b3';
-    get('r_dim').textContent = dim.toFixed(2) + ' lb';
+    get('r_volume').textContent = volTxt;
+    get('r_dim').textContent = dim.toFixed(2) + T('fbt.unit.lb', ' lb');
     get('r_chargeable').textContent = beyondCard ? fmtW(chargeable) : fmtW(chargeable);
     get('r_basis').textContent = basis;
 
-    var tierLabel = TIERS[tier] ? TIERS[tier].label : 'beyond rate card';
+    var tierLabel = tierName(tier);
     var fee = TIERS[tier] ? TIERS[tier].rates[unitsIdx] : null;
     get('r_tier').textContent = TIERS[tier]
-      ? tierLabel + ' - ' + fmt(fee) + ' per unit' + (unitsIdx > 0 ? ' (multi-unit order)' : '')
+      ? T('fbt.tier.line', '{0} - {1} per unit{2}')
+          .replace('{0}', tierLabel).replace('{1}', fmt(fee))
+          .replace('{2}', unitsIdx > 0 ? T('fbt.tier.multi', ' (multi-unit order)') : '')
       : tierLabel;
 
     // Effective fulfillment cost per unit sold:
@@ -125,9 +148,9 @@
     // Comparison vs your own numbers. Self-ship and 3PL rates have no official
     // schedule - they are whatever you enter (label + packaging, or your 3PL quote).
     var alts = [
-      { name: 'FBT (computed above)', cost: eff, ours: true },
-      { name: 'Self-ship (your rate)', cost: selfShip },
-      { name: '3PL (your rate)', cost: threePL }
+      { name: T('fbt.cmp.fbt', 'FBT (computed above)'), cost: eff, ours: true },
+      { name: T('fbt.cmp.selfShip', 'Self-ship (your rate)'), cost: selfShip },
+      { name: T('fbt.cmp.threePL', '3PL (your rate)'), cost: threePL }
     ];
     var tbody = get('cmp_body');
     if (tbody) {
@@ -139,7 +162,7 @@
       alts.forEach(function (a) {
         var tr = document.createElement('tr');
         if (best && a === best) tr.className = 'scenario-row--max';
-        var label = a.name + (best && a === best ? ' (lowest)' : '');
+        var label = a.name + (best && a === best ? T('fbt.cmp.lowest', ' (lowest)') : '');
         tr.innerHTML = '<td>' + label + '</td><td class="num">' +
           (a.cost === null ? '—' : fmt(a.cost)) + '</td><td class="num">' +
           (a.cost === null ? '—' : fmt(a.cost * monthlyUnits)) + '</td>';
@@ -148,14 +171,17 @@
       var note = get('cmp_note');
       if (note) {
         if (eff === null) {
-          note.textContent = 'Enter a chargeable weight inside the rate card to compare costs.';
+          note.textContent = T('fbt.cmp.enter', 'Enter a chargeable weight inside the rate card to compare costs.');
         } else {
           var fbtDelta = best && !best.ours ? (eff - best.cost) : 0;
           note.textContent = best && best.ours
-            ? 'FBT is the lowest of the three on these inputs - about ' + fmt((Math.min(selfShip, threePL) - eff)) +
-              ' less per unit than the best alternative, or ' + fmt((Math.min(selfShip, threePL) - eff) * monthlyUnits) + ' a month.'
-            : 'The lowest option on these inputs is ' + best.name.toLowerCase() + '. FBT runs ' + fmt(fbtDelta) +
-              ' more per unit here - about ' + fmt(fbtDelta * monthlyUnits) + ' a month. What FBT bundles in: warehouse storage (first 60 days free) and itemized return handling, which you would otherwise handle yourself.';
+            ? T('fbt.cmp.fbtLowest', 'FBT is the lowest of the three on these inputs - about {0} less per unit than the best alternative, or {1} a month.')
+                .replace('{0}', fmt((Math.min(selfShip, threePL) - eff)))
+                .replace('{1}', fmt((Math.min(selfShip, threePL) - eff) * monthlyUnits))
+            : T('fbt.cmp.otherLowest', 'The lowest option on these inputs is {0}. FBT runs {1} more per unit here - about {2} a month. What FBT bundles in: warehouse storage (first 60 days free) and itemized return handling, which you would otherwise handle yourself.')
+                .replace('{0}', best.name.toLowerCase())
+                .replace('{1}', fmt(fbtDelta))
+                .replace('{2}', fmt(fbtDelta * monthlyUnits));
         }
       }
     }
@@ -163,8 +189,13 @@
     var qa = get('qa_weight');
     if (qa) qa.textContent = beyondCard ? fmtW(chargeable) : (TIERS[tier] ? tierLabel : fmtW(chargeable));
 
-    announce('Chargeable weight ' + (chargeable >= 1 ? chargeable.toFixed(2) + ' pounds' : (chargeable * 16).toFixed(1) + ' ounces') +
-      (fee === null ? ', beyond the published rate card.' : ', tier ' + tierLabel + ', ' + fmt(fee) + ' per unit.'));
+    announce(T('fbt.announce', 'Chargeable weight {0}{1}')
+      .replace('{0}', chargeable >= 1
+        ? chargeable.toFixed(2) + T('fbt.unit.pounds', ' pounds')
+        : (chargeable * 16).toFixed(1) + T('fbt.unit.ounces', ' ounces'))
+      .replace('{1}', fee === null
+        ? T('fbt.announce.beyond', ', beyond the published rate card.')
+        : T('fbt.announce.tier', ', tier {0}, {1} per unit.').replace('{0}', tierLabel).replace('{1}', fmt(fee))));
   }
 
   function applyPreset(p) {
@@ -200,4 +231,7 @@
 
     calc();
   });
+  // i18n sets the language after this script runs, and the quick answer's live tier
+  // (span#qa_weight) is re-created by the dictionary swap - so re-render on a switch.
+  document.addEventListener('ttcalc:langchange', calc);
 })();
