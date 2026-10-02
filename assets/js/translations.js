@@ -726,5 +726,14 @@ window.TTCALC_I18N = {
     'tools.photo.useSquare': '商城主图 —— 默认选择',
     'tools.photo.useThreeTwo': '博客与内容页嵌入',
     'tools.photo.useWide': '店铺横幅与广告素材',
+
+    // Homepage close-out: FAQ answer links and footer links (batch 22)
+    'footer.breakEvenRoas': '盈亏平衡 ROAS 公式',
+    'footer.embed': '嵌入计算器',
+    'footer.feeBreakdown': '$20 商品的费用逐项拆解',
+    'footer.geoAudit': 'GEO 审计评分',
+    'home.v5faq.fbtPerUnit': '我们在 <a href="/blog/tiktok-shop-fbt-fee-per-unit-2026/">FBT 单件费用</a> 里把这套算术走了一遍。',
+    'home.v5faq.feeGuide': '在我们的 <a href="/blog/tiktok-shop-fees-2026/">2026 TikTok Shop 费用指南</a> 里有完整拆解。',
+    'home.v5faq.vsAmazon': '完整对比：<a href="/blog/tiktok-shop-vs-amazon-fba-2026/">TikTok Shop 对比亚马逊 FBA</a>。',
 }
 };
