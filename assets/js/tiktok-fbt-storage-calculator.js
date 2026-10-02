@@ -7,6 +7,10 @@
   var IN3_PER_CUFT = 1728;
 
   var get = function (s) { return document.getElementById(s); };
+
+  // Calculator copy built in JS goes through the shared dictionary when it is
+  // available (i18n.js loads before this file).
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function money(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   function cuft(n) { return n < 1 ? n.toFixed(4) : n.toFixed(2); }
@@ -39,7 +43,7 @@
       if (span <= 0) continue;
       var cost = span * t.rate * billableCuft;
       total += cost;
-      rows.push({ label: t.label, days: span, rate: t.rate, cost: cost });
+      rows.push({ from: t.from, label: t.label, days: span, rate: t.rate, cost: cost });
     }
     return { total: total, rows: rows };
   }
@@ -57,10 +61,10 @@
     var billablePerDay = billablePerUnit * units;
 
     var warns = [];
-    if (volIn3 <= 0) warns.push('Enter the packaged length, width and height to price the storage.');
-    if (units <= 0) warns.push('Enter how many units are sitting in the warehouse.');
-    if (days > 0 && days <= 60) warns.push('Day ' + days + ' is inside the 60-day free window - this batch has no storage fee yet.');
-    if (days > 365) warns.push('Past 365 days the card charges its top rate of ' + money(tierAt(366).rate) + ' per cubic foot per day with no further step.');
+    if (volIn3 <= 0) warns.push(T('sto.warn.dims', 'Enter the packaged length, width and height to price the storage.'));
+    if (units <= 0) warns.push(T('sto.warn.units', 'Enter how many units are sitting in the warehouse.'));
+    if (days > 0 && days <= 60) warns.push(T('sto.warn.freeWindow', 'Day {0} is inside the 60-day free window - this batch has no storage fee yet.').replace('{0}', days));
+    if (days > 365) warns.push(T('sto.warn.pastYear', 'Past 365 days the card charges its top rate of {0} per cubic foot per day with no further step.').replace('{0}', money(tierAt(366).rate)));
 
     var warnBox = get('sto_warn');
     if (warnBox) {
@@ -91,7 +95,7 @@
     get('r_bracket').textContent = days <= 0
       ? '\u2014'
       : (here
-          ? here.label + ' \u00b7 ' + money(here.rate) + '/cu ft/day'
+          ? T('sto.tier.' + here.from, here.label) + ' \u00b7 ' + money(here.rate) + T('sto.perCuFtDay', '/cu ft/day')
           : '\u2014');
 
     var tbody = get('bd_body');
@@ -99,14 +103,14 @@
       tbody.innerHTML = '';
       if (!res.rows.length) {
         var tr0 = document.createElement('tr');
-        tr0.innerHTML = '<td colspan="4">Nothing billed yet - enter a volume, a unit count and more than 60 days.</td>';
+        tr0.innerHTML = '<td colspan="4">' + T('sto.table.empty', 'Nothing billed yet - enter a volume, a unit count and more than 60 days.') + '</td>';
         tbody.appendChild(tr0);
       } else {
         res.rows.forEach(function (r) {
           var tr = document.createElement('tr');
-          tr.innerHTML = '<td>' + r.label + (r.days > 0 && r.rate === 0 ? ' (free)' : '') + '</td>' +
+          tr.innerHTML = '<td>' + T('sto.tier.' + r.from, r.label) + (r.days > 0 && r.rate === 0 ? T('sto.row.free', ' (free)') : '') + '</td>' +
             '<td class="num">' + r.days + '</td>' +
-            '<td class="num">' + (r.rate === 0 ? 'Free' : money(r.rate)) + '</td>' +
+            '<td class="num">' + (r.rate === 0 ? T('sto.row.freeRate', 'Free') : money(r.rate)) + '</td>' +
             '<td class="num">' + money(r.cost) + '</td>';
           tbody.appendChild(tr);
         });
@@ -114,7 +118,7 @@
       var note = get('bd_note');
       if (note) {
         note.textContent = res.rows.length
-          ? 'Billed on ' + cuft(billablePerDay) + ' cu ft of warehouse space, every day, sellable and defective units alike.'
+          ? T('sto.basisNote', 'Billed on {0} cu ft of warehouse space, every day, sellable and defective units alike.').replace('{0}', cuft(billablePerDay))
           : 'Rates are per cubic foot per day, applied to the volume you entered.';
       }
     }
@@ -126,7 +130,7 @@
     var carry = get('storageFee');
     if (carry) carry.value = units > 0 ? perUnitCost.toFixed(2) : '';
     get('r_share').textContent = price > 0 && perUnitCost > 0
-      ? (perUnitCost / price * 100).toFixed(1) + '% of one unit\u2019s price'
+      ? T('sto.shareFmt', '{0}% of one unit\u2019s price').replace('{0}', (perUnitCost / price * 100).toFixed(1))
       : '\u2014';
     get('r_free').textContent = money(0);
 
@@ -137,7 +141,7 @@
         var r = storageCost(billablePerDay, d);
         var tr = document.createElement('tr');
         if (d === days) tr.className = 'scenario-row--max';
-        tr.innerHTML = '<td>' + d + ' days' + (d === days ? ' (your inputs)' : '') + '</td>' +
+        tr.innerHTML = '<td>' + T('sto.daysFmt', '{0} days').replace('{0}', d) + (d === days ? T('sto.row.yours', ' (your inputs)') : '') + '</td>' +
           '<td class="num">' + money(r.total) + '</td>' +
           '<td class="num">' + (units > 0 ? money(r.total / units) : '\u2014') + '</td>';
         sens.appendChild(tr);
@@ -148,8 +152,9 @@
     if (qaT) qaT.textContent = money(res.total);
     if (qaU) qaU.textContent = money(perUnitCost);
 
-    announce('Storage cost ' + money(res.total) + ' for ' + units + ' units over ' + days +
-      ' days, about ' + money(perUnitCost) + ' per unit.');
+    announce(T('sto.announce', 'Storage cost {0} for {1} units over {2} days, about {3} per unit.')
+      .replace('{0}', money(res.total)).replace('{1}', units)
+      .replace('{2}', days).replace('{3}', money(perUnitCost)));
   }
 
   function applyPreset(p) {
@@ -179,4 +184,7 @@
 
     calc();
   });
+  // i18n sets the language after this script runs, and the quick answer's
+  // innerHTML is replaced wholesale on a switch - so re-render the live figures.
+  document.addEventListener('ttcalc:langchange', calc);
 })();
