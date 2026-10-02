@@ -2,6 +2,10 @@
   'use strict';
   var R = window.TTCALC_RATES;
   var get = function (s) { return document.getElementById(s); };
+
+  // Calculator copy built in JS goes through the shared dictionary when it is
+  // available (i18n.js loads before this file).
+  function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
   function num(s) { var v = parseFloat(s); return isNaN(v) || v < 0 ? 0 : v; }
   function fmt(n) { var s = n.toFixed(2); return '$' + s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   // Official commission range documented by TikTok's Ads help center:
@@ -69,7 +73,7 @@
     var tr = document.createElement('tr');
     if (highlight) tr.className = 'scenario-row--max';
     tr.innerHTML =
-      '<td>' + pct + '%' + (highlight ? ' (your max)' : '') + '</td>' +
+      '<td>' + pct + '%' + (highlight ? T('cc.row.yourMax', ' (your max)') : '') + '</td>' +
       '<td class="num">-' + fmt(ctx.sale * pct / 100) + '</td>' +
       '<td class="num">' + fmt(eff) + '</td>' +
       '<td class="num">' + margin.toFixed(1) + '%</td>';
@@ -90,15 +94,15 @@
 
     var note = '';
     if (ctx.sale <= 0) {
-      note = 'Enter a sale price to calculate.';
+      note = T('cc.note.noPrice', 'Enter a sale price to calculate.');
     } else if (maxPct < 0) {
-      note = 'Even a 0% commission loses money on these inputs - fix the unit economics first.';
+      note = T('cc.note.negative', 'Even a 0% commission loses money on these inputs - fix the unit economics first.');
     } else if (maxPct === 0) {
-      note = 'The product only breaks even at a 0% commission.';
+      note = T('cc.note.zeroOnly', 'The product only breaks even at a 0% commission.');
     } else if (capped) {
-      note = 'Capped at the official 80% maximum - your unit economics would allow more.';
+      note = T('cc.note.capped', 'Capped at the official {0}% maximum - your unit economics would allow more.').replace('{0}', OFFICIAL_MAX);
     } else {
-      note = 'Official range is 1%' + '\u2013' + OFFICIAL_MAX + '% \u00b7 ~13% is a third-party US average, not an official figure';
+      note = T('cc.note.range', 'Official range is 1%\u2013{0}% \u00b7 ~13% is a third-party US average, not an official figure').replace('{0}', OFFICIAL_MAX);
     }
 
     get('r_max_rate').textContent = maxPct < 0 ? '—' : clamped.toFixed(1) + '%';
@@ -116,13 +120,13 @@
     var marginAtMax = ctx.revenue > 0 ? (effAtMax / ctx.revenue) * 100 : 0;
     get('r_profit_at_max').textContent = fmt(effAtMax);
     get('r_margin_at_max').textContent = marginAtMax.toFixed(1) + '%';
-    get('r_breakeven_rate').textContent = bePct < 0 ? 'none - product loses money at 0%' : bePct.toFixed(1) + '%';
+    get('r_breakeven_rate').textContent = bePct < 0 ? T('cc.be.none', 'none - product loses money at 0%') : bePct.toFixed(1) + '%';
     get('r_profit_at_zero').textContent = fmt(ctx.floor);
     get('r_sample_amort').textContent = fmt(ctx.sampleAmort);
     get('r_monthly_at_max').textContent = fmt(effAtMax * ctx.monthlyUnits);
 
     var qa = get('qa_max');
-    if (qa) qa.textContent = maxPct < 0 ? 'no' : clamped.toFixed(1) + '%';
+    if (qa) qa.textContent = maxPct < 0 ? T('cc.qa.no', 'no') : clamped.toFixed(1) + '%';
 
     var tbody = get('scenario_body');
     if (tbody) {
@@ -140,12 +144,12 @@
       var sn = get('scenario_note');
       if (sn) {
         sn.textContent = maxPct < 0
-          ? 'No commission is affordable on these inputs - every row below loses money once returns are averaged in.'
-          : 'Your maximum rate is highlighted. All rows use the costs you entered; creator commission applies to the item price.';
+          ? T('cc.scenario.none', 'No commission is affordable on these inputs - every row below loses money once returns are averaged in.')
+          : T('cc.scenario.ok', 'Your maximum rate is highlighted. All rows use the costs you entered; creator commission applies to the item price.');
       }
     }
 
-    announce('Maximum affordable creator rate ' + (maxPct < 0 ? 'none' : clamped.toFixed(1) + ' percent') + '.');
+    announce(T('cc.announce', 'Maximum affordable creator rate {0}.').replace('{0}', maxPct < 0 ? T('cc.announce.none', 'none') : clamped.toFixed(1) + T('cc.announce.pct', ' percent')));
   }
 
   function syncTargetMode() {
@@ -192,4 +196,7 @@
 
     calc();
   });
+  // i18n sets the language after this script runs, and the quick answer's live figure
+  // (span#qa_max) is re-created by the dictionary swap - so re-render on a switch.
+  document.addEventListener('ttcalc:langchange', calc);
 })();
