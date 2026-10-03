@@ -1,1 +1,8 @@
-# Google AdSense removed on 2026-09-18.
+# ads.txt — authorized digital sellers for ttcalc.shop
+# Format: https://adstxt.com/
+#
+# AdSense line is added after the publisher ID is issued and the account is
+# approved. Do not add a placeholder ID: a wrong or invented pub- ID is worse
+# than an absent line, because it is a false declaration to the ad exchanges.
+#
+# Currently serving: Adsterra (see /privacy/ for the full disclosure).
