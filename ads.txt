@@ -1,8 +1,12 @@
 # ads.txt — authorized digital sellers for ttcalc.shop
 # Format: https://adstxt.com/
 #
-# AdSense line is added after the publisher ID is issued and the account is
-# approved. Do not add a placeholder ID: a wrong or invented pub- ID is worse
-# than an absent line, because it is a false declaration to the ad exchanges.
+# Google AdSense: the publisher ID below is the one issued for this property
+# and matches the AdSense Account Information page. Never substitute a guessed
+# or placeholder ID — a wrong pub- ID is a false declaration to the ad exchanges
+# and is worse than leaving the line out entirely.
 #
-# Currently serving: Adsterra (see /privacy/ for the full disclosure).
+# Authorized sellers are declared here. Which network actually serves a given
+# page is described in /privacy/.
+
+google.com, pub-1144258736459816, DIRECT, f08c47fec0942fa0
