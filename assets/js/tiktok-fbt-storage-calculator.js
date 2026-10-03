@@ -87,9 +87,9 @@
     var res = storageCost(billablePerDay, days);
     var perUnitCost = units > 0 ? res.total / units : 0;
 
-    get('r_vol_in3').textContent = volIn3 > 0 ? volIn3.toFixed(0) + ' in\u00b3' : '\u2014';
-    get('r_cuft_unit').textContent = perUnit > 0 ? cuft(billablePerUnit) + ' cu ft' : '\u2014';
-    get('r_billable').textContent = units > 0 && perUnit > 0 ? cuft(billablePerDay) + ' cu ft' : '\u2014';
+    get('r_vol_in3').textContent = volIn3 > 0 ? volIn3.toFixed(0) + T('fbt.unit.cuin', ' in\u00b3') : '\u2014';
+    get('r_cuft_unit').textContent = perUnit > 0 ? cuft(billablePerUnit) + T('sto.unit.cuft', ' cu ft') : '\u2014';
+    get('r_billable').textContent = units > 0 && perUnit > 0 ? cuft(billablePerDay) + T('sto.unit.cuft', ' cu ft') : '\u2014';
 
     var here = tierAt(days);
     get('r_bracket').textContent = days <= 0
@@ -119,7 +119,7 @@
       if (note) {
         note.textContent = res.rows.length
           ? T('sto.basisNote', 'Billed on {0} cu ft of warehouse space, every day, sellable and defective units alike.').replace('{0}', cuft(billablePerDay))
-          : 'Rates are per cubic foot per day, applied to the volume you entered.';
+          : T('tools.sto.noteRates', 'Rates are per cubic foot per day, applied to the volume you entered.');
       }
     }
 

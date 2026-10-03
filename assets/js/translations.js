@@ -3438,6 +3438,7 @@ window.TTCALC_I18N = {
     'sto.warn.freeWindow': '第 {0} 天仍在 60 天免费窗口内 —— 这批货目前没有仓储费。',
     'sto.warn.pastYear': '超过 365 天后，费率卡按最高档 {0} 每立方英尺每天计费，不再有进一步阶梯。',
     'sto.warn.units': '填写仓库里有多少件。',
+    'sto.unit.cuft': ' 立方英尺',
     'tools.sto.embedNote': '按你的栏宽调整 <code>height</code>。所有可嵌入的计算器都列在 <a href="/embed/">ttcalc.shop/embed/</a>。',
     'tools.sto.faq1a': 'FBT 仓储费按每天每立方英尺计，前 60 天免费。从第 61 天起费率随库龄递增：61–90 天每立方英尺每天 $0.03，91–120 天 $0.04，121–180 天 $0.06，181–270 天 $0.12，271–365 天 $0.14，超过 365 天 $0.27。这些费率自 2025 年 12 月 15 日起生效。',
     'tools.sto.faq1q': 'TikTok Shop FBT 仓储费是多少？<span class="sign"></span>',
