@@ -5,28 +5,42 @@
   "faqs": [
     {
       "question": "Why is my TikTok Shop profit different from the Seller Center dashboard?",
-      "answer": "The TikTok dashboard shows the gross amount after their 6% commission, but doesn't break out FBT fulfillment, cross-border fees, or creator commission separately. Once you add those, your real take-home is typically 10-15% lower than the dashboard shows."
+      "answer": "The TikTok dashboard shows the gross amount after their 6% commission, but doesn't break out FBT fulfillment, cross-border fees, or creator commission separately. Once you add those, your real take-home is typically 10-15% lower than the dashboard shows.",
+      "question_zh": "为什么我的 TikTok Shop 利润和 Seller Center 后台对不上？",
+      "answer_zh": "TikTok 后台显示的是扣除他们 6% 佣金后的总额，但不会把 FBT 履约、跨境费用、达人佣金单独拆出来。把这些加回去，你实际到手通常比后台显示低 10-15%。"
     },
     {
       "question": "Is 6% the only fee TikTok takes?",
-      "answer": "TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate processing fee. On top of that, you have FBT fulfillment ($4.28-$12.67/unit), cross-border fees (~1%), and creator commission (seller-set, 1-80% official range). For a $30 product with FBT and 10% creator, the real fee stack is $9.32 (31.1%) - not just $1.80 (6%)."
+      "answer": "TikTok's published commission policy documents one commission (6%, 5% for select categories) and lists no separate processing fee. On top of that, you have FBT fulfillment ($4.28-$12.67/unit), cross-border fees (~1%), and creator commission (seller-set, 1-80% official range). For a $30 product with FBT and 10% creator, the real fee stack is $9.32 (31.1%) - not just $1.80 (6%).",
+      "question_zh": "TikTok 只收 6% 这一项费用吗？",
+      "answer_zh": "TikTok 公布的佣金政策只写了一项佣金（6%，部分类目 5%），没有单列处理费。除此之外还有 FBT 履约（$4.28-$12.67/件）、跨境费用（约 1%），以及达人佣金（卖家自定，官方区间 1-80%）。一件 $30 的商品配上 FBT 和 10% 达人佣金，真实费用栈是 $9.32（31.1%），而不只是 $1.80（6%）。"
     },
     {
       "question": "Do I pay creator commission on top of TikTok's fees?",
-      "answer": "Yes. Creator commission is separate from TikTok's referral fee. TikTok lets sellers set commission anywhere from 1% to 80% (the official range). Third-party trackers put the US cross-category average near 13%, but TikTok publishes no official average. Use the Profit Calculator to model different commission scenarios."
+      "answer": "Yes. Creator commission is separate from TikTok's referral fee. TikTok lets sellers set commission anywhere from 1% to 80% (the official range). Third-party trackers put the US cross-category average near 13%, but TikTok publishes no official average. Use the Profit Calculator to model different commission scenarios.",
+      "question_zh": "达人佣金是在 TikTok 费用之外另付吗？",
+      "answer_zh": "是。达人佣金与 TikTok 的推荐费是两回事，独立计算。TikTok 允许卖家把佣金设在 1% 到 80% 之间（官方区间）。第三方追踪工具给出美国全类目均值约 13%，但 TikTok 没有公布官方均值。用利润计算器模拟不同佣金情景。"
     },
     {
       "question": "How much does it cost to start live shopping on TikTok Shop?",
-      "answer": "There is no separate fee for going live on TikTok Shop. You need an active seller account with at least 1,000 followers. The costs come from your standard TikTok Shop fees (6% referral), creator commissions if you hire a host, and any ad spend for pre-promotion."
+      "answer": "There is no separate fee for going live on TikTok Shop. You need an active seller account with at least 1,000 followers. The costs come from your standard TikTok Shop fees (6% referral), creator commissions if you hire a host, and any ad spend for pre-promotion.",
+      "question_zh": "在 TikTok Shop 开播要多少钱？",
+      "answer_zh": "在 TikTok Shop 开播没有单独的费用。你需要有一个粉丝数至少 1,000 的正常卖家账号。成本来自你原本就要付的 TikTok Shop 费用（6% 推荐费）、如果请主播的达人佣金，以及预热投放的广告费。"
     },
     {
       "question": "What products sell best on TikTok Shop?",
-      "answer": "Products in the $20-$60 price range with strong visual appeal perform best. Beauty, fashion accessories, home gadgets, and kitchen tools consistently top sales. The key is that the product must be demonstrable in under 60 seconds."
+      "answer": "Products in the $20-$60 price range with strong visual appeal perform best. Beauty, fashion accessories, home gadgets, and kitchen tools consistently top sales. The key is that the product must be demonstrable in under 60 seconds.",
+      "question_zh": "TikTok Shop 上什么商品最好卖？",
+      "answer_zh": "$20-$60 价格区间、视觉表现力强的商品最好卖。美妆、饰品、家居小工具和厨房用品长期占据销量前列。关键在于商品能不能在 60 秒内演示清楚。"
     },
     {
       "question": "Is TTCalc affiliated with TikTok?",
-      "answer": "No. TTCalc is an independent project built by sellers, for sellers. It is not affiliated with TikTok, ByteDance, or any of their subsidiaries."
+      "answer": "No. TTCalc is an independent project built by sellers, for sellers. It is not affiliated with TikTok, ByteDance, or any of their subsidiaries.",
+      "question_zh": "TTCalc 和 TikTok 有关系吗？",
+      "answer_zh": "没有。TTCalc 是卖家独立做出来、给卖家用的独立项目，与 TikTok、字节跳动及其任何子公司都没有关联。"
     }
   ],
-  "last_updated": "2026-08-05"
+  "last_updated": "2026-08-05",
+  "name_zh": "TTCalc 工具站",
+  "description_zh": "面向 TikTok Shop 卖家的免费工具站：费用、利润、ROAS、FBT 履约与仓储费计算器，以及 AI 商品图生成器。所有计算都在浏览器本地完成。"
 }

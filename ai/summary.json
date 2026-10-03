@@ -12,47 +12,64 @@
     {
       "name": "TikTok Shop Fee Calculator",
       "url": "https://ttcalc.shop/tools/tiktok-fee-calculator/",
-      "description": "Calculate the full TikTok Shop fee stack: 6% referral, FBT fulfillment, creator commissions, refund administration."
+      "description": "Calculate the full TikTok Shop fee stack: 6% referral, FBT fulfillment, creator commissions, refund administration.",
+      "name_zh": "TikTok Shop 费用计算器",
+      "description_zh": "算清完整的 TikTok Shop 费用栈：6% 推荐费、FBT 履约、达人佣金与退款管理费。"
     },
     {
       "name": "TikTok Shop Profit Calculator",
       "url": "https://ttcalc.shop/tools/tiktok-profit-calculator/",
-      "description": "Model net profit per unit after all TikTok fees, COGS, shipping, ad spend, creator commissions, and returns."
+      "description": "Model net profit per unit after all TikTok fees, COGS, shipping, ad spend, creator commissions, and returns.",
+      "name_zh": "TikTok Shop 利润计算器",
+      "description_zh": "在 TikTok 费用、商品成本、运费、广告支出、达人佣金与退货之后，测算每件净利。"
     },
     {
       "name": "TikTok Shop Creator Commission Calculator",
       "url": "https://ttcalc.shop/tools/tiktok-creator-commission-calculator/",
-      "description": "Work backwards from costs and a target margin to the highest creator commission rate a product can afford, against TikTok's official 1-80% range."
+      "description": "Work backwards from costs and a target margin to the highest creator commission rate a product can afford, against TikTok's official 1-80% range.",
+      "name_zh": "TikTok Shop 达人佣金计算器",
+      "description_zh": "从成本结构与目标利润率反解一件商品能承受的最高达人佣金率，对照 TikTok 官方 1-80% 区间。"
     },
     {
       "name": "TikTok Shop FBT Calculator",
       "url": "https://ttcalc.shop/tools/tiktok-fbt-calculator/",
-      "description": "Compute FBT chargeable weight under the official rule, find the fulfillment tier, and compare FBT against self-ship and 3PL quotes."
+      "description": "Compute FBT chargeable weight under the official rule, find the fulfillment tier, and compare FBT against self-ship and 3PL quotes.",
+      "name_zh": "TikTok Shop FBT 计算器",
+      "description_zh": "按官方规则算 FBT 计费重，确定履约档位，并把 FBT 与自发货、3PL 报价对比。"
     },
     {
       "name": "TikTok Shop Storage Fee Calculator",
       "url": "https://ttcalc.shop/tools/tiktok-fbt-storage-calculator/",
-      "description": "Cost of holding FBT inventory by box size, unit count and days held, using the official per-cubic-foot daily storage rate tiers."
+      "description": "Cost of holding FBT inventory by box size, unit count and days held, using the official per-cubic-foot daily storage rate tiers.",
+      "name_zh": "TikTok Shop 仓储费计算器",
+      "description_zh": "按箱规、件数与持有天数算 FBT 库存仓储费，用官方每立方英尺每日仓储费率档。"
     },
     {
       "name": "TikTok vs Amazon FBA",
       "url": "https://ttcalc.shop/tools/tiktok-vs-amazon/",
-      "description": "Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point."
+      "description": "Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point.",
+      "name_zh": "TikTok 与 Amazon FBA 对比",
+      "description_zh": "在同一定价下，并排比较 TikTok Shop 与 Amazon FBA 的费用与利润。"
     },
     {
       "name": "TikTok Shop ROAS Calculator",
       "url": "https://ttcalc.shop/tools/tiktok-roas-calculator/",
-      "description": "Break-even ROAS plus net profit per unit and per month after TikTok fees, COGS, creator commissions, and ad spend."
+      "description": "Break-even ROAS plus net profit per unit and per month after TikTok fees, COGS, creator commissions, and ad spend.",
+      "name_zh": "TikTok Shop ROAS 计算器",
+      "description_zh": "在 TikTok 费用、商品成本、达人佣金与广告支出之后，算出盈亏平衡 ROAS，以及每件与每月净利。"
     },
     {
       "name": "TikTok Shop Product Photo Generator",
       "url": "https://ttcalc.shop/tools/tiktok-product-photo/",
-      "description": "Generate marketplace-ready product photos from a description, with scene and aspect-ratio presets."
+      "description": "Generate marketplace-ready product photos from a description, with scene and aspect-ratio presets.",
+      "name_zh": "TikTok Shop 商品图生成器",
+      "description_zh": "从一段描述生成可直接上架的商品图，附带场景与比例预设。"
     }
   ],
   "rate_updates": {
     "url": "https://ttcalc.shop/rate-updates/",
-    "description": "Dated changelog of every TikTok Shop fee change we track, with effective dates, verified dates and source links"
+    "description": "Dated changelog of every TikTok Shop fee change we track, with effective dates, verified dates and source links",
+    "description_zh": "按日期记录我们追踪到的每一项 TikTok Shop 费用变化 —— 推荐费率、FBT 费率卡、退款管理费 —— 每条都带生效日期、我们核实的日期，以及官方来源链接。"
   },
   "fee_structure": {
     "referral_fee": "6% flat on the buyer's total payment (item price plus any buyer-paid shipping)",
@@ -66,40 +83,136 @@
   "blog_count": 32,
   "blog_index": "https://ttcalc.shop/blog/",
   "blog_topics": [
-    { "title": "Free AI Product Photos for TikTok Shop: A 2026 Workflow", "url": "https://ttcalc.shop/blog/free-ai-product-photos-2026/" },
-    { "title": "TikTok Shop Fees 2026: Complete Breakdown", "url": "https://ttcalc.shop/blog/tiktok-shop-fees-2026/" },
-    { "title": "How to Calculate TikTok Shop Profit Per Unit", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-per-unit-2026/" },
-    { "title": "5 TikTok Shop Profit Killers", "url": "https://ttcalc.shop/blog/tiktok-shop-profit-killers-2026/" },
-    { "title": "TikTok Shop FBT Fulfillment Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fulfillment-guide-2026/" },
-    { "title": "TikTok Shop vs Amazon FBA 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-vs-amazon-fba-2026/" },
-    { "title": "TikTok Shop SEO Guide 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-seo-guide-2026/" },
-    { "title": "TikTok Shop Return Rates & Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-return-rates-cost-2026/" },
-    { "title": "TikTok Shop Taxes 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-taxes-2026/" },
-    { "title": "GMV Max on TikTok Shop 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-gmv-max-2026/" },
-    { "title": "TikTok Shop Affiliate Program 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-affiliate-program-2026/" },
-    { "title": "TikTok Shop Account Health Rating 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-account-health-rating-2026/" },
-    { "title": "TikTok Shop Live Shopping Strategy 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-live-shopping-strategy-2026/" },
-    { "title": "TikTok Shop Product Research 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-product-research-2026/" },
-    { "title": "TikTok Shop Content Strategy 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-content-strategy-2026/" },
-    { "title": "TikTok Shop Seller Tools 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-seller-tools-2026/" },
-    { "title": "TikTok Shop Payment Terms 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-payment-terms-2026/" },
-    { "title": "TikTok Shop Shipping Costs 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-shipping-costs-2026/" },
-    { "title": "TikTok Shop Account Suspension Appeal 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-account-suspension-appeal-2026/" },
-    { "title": "TikTok Shop First Sale Playbook 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/" },
-    { "title": "TikTok Shop Fees on a $20 Product", "url": "https://ttcalc.shop/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/" },
-    { "title": "TikTok Shop FBT Fee Per Unit 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fee-per-unit-2026/" },
-    { "title": "TikTok Shop FBT Dimensional Weight: the 2 lb / 332 in3 Rule (2026)", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-dimensional-weight-2026/" },
-    { "title": "8 TikTok Shop Fee Myths, Checked Against TikTok's Own Pages (2026)", "url": "https://ttcalc.shop/blog/tiktok-shop-fee-myths-2026/" },
-    { "title": "TikTok Shop Dead Stock: When Discounting Beats Waiting (2026)", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-dead-stock-2026/" },
-    { "title": "TikTok Shop FBT Restock Timing: How Much to Send, and How Often (2026)", "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-restock-timing-2026/" },
-
-
-    { "title": "How to Set TikTok Shop Creator Commission in 2026 (Without Losing Money)", "url": "https://ttcalc.shop/blog/tiktok-shop-how-to-set-creator-commission-2026/" },
-    { "title": "Break-Even ROAS Formula 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/" },
-    { "title": "TikTok Shop Fees vs Shopify 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-fees-vs-shopify-2026/" },
-    { "title": "Best TikTok Shop Product Research Tools 2026", "url": "https://ttcalc.shop/blog/best-tiktok-shop-product-research-tools-2026/" },
-    { "title": "FastMoss vs Kalodata 2026", "url": "https://ttcalc.shop/blog/fastmoss-vs-kalodata-2026/" },
-    { "title": "TikTok Shop Payout Methods 2026", "url": "https://ttcalc.shop/blog/tiktok-shop-payout-methods-payoneer-vs-wise-2026/" }
+    {
+      "title": "Free AI Product Photos for TikTok Shop: A 2026 Workflow",
+      "url": "https://ttcalc.shop/blog/free-ai-product-photos-2026/"
+    },
+    {
+      "title": "TikTok Shop Fees 2026: Complete Breakdown",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fees-2026/"
+    },
+    {
+      "title": "How to Calculate TikTok Shop Profit Per Unit",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-profit-per-unit-2026/"
+    },
+    {
+      "title": "5 TikTok Shop Profit Killers",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-profit-killers-2026/"
+    },
+    {
+      "title": "TikTok Shop FBT Fulfillment Costs 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fulfillment-guide-2026/"
+    },
+    {
+      "title": "TikTok Shop vs Amazon FBA 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-vs-amazon-fba-2026/"
+    },
+    {
+      "title": "TikTok Shop SEO Guide 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-seo-guide-2026/"
+    },
+    {
+      "title": "TikTok Shop Return Rates & Costs 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-return-rates-cost-2026/"
+    },
+    {
+      "title": "TikTok Shop Taxes 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-taxes-2026/"
+    },
+    {
+      "title": "GMV Max on TikTok Shop 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-gmv-max-2026/"
+    },
+    {
+      "title": "TikTok Shop Affiliate Program 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-affiliate-program-2026/"
+    },
+    {
+      "title": "TikTok Shop Account Health Rating 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-account-health-rating-2026/"
+    },
+    {
+      "title": "TikTok Shop Live Shopping Strategy 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-live-shopping-strategy-2026/"
+    },
+    {
+      "title": "TikTok Shop Product Research 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-product-research-2026/"
+    },
+    {
+      "title": "TikTok Shop Content Strategy 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-content-strategy-2026/"
+    },
+    {
+      "title": "TikTok Shop Seller Tools 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-seller-tools-2026/"
+    },
+    {
+      "title": "TikTok Shop Payment Terms 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-payment-terms-2026/"
+    },
+    {
+      "title": "TikTok Shop Shipping Costs 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-shipping-costs-2026/"
+    },
+    {
+      "title": "TikTok Shop Account Suspension Appeal 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-account-suspension-appeal-2026/"
+    },
+    {
+      "title": "TikTok Shop First Sale Playbook 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/"
+    },
+    {
+      "title": "TikTok Shop Fees on a $20 Product",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fee-calculator-20-dollar-product-2026/"
+    },
+    {
+      "title": "TikTok Shop FBT Fee Per Unit 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-fee-per-unit-2026/"
+    },
+    {
+      "title": "TikTok Shop FBT Dimensional Weight: the 2 lb / 332 in3 Rule (2026)",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-dimensional-weight-2026/"
+    },
+    {
+      "title": "8 TikTok Shop Fee Myths, Checked Against TikTok's Own Pages (2026)",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fee-myths-2026/"
+    },
+    {
+      "title": "TikTok Shop Dead Stock: When Discounting Beats Waiting (2026)",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-dead-stock-2026/"
+    },
+    {
+      "title": "TikTok Shop FBT Restock Timing: How Much to Send, and How Often (2026)",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fbt-restock-timing-2026/"
+    },
+    {
+      "title": "How to Set TikTok Shop Creator Commission in 2026 (Without Losing Money)",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-how-to-set-creator-commission-2026/"
+    },
+    {
+      "title": "Break-Even ROAS Formula 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-break-even-roas-formula-2026/"
+    },
+    {
+      "title": "TikTok Shop Fees vs Shopify 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-fees-vs-shopify-2026/"
+    },
+    {
+      "title": "Best TikTok Shop Product Research Tools 2026",
+      "url": "https://ttcalc.shop/blog/best-tiktok-shop-product-research-tools-2026/"
+    },
+    {
+      "title": "FastMoss vs Kalodata 2026",
+      "url": "https://ttcalc.shop/blog/fastmoss-vs-kalodata-2026/"
+    },
+    {
+      "title": "TikTok Shop Payout Methods 2026",
+      "url": "https://ttcalc.shop/blog/tiktok-shop-payout-methods-payoneer-vs-wise-2026/"
+    }
   ],
-  "last_updated": "2026-10-02"
+  "last_updated": "2026-10-02",
+  "description_zh": "面向 TikTok Shop 卖家的免费工具站：费用、利润、ROAS、FBT 履约与仓储费计算器，以及 AI 商品图生成器。所有计算都在浏览器本地完成。",
+  "name_zh": "TTCalc 工具站"
 }

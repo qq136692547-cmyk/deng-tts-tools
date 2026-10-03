@@ -55,3 +55,29 @@
 ## About
 
 - [About TTCalc](https://ttcalc.shop/about/): Independent project built by TikTok Shop sellers, for sellers. Not affiliated with TikTok or ByteDance.
+
+## 中文说明
+
+> 面向中文使用者与中文检索的等价入口。所有计算器与正文均支持中文（在页面右下角切换），
+> 数值口径与英文版完全一致。以下描述对应的正文已全部中文化。
+
+### 工具
+
+- [TikTok Shop 费用计算器](https://ttcalc.shop/tools/tiktok-fee-calculator/)：算清完整费用栈 —— 6% 推荐费、FBT 履约、达人佣金、退款管理费。
+- [TikTok Shop 利润计算器](https://ttcalc.shop/tools/tiktok-profit-calculator/)：在费用、商品成本、运费、广告、达人佣金与退货之后，测算每件净利。
+- [TikTok Shop ROAS 计算器](https://ttcalc.shop/tools/tiktok-roas-calculator/)：算盈亏平衡 ROAS，以及每件与每月净利。
+- [TikTok Shop FBT 计算器](https://ttcalc.shop/tools/tiktok-fbt-calculator/)：按官方规则算 FBT 计费重（实重不超过 2 lb 且 332 立方英寸，否则取实重与体积重 LxWxH/166 中的较大者），确定履约档位，并与自发货、3PL 对比。
+- [TikTok Shop 仓储费计算器](https://ttcalc.shop/tools/tiktok-fbt-storage-calculator/)：按箱规、件数与天数算仓储费，用官方每立方英尺每日费率档（前 60 天免费；$0.03 到 $0.27 每立方英尺每天）。
+- [TikTok 与 Amazon FBA 对比](https://ttcalc.shop/tools/tiktok-vs-amazon/)：同一定价下并排比较两个渠道的费用与利润。
+- [TikTok Shop 商品图生成器](https://ttcalc.shop/tools/tiktok-product-photo/)：从描述生成可直接上架的商品图，附带场景与比例预设。
+- [嵌入计算器](https://ttcalc.shop/embed/)：复制一段 iframe 代码，把计算器放到你自己的博客、课程或卖家资源里。免费，无需署名。
+
+### 费率数据
+
+- [TikTok Shop 费率更新日志](https://ttcalc.shop/rate-updates/)：按日期记录 2026 年每一项费用变化 —— 推荐费率、FBT 费率卡、退款管理费 —— 每条都带生效日期、核实日期与官方来源链接。证据分两节：[逐条结论表](https://ttcalc.shop/rate-updates/#claims)与[逐条来源表](https://ttcalc.shop/rate-updates/#sources)。
+
+### 常见问题
+
+- [为什么我的利润和 Seller Center 后台对不上？](https://ttcalc.shop/tools/tiktok-profit-calculator/)：后台只显示扣除 6% 佣金后的总额，不会单独拆出 FBT 履约、跨境费用与达人佣金。加回去后实际到手通常低 10-15%。
+- [TikTok 只收 6% 吗？](https://ttcalc.shop/tools/tiktok-fee-calculator/)：不是。官方政策只有一项佣金（6%，部分类目 5%），此外还有 FBT 履约（$4.28-$12.67/件）、跨境费用（约 1%）与达人佣金（自定 1-80%）。
+- [达人佣金是在 TikTok 费用之外另付吗？](https://ttcalc.shop/tools/tiktok-creator-commission-calculator/)：是，与推荐费独立计算。官方区间 1-80%，第三方统计美国均值约 13%，但 TikTok 未公布官方均值。
