@@ -3161,6 +3161,8 @@ window.TTCALC_I18N = {
     'calc.roas.status.at': '正好在盈亏平衡',
     'calc.roas.status.below': '低于盈亏平衡',
     'calc.roas.status.enter': '请输入报表 ROAS',
+    'va.note.noPrice': '请输入售价以比较两者',
+    'calc.roas.status.noPrice': '请输入售价以计算',
     'calc.roas.status.notProfitable': '广告前就不赚钱',
     'calc.shell.namePlaceholder': '名称（自动）',
     'eyebrow.about': '关于',

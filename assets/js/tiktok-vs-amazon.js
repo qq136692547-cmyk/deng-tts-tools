@@ -61,7 +61,16 @@
     var amzPlacement = num(get('amzPlacement').value);
     var amzLowInv = num(get('amzLowInv').value);
 
-    if (isNaN(sale) || sale <= 0) return;
+    if (isNaN(sale) || sale <= 0) {
+      // Same reasoning as the other calculators: keep the guard, add the explanation.
+      var w0 = get('r_winner');
+      if (w0) {
+        w0.textContent = T('va.note.noPrice', 'Enter a sale price to compare the two.');
+        w0.classList.remove('good', 'bad');
+      }
+      announce(T('va.note.noPrice', 'Enter a sale price to compare the two.'));
+      return;
+    }
 
     // What the buyer pays on each channel: item price plus whatever shipping we charge them.
     // Tax is excluded from both platforms' referral bases and this tool has no tax input.

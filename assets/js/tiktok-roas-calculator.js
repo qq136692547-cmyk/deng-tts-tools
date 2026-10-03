@@ -29,7 +29,17 @@
     var monthlyUnits = num(get('monthlyUnits').value);
     var shipCharged = num(get('shipCharged').value);   // shipping the buyer pays us
 
-    if (isNaN(sale) || sale <= 0) return;
+    if (isNaN(sale) || sale <= 0) {
+      // Do not fall through to the maths on a missing price -- that is what produced
+      // NaN before. Say why the panel is empty instead of leaving the reader guessing.
+      var st0 = get('r_status');
+      if (st0) {
+        st0.textContent = T('calc.roas.status.noPrice', 'Enter a sale price to calculate.');
+        st0.classList.remove('good', 'bad');
+      }
+      announce(T('calc.roas.status.noPrice', 'Enter a sale price to calculate.'));
+      return;
+    }
 
     // What the buyer pays us. TikTok charges the referral fee on this (its commission policy note:
     // "buyer payment includes shipping paid by the buyer"), and it is the same figure the Ads
