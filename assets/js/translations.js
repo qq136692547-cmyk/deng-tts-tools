@@ -2771,6 +2771,7 @@ window.TTCALC_I18N = {
     'contact.whatNotH': '我们帮不了什么',
     'contact.whatNot': 'TTCalc 是独立计算器站点，与 TikTok、字节跳动无关联。我们无法修改你的账号设置，也看不到或改动你的店铺数据。',
     'footer.contact': '联系',
+    'footer.email': '邮件',
     'footer.feeGuide': '2026费用指南',
     'footer.rateUpdates': '费率更新',
     'footer.copyright': '© 2026 TTCalc. 独立工具，与TikTok或字节跳动无关。',
