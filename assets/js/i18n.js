@@ -23,9 +23,37 @@
     try { return localStorage.getItem(LANG_KEY) || ''; } catch (e) { return ''; }
   }
 
+  // Language can also arrive in the URL (?lang=zh), which is the only form that is
+  // shareable: a reader who follows such a link lands on the page already in that
+  // language, instead of having to find the toggle again. It is read on load and
+  // mirrored back with replaceState so the address bar always shows the current
+  // language. replaceState (not pushState) so switching never fills the back button.
+  //
+  // Only the two values the dictionary actually has are honoured. Anything else is
+  // ignored rather than passed on, so a hand-edited ?lang=... cannot reach
+  // localStorage, the <html lang> attribute, or history.
+  function langFromUrl() {
+    try {
+      var v = new URLSearchParams(window.location.search).get('lang');
+      return (v === 'zh' || v === 'en') ? v : '';
+    } catch (e) { return ''; }
+  }
+
+  function langToUrl(lang) {
+    // No history entry: this only annotates the current address.
+    if (!window.history || !window.history.replaceState) return;
+    try {
+      var url = new URL(window.location.href);
+      if (lang === 'zh') url.searchParams.set('lang', 'zh');
+      else url.searchParams.delete('lang');
+      window.history.replaceState(null, '', url.toString());
+    } catch (e) {}
+  }
+
   function setLang(lang) {
     try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
     document.documentElement.lang = lang;
+    langToUrl(lang);
     applyTranslations(lang);
   }
 
@@ -107,9 +135,20 @@
     if (btn) btn.addEventListener('click', toggleLang);
 
     captureOriginals();
+    // Priority: ?lang= in the URL (shareable) > localStorage > browser language.
+    // The URL branch also persists, so a later visit without the parameter keeps
+    // the language. Crawlers request no parameter and carry an en-US
+    // navigator.language, so they keep seeing the untranslated source page.
+    var fromUrl = langFromUrl();
+    if (fromUrl) {
+      setLang(fromUrl);
+      updateBtn(fromUrl);
+      return;
+    }
     var saved = getLang();
     if (saved) {
       document.documentElement.lang = saved;
+      langToUrl(saved);
       applyTranslations(saved);
       updateBtn(saved);
     } else {
