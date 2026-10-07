@@ -2850,6 +2850,7 @@ window.TTCALC_I18N = {
 
     // Cookie consent bar
     'consent.text': '我们使用 Adsterra 的 Cookie 投放广告、使用 Google 的 Cookie 做匿名访问统计。在你做出选择之前，ttcalc.shop 之外的任何资源都不会加载。两种选择下计算器都能正常使用。',
+    'consent.textRow': '本地区默认开启 Adsterra 广告，以维持这些计算器免费。除非你接受，Google Analytics 不会加载。你随时可以关掉广告。',
     'consent.privacy': '隐私政策',
     'consent.reject': '拒绝非必要',
     'consent.accept': '接受全部',
@@ -4120,7 +4121,7 @@ window.TTCALC_I18N = {
     'privacy.complain.p2': '如果你在欧洲经济区、英国或瑞士，且对我们的答复不满意，你有权向所在国的监管机构投诉 —— 英国是信息专员办公室（ICO）；瑞士是联邦数据保护与信息专员（FDPIC）。',
     'privacy.complain.p3': '如果数据是由我们的某个处理方依据数据隐私框架接收的，你也可以直接向该处理方提出投诉。Cloudflare 与 Google 都公布了针对 DPF 投诉的独立争议解决流程，无论你是否先联系过我们，这条途径都对你开放。',
     'privacy.cookies.p1': 'TTCalc 上的 Cookie 及类似技术来自三处：站点自身保存的偏好（你的语言选择和同意记录，两者都只存在你的浏览器里）、Google Analytics 的衡量，以及 Adsterra 的广告。',
-    'privacy.cookies.p2': '<strong>分析与广告都是选择加入的。</strong>在你于同意横幅中选择 <em>接受全部</em> 之前，TTCalc 根本不会加载 Google Analytics 脚本或 Adsterra 广告框架 —— 两者都不会收到任何请求，因此不会写入任何东西。选择 <em>拒绝非必要</em> 之后，每个计算器、每篇博客和每个页面都照常工作。广告位不是被留空：它是根本不会被插入。',
+    'privacy.cookies.p2': '<strong>统计分析在任何地区都是选择加入；广告在欧洲经济区、英国与瑞士是选择加入，在其他地区则是先行告知。</strong>除非你选择 <em>接受全部</em>，本站在任何地区都不会加载 Google Analytics。欧洲经济区、英国与瑞士的访客在那之前也完全不会收到广告请求 —— Adsterra 广告框架不会被插入。其他地区的广告框架则默认加载，以维持计算器免费；选择 <em>拒绝非必要</em> 会立即并永久移除页面上已有的广告框架。两种情况下，每个计算器、每篇博客和每个页面都照常工作。',
     'privacy.cookies.p3': '你可以随时通过每个页面页脚的<a href="#" data-consent-open>Cookie 设置</a>链接改变主意。从"接受"切到"拒绝"会重新加载页面，这正是让 Google Analytics 停止运行的方式。在浏览器里清除站点数据也会清掉已保存的选择，下次访问时横幅会再问一次。',
     'privacy.cookies.p4': '通过浏览器设置屏蔽或删除 Cookie 同样有效，并且不会影响任何计算器。',
     'privacy.cross': '本页讲的是数据。使用本站与这些计算器的规则 —— 包括你可以拿输出结果做什么 —— 在<a href="/terms/">服务条款</a>里。',
@@ -4170,7 +4171,7 @@ window.TTCALC_I18N = {
     'privacy.transfer.li2': '<strong>Google LLC</strong> —— 已根据 EU-U.S. DPF 完成自我认证（自 2023 年 9 月 1 日起用于欧洲经济区的数据传输），并自 2024 年 9 月 16 日起适用英国扩展版与瑞士-美国 DPF。Google 同时为其广告与分析产品提供标准合同条款。',
     'privacy.transfer.p': 'TTCalc 在欧洲经济区之外运营，上述服务会在美国及其他国家处理数据。当受 GDPR、英国 GDPR 或瑞士 FDPA 保护的个人数据被传出欧洲经济区、英国或瑞士时，我们依赖处理方所维持的传输保障机制。',
     'privacy.transfer.p2': '<strong>TTCalc 不作的主张。</strong>TTCalc 本身并非数据隐私框架的参与方。我们不在其下自我认证，也无法延伸一项我们并不持有的认证。上面两条描述的是我们的处理方所获认证的框架 —— 那才是我们的数据流实际依赖的传输机制；把它说成我们自己的认证并不准确。',
-    'privacy.transfer.p3': '广告由 <strong>Adsterra</strong> 作为独立的数据控制者投放。TTCalc 不指挥 Adsterra 或其需求方如何传输数据，也无法代表他们作出传输承诺；详见<a href="https://adsterra.com/privacy-policy/" target="_blank" rel="noopener">Adsterra 隐私政策</a>。如果你希望完全不发生广告数据处理，在同意横幅中选择 <em>拒绝非必要</em> —— 广告框架就根本不会被请求。',
+    'privacy.transfer.p3': '广告由 <strong>Adsterra</strong> 作为独立的数据控制者投放。TTCalc 不指挥 Adsterra 或其需求方如何传输数据，也无法代表他们作出传输承诺；详见<a href="https://adsterra.com/privacy-policy/" target="_blank" rel="noopener">Adsterra 隐私政策</a>。如果你希望完全不发生广告数据处理，在同意横幅中选择 <em>拒绝非必要</em>：已加载的广告框架会当场移除，此后也不会再被请求。',
     'privacy.updated': '最后更新：2026-09-28。',
     'privacy.who.p': 'TTCalc 是一个独立项目，与 TikTok 或字节跳动无关，也与亚马逊无关。它作为非商业的参考工具运营。对本政策有疑问，请使用上面链接的公开问题追踪器。',
     'terms.copyright': '© 2026 TTCalc。独立工具，与 TikTok 或字节跳动无关。',
