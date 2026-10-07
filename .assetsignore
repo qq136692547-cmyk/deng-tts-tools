@@ -1,0 +1,10 @@
+# Cloudflare Pages 上传时排除（语法同 .gitignore）
+#
+# 存在原因：这些目录是本地浏览器验证用的 profile 与工具缓存，
+# 体积几百 MiB，其中单个文件（如 Cache_Data/data_3）超过 Pages 的
+# 25 MiB 单文件上限，会导致 wrangler pages deploy 直接失败。
+# 它们不属于站点内容，.gitignore 已排除，但 wrangler 不看 .gitignore。
+.promo-profile-2026-08-30/
+.playwright-cli/
+.wrangler/
+.git/
