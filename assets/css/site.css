@@ -639,6 +639,15 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 .data-table tr.total td { font-weight: 600; color: var(--ink); border-top: 1px solid var(--line); }
 @media (max-width: 640px) { .data-table { font-size: 13px; } .data-table th, .data-table td { padding: 8px; } }
 
+/* Table scroller: on a 390px screen a 4-5 column table needs 455-582px, so it has
+   to scroll — but the page must not. Two things went wrong without this wrapper:
+   on the content pages the whole document slid sideways (193px on earlier builds),
+   and on the tool pages an ancestor's decorative overflow:hidden clipped the table
+   silently, making the rightmost columns unreachable at all. The wrapper carries
+   the block spacing so the table itself can sit at margin:0 inside the scroller. */
+.table-scroll { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--s-5) 0; }
+.table-scroll > .data-table { margin: 0; }
+
 /* Embed mode ---------------------------------------------------------------
    A calculator page loaded with ?embed=1 is being rendered inside a
    third-party iframe. Strip the chrome - header, footer, ads, and the article

@@ -417,6 +417,14 @@ Newsreader=OFL 1.1，Geist/Geist Mono=MIT。**不引入任何新字体 CDN**；�
 ### 折叠策略
 - 不隐藏关键功能。移动端优先**重排/堆叠**，次选横向滚动，最后才考虑折叠进 Accordion（`.faq` 已是 `<details>` 原生折叠，可复用）。
 - 表格在 `BP-SM` 下：降字号到 13px + 减内边距（`site.css:637` 现做法），**不要**转成卡片式重排（会破坏数据列对齐）。
+- **表格宽度仍超出视口时（4 列以上的表在 390px 下实测需要 455–582px），必须包 `<div class="table-scroll">`**
+  （规则在 `site.css` 的 `.data-table` 块内），让表格在自己的盒子里横向滚动。
+  两种错误做法都真实发生过，别重犯：
+  ① 不包 → 整个文档横向滑动（`/fee-schedule/` 曾溢出 193px）；
+  ② 靠祖先的 `overflow:hidden` 兜底（`body.tool-calc main.tool-calc` 那条是给装饰性背景发光用的）→
+  表格右侧列被**静默裁掉，用户看不到也滚不到**（`tools/tiktok-fee-calculator` 455px 表、
+  `tools/tiktok-vs-amazon` 488px 表各中一次）。
+  wrapper 自带块级间距，表内 `margin:0`，桌面端宽度与不加时**逐值相同**（720px，已实测）。
 - 广告位在 `BP-SM` 下依赖容器横向滚动（`.adsterra-banner overflow-x:auto`），保留固定 width/height 属性以维持 CLS=0。
 
 ### Font Scaling
