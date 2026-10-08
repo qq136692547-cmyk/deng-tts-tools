@@ -160,3 +160,12 @@
     }
   });
 })();
+
+// PWA: register the service worker. Skipped on insecure origins, local file://
+// and embed widgets (small iframes must not grow a controller).
+if ('serviceWorker' in navigator && location.protocol === 'https:' &&
+    !/[?&]embed=1/.test(location.search)) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  });
+}

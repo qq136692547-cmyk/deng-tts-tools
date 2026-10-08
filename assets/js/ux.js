@@ -238,12 +238,92 @@
     }, 900);
   };
 
+  // ---- Mobile sticky result summary ----
+  // On phones the results panel sits about one viewport below the inputs,
+  // so a seller editing a number cannot see the effect. While the real
+  // panel is off-screen this bar mirrors its key totals at the bottom edge.
+  // Desktop and embed mode never show it (CSS + guard below).
+  function initStickyResult() {
+    var panel = document.querySelector('.calc-results');
+    if (!panel) return;
+    var bar = document.createElement('div');
+    bar.className = 'sticky-result';
+    // Duplicated panel content; assistive tech reads the real panel instead.
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+
+    function pickRows() {
+      var rows = panel.querySelectorAll('.calc-result-row');
+      var visible = [];
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        if (r.offsetParent === null) continue; // hidden row (e.g. the $0.00 txn line)
+        var l = r.querySelector('.lbl'), v = r.querySelector('.val');
+        if (!l || !v) continue;
+        visible.push(r);
+      }
+      var picks = [];
+      for (var j = visible.length - 1; j >= 0 && picks.length < 3; j--) {
+        var r2 = visible[j];
+        var txt = r2.querySelector('.lbl').textContent.trim();
+        if (r2.classList.contains('highlight') || txt.charAt(0) === '=') picks.unshift(r2);
+      }
+      if (!picks.length) picks = visible.slice(-2);
+      return picks;
+    }
+
+    function render() {
+      var picks = pickRows();
+      if (!picks.length) { bar.classList.remove('is-on'); return; }
+      bar.textContent = '';
+      for (var i = 0; i < picks.length; i++) {
+        var item = document.createElement('span');
+        item.className = 'sr-item';
+        var k = document.createElement('span');
+        k.className = 'sr-k';
+        k.textContent = picks[i].querySelector('.lbl').textContent.trim().replace(/^[=\u2212-]\s*/, '');
+        var v = document.createElement('span');
+        v.className = 'sr-v';
+        v.textContent = picks[i].querySelector('.val').textContent.trim();
+        item.appendChild(k); item.appendChild(v);
+        bar.appendChild(item);
+      }
+    }
+
+    var tick = false;
+    function update() {
+      tick = false;
+      var r = panel.getBoundingClientRect();
+      var onScreen = r.bottom > 0 && r.top < (window.innerHeight || 800);
+      // Lift the bar above the consent banner while that is open.
+      var consent = document.querySelector('.consent-bar.is-open');
+      bar.style.bottom = consent ? Math.round(consent.getBoundingClientRect().height) + 'px' : '';
+      if (onScreen || document.documentElement.classList.contains('embed-mode')) {
+        bar.classList.remove('is-on');
+        return;
+      }
+      render();
+      bar.classList.add('is-on');
+    }
+    function schedule() {
+      if (!tick) { tick = true; requestAnimationFrame(update); }
+    }
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    if (window.MutationObserver) {
+      new MutationObserver(schedule).observe(panel, { subtree: true, childList: true, characterData: true });
+    }
+    update();
+  }
+
   // ---- Init on DOMContentLoaded ----
   function init() {
     initCountUp();
     initScrollReveal();
     initFaqAccordion();
     initSaleGuard();
+    initStickyResult();
     // Next frame: workspace.js loads after ux.js and fills inputs from the
     // URL, so reading values synchronously here would capture the defaults.
     requestAnimationFrame(syncNextstepLinks);

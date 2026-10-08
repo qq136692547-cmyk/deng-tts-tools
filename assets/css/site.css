@@ -741,3 +741,52 @@ html.consent-open body { padding-bottom: 84px; }
 .warn-list { margin: 4px 0 0; padding-left: 18px; font-size: 13.5px; color: #92400e; }
 .warn-list li { margin-bottom: 4px; }
 .basis-note { display: block; font-size: 12.5px; color: var(--ink-soft); padding: 0 2px; margin: -4px 0 10px; }
+
+/* ── Mobile sticky result summary (ux.js) ────────────────────────────────
+   On phones the results panel sits ~1 viewport below the inputs; this bar
+   keeps the key totals pinned to the bottom edge while the real panel is
+   off-screen. Hidden on desktop and in embed mode (ux.js guards both). */
+.sticky-result {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 880;
+  display: flex; gap: 12px; align-items: stretch;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: var(--surface); border-top: 1px solid var(--line);
+  box-shadow: 0 -10px 30px -20px rgba(0, 0, 0, .4);
+  transform: translateY(110%);
+  transition: transform .25s var(--ease);
+  font-family: var(--font-mono);
+}
+.sticky-result.is-on { transform: translateY(0); }
+.sticky-result .sr-item { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sticky-result .sr-k { font-size: 11px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sticky-result .sr-v { font-size: 14.5px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 641px) { .sticky-result { display: none !important; } }
+
+/* iOS Safari zooms the viewport when an input takes focus at font-size < 16px.
+   Platform-level fix, so platform-level force: every control gets >= 16px on
+   phones regardless of the component's own specificity. */
+@media (max-width: 640px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+
+/* ── Related reading (blog post footer) ───────────────────────────────── */
+.related-posts { margin: var(--s-7) 0 var(--s-5); }
+.related-posts > h2 {
+  font-family: var(--font-mono); font-size: .75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--ink-dim); margin: 0 0 var(--s-4);
+}
+.related-grid { display: grid; gap: 10px; }
+.related-card {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 13px 16px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px;
+  color: var(--ink); text-decoration: none;
+  transition: border-color .15s var(--ease);
+}
+.related-card:hover { border-color: var(--accent); }
+.related-card::after { content: "\2192"; margin-left: auto; color: var(--accent); flex: none; }
+.related-card span {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  font-weight: 600; font-size: .95rem; line-height: 1.45;
+}
