@@ -790,3 +790,70 @@ html.consent-open body { padding-bottom: 84px; }
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   font-weight: 600; font-size: .95rem; line-height: 1.45;
 }
+
+/* Calc affiliate recommendation card */
+.calc-affiliate-box {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: rgba(249, 115, 22, 0.05);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .2s var(--ease), background .2s var(--ease);
+}
+.calc-affiliate-box:hover {
+  background: rgba(249, 115, 22, 0.08);
+  border-color: rgba(249, 115, 22, 0.45);
+}
+.calc-affiliate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--brand-1, #F97316);
+}
+.calc-affiliate-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+.calc-affiliate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+.calc-affiliate-btn:hover {
+  background: var(--brand-1, #F97316);
+  border-color: var(--brand-1, #F97316);
+  color: #0b0f17;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.calc-affiliate-arrow {
+  margin-left: 8px;
+  transition: transform .15s ease;
+}
+.calc-affiliate-btn:hover .calc-affiliate-arrow {
+  transform: translateX(3px);
+}
+.calc-affiliate-disc {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
