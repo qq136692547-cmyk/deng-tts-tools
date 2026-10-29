@@ -105,7 +105,7 @@
     var mfn = $('mfn');
     var s301 = $('s301');
     if (!presetSel) return;
-    presetSel.addEventListener('change', function () {
+    function applyPreset() {
       var val = presetSel.value;
       if (catPresets[val]) {
         var p = catPresets[val];
@@ -119,7 +119,9 @@
         }
         compute();
       }
-    });
+    }
+    presetSel.addEventListener('change', applyPreset);
+    presetSel.addEventListener('input', applyPreset);
   }
 
   // 1-Click transfer to Profit Calculator
