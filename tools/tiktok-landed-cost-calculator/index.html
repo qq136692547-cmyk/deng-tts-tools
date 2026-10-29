@@ -175,6 +175,21 @@
           </div>
 
           <div class="calc-field">
+            <label for="catPreset" data-i18n="lnd.catPreset">Category duty preset (HTS shortcut)</label>
+            <select id="catPreset">
+              <option value="custom" selected data-i18n="lnd.preset.custom">Custom / Manual rates below</option>
+              <option value="elec" data-i18n="lnd.preset.elec">Electronics (MFN 0% + S301 25% = 25%)</option>
+              <option value="beauty" data-i18n="lnd.preset.beauty">Beauty &amp; Personal Care (MFN 3.5% + S301 25% = 28.5%)</option>
+              <option value="home" data-i18n="lnd.preset.home">Home &amp; Kitchenware (MFN 5.0% + S301 25% = 30%)</option>
+              <option value="apparel" data-i18n="lnd.preset.apparel">Apparel &amp; Fashion (MFN 14.0% + S301 25% = 39%)</option>
+              <option value="shoes" data-i18n="lnd.preset.shoes">Footwear &amp; Shoes (MFN 20.0% + S301 25% = 45%)</option>
+              <option value="bags" data-i18n="lnd.preset.bags">Bags &amp; Luggage (MFN 17.5% + S301 25% = 42.5%)</option>
+              <option value="toys" data-i18n="lnd.preset.toys">Toys &amp; Games (MFN 0% + S301 25% = 25%)</option>
+            </select>
+            <div class="hint" data-i18n="lnd.catPresetHint">Quick shortcut for common US HTS chapter combinations under Section 301. You can still adjust individual rates below.</div>
+          </div>
+
+          <div class="calc-field">
             <label for="mfn" data-i18n="lnd.mfn">MFN base duty (%)</label>
             <input type="number" id="mfn" value="0" step="0.1" min="0" />
             <div class="hint" data-i18n="lnd.mfnHint">Column 1 rate of your 10-digit HTS line: 0&ndash;4% for much electronics, 3.4&ndash;8% for many housewares, ~20% for footwear, 10&ndash;32% for apparel.</div>
@@ -203,6 +218,8 @@
           <div class="calc-results-head">
             <span class="calc-results-title" data-i18n="lnd.results">Landed cost</span>
             <button class="copy-results-btn" type="button" data-i18n="calc.shell.copyResults">Copy results</button>
+            <button type="button" class="copy-results-btn" id="btnPrintReport" data-i18n="calc.shell.printReport">🖨️ PDF Report</button>
+            <button type="button" class="copy-results-btn btn-lead-sheets" id="btnOpenSheetsModal" data-i18n="calc.shell.getSheets">📊 Google Sheets Workbook</button>
           </div>
           <div class="calc-result-row"><span class="lbl" data-i18n="lnd.row.base">Duty base (FOB goods value)</span><span class="val" id="r_base">$1,250.00</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="lnd.row.rate">Total duty rate (MFN + 301 + 232/other)</span><span class="val" id="r_rate">25%</span></div>
@@ -211,7 +228,19 @@
           <div class="calc-result-row"><span class="lbl" data-i18n="lnd.row.other">&#8722; Other import fees</span><span class="val" id="r_other">-$0.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl" data-i18n="lnd.row.total">= Total landed cost</span><span class="val" id="r_total">$2,412.50</span></div>
           <div class="calc-result-row highlight"><span class="lbl" data-i18n="lnd.row.unit">= Unit landed cost</span><span class="val" id="r_unit">$4.83</span></div>
-          <div class="calc-result-row group-end"><span class="lbl" data-i18n="lnd.row.dutyunit">&nbsp;&nbsp;duty inside that unit cost</span><span class="val" id="r_dutyunit">$0.63</span></div>
+          <div class="calc-result-row group-end"><span class="lbl" data-i18n="lnd.row.dutyunit">&nbsp;&nbsp;duty inside that unit cost</span><span class="val" id="r_dutyunit">$0.63</span></div>
+          <div class="transfer-box" style="margin:14px 0; padding:12px 14px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:8px; text-align:center;">
+            <div style="font-size:0.85rem; color:var(--c-text-muted,#94a3b8); margin-bottom:8px;" data-i18n="lnd.transfer.desc">Model this landed unit cost on TikTok Shop</div>
+            <button id="btnTransferProfit" type="button" class="btn-primary" style="width:100%; display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; background:var(--c-accent,#38bdf8); color:#0f172a; font-weight:700; font-size:0.9rem; border-radius:6px; border:none; cursor:pointer;">
+              <span data-i18n="lnd.transfer.btn">🚀 Transfer Landed Cost to Profit Calculator &rarr;</span>
+            </button>
+          </div>
+          <div class="transfer-box" style="margin:14px 0; padding:12px 14px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:8px; text-align:center;">
+            <div style="font-size:0.85rem; color:var(--c-text-muted,#94a3b8); margin-bottom:8px;" data-i18n="lnd.transfer.desc">Model this landed unit cost on TikTok Shop</div>
+            <button id="btnTransferProfit" type="button" class="btn-primary" style="width:100%; display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; background:var(--c-accent,#38bdf8); color:#0f172a; font-weight:700; font-size:0.9rem; border-radius:6px; border:none; cursor:pointer;">
+              <span data-i18n="lnd.transfer.btn">🚀 Transfer Landed Cost to Profit Calculator &rarr;</span>
+            </button>
+          </div>
                   <div class="calc-affiliate-box">
             <div class="calc-affiliate-badge">
               <span class="calc-affiliate-icon">★</span>
@@ -370,5 +399,38 @@
 <script defer src="/assets/js/translations.js"></script>
 <script defer src="/assets/js/i18n.js"></script>
 <script defer src="/assets/js/ux.js"></script>
+
+<div class="print-watermark" style="display:none;">
+  TTCalc.shop DDP Landed Cost Report &middot; Verified Post-De Minimis 2026 Tariff Stack &middot; 100% In-Browser Privacy Computation
+</div>
+
+<div class="lead-modal" id="sheetsLeadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none;">
+  <div class="lead-modal-backdrop" id="modalBackdrop"></div>
+  <div class="lead-modal-card">
+    <button type="button" class="lead-modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-badge">Official Template &middot; Nov 2026 Rate Card</div>
+    <h3 class="modal-title" id="modalTitle" data-i18n="lead.modal.title">Download TikTok Shop Multi-SKU Master Workbook</h3>
+    <p class="modal-desc" data-i18n="lead.modal.desc">Manage 50+ SKUs in one spreadsheet. Built with the November 1, 2026 FBT rate card, 16–150 lb tiers, and automated GMV Max break-even formulas.</p>
+    <form id="leadSheetsForm" class="modal-form">
+      <div class="modal-field">
+        <label for="leadEmail" data-i18n="lead.modal.email">Enter your seller email for instant access:</label>
+        <input type="email" id="leadEmail" placeholder="seller@yourstore.com" required autocomplete="email" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-modal-submit" id="btnSubmitLead" data-i18n="lead.modal.submit">
+        Get Instant Google Sheets Access &rarr;
+      </button>
+      <p class="modal-privacy" data-i18n="lead.modal.privacy">100% Zero spam. Direct Google Sheets "Make a Copy" template link opens immediately.</p>
+    </form>
+    <div class="lead-success-box" id="leadSuccessBox" style="display:none;">
+      <div class="success-icon">✓</div>
+      <h4 data-i18n="lead.success.title">Your Workbook is Ready!</h4>
+      <p data-i18n="lead.success.desc">Click below to open your master spreadsheet and make an editable copy in Google Sheets:</p>
+      <a href="https://docs.google.com/spreadsheets/d/1_Example_TTCalc_Nov2026_Master_Workbook/copy" target="_blank" rel="noopener" class="btn btn-primary btn-copy-sheets" data-i18n="lead.success.btn">
+        📊 Open Google Sheets Master Copy &rarr;
+      </a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

@@ -1275,3 +1275,198 @@ html.consent-open body { padding-bottom: 84px; }
     text-align: center;
   }
 }
+
+
+/* ==========================================================================
+   Phase 3: Multi-SKU CSV Batch Profit Calculator & Landed Bridge Styles
+   ========================================================================== */
+.batch-wrapper {
+  margin-top: var(--s-5, 24px);
+}
+.batch-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.batch-kpi-card {
+  background: var(--c-surface-subtle, #1e293b);
+  border: 1px solid var(--c-border, #334155);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.batch-kpi-card .kpi-label {
+  font-size: 0.78rem;
+  color: var(--c-text-muted, #94a3b8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.batch-kpi-card .kpi-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: var(--f-mono, monospace);
+  color: var(--c-text, #f8fafc);
+}
+.text-green { color: #10b981 !important; }
+.text-yellow { color: #f59e0b !important; }
+.text-red { color: #ef4444 !important; }
+
+.batch-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.batch-toolbar-left, .batch-toolbar-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.btn-batch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid var(--c-border, #334155);
+  background: var(--c-surface, #0f172a);
+  color: var(--c-text, #f8fafc);
+  transition: all 0.15s ease;
+}
+.btn-batch:hover {
+  background: var(--c-surface-subtle, #1e293b);
+  border-color: var(--c-accent, #38bdf8);
+}
+.btn-batch-primary {
+  background: var(--c-accent, #38bdf8);
+  color: #0f172a;
+  border-color: var(--c-accent, #38bdf8);
+}
+.btn-batch-primary:hover {
+  background: #7dd3fc;
+}
+
+.batch-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--c-border, #334155);
+  border-radius: 10px;
+  background: var(--c-surface, #0f172a);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.batch-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  min-width: 980px;
+}
+.batch-table th {
+  background: var(--c-surface-subtle, #1e293b);
+  color: var(--c-text-muted, #94a3b8);
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--c-border, #334155);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  white-space: nowrap;
+}
+.batch-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.batch-table tr:hover td {
+  background: rgba(56, 189, 248, 0.04);
+}
+.col-num {
+  text-align: right;
+  font-family: var(--f-mono, monospace);
+}
+.col-center {
+  text-align: center;
+}
+.table-input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  color: var(--c-text, #f8fafc);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.84rem;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+.table-input:focus {
+  outline: none;
+  border-color: var(--c-accent, #38bdf8);
+  background: #0f172a;
+}
+.sku-input { width: 110px; font-family: var(--f-mono, monospace); }
+.name-input { width: 180px; }
+.num-input { width: 72px; text-align: right; font-family: var(--f-mono, monospace); }
+
+.profit-pos { color: #10b981; font-weight: 600; }
+.profit-neg { color: #ef4444; font-weight: 600; }
+
+.margin-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.78rem;
+  font-family: var(--f-mono, monospace);
+}
+.badge-safe { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-moderate { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+.badge-caution { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.badge-risk { background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+
+.roas-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 4px;
+  font-family: var(--f-mono, monospace);
+  font-size: 0.8rem;
+  color: var(--c-text-muted, #94a3b8);
+}
+.btn-del-row {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.btn-del-row:hover {
+  color: #ef4444;
+}
+.empty-state {
+  text-align: center;
+  padding: 40px 20px !important;
+  color: var(--c-text-muted, #94a3b8);
+  font-size: 0.95rem;
+}
+.batch-footer-privacy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--c-text-muted, #94a3b8);
+  padding: 8px 12px;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-radius: 6px;
+}

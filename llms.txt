@@ -9,6 +9,8 @@
 - [TikTok Shop ROAS Calculator](https://ttcalc.shop/tools/tiktok-roas-calculator/): Break-even ROAS plus net profit per unit and per month after TikTok fees, COGS, creator commissions, and ad spend.
 - [TikTok Shop FBT Calculator](https://ttcalc.shop/tools/tiktok-fbt-calculator/): Compute FBT chargeable weight under the official rule (actual weight at or under 2 lb and 332 cu in; otherwise the greater of actual and dimensional weight, LxWxH/166), find your fulfillment tier, and compare FBT with self-ship and 3PL quotes.
 - [TikTok Shop Storage Fee Calculator](https://ttcalc.shop/tools/tiktok-fbt-storage-calculator/): Cost of holding FBT inventory by box size, unit count and days held, using the official per-cubic-foot daily rate tiers (first 60 days free; $0.03 to $0.27 per cu ft per day by age).
+- [TikTok Shop Landed Cost Calculator](https://ttcalc.shop/tools/tiktok-landed-cost-calculator/): Price imports before the platform under the post-de minimis US customs framework. Adds MFN Column 1 duties, China Section 301 tariffs (7.5%–25%), Section 232 metal actions, and customs entry fees down to a per-unit landed cost, with 1-click bridge to calculate net profit on TikTok Shop.
+- [TikTok Shop Multi-SKU Batch Profit Calculator](https://ttcalc.shop/tools/tiktok-batch-calculator/): Client-side batch profit calculator. Upload or paste a catalog CSV (up to 100+ SKUs) to compute net profit, net margin, and GMV Max break-even ROAS across all items simultaneously with instant enriched CSV export.
 - [TikTok vs Amazon FBA](https://ttcalc.shop/tools/tiktok-vs-amazon/): Side-by-side comparison of TikTok Shop and Amazon FBA fees and profit at the same price point.
 - [TikTok Shop Product Photo Generator](https://ttcalc.shop/tools/tiktok-product-photo/): Generate marketplace-ready product photos from a description, with scene and aspect-ratio presets.
 - [Embed a calculator](https://ttcalc.shop/embed/): Copy an iframe snippet to place any of the five calculators on your own blog, course or seller resource. Free, no attribution required.
@@ -37,6 +39,7 @@
 - [Dead Stock: When Discounting Beats Waiting](https://ttcalc.shop/blog/tiktok-shop-fbt-dead-stock-2026/): FBT storage priced per cubic foot per day across eight age tiers; a 400-unit batch worked out tier by tier and the day waiting costs more than discounting.
 - [FBT Restock Timing: How Much to Send, and How Often](https://ttcalc.shop/blog/tiktok-shop-fbt-restock-timing-2026/): the 60-day free window is per unit; sizing a batch to 60 days of sales takes storage to zero, and worked examples for a fast seller and a slow one.
 - [TikTok Shop Return Rates Guide](https://ttcalc.shop/blog/tiktok-shop-return-rates-cost-2026/): Return rates by category and the true cost of returns, including refund admin and June 2026 FBT per-item handling fees.
+- [TikTok Shop Section 301 Tariff Exclusions Expiring 2026](https://ttcalc.shop/blog/tiktok-shop-section-301-tariff-exclusions-expiring-2026/): Analysis of the 178 Section 301 China tariff exclusions expiring November 9, 2026 at 23:59 EST, shifting duties back to 7.5% or 25% and impacting SKU landed costs.
 - [TikTok Shop Taxes 2026](https://ttcalc.shop/blog/tiktok-shop-taxes-2026/): 1099-K threshold ($20,000+200tx), marketplace facilitator sales tax, deductible fees.
 - [FBT Fulfillment Costs 2026](https://ttcalc.shop/blog/tiktok-shop-fbt-fulfillment-guide-2026/): Fulfilled by TikTok fee tiers, storage, and comparison vs self-fulfillment and Amazon FBA.
 - [TikTok Shop vs Amazon FBA 2026](https://ttcalc.shop/blog/tiktok-shop-vs-amazon-fba-2026/): Complete fee and profit comparison with real $30 product examples.
@@ -81,3 +84,6 @@
 - [为什么我的利润和 Seller Center 后台对不上？](https://ttcalc.shop/tools/tiktok-profit-calculator/)：后台只显示扣除 6% 佣金后的总额，不会单独拆出 FBT 履约、跨境费用与达人佣金。加回去后实际到手通常低 10-15%。
 - [TikTok 只收 6% 吗？](https://ttcalc.shop/tools/tiktok-fee-calculator/)：不是。官方政策只有一项佣金（6%，部分类目 5%），此外还有 FBT 履约（$4.28-$12.67/件）、跨境费用（约 1%）与达人佣金（自定 1-80%）。
 - [达人佣金是在 TikTok 费用之外另付吗？](https://ttcalc.shop/tools/tiktok-creator-commission-calculator/)：是，与推荐费独立计算。官方区间 1-80%，第三方统计美国均值约 13%，但 TikTok 未公布官方均值。
+
+- [2026 年美国取消 800 美元小额豁免（De Minimis）后，跨境卖家该怎么算利润？](https://ttcalc.shop/tools/tiktok-landed-cost-calculator/)：小额豁免已彻底终结，所有进口包裹均须申报 10 位 HTS 编码并缴纳 MFN 关税与 301 条款关税（常见税率 25%~45%）。卖家必须先通过落地成本计算器测算 DDP 关税与头程运费，再转入利润计算器作为真实 COGS。
+- [如何一次性测算几十个或上百个选品 SKU 的利润与保本 ROAS？](https://ttcalc.shop/tools/tiktok-batch-calculator/)：使用 Multi-SKU 批量计算器，直接上传 CSV 或加载示例，浏览器本地毫秒级跑出每个 SKU 的净利润、毛利率与 GMV Max 保本 ROAS，并支持一键导出包含全部费率明细的完整表格。

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TikTok Shop Multi-SKU Batch Profit Calculator (CSV Batch Analysis) | TTCalc</title>
+<script>window.__ttcalcGA='G-GZBDCFNMTN';</script>
+<meta name="description" content="Free multi-SKU batch profit calculator for TikTok Shop sellers. Upload a catalog CSV to calculate net profit, net margins, and GMV Max break-even ROAS across 100+ SKUs. 100% in-browser." />
+<meta name="keywords" content="tiktok shop batch profit calculator, multi sku tiktok shop calculator, tiktok shop csv profit margin, gmv max break even batch" />
+<link rel="canonical" href="https://ttcalc.shop/tools/tiktok-batch-calculator/" />
+<meta property="og:title" content="TikTok Shop Multi-SKU Batch Profit Calculator" />
+<meta property="og:description" content="Calculate net profit, margins, and GMV Max break-even ROAS for 100+ SKUs at once via CSV. 100% private in-browser computation." />
+<meta property="og:url" content="https://ttcalc.shop/tools/tiktok-batch-calculator/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="TTCalc" />
+<meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="TikTok Shop Multi-SKU Batch Profit Calculator" />
+<meta name="twitter:description" content="Batch calculate TikTok Shop profits, FBT fulfillment, commissions, and ROAS floor for your whole catalog." />
+<meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="preload" href="/assets/css/site.css" as="style" />
+<script>if(/[?&]embed=1/.test(location.search))document.documentElement.classList.add('embed-mode');</script>
+<link rel="stylesheet" href="/assets/css/site.css" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TikTok Shop Multi-SKU Batch Profit Calculator",
+  "url": "https://ttcalc.shop/tools/tiktok-batch-calculator/",
+  "description": "Free multi-SKU batch profit calculator for TikTok Shop. Model catalog-level net profits, margins, and GMV Max break-even ROAS with client-side CSV analysis.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://ttcalc.shop/tools/tiktok-batch-calculator/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ttcalc.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ttcalc.shop/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Multi-SKU Batch Calculator", "item": "https://ttcalc.shop/tools/tiktok-batch-calculator/" }
+  ]
+}
+</script>
+</head>
+<body class="tool-calc">
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="/assets/images/logo.svg" alt="" />
+      <span>TTCalc</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a>
+      <a href="/tools/tiktok-profit-calculator/" data-i18n="nav.profit">Profit</a>
+      <a href="/tools/tiktok-roas-calculator/" data-i18n="nav.roas">ROAS</a>
+      <a href="/tools/tiktok-batch-calculator/" class="active" aria-current="page" data-i18n="nav.batch">Batch Mode</a>
+      <a href="/tools/tiktok-vs-amazon/" data-i18n="nav.vsAmazon">vs Amazon FBA</a>
+      <a href="/blog/" data-i18n="nav.blog">Blog</a>
+
+      <button id="lang-toggle" class="lang-toggle" aria-label="切换到中文">中文</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="tool-calc">
+  <div class="container">
+    <div class="tool-header">
+      <span class="eyebrow" data-i18n-html="eyebrow.batchMode"><span class="dot"></span> <span>Multi-SKU Engine &middot; November 2026</span></span>
+      <h1 data-i18n="tools.batch.h1">TikTok Shop Multi-SKU Batch Profit Calculator</h1>
+      <p class="subtitle" data-i18n="tools.batch.lede">Test 20 to 100+ SKUs in one go. Import via CSV, calculate fees, profit margins, and GMV Max break-even ROAS per unit — 100% computed inside your browser memory.</p>
+    </div>
+
+    <!-- Portfolio KPI Dashboard -->
+    <div class="batch-kpi-grid">
+      <div class="batch-kpi-card">
+        <span class="kpi-label" data-i18n="batch.kpi.count">Total Catalog SKUs</span>
+        <span class="kpi-val" id="kpiSkuCount">10 SKUs</span>
+      </div>
+      <div class="batch-kpi-card">
+        <span class="kpi-label" data-i18n="batch.kpi.revenue">Projected Revenue (50 units)</span>
+        <span class="kpi-val" id="kpiGrossRev">$11,847.00</span>
+      </div>
+      <div class="batch-kpi-card">
+        <span class="kpi-label" data-i18n="batch.kpi.profit">Projected Net Profit</span>
+        <span class="kpi-val text-green" id="kpiNetProfit">+$3,412.50</span>
+      </div>
+      <div class="batch-kpi-card">
+        <span class="kpi-label" data-i18n="batch.kpi.margin">Blended Net Margin</span>
+        <span class="kpi-val text-green" id="kpiBlendedMargin">28.8%</span>
+      </div>
+      <div class="batch-kpi-card">
+        <span class="kpi-label" data-i18n="batch.kpi.health">Catalog Health Ratio</span>
+        <span class="kpi-val" id="kpiHealthRatio"><span class="text-green">9 Safe</span> / <span class="text-red">1 At Risk</span></span>
+      </div>
+    </div>
+
+    <!-- Batch Workbench Window -->
+    <div class="calc-window" style="max-width:100%;">
+      <div class="calc-titlebar">
+        <div class="traffic"><span></span><span></span><span></span></div>
+        <span class="calc-name">ttcalc &mdash; batch-calculator.js</span>
+        <span class="calc-badge" data-i18n="calc.shell.batchBadge">Multi-SKU Mode</span>
+      </div>
+      <div class="calc-body" style="display:block; padding:18px;">
+        <!-- Toolbar -->
+        <div class="batch-toolbar">
+          <div class="batch-toolbar-left">
+            <button type="button" class="btn-batch" id="btnDownloadTemplate" data-i18n="batch.btn.template">
+              📁 Download CSV Template
+            </button>
+            <label class="btn-batch btn-batch-primary" style="margin-bottom:0; cursor:pointer;">
+              📥 <span data-i18n="batch.btn.upload">Upload Catalog CSV</span>
+              <input type="file" id="csvFileInput" accept=".csv,text/csv" style="display:none;" />
+            </label>
+            <button type="button" class="btn-batch" id="btnLoadDemo" data-i18n="batch.btn.demo">
+              ⚡ Load 10 Demo SKUs
+            </button>
+            <button type="button" class="btn-batch" id="btnAddRow" data-i18n="batch.btn.addRow">
+              + Add SKU Row
+            </button>
+          </div>
+          <div class="batch-toolbar-right">
+            <button type="button" class="btn-batch" id="btnExportCSV" data-i18n="batch.btn.export">
+              📤 Export Enriched CSV
+            </button>
+            <button type="button" class="copy-results-btn" id="btnPrintReport" data-i18n="calc.shell.printReport">
+              🖨️ PDF Report
+            </button>
+            <button type="button" class="copy-results-btn btn-lead-sheets" id="btnOpenSheetsModal" data-i18n="calc.shell.getSheets">
+              📊 Google Sheets Template
+            </button>
+            <button type="button" class="btn-batch" id="btnClearBatch" style="color:#ef4444;" data-i18n="batch.btn.clear">
+              🗑️ Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Container -->
+        <div class="batch-table-container">
+          <table class="batch-table">
+            <thead>
+              <tr>
+                <th class="col-center">#</th>
+                <th data-i18n="batch.th.sku">SKU Code</th>
+                <th data-i18n="batch.th.name">Product Name</th>
+                <th class="col-num" data-i18n="batch.th.price">Sale ($)</th>
+                <th class="col-num" data-i18n="batch.th.cogs">COGS ($)</th>
+                <th class="col-num" data-i18n="batch.th.weight">Weight (oz)</th>
+                <th class="col-num" data-i18n="batch.th.comm">Creator %</th>
+                <th class="col-num" data-i18n="batch.th.return">Return %</th>
+                <th class="col-num" data-i18n="batch.th.fees">Fees ($)</th>
+                <th class="col-num" data-i18n="batch.th.netProfit">Net Profit</th>
+                <th class="col-num" data-i18n="batch.th.margin">Margin</th>
+                <th class="col-center" data-i18n="batch.th.roas">Break-Even ROAS</th>
+                <th class="col-center">Del</th>
+              </tr>
+            </thead>
+            <tbody id="batchTableBody">
+              <!-- Rendered via batch-calculator.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Privacy & Security Notice -->
+        <div class="batch-footer-privacy">
+          <span>🛡️</span>
+          <span data-i18n="batch.privacy.notice">
+            <strong>100% In-Browser Privacy Guarantee:</strong> Your SKU names, supplier COGS, and pricing margins are computed strictly in your local browser memory. Zero rows are ever transmitted or saved to external servers.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Explanatory Guide Section -->
+    <section style="margin-top:var(--s-7, 36px);">
+      <div class="section-header">
+        <h2 data-i18n="batch.guide.h2">How to Use Multi-SKU Batch Analysis for Product Selection</h2>
+        <span class="section-tag">01 / workflow</span>
+      </div>
+      <div class="tool-prose">
+        <p data-i18n-html="batch.guide.p1">
+          When sourcing catalogs from 1688, Taobao, or product research platforms like FastMoss and Kalodata, evaluating items one by one creates bottlenecks. This batch engine runs the complete <strong>TikTok Shop US fee stack (effective November 1, 2026)</strong> across your entire product list in milliseconds:
+        </p>
+        <ul>
+          <li data-i18n-html="batch.guide.li1"><strong>6% Referral Fee:</strong> Standard category commission modeled on gross selling price.</li>
+          <li data-i18n-html="batch.guide.li2"><strong>FBT 150 lb Tiers:</strong> Auto-matched fulfillment fee based on package weight (from &le;4 oz at $4.28 up to 150 lb oversize tiers).</li>
+          <li data-i18n-html="batch.guide.li3"><strong>Creator Commission &amp; Returns:</strong> Blended affiliate commission plus refund admin and non-resellable inventory loss.</li>
+          <li data-i18n-html="batch.guide.li4"><strong>GMV Max Floor:</strong> Reverse-engineered break-even ROAS threshold so media buyers know the minimum ad return required to remain profitable.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="margin-top:var(--s-6, 32px);">
+      <div class="section-header">
+        <h2 data-i18n="section.faq">Frequently Asked Questions</h2>
+        <span class="section-tag">02 / faq</span>
+      </div>
+      <div class="tool-prose">
+        <h3 data-i18n="batch.faq.q1">What columns does the CSV need?</h3>
+        <p data-i18n="batch.faq.a1">The easiest method is clicking "Download CSV Template". The parser accepts: SKU, Product Name, Sale Price, COGS, Weight in oz, Creator Commission %, and Return Rate %. Column headers are detected automatically.</p>
+
+        <h3 data-i18n="batch.faq.q2">Is my product pricing data confidential?</h3>
+        <p data-i18n="batch.faq.a2">Yes, completely. Unlike server-side SaaS tools, TTCalc's batch engine executes entirely client-side using JavaScript FileReader. Disconnecting your internet connection will not stop calculations from working.</p>
+
+        <h3 data-i18n="batch.faq.q3">Can I export the calculated breakdown back to Excel?</h3>
+        <p data-i18n="batch.faq.a3">Yes. Click "Export Enriched CSV" to generate an updated spreadsheet with every fee line, net profit per unit, margin percentage, and GMV Max target ROAS.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-privacy-badge">
+    <span class="badge-shield">🛡️</span>
+    <span data-i18n="footer.privacyBadge">100% Zero Ads &middot; 100% In-Browser Privacy &mdash; your pricing and margins never touch any server.</span>
+  </div>
+  <div class="wrap footer-cols">
+    <div class="footer-col">
+      <h4 data-i18n="footer.calculators">Calculators</h4>
+      <ul>
+        <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
+        <li><a href="/tools/tiktok-profit-calculator/" data-i18n="nav.profit">Profit Calculator</a></li>
+        <li><a href="/tools/tiktok-roas-calculator/" data-i18n="nav.roas">ROAS Calculator</a></li>
+        <li><a href="/tools/tiktok-batch-calculator/" data-i18n="nav.batch">Batch Calculator</a></li>
+        <li><a href="/tools/tiktok-landed-cost-calculator/" data-i18n="tools.lnd.h1">Landed Cost Calculator</a></li>
+        <li><a href="/tools/tiktok-vs-amazon/" data-i18n="nav.vsAmazon">vs Amazon FBA</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.resources">Resources</h4>
+      <ul>
+        <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="/rate-updates/" data-i18n="footer.rateUpdates">Rate Updates</a></li>
+        <li><a href="/about/" data-i18n="footer.about">About</a></li>
+        <li><a href="/terms/" data-i18n="footer.terms">Terms</a></li>
+        <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">
+    <span data-i18n="footer.copyright">&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
+  </p>
+</footer>
+
+<div class="print-watermark" style="display:none;">
+  TTCalc.shop Multi-SKU Catalog Analysis Report &middot; Official Rate Card November 2026 &middot; 100% In-Browser Privacy
+</div>
+
+<div class="lead-modal" id="sheetsLeadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none;">
+  <div class="lead-modal-backdrop" id="modalBackdrop"></div>
+  <div class="lead-modal-card">
+    <button type="button" class="lead-modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-badge">Official Template &middot; Nov 2026 Rate Card</div>
+    <h3 class="modal-title" id="modalTitle" data-i18n="lead.modal.title">Download TikTok Shop Multi-SKU Master Workbook</h3>
+    <p class="modal-desc" data-i18n="lead.modal.desc">Manage 50+ SKUs in one spreadsheet. Built with the November 1, 2026 FBT rate card, 16–150 lb tiers, and automated GMV Max break-even formulas.</p>
+    <form id="leadSheetsForm" class="modal-form">
+      <div class="modal-field">
+        <label for="leadEmail" data-i18n="lead.modal.email">Enter your seller email for instant access:</label>
+        <input type="email" id="leadEmail" placeholder="seller@yourstore.com" required autocomplete="email" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-modal-submit" id="btnSubmitLead" data-i18n="lead.modal.submit">
+        Get Instant Google Sheets Access &rarr;
+      </button>
+      <p class="modal-privacy" data-i18n="lead.modal.privacy">100% Zero spam. Direct Google Sheets "Make a Copy" template link opens immediately.</p>
+    </form>
+    <div id="leadSuccessBox" class="modal-success" style="display:none;">
+      <p class="success-title" data-i18n="lead.modal.success">🎉 Template Ready!</p>
+      <a href="https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/copy" target="_blank" rel="noopener" class="btn btn-primary" id="btnOpenTemplateCopy" data-i18n="lead.modal.openCopy" style="display:inline-block;padding:12px 20px;">
+        Click Here to Make a Copy in Google Sheets &rarr;
+      </a>
+    </div>
+  </div>
+</div>
+
+<script defer src="/assets/js/rates.js"></script>
+<script defer src="/assets/js/fbt-rates.js"></script>
+<script defer src="/assets/js/batch-calculator.js"></script>
+<script defer src="/assets/js/consent.js"></script>
+<script defer src="/assets/js/translations.js"></script>
+<script defer src="/assets/js/i18n.js"></script>
+<script defer src="/assets/js/ux.js"></script>
+</body>
+</html>

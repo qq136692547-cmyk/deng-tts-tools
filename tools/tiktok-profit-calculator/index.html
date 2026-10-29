@@ -144,6 +144,14 @@
       <h1 data-i18n="tools.profit.h1">TikTok Shop Profit Calculator</h1>
       <p class="subtitle" data-i18n="tools.profit.lede">Real net profit per unit. After every TikTok fee, your COGS, and your shipping cost.</p>
     </div>
+      <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.25); border-radius:8px; padding:10px 14px; margin-top:12px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+        <span style="font-size:0.86rem; color:var(--c-text,#f8fafc);">
+          🔥 <strong>Evaluating 20+ SKUs from suppliers?</strong> Use our Multi-SKU Batch Mode to calculate your whole catalog via CSV.
+        </span>
+        <a href="/tools/tiktok-batch-calculator/" style="font-size:0.84rem; font-weight:700; color:var(--c-accent,#38bdf8); text-decoration:none; padding:4px 10px; background:rgba(56,189,248,0.12); border-radius:6px; border:1px solid rgba(56,189,248,0.3);">
+          Open Batch Mode &rarr;
+        </a>
+      </div>
 
     <div class="calc-window">
       <div class="calc-titlebar">
@@ -174,8 +182,14 @@
           </div>
 
           <div class="calc-field">
-            <label for="cogs" data-i18n="calc.label.cogs">Product cost (COGS)</label>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <label for="cogs" data-i18n="calc.label.cogs" style="margin-bottom:0;">Product cost (COGS)</label>
+              <a href="/tools/tiktok-landed-cost-calculator/?ref=profit" style="font-size:0.75rem; color:var(--c-accent,#38bdf8); text-decoration:underline; font-weight:600;" data-i18n="calc.cogs.calcLanded">🛃 Estimate DDP Landed Cost &rarr;</a>
+            </div>
             <input type="number" id="cogs" value="6.50" step="0.01" />
+            <div id="cogsImportNotice" style="display:none; margin-top:6px; font-size:0.78rem; color:#38bdf8; background:rgba(56,189,248,0.1); padding:5px 8px; border-radius:4px; border:1px solid rgba(56,189,248,0.25);">
+              <span data-i18n="calc.cogs.imported">✓ Pre-filled with DDP unit landed cost from Landed Cost Calculator.</span>
+            </div>
           </div>
 
           <div class="calc-field">

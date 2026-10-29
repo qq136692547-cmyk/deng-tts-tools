@@ -16,6 +16,16 @@
     return (Math.round(v * 10) / 10).toLocaleString('en-US') + '%';
   }
 
+  var catPresets = {
+    elec: { mfn: 0, s301: 25 },
+    beauty: { mfn: 3.5, s301: 25 },
+    home: { mfn: 5.0, s301: 25 },
+    apparel: { mfn: 14.0, s301: 25 },
+    shoes: { mfn: 20.0, s301: 25 },
+    bags: { mfn: 17.5, s301: 25 },
+    toys: { mfn: 0, s301: 25 }
+  };
+
   function compute() {
     var goods = num('goods');
     var units = Math.max(1, Math.round(num('units')) || 1);
@@ -25,6 +35,7 @@
     var ratePct = num('mfn') + num('s301') + num('s232');
     var duty = goods * ratePct / 100;
     var total = goods + freight + insurance + duty + other;
+    var unitLanded = total / units;
 
     $('r_base').textContent = money(goods);
     $('r_rate').textContent = pct(ratePct);
@@ -32,15 +43,18 @@
     $('r_ship').textContent = '-' + money(freight + insurance);
     $('r_other').textContent = '-' + money(other);
     $('r_total').textContent = money(total);
-    $('r_unit').textContent = money(total / units);
+    $('r_unit').textContent = money(unitLanded);
     $('r_dutyunit').textContent = money(duty / units);
+
+    var transferBtn = $('btnTransferProfit');
+    if (transferBtn) {
+      transferBtn.innerHTML = '<span>🚀 Transfer ' + money(unitLanded) + ' Landed Cost to Profit Calculator &rarr;</span>';
+    }
 
     if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('landed_cost');
   }
 
-  // Origin switch: Section 301 is a China-only trade action, so reset it when
-  // the seller picks a non-China origin and restore the common default (25%,
-  // the consumer-goods lists) when they switch back - only if untouched.
+  // Origin switch: Section 301 is a China-only trade action
   function wireOrigin() {
     var origin = $('origin'), s301 = $('s301');
     if (!origin || !s301) return;
@@ -54,6 +68,48 @@
     });
   }
 
+  // Category presets helper
+  function wirePresets() {
+    var presetSel = $('catPreset');
+    var origin = $('origin');
+    var mfn = $('mfn');
+    var s301 = $('s301');
+    if (!presetSel) return;
+    presetSel.addEventListener('change', function () {
+      var val = presetSel.value;
+      if (catPresets[val]) {
+        var p = catPresets[val];
+        if (mfn) mfn.value = p.mfn;
+        if (s301) {
+          if (origin && origin.value !== 'cn') {
+            s301.value = 0;
+          } else {
+            s301.value = p.s301;
+          }
+        }
+        compute();
+      }
+    });
+  }
+
+  // 1-Click transfer to Profit Calculator
+  function wireTransfer() {
+    var btn = $('btnTransferProfit');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var goods = num('goods');
+      var units = Math.max(1, Math.round(num('units')) || 1);
+      var freight = num('freight');
+      var insurance = num('insurance');
+      var other = num('otherFees');
+      var ratePct = num('mfn') + num('s301') + num('s232');
+      var duty = goods * ratePct / 100;
+      var total = goods + freight + insurance + duty + other;
+      var unitLanded = (total / units).toFixed(2);
+      window.location.href = '/tools/tiktok-profit-calculator/?cogs=' + encodeURIComponent(unitLanded) + '&from=landed_cost';
+    });
+  }
+
   function init() {
     ['goods', 'units', 'freight', 'insurance', 'mfn', 's301', 's232', 'otherFees']
       .forEach(function (id) {
@@ -61,6 +117,8 @@
         if (el) el.addEventListener('input', compute);
       });
     wireOrigin();
+    wirePresets();
+    wireTransfer();
     compute();
   }
 
