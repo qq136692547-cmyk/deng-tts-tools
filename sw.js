@@ -6,7 +6,7 @@
  *     exists so a dead connection still renders something usable.
  *   - other same-origin static assets (css/images/fonts/manifest):
  *     stale-while-revalidate - serve instantly, refresh in the background.
- *   - never touched: cross-origin requests (Adsterra frames, analytics),
+ *   - never touched: cross-origin requests (cross-origin frames, analytics),
  *     /ads/ sandbox frames, non-GET, embed views.
  */
 
@@ -40,7 +40,7 @@ self.addEventListener('fetch', function (e) {
   if (req.method !== 'GET') return;
 
   var url = new URL(req.url);
-  if (url.origin !== location.origin) return;        // Adsterra / GA: untouched
+  if (url.origin !== location.origin) return;        // Third-party / GA: untouched
   if (url.pathname.indexOf('/ads/') === 0) return;   // ad frames: never cached
   if (url.search.indexOf('embed=1') !== -1) return;  // widget views: untouched
 

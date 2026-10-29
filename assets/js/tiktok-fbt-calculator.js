@@ -3,7 +3,7 @@
   var TIERS = window.FBT_TIERS || [];
   // Tier upper bounds in lb, matching window.FBT_TIERS labels:
   // '<=4 oz','4-8 oz','8-12 oz','12-16 oz','1-2 lb',...,'15-16 lb'.
-  var BOUNDS = [0.25, 0.5, 0.75, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+  var BOUNDS = [0.25, 0.5, 0.75, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 30, 50, 70, 150];
   // Official chargeable-weight rules, FBT Rate Card (rendered snapshot 2026-09-30,
   // review/evidence/tiktok-fbt-rate-card-2026-09-30.rendered.html):
   // - actual weight <= 2 lb AND volume <= 332 in^3 -> billed on actual weight only

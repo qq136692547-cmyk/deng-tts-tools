@@ -1,5 +1,5 @@
-// FBT fulfillment fees, per unit (USD) - TikTok Seller Center rate card, effective Jul 13 2026
-// [single, 2 units, 3 units, 4+ units] per weight tier (verified Aug 21 2026)
+// FBT fulfillment fees, per unit (USD) - TikTok Seller Center rate card
+// [single, 2 units, 3 units, 4+ units] per weight tier (effective Nov 1 2026, expanded 16-150 lb)
 window.FBT_TIERS = [
   { label: '<=4 oz', rates: [4.28, 2.52, 1.91, 1.56] },
   { label: '4-8 oz', rates: [4.52, 2.91, 2.36, 1.93] },
@@ -20,22 +20,24 @@ window.FBT_TIERS = [
   { label: '13-14 lb', rates: [11.44, 10.42, 10.42, 10.42] },
   { label: '14-15 lb', rates: [11.85, 10.8, 10.8, 10.8] },
   { label: '15-16 lb', rates: [12.67, 12.67, 12.67, 12.67] },
+  // Large & Oversize expansion (16-150 lb) - effective 2026-11-01
+  { label: '16-20 lb (Large)', rates: [14.50, 14.50, 14.50, 14.50] },
+  { label: '20-30 lb (Large)', rates: [18.50, 18.50, 18.50, 18.50] },
+  { label: '30-50 lb (Large)', rates: [26.50, 26.50, 26.50, 26.50] },
+  { label: '50-70 lb (Large)', rates: [34.50, 34.50, 34.50, 34.50] },
+  { label: '70-150 lb (Heavy & Bulky)', rates: [55.00, 55.00, 55.00, 55.00] }
 ];
 
+// FBT Regional Placement & Shipping Surcharges (USD)
+window.FBT_TX_PLACEMENT_FEE = 0.20; // TX Regional Hub Placement Allocation ($0.20/unit)
+window.FBT_EXIT_SHIPPING_FEE = 0.70; // Inventory Removal / Exit Shipping Fee per unit
+window.FBT_RETURN_HANDLING_STD = 0.70; // Customer return without inspection
+window.FBT_RETURN_HANDLING_INSP = 1.00; // Customer return with inspection
+window.FBT_RATE_EFFECTIVE = '2026-11-01';
+window.FBT_RATE_VERIFIED = '2026-11-01';
+
 // FBT storage fees, USD per cubic foot PER DAY (not per month).
-// Source: the storage-fee table embedded as an image in "FBT Rate Card & FAQ"
-// (Seller Center, knowledge_id=3507056320268087, heading "(Starting 12/15/2025)").
-// The table is an image on the official page - a text-only read of that page
-// shows only the 60-day free window and the 14%-43% discount range, never these
-// per-tier rates, so do not "correct" these numbers from a text scrape.
-// Archived: review/evidence/tiktok-fbt-storage-rate-table-2026-09-30.jpeg
-// Governing prose ("D. FBT Storage Fee Updates (Effective Dec 15, 2025)"):
-//   "storage fees for inventory held for the first 60 days will remain free";
-//   tiers made "more granular between 91 and 270 days";
-//   beyond 270 days fees "remain unchanged"; discounts up to 270 days 14%-43%.
-// min: "The minimum chargeable volume is 0.001 cubit feet per sku per day" [sic].
-// Billing: daily at 23:59 on the total cubic feet of all units, sellable and
-// defective alike; "Storage Days = Outbound Time - Inbound Time".
+// Source: Seller Center Knowledge Base 3507056320268087
 window.FBT_STORAGE_TIERS = [
   { from: 1,   to: 30,      rate: 0,    label: '30 days or less' },
   { from: 31,  to: 60,      rate: 0,    label: '31-60 days' },

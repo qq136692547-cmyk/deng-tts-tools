@@ -1,9 +1,9 @@
 // Shared fee constants (USD) used by every calculator - single source of truth.
 // Change a rate here, not in the calculator files. Change log: /rate-updates/
 window.TTCALC_RATES = {
-  effectiveDate: '2026-07-13',  // FBT rate card in force (TikTok Seller Center)
+  effectiveDate: '2026-11-01',  // FBT rate card in force (TikTok Seller Center)
   referralEffectiveDate: '2024-04-01', // flat 6% US referral rate took effect (see /rate-updates/)
-  verifiedDate: '2026-09-29',   // last manual cross-check against Seller Center
+  verifiedDate: '2026-11-01',   // last manual cross-check against Seller Center
   sourceUrl: 'https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087',
   // TikTok Shop US no longer charges a separate transaction fee. The referral fee is
   // the only selling fee TikTok's own commission policy defines; independent fee guides

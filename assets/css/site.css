@@ -580,30 +580,7 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
 }
 @media (max-width: 640px) { .main-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .main-nav::-webkit-scrollbar { display: none; } .main-nav a { white-space: nowrap; } }
 
-/* Adsterra ad slots */
-/* Ad slots ship hidden. They only become visible once consent.js has set a src
-   on the frame inside them, which only happens after the visitor opts in.
-   Rejected visitors therefore see no ad space at all rather than an empty
-   728x90 box, and a browser with JavaScript off never requests the ad at all. */
-.adsterra-slot { width: 100%; max-width: 100%; margin: 32px auto; text-align: center; display: none; }
-.adsterra-slot--live { display: block; }
-.adsterra-slot--top { margin-top: 0; }
-.adsterra-slot--bottom { margin-bottom: 0; }
-.adsterra-banner { max-width: 100%; overflow-x: auto; margin: 0 auto 24px; -webkit-overflow-scrolling: touch; }
-.adsterra-native { max-width: 100%; margin: 0 auto; }
-
-/* Ad iframes: all third-party ad code loads in a sandboxed same-origin iframe
-   (see /ads/banner-*.html and /ads/native.html), for two reasons.
-   Speed: the banner script is render-blocking and used to stall article pages
-   for ~1-2s. Safety: in the top-level document it could navigate the visitor off
-   the site — the frames are sandboxed (allow-scripts + allow-same-origin, no
-   allow-top-navigation / no allow-popups) so it cannot any more.
-   The iframe carries fixed width/height attributes, so reserved space is
-   unchanged and CLS stays 0; carriers grow their frame if a creative is taller.
-   .adsterra-banner already scrolls horizontally, keeping a 728px leaderboard
-   reachable on narrow screens. */
-.adsterra-frame { border: 0; display: block; margin: 0 auto; background: transparent; }
-.adsterra-frame--native { width: 100%; max-width: 728px; }
+/* Ad units removed - TTCalc is 100% ad-free */
 
 /* ── Tool page content blocks (quick answer / prose / tables) ───────────── */
 
@@ -657,7 +634,6 @@ article blockquote { font-size: clamp(1rem, 1.8vw, 1.15rem); padding: 12px 20px;
    calculator's own .calc-inputs / .calc-results sections are untouched. */
 .embed-mode .site-header,
 .embed-mode .site-footer,
-.embed-mode .adsterra-slot,
 .embed-mode .consent-bar,
 .embed-mode .quick-answer,
 .embed-mode .nextstep,
@@ -856,4 +832,18 @@ html.consent-open body { padding-bottom: 84px; }
   font-size: 11px;
   color: rgba(255, 255, 255, 0.45);
   line-height: 1.4;
+}
+
+/* B2B Zero Ads Privacy Badge in Footer */
+.footer-privacy-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-family: var(--font-body);
 }

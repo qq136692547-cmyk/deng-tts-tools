@@ -1,5 +1,5 @@
 # Cloudflare Pages 自定义响应头
-# 注意 1：CSP 只写 frame-ancestors 一条指令 —— 站上有 Adsterra 广告脚本，完整的
+# Third-party scripts are prohibited - TTCalc is 100% ad-free
 #         CSP 会把它打断；而 frame-ancestors 只声明"谁可以用 iframe 嵌入本站"，
 #         完全不限制本站加载任何脚本，因此对广告无影响。
 # 注意 2：不加 Cross-Origin-Opener-Policy —— 站上有可选的 Google 登录（popup 模式
@@ -37,7 +37,7 @@
 /assets/images/*
   Cache-Control: public, max-age=604800
 
-# /ads/ —— Adsterra banner 的承载页，只供本站同域 iframe 使用。
+# Third-party scripts are prohibited - TTCalc is 100% ad-free
 # 不进搜索索引：robots.txt 里也有 Disallow，这里是第二道保险。
 # Cache-Control 短缓存：换广告代码要能及时生效。
 #
