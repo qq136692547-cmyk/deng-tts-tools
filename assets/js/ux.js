@@ -342,12 +342,62 @@
   }
 
   // ---- Init on DOMContentLoaded ----
+  
+  // ---- Phase 2: PDF Report & Lead Modal Handlers ----
+  function initPrintAndLeadModal() {
+    // 1. PDF / Print Report Button
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('#btnPrintReport');
+      if (btn) {
+        window.print();
+        if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('print_pdf_report');
+      }
+    });
+
+    // 2. Google Sheets Lead Modal
+    var modal = document.getElementById('sheetsLeadModal');
+    if (!modal) return;
+
+    var openBtns = document.querySelectorAll('#btnOpenSheetsModal');
+    openBtns.forEach(function(b) {
+      b.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        var emailInput = document.getElementById('leadEmail');
+        var savedEmail = localStorage.getItem('ttcalc_lead_email');
+        if (savedEmail && emailInput) emailInput.value = savedEmail;
+        if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('open_lead_modal');
+      });
+    });
+
+    var closeBtn = document.getElementById('modalClose');
+    var backdrop = document.getElementById('modalBackdrop');
+    function closeModal() { modal.style.display = 'none'; }
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    var form = document.getElementById('leadSheetsForm');
+    var successBox = document.getElementById('leadSuccessBox');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = (document.getElementById('leadEmail').value || '').trim();
+        if (email) {
+          try { localStorage.setItem('ttcalc_lead_email', email); } catch(err) {}
+          form.style.display = 'none';
+          if (successBox) successBox.style.display = 'block';
+          if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('lead_generated', { email: email });
+        }
+      });
+    }
+  }
+
   function init() {
     initCountUp();
     initScrollReveal();
     initFaqAccordion();
     initSaleGuard();
     initStickyResult();
+    initPrintAndLeadModal();
     // Next frame: workspace.js loads after ux.js and fills inputs from the
     // URL, so reading values synchronously here would capture the defaults.
     requestAnimationFrame(syncNextstepLinks);

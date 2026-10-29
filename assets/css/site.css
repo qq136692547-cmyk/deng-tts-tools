@@ -961,3 +961,317 @@ html.consent-open body { padding-bottom: 84px; }
   border-radius: 6px;
   font-family: var(--font-body);
 }
+
+/* ==========================================================================
+   Phase 2 Components: GMV Max Stress Heatmap, Print Report & Sheets Modal
+   ========================================================================== */
+
+/* 1. GMV Max Stress Heatmap */
+.stress-matrix-container {
+  margin-top: 24px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 18px;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+.stress-matrix-head {
+  margin-bottom: 14px;
+}
+.stress-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+.stress-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+}
+.stress-desc {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.45;
+}
+.stress-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 12px 0 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.stress-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: center;
+  font-family: var(--font-mono);
+  background: rgba(0, 0, 0, 0.3);
+}
+.stress-matrix-table th {
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink-soft);
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+.stress-matrix-table th.corner-th {
+  font-size: 10px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+}
+.stress-matrix-table td {
+  padding: 8px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-weight: 600;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  white-space: nowrap;
+}
+.stress-matrix-table td.row-header {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink-soft);
+  font-weight: 600;
+  text-align: left;
+  padding-left: 10px;
+}
+.stress-matrix-table td.cell-active {
+  outline: 2px solid #00f2fe;
+  position: relative;
+  z-index: 2;
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+}
+.stress-matrix-table td.cell-safe {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+.stress-matrix-table td.cell-warn {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+}
+.stress-matrix-table td.cell-danger {
+  background: rgba(249, 115, 22, 0.18);
+  color: #fb923c;
+}
+.stress-matrix-table td.cell-unviable {
+  background: rgba(239, 68, 68, 0.22);
+  color: #f87171;
+}
+.stress-matrix-table td.cell-blowout {
+  background: rgba(15, 23, 42, 0.6);
+  color: #64748b;
+  font-size: 11px;
+}
+.stress-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-safe { background: #4ade80; }
+.dot-warn { background: #facc15; }
+.dot-danger { background: #fb923c; }
+.dot-unviable { background: #f87171; }
+
+/* 2. Lead Magnet Button & Modal */
+.btn-lead-sheets {
+  background: rgba(34, 197, 94, 0.12) !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+  color: #4ade80 !important;
+}
+.btn-lead-sheets:hover {
+  background: rgba(34, 197, 94, 0.2) !important;
+  border-color: rgba(34, 197, 94, 0.5) !important;
+}
+.lead-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.lead-modal-backdrop {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.lead-modal-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 480px;
+  background: #11161f;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  font-family: var(--font-body);
+}
+.lead-modal-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  line-height: 1;
+}
+.lead-modal-close:hover { color: #fff; }
+.modal-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(34, 197, 94, 0.12);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.modal-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.modal-desc {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin: 0 0 16px;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+.modal-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+.modal-field input {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+}
+.btn-modal-submit {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.modal-privacy {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 4px 0 0;
+  text-align: center;
+}
+.modal-success {
+  text-align: center;
+  padding: 10px 0;
+}
+.modal-success .success-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #4ade80;
+  margin-bottom: 12px;
+}
+
+/* 3. Print / PDF Export Report Styling */
+.print-watermark { display: none; }
+@media print {
+  header.site-header, nav, .lang-toggle, .sticky-result, .consent-bar, .site-footer,
+  .nextsteps, .calc-affiliate-box, .payout-sim-header, .ws-panel, .copy-results-btn,
+  #lang-toggle, .skip-link, .related-posts, .btn-lead-sheets, .payout-spread-sim,
+  .calc-affiliate-breakeven, #wsCardList {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 10pt !important;
+  }
+  .container { max-width: 100% !important; padding: 0 !important; }
+  .calculator-shell, .calc-grid { display: block !important; }
+  .calc-inputs {
+    page-break-after: avoid;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #374151;
+    padding-bottom: 12px;
+  }
+  .calc-results {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #d1d5db !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+  .calc-result-row {
+    border-bottom: 1px solid #e5e7eb !important;
+    color: #111827 !important;
+    padding: 6px 0 !important;
+  }
+  .calc-result-row .lbl, .calc-result-row .val { color: #111827 !important; }
+  .stress-matrix-container {
+    background: #ffffff !important;
+    border: 1px solid #9ca3af !important;
+    page-break-inside: avoid;
+    margin-top: 20px;
+  }
+  .stress-title { color: #111827 !important; }
+  .stress-matrix-table { background: #fff !important; }
+  .stress-matrix-table th { background: #f3f4f6 !important; color: #111827 !important; border: 1px solid #d1d5db !important; }
+  .stress-matrix-table td { border: 1px solid #e5e7eb !important; color: #111827 !important; }
+  .stress-matrix-table td.cell-safe { background: #dcfce7 !important; color: #15803d !important; }
+  .stress-matrix-table td.cell-warn { background: #fef9c3 !important; color: #854d0e !important; }
+  .stress-matrix-table td.cell-danger { background: #ffedd5 !important; color: #9a3412 !important; }
+  .stress-matrix-table td.cell-unviable { background: #fee2e2 !important; color: #991b1b !important; }
+  .print-watermark {
+    display: block !important;
+    margin-top: 25px;
+    padding-top: 10px;
+    border-top: 1px solid #9ca3af;
+    font-size: 8.5pt;
+    color: #4b5563;
+    text-align: center;
+  }
+}

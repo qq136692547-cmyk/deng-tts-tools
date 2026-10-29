@@ -247,7 +247,17 @@
             <div class="hint" data-i18n="calc.hint.rateCardShort">2026 rate card (Jul 13): single-unit rate shown; multi-item orders cost less per unit.</div>
           </div>
 
-          <div class="calc-field">
+                    <div class="calc-field">
+            <label for="sampleUnits" data-i18n="calc.sampleUnits">Monthly creator sample units sent</label>
+            <input type="number" id="sampleUnits" value="0" min="0" step="5" />
+            <div class="hint" data-i18n="calc.hint.sample">Free samples sent to affiliates/creators per month</div>
+          </div>
+          <div class="calc-field" id="sampleShipField" style="display:none;">
+            <label for="sampleShip" data-i18n="calc.sampleShip">Sample shipping cost / unit (USD)</label>
+            <input type="number" id="sampleShip" value="3.50" min="0" step="0.5" />
+          </div>
+
+<div class="calc-field">
             <label for="creator" data-i18n="calc.creator">Creator commission (%)</label>
             <input type="number" id="creator" value="10" step="1" min="0" max="30" />
             <div class="hint" data-i18n="calc.hint.roasCreatorShare">Affiliate creator share. 0 if you don't run creators.</div>
@@ -270,12 +280,15 @@
           <div class="calc-results-head">
             <span class="calc-results-title" data-i18n="calc.roas.resultsTitle">ROAS math</span>
             <button class="copy-results-btn" type="button" data-i18n="calc.shell.copyResults">Copy results</button>
+            <button type="button" class="copy-results-btn" id="btnPrintReport" data-i18n="calc.shell.printReport">🖨️ PDF Report</button>
+            <button type="button" class="copy-results-btn btn-lead-sheets" id="btnOpenSheetsModal" data-i18n="calc.shell.getSheets">📊 Google Sheets Workbook</button>
           </div>
 
           <div class="calc-result-row" id="row_ship_charged"><span class="lbl" data-i18n="calc.row.shipCharged">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.platformFees">&#8722; TikTok platform fees (per unit)</span><span class="val" id="r_platform_fees">-$9.32</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.returnImpact">&#8722; Return impact (COGS + refund fee)</span><span class="val" id="r_return_impact">-$0.38</span></div>
-          <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.preAdProfit">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.79 (46.0%)</span></div>
+                    <div class="calc-result-row" id="row_sample_cost" style="display:none;"><span class="lbl" data-i18n="calc.roas.row.sampleCost">&#8722; Sample seeding amortized (per unit)</span><span class="val" id="r_sample_cost">-$0.00</span></div>
+<div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.preAdProfit">Profit before ads (per unit)</span><span class="val" id="r_pre_ad_profit">$13.79 (46.0%)</span></div>
           <div class="calc-result-row highlight"><span class="lbl" data-i18n="tbl.roas.beRoas">Break-even ROAS</span><span class="val" id="r_be_roas">2.17x</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.roas.row.adCost">&#8722; Ad cost at reported ROAS (per unit)</span><span class="val" id="r_ad_cost">-$10.00</span></div>
           <div class="calc-result-row highlight"><span class="lbl" data-i18n="calc.roas.row.correctedRoas">Corrected ROAS (after returns)</span><span class="val" id="r_corrected_roas">2.85x</span></div>
@@ -301,6 +314,40 @@
             </a>
             <span class="calc-affiliate-disc" data-i18n="calc.aff.disclosure">★ Partner disclosure: Free trial with code PC0491. We may earn a commission if you subscribe.</span>
           </div>
+
+        <div class="stress-matrix-container" id="stressMatrixSection">
+          <div class="stress-matrix-head">
+            <span class="stress-badge" data-i18n="stress.badge">GMV Max Stress Test</span>
+            <h3 class="stress-title" data-i18n="stress.title">Creator Commission &times; Return Rate Heatmap</h3>
+            <p class="stress-desc" data-i18n="stress.desc">See your exact minimum Break-Even ROAS threshold across different creator commission and return rate scenarios:</p>
+          </div>
+          <div class="stress-table-wrap">
+            <table class="stress-matrix-table" id="stressTable">
+              <thead>
+                <tr>
+                  <th class="corner-th" data-i18n="stress.corner">Return &darr; / Comm &rarr;</th>
+                  <th>5%</th>
+                  <th>10%</th>
+                  <th>15%</th>
+                  <th>20%</th>
+                  <th>25%</th>
+                  <th>30%</th>
+                </tr>
+              </thead>
+              <tbody id="stressTableBody">
+                <!-- Dynamically generated rows -->
+              </tbody>
+            </table>
+          </div>
+          <div class="stress-legend">
+            <span class="legend-item"><span class="legend-dot dot-safe"></span> <span data-i18n="stress.legend.safe">&lt; 2.2x Healthy</span></span>
+            <span class="legend-item"><span class="legend-dot dot-warn"></span> <span data-i18n="stress.legend.warn">2.2x &ndash; 3.5x Manageable</span></span>
+            <span class="legend-item"><span class="legend-dot dot-danger"></span> <span data-i18n="stress.legend.danger">3.5x &ndash; 6.0x Fragile</span></span>
+            <span class="legend-item"><span class="legend-dot dot-unviable"></span> <span data-i18n="stress.legend.blowout">&gt; 6.0x or Loss</span></span>
+          </div>
+        </div>
+        <p class="print-watermark" data-i18n="print.watermark">TTCalc.shop Independent Verification Report &middot; Verified November 2026 &middot; 100% In-Browser Privacy</p>
+
 
           <p class="source-note rate-version" data-i18n-html="tools.roas.sourceLine">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
         </section>
@@ -615,5 +662,32 @@
 <script defer src="/assets/js/i18n.js"></script>
 <script defer src="/assets/js/ux.js"></script>
 <script defer src="/assets/js/workspace.js"></script>
+
+<div class="lead-modal" id="sheetsLeadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none;">
+  <div class="lead-modal-backdrop" id="modalBackdrop"></div>
+  <div class="lead-modal-card">
+    <button type="button" class="lead-modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-badge">Official Template &middot; Nov 2026 Rate Card</div>
+    <h3 class="modal-title" id="modalTitle" data-i18n="lead.modal.title">Download TikTok Shop Multi-SKU Master Workbook</h3>
+    <p class="modal-desc" data-i18n="lead.modal.desc">Manage 50+ SKUs in one spreadsheet. Built with the November 1, 2026 FBT rate card, 16–150 lb tiers, and automated GMV Max break-even formulas.</p>
+    <form id="leadSheetsForm" class="modal-form">
+      <div class="modal-field">
+        <label for="leadEmail" data-i18n="lead.modal.email">Enter your seller email for instant access:</label>
+        <input type="email" id="leadEmail" placeholder="seller@yourstore.com" required autocomplete="email" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-modal-submit" id="btnSubmitLead" data-i18n="lead.modal.submit">
+        Get Instant Google Sheets Access &rarr;
+      </button>
+      <p class="modal-privacy" data-i18n="lead.modal.privacy">100% Zero spam. Direct Google Sheets "Make a Copy" template link opens immediately.</p>
+    </form>
+    <div id="leadSuccessBox" class="modal-success" style="display:none;">
+      <p class="success-title" data-i18n="lead.modal.success">🎉 Template Ready!</p>
+      <a href="https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/copy" target="_blank" rel="noopener" class="btn btn-primary" id="btnOpenTemplateCopy" data-i18n="lead.modal.openCopy" style="display:inline-block;padding:12px 20px;">
+        Click Here to Make a Copy in Google Sheets &rarr;
+      </a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

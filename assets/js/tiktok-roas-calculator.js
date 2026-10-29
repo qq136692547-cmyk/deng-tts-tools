@@ -17,7 +17,63 @@
     }, 200);
   }
 
-  function calc() {
+    function renderStressTable(sale, revenue, cogs, referralRate, fbt, txn, returnHandlingFee, samplePerUnit, curCreator, curReturn) {
+    var tbody = get('stressTableBody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    var commTiers = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30];
+    var retTiers  = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30];
+
+    for (var r = 0; r < retTiers.length; r++) {
+      var ret = retTiers[r];
+      var tr = document.createElement('tr');
+      
+      var thRow = document.createElement('td');
+      thRow.className = 'row-header';
+      thRow.textContent = Math.round(ret * 100) + '% Ret';
+      tr.appendChild(thRow);
+
+      for (var c = 0; c < commTiers.length; c++) {
+        var comm = commTiers[c];
+        var cellCreator = sale * comm;
+        var cellPlatFees = (revenue * (referralRate / 100)) + fbt + txn + cellCreator;
+        var cellRetImpact = cogs * ret + Math.min((revenue * (referralRate / 100)) * R.refundAdminRate, R.refundAdminCap) * ret + returnHandlingFee * ret;
+        var cellPreAdProfit = revenue - cellPlatFees - cogs - cellRetImpact - samplePerUnit;
+        var cellBeRoas = cellPreAdProfit > 0 ? (revenue / cellPreAdProfit) : 0;
+
+        var td = document.createElement('td');
+        var isCurrent = (Math.abs(curReturn - ret) < 0.025) && (Math.abs(curCreator - comm) < 0.025);
+        if (isCurrent) td.classList.add('cell-active');
+
+        if (cellPreAdProfit <= 0) {
+          td.className = (td.className + ' cell-blowout').trim();
+          td.textContent = 'Loss';
+          td.title = 'Pre-ad margin is negative (-$' + Math.abs(cellPreAdProfit).toFixed(2) + '/unit). No ROAS can break even.';
+        } else if (cellBeRoas > 6.0) {
+          td.className = (td.className + ' cell-unviable').trim();
+          td.textContent = cellBeRoas.toFixed(2) + 'x';
+          td.title = 'High ad risk: Break-even ROAS ' + cellBeRoas.toFixed(2) + 'x';
+        } else if (cellBeRoas > 3.5) {
+          td.className = (td.className + ' cell-danger').trim();
+          td.textContent = cellBeRoas.toFixed(2) + 'x';
+          td.title = 'Fragile margin: Break-even ROAS ' + cellBeRoas.toFixed(2) + 'x';
+        } else if (cellBeRoas > 2.2) {
+          td.className = (td.className + ' cell-warn').trim();
+          td.textContent = cellBeRoas.toFixed(2) + 'x';
+          td.title = 'Manageable: Break-even ROAS ' + cellBeRoas.toFixed(2) + 'x';
+        } else {
+          td.className = (td.className + ' cell-safe').trim();
+          td.textContent = cellBeRoas.toFixed(2) + 'x';
+          td.title = 'Healthy & scalable: Break-even ROAS ' + cellBeRoas.toFixed(2) + 'x';
+        }
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+  }
+
+function calc() {
     var sale = num(get('sale').value);
     var cogs = num(get('cogs').value);
     var returnRate = num(get('returnRate').value) / 100;
@@ -61,8 +117,27 @@
     // when its resale rate is 0%. We now share their cost-of-goods definition
     // instead of writing off the full sale price. See /rate-updates/ (2026-09-29).
     var returnImpact = cogs * returnRate + Math.min(referral * R.refundAdminRate, R.refundAdminCap) * returnRate + returnHandlingFee * returnRate;
+    var sampleUnits = get('sampleUnits') ? num(get('sampleUnits').value) : 0;
+    var sampleShip = get('sampleShip') ? num(get('sampleShip').value) : 0;
+    var sampleShipField = get('sampleShipField');
+    if (sampleShipField) sampleShipField.style.display = sampleUnits > 0 ? '' : 'none';
 
-    var preAdProfit = revenue - platformFees - cogs - returnImpact;
+    var sampleTotalCost = sampleUnits * (cogs + sampleShip);
+    var samplePerUnit = (monthlyUnits > 0 && sampleUnits > 0) ? (sampleTotalCost / monthlyUnits) : 0;
+
+    var rowSample = get('row_sample_cost');
+    if (rowSample) {
+      if (sampleUnits > 0) {
+        rowSample.style.display = '';
+        var rSampleVal = get('r_sample_cost');
+        if (rSampleVal) rSampleVal.textContent = '-' + fmt(samplePerUnit);
+      } else {
+        rowSample.style.display = 'none';
+      }
+    }
+
+
+    var preAdProfit = revenue - platformFees - cogs - returnImpact - samplePerUnit;
     var preAdMargin = revenue > 0 ? (preAdProfit / revenue) * 100 : 0;
     // Break-even ROAS and the ad cost it is derived from must use the same revenue figure the
     // platform reports ROAS on (buyer total, shipping included) - otherwise the two sides of
@@ -124,12 +199,14 @@
       }
     }
 
+        renderStressTable(sale, revenue, cogs, referralRate, fbt, txn, returnHandlingFee, samplePerUnit, creatorPct, returnRate);
+
     announce(T('calc.roas.announce', 'Net profit {0} ({1}%), {2}.')
       .replace('{0}', fmt(netProfit)).replace('{1}', netMargin.toFixed(1)).replace('{2}', status));
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','category','fbtTier','fbtUnits','returnRate','returnHandlingFee','creator','roas','monthlyUnits','shipCharged'].forEach(function (id) {
+    ['sale','cogs','sampleUnits','sampleShip','category','fbtTier','fbtUnits','returnRate','returnHandlingFee','creator','roas','monthlyUnits','shipCharged'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
         calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-roas');

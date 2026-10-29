@@ -290,6 +290,8 @@
           <div class="calc-results-head">
             <span class="calc-results-title" data-i18n="calc.profit.resultsTitle">Profit breakdown</span>
             <button class="copy-results-btn" type="button" data-i18n="calc.shell.copyResults">Copy results</button>
+            <button type="button" class="copy-results-btn" id="btnPrintReport" data-i18n="calc.shell.printReport">🖨️ PDF Report</button>
+            <button type="button" class="copy-results-btn btn-lead-sheets" id="btnOpenSheetsModal" data-i18n="calc.shell.getSheets">📊 Google Sheets Workbook</button>
           </div>
 
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.salePrice">Sale price</span><span class="val" id="r_sale">$29.99</span></div>
@@ -638,6 +640,7 @@
       </div>
     </section>
   </div>
+<p class="print-watermark" data-i18n="print.watermark">TTCalc.shop Independent Verification Report &middot; Verified November 2026 &middot; 100% In-Browser Privacy</p>
 </main>
 
 <footer class="site-footer">
@@ -696,5 +699,32 @@
 <script defer src="/assets/js/i18n.js"></script>
 <script defer src="/assets/js/ux.js"></script>
 <script defer src="/assets/js/workspace.js"></script>
+
+<div class="lead-modal" id="sheetsLeadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none;">
+  <div class="lead-modal-backdrop" id="modalBackdrop"></div>
+  <div class="lead-modal-card">
+    <button type="button" class="lead-modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-badge">Official Template &middot; Nov 2026 Rate Card</div>
+    <h3 class="modal-title" id="modalTitle" data-i18n="lead.modal.title">Download TikTok Shop Multi-SKU Master Workbook</h3>
+    <p class="modal-desc" data-i18n="lead.modal.desc">Manage 50+ SKUs in one spreadsheet. Built with the November 1, 2026 FBT rate card, 16–150 lb tiers, and automated GMV Max break-even formulas.</p>
+    <form id="leadSheetsForm" class="modal-form">
+      <div class="modal-field">
+        <label for="leadEmail" data-i18n="lead.modal.email">Enter your seller email for instant access:</label>
+        <input type="email" id="leadEmail" placeholder="seller@yourstore.com" required autocomplete="email" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-modal-submit" id="btnSubmitLead" data-i18n="lead.modal.submit">
+        Get Instant Google Sheets Access &rarr;
+      </button>
+      <p class="modal-privacy" data-i18n="lead.modal.privacy">100% Zero spam. Direct Google Sheets "Make a Copy" template link opens immediately.</p>
+    </form>
+    <div id="leadSuccessBox" class="modal-success" style="display:none;">
+      <p class="success-title" data-i18n="lead.modal.success">🎉 Template Ready!</p>
+      <a href="https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/copy" target="_blank" rel="noopener" class="btn btn-primary" id="btnOpenTemplateCopy" data-i18n="lead.modal.openCopy" style="display:inline-block;padding:12px 20px;">
+        Click Here to Make a Copy in Google Sheets &rarr;
+      </a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
