@@ -128,10 +128,11 @@
       <a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a>
       <a href="/tools/tiktok-profit-calculator/" data-i18n="nav.profit">Profit</a>
       <a href="/tools/tiktok-roas-calculator/" class="active" aria-current="page" data-i18n="nav.roas">ROAS</a>
+      <a href="/tools/tiktok-batch-calculator/" data-i18n="nav.batch">Batch Mode</a>
+      <a href="/tools/tiktok-landed-cost-calculator/" data-i18n="nav.landed">Landed Cost</a>
       <a href="/tools/tiktok-vs-amazon/" data-i18n="nav.vsAmazon">vs Amazon FBA</a>
       <a href="/blog/" data-i18n="nav.blog">Blog</a>
 
-    
       <button id="lang-toggle" class="lang-toggle" aria-label="切换到中文">中文</button>
     </nav>
   </div>
@@ -642,7 +643,7 @@
       <ul>
         <li><a href="/terms/" data-i18n="footer.terms">Terms</a></li>
         <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
-        <li><a href="#" data-consent-open data-i18n="footer.cookieSettings">Cookie settings</a></li>
+        <li><a href="/privacy/#cookies" data-i18n="footer.cookieSettings">Cookie settings</a></li>
         <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></li>
         <li><a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" data-i18n="footer.feedback">Feedback</a></li>
       </ul>
@@ -650,7 +651,7 @@
   </div>
   <p class="copyright">
     <span data-i18n="footer.copyright">&copy; 2026 TTCalc. Independent tool, not affiliated with TikTok or ByteDance.</span>
-    <span class="links"><a href="/terms/" data-i18n="footer.terms">Terms</a> <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> <a href="#" data-consent-open data-i18n="footer.cookieSettings">Cookie settings</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></span>
+    <span class="links"><a href="/terms/" data-i18n="footer.terms">Terms</a> <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> <a href="/privacy/#cookies" data-i18n="footer.cookieSettings">Cookie settings</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></span>
   </p>
 </footer>
 
@@ -680,11 +681,17 @@
       </button>
       <p class="modal-privacy" data-i18n="lead.modal.privacy">100% Zero spam. Direct Google Sheets "Make a Copy" template link opens immediately.</p>
     </form>
-    <div id="leadSuccessBox" class="modal-success" style="display:none;">
-      <p class="success-title" data-i18n="lead.modal.success">🎉 Template Ready!</p>
-      <a href="https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/copy" target="_blank" rel="noopener" class="btn btn-primary" id="btnOpenTemplateCopy" data-i18n="lead.modal.openCopy" style="display:inline-block;padding:12px 20px;">
-        Click Here to Make a Copy in Google Sheets &rarr;
-      </a>
+        <div id="leadSuccessBox" class="modal-success" style="display:none; text-align:center;">
+      <p class="success-title" style="font-size:1.2rem; font-weight:700; color:#10b981; margin-bottom:8px;">🎉 Master Workbook Unlocked!</p>
+      <p class="modal-desc" style="font-size:0.88rem; color:var(--c-text-muted,#94a3b8); margin-bottom:14px;">Instant offline-ready multi-SKU workbook + Google Sheets template:</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <button type="button" class="btn btn-primary" id="btnDownloadMasterWorkbook" style="width:100%; padding:12px 16px; font-weight:700; font-size:0.92rem; background:var(--c-accent,#38bdf8); color:#0f172a; border-radius:6px; border:none; cursor:pointer;">
+          📥 Download 2026.11 Master Workbook (.CSV / Excel)
+        </button>
+        <a href="https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/copy" target="_blank" rel="noopener" class="btn" id="btnOpenTemplateCopy" style="display:block; width:100%; padding:11px 16px; text-align:center; background:rgba(56,189,248,0.12); color:var(--c-accent,#38bdf8); border:1px solid rgba(56,189,248,0.3); font-weight:600; text-decoration:none; border-radius:6px; box-sizing:border-box;">
+          📊 Open in Google Sheets (Create Copy) &rarr;
+        </a>
+      </div>
     </div>
   </div>
 </div>

@@ -1,6 +1,5 @@
 // landed-cost.js - TikTok Shop landed cost calculator
-// Math only: the duty rate is whatever the seller enters (per-layer inputs),
-// sourced from their HTS line. This file never hardcodes a "current" rate.
+// Incorporates US CBP Formal Entry fees: MPF (19 CFR 24.23) + HMF (19 CFR 24.24)
 (function () {
   'use strict';
 
@@ -26,11 +25,42 @@
     toys: { mfn: 0, s301: 25 }
   };
 
+  // Calculates US CBP Formal Entry fees (19 CFR 24.23 & 24.24)
+  function calcCbpFormalFees(goods) {
+    // MPF: 0.3464% of FOB value (min $33.58, max $651.50)
+    var mpf = Math.min(Math.max(goods * 0.003464, 33.58), 651.50);
+    // HMF: 0.125% of FOB value
+    var hmf = goods * 0.00125;
+    // Standard customs broker entry preparation fee
+    var broker = 125.00;
+    return {
+      mpf: mpf,
+      hmf: hmf,
+      broker: broker,
+      total: mpf + hmf + broker
+    };
+  }
+
   function compute() {
     var goods = num('goods');
     var units = Math.max(1, Math.round(num('units')) || 1);
     var freight = num('freight');
     var insurance = num('insurance');
+
+    // Auto CBP formal entry fees
+    var autoCbp = $('autoCbpFees');
+    var otherInput = $('otherFees');
+    if (autoCbp && autoCbp.checked) {
+      var cbp = calcCbpFormalFees(goods);
+      if (otherInput) {
+        otherInput.value = cbp.total.toFixed(2);
+      }
+      var hint = $('cbpFeesHint');
+      if (hint) {
+        hint.innerHTML = '<strong>CBP Formal Entry:</strong> MPF ' + money(cbp.mpf) + ' + HMF ' + money(cbp.hmf) + ' + Broker filing ' + money(cbp.broker) + ' = <strong>' + money(cbp.total) + '</strong>';
+      }
+    }
+
     var other = num('otherFees');
     var ratePct = num('mfn') + num('s301') + num('s232');
     var duty = goods * ratePct / 100;
@@ -116,6 +146,9 @@
         var el = $(id);
         if (el) el.addEventListener('input', compute);
       });
+    var autoCbp = $('autoCbpFees');
+    if (autoCbp) autoCbp.addEventListener('change', compute);
+
     wireOrigin();
     wirePresets();
     wireTransfer();

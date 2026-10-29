@@ -344,9 +344,74 @@
   // ---- Init on DOMContentLoaded ----
   
   // ---- Phase 2: PDF Report & Lead Modal Handlers ----
+    // ---- Dynamic CSV Master Workbook Generator ----
+  function generateMasterCsvContent() {
+    var rows = [
+      '# ==============================================================================',
+      '# TTCalc.shop — TikTok Shop Master Unit Economics & Multi-SKU Workbook 2026',
+      '# Official Rate Card: November 1, 2026 | 100% In-Browser Privacy Verified',
+      '# ==============================================================================',
+      '',
+      '# --- TAB 1: OFFICIAL FBT WEIGHT TIERS & FULFILLMENT RATES (2026-11-01) ---',
+      'Tier,Weight Range,Single Item Rate ($),2-Unit Order ($),3-Unit Order ($),4+ Unit Order ($)',
+      'Tier 1,<=4 oz,4.28,2.52,1.91,1.56',
+      'Tier 2,4-8 oz,4.52,2.91,2.36,1.93',
+      'Tier 3,8-12 oz,4.70,3.05,2.61,2.23',
+      'Tier 4,12-16 oz,5.10,3.16,2.78,2.36',
+      'Tier 5,1-2 lb,5.71,3.92,3.14,2.60',
+      'Tier 6,2-3 lb,6.27,4.30,3.25,2.76',
+      'Tier 7,3-4 lb,6.92,4.70,3.55,3.12',
+      'Tier 8,4-5 lb,7.66,5.09,4.54,4.54',
+      'Tier 9,5-6 lb,8.58,6.19,5.46,5.46',
+      'Tier 10,6-7 lb,8.88,6.50,6.14,6.08',
+      'Tier 11,7-8 lb,9.22,6.90,6.76,6.70',
+      'Tier 12,8-9 lb,9.42,7.00,6.77,6.59',
+      'Tier 13,9-10 lb,9.63,7.46,7.30,7.30',
+      'Tier 14,10-11 lb,10.64,8.30,8.10,8.10',
+      'Tier 15,11-12 lb,10.75,9.20,9.00,9.00',
+      'Tier 16,12-13 lb,10.98,10.04,10.04,10.04',
+      'Tier 17,13-14 lb,11.44,10.42,10.42,10.42',
+      'Tier 18,14-15 lb,11.85,10.80,10.80,10.80',
+      'Tier 19,15-16 lb,12.67,12.67,12.67,12.67',
+      'Tier 20,16-20 lb (Large),14.50,14.50,14.50,14.50',
+      'Tier 21,20-30 lb (Large),18.50,18.50,18.50,18.50',
+      'Tier 22,30-50 lb (Large),26.50,26.50,26.50,26.50',
+      'Tier 23,50-70 lb (Large),34.50,34.50,34.50,34.50',
+      'Tier 24,70-150 lb (Heavy/Bulky),55.00,55.00,55.00,55.00',
+      '',
+      '# --- TAB 2: MULTI-SKU PRODUCT SELECTION & PROFIT MARGIN WORKBENCH ---',
+      'SKU,Product Name,Sale Price ($),COGS ($),Weight (oz),Creator Comm (%),Return Rate (%),Referral (6%),FBT Fee ($),Net Profit ($),Net Margin (%),Break-Even ROAS',
+      'TTS-MIC-01,Wireless Lavalier Microphone,29.99,5.50,6,15%,10%,1.80,4.52,13.36,44.6%,2.24x',
+      'TTS-LAMP-02,Sunset Projection Lamp,19.99,3.80,14,15%,8%,1.20,5.10,6.72,33.6%,2.97x',
+      'TTS-GUASHA-03,Natural Jade Gua Sha Tool,14.99,1.80,4,20%,5%,0.90,4.28,4.96,33.1%,3.02x',
+      'TTS-OIL-04,Rosemary Hair Growth Oil 2oz,18.50,2.50,5,20%,6%,1.11,4.52,6.58,35.6%,2.81x',
+      'TTS-UTENSIL-05,Silicone Kitchen Utensils 12Pcs,34.99,8.20,32,10%,7%,2.10,5.71,15.19,43.4%,2.30x',
+      'TTS-YOGA-06,Seamless High-Waist Leggings,24.99,4.80,9,15%,18%,1.50,4.70,9.98,39.9%,2.50x',
+      'TTS-TUMBLER-07,Stainless Insulated Tumbler 40oz,27.99,6.90,22,10%,9%,1.68,5.71,10.60,37.9%,2.64x',
+      'TTS-LED-08,RGB Smart LED Light Strip 32ft,16.99,3.20,11,15%,12%,1.02,4.70,5.32,31.3%,3.19x',
+      'TTS-TEETH-09,Activated Charcoal Powder,15.99,1.90,4,20%,6%,0.96,4.28,5.49,34.3%,2.91x',
+      'TTS-PET-10,Reusable Pet Hair Lint Roller,12.99,2.10,7,15%,8%,0.78,4.52,3.56,27.4%,3.65x'
+    ];
+    return rows.join('\r\n');
+  }
+
+  function downloadOfflineWorkbook() {
+    var content = generateMasterCsvContent();
+    var blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'TTCalc_Master_Profit_OS_2026_Workbook.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('workbook_csv_downloaded');
+  }
+
   function initPrintAndLeadModal() {
-    // 1. PDF / Print Report Button
-    document.addEventListener('click', function(e) {
+    // 1. PDF Report print trigger
+    document.addEventListener('click', function (e) {
       var btn = e.target.closest('#btnPrintReport');
       if (btn) {
         window.print();
@@ -359,8 +424,8 @@
     if (!modal) return;
 
     var openBtns = document.querySelectorAll('#btnOpenSheetsModal');
-    openBtns.forEach(function(b) {
-      b.addEventListener('click', function() {
+    openBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
         modal.style.display = 'flex';
         var emailInput = document.getElementById('leadEmail');
         var savedEmail = localStorage.getItem('ttcalc_lead_email');
@@ -378,17 +443,36 @@
     var form = document.getElementById('leadSheetsForm');
     var successBox = document.getElementById('leadSuccessBox');
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         var email = (document.getElementById('leadEmail').value || '').trim();
         if (email) {
-          try { localStorage.setItem('ttcalc_lead_email', email); } catch(err) {}
+          try { localStorage.setItem('ttcalc_lead_email', email); } catch (err) {}
+          
+          // Submit to Cloudflare Pages API
+          try {
+            fetch('/api/lead', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: email, tool: window.location.pathname })
+            }).catch(function () {});
+          } catch (e) {}
+
           form.style.display = 'none';
           if (successBox) successBox.style.display = 'block';
           if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('lead_generated', { email: email });
         }
       });
     }
+
+    // Direct workbook CSV download button
+    document.addEventListener('click', function (e) {
+      var dlBtn = e.target.closest('#btnDownloadMasterWorkbook');
+      if (dlBtn) {
+        e.preventDefault();
+        downloadOfflineWorkbook();
+      }
+    });
   }
 
   function init() {

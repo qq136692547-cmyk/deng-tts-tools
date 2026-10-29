@@ -62,3 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// Master Google Sheets Template Copy URL (Nov 2026 Rate Card Edition)
+window.TTCALC_MASTER_SHEET_COPY_URL = 'https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/copy';

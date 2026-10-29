@@ -2,6 +2,8 @@
 window.TTCALC_I18N = {
   en: {},
   zh: {
+    'nav.landed': '关税成本',
+    'lnd.cbp.auto': '自动计算海关规费 (MPF+HMF)',
     'nav.batch': '批量测算',
     'eyebrow.batchMode': '<span class="dot"></span> <span>多 SKU 批量引擎 · 2026年11月</span>',
     'tools.batch.h1': 'TikTok Shop 多 SKU 批量利润计算器',
@@ -2712,7 +2714,7 @@ window.TTCALC_I18N = {
     'hero.eyebrow': '2026费率结构 · 无需注册',
     'hero.title1': '看清你的TikTok Shop真实利润。',
     'hero.title2': '再把它卖好。',
-    'hero.lede': 'TTCalc 现在覆盖上架前的两侧决策：选品前算清全部费用堆叠，再无需摄影棚生成干净的商品图。五个工具，一条工作流。',
+    'hero.lede': 'TTCalc 覆盖 TikTok Shop 全经营链路：从 DDP 关税落地成本、单品利润、GMV Max 压力测试，到 100 款 SKU 批量测算与 AI 商拍图。七大专注工具 —— 打造 TikTok Shop 卖家利润操作系统。',
     'hero.byline': '作者',
     'hero.updated': '费率核验于2026年10月',
     'hero.cta1': '打开计算器',
@@ -2744,14 +2746,14 @@ window.TTCALC_I18N = {
 
     // Bento cards
     'card.2.title': 'FBT履约费',
-    'card.2.body': '由TikTok配送。按重量$4.28–$12.67/件（单件）。2026年初以来的默认履约方式。',
+    'card.2.body': 'TikTok 官方履约（FBT）。单件 $4.28–$12.67（大件已扩容至 150 lb，最高 $55.00）。费率核验于 2026年11月1日。',
     'card.3.title': '跨境费。',
     'card.3.body': '国际订单额外约1%。适用于卖家和买家在不同国家的情况。',
     'card.4.title': '达人佣金。',
     'card.4.body': '如果你用TikTok达人/联盟，该佣金从你的利润中扣除，叠加在所有费用之上。费用堆叠是杀死利润率的原因。',
 
     // Tools section
-    'tools.title': '五个工具，无需注册。',
+    'tools.title': '七大专注工具。',
     'tools.sub': '每个都是专注的单一用途工具。打开你需要的，拿到答案，关掉页面。',
     'tool.1.title': 'TikTok Shop费用计算器',
     'tool.1.desc': '完整费用拆解：基础佣金、FBT履约、达人佣金。看清TikTok实际拿走多少。',
