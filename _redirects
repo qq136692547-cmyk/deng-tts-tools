@@ -1,3 +1,11 @@
+
+# AI Product Photo 彻底下线与权重转移（2026-10-29 战略重构）
+/tools/tiktok-product-photo/*                  /tools/                                         301
+/tools/tiktok-product-photo                    /tools/                                         301
+/blog/free-ai-product-photos-2026/*            /tools/                                         301
+/blog/free-ai-product-photos-2026              /tools/                                         301
+/blog/free-ai-product-photos-tiktok-shop/*     /tools/                                         301
+/blog/free-ai-product-photos-tiktok-shop       /tools/                                         301
 # Cloudflare Pages 重定向规则
 #
 # ⚠️ 重要限制：Cloudflare Pages 的 _redirects **不支持 404 / 410 等状态码**
