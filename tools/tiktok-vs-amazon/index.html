@@ -14,6 +14,8 @@
 <meta property="og:site_name" content="TTCalc" />
 <meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="preload" href="/assets/css/design-tokens.css" as="style" />
+<link rel="stylesheet" href="/assets/css/design-tokens.css" />
 <link rel="preload" href="/assets/css/site.css" as="style" />
 <script>if(/[?&]embed=1/.test(location.search))document.documentElement.classList.add('embed-mode');</script>
 <link rel="stylesheet" href="/assets/css/site.css" />
@@ -118,6 +120,7 @@
 <meta name="twitter:description" content="Same product, two platforms. Side-by-side TikTok Shop vs Amazon FBA net profit comparison. Find which marketplace pays you more.">
 <meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg">
   <link rel="manifest" href="/manifest.webmanifest" />
+<meta name="theme-color" content="#08090a" />
 </head>
 <body class="tool-calc">
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
@@ -147,24 +150,14 @@
     </div>
 
     <div class="calc-window">
-      <div class="calc-titlebar">
-        <div class="traffic"><span></span><span></span><span></span></div>
-        <span class="calc-name">ttcalc &mdash; vs-amazon.js</span>
-        <span class="calc-badge" data-i18n="home.preview.updated">2026 rates</span>
-      </div>
-      <div class="calc-body">
-        <div class="calc-workspace">
-          <div class="workspace-head">
-            <span class="workspace-title" data-i18n="calc.shell.workspaceTitle">My products &middot; saved on this device</span>
-            <span class="workspace-actions">
-              <label for="wsName" class="sr-only" data-i18n="calc.shell.productName">Product name</label>
-              <input type="text" id="wsName" placeholder="Name (auto)" maxlength="60" autocomplete="off" />
-              <button type="button" class="copy-results-btn" id="wsSave" data-i18n="calc.shell.save">Save</button>
-              <button type="button" class="copy-results-btn" id="wsLink" data-i18n="calc.shell.copyLink">Copy link</button>
-            </span>
-          </div>
-          <div class="workspace-list" id="wsList"></div>
+      <div class="fin-hud-bar">
+        <div class="fin-hud-status">
+          <span class="fin-hud-dot"></span>
+          <span>LIVE ENGINE &middot; 2026 RATES</span>
         </div>
+        <span class="calc-name">ttcalc://terminal/channel-arbitrage</span>
+        <span class="calc-badge" data-i18n="calc.shell.badge">November 2026 Verified</span>
+      </div>
 
         <section class="calc-inputs">
           <h2 data-i18n="tools.va.h.inputs">Product inputs</h2>
@@ -591,6 +584,8 @@
         <li><a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit Calculator</a></li>
         <li><a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">ROAS Calculator</a></li>
         <li><a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">TikTok vs Amazon</a></li>
+        <li><a href="/tools/tiktok-landed-cost-calculator/" data-i18n="footer.landed">Landed Cost Calculator</a></li>
+        <li><a href="/tools/tiktok-batch-calculator/" data-i18n="footer.batch">Multi-SKU Batch Calculator</a></li>
       </ul>
     </div>
     <div class="footer-col">

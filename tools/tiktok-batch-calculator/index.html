@@ -19,6 +19,8 @@
 <meta name="twitter:description" content="Batch calculate TikTok Shop profits, FBT fulfillment, commissions, and ROAS floor for your whole catalog." />
 <meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="preload" href="/assets/css/design-tokens.css" as="style" />
+<link rel="stylesheet" href="/assets/css/design-tokens.css" />
 <link rel="preload" href="/assets/css/site.css" as="style" />
 <script>if(/[?&]embed=1/.test(location.search))document.documentElement.classList.add('embed-mode');</script>
 <link rel="stylesheet" href="/assets/css/site.css" />
@@ -48,6 +50,7 @@
   ]
 }
 </script>
+<meta name="theme-color" content="#08090a" />
 </head>
 <body class="tool-calc">
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
@@ -104,44 +107,14 @@
 
     <!-- Batch Workbench Window -->
     <div class="calc-window" style="max-width:100%;">
-      <div class="calc-titlebar">
-        <div class="traffic"><span></span><span></span><span></span></div>
-        <span class="calc-name">ttcalc &mdash; batch-calculator.js</span>
-        <span class="calc-badge" data-i18n="calc.shell.batchBadge">Multi-SKU Mode</span>
-      </div>
-      <div class="calc-body" style="display:block; padding:18px;">
-        <!-- Toolbar -->
-        <div class="batch-toolbar">
-          <div class="batch-toolbar-left">
-            <button type="button" class="btn-batch" id="btnDownloadTemplate" data-i18n="batch.btn.template">
-              📁 Download CSV Template
-            </button>
-            <label class="btn-batch btn-batch-primary" style="margin-bottom:0; cursor:pointer;">
-              📥 <span data-i18n="batch.btn.upload">Upload Catalog CSV</span>
-              <input type="file" id="csvFileInput" accept=".csv,text/csv" style="display:none;" />
-            </label>
-            <button type="button" class="btn-batch" id="btnLoadDemo" data-i18n="batch.btn.demo">
-              ⚡ Load 10 Demo SKUs
-            </button>
-            <button type="button" class="btn-batch" id="btnAddRow" data-i18n="batch.btn.addRow">
-              + Add SKU Row
-            </button>
-          </div>
-          <div class="batch-toolbar-right">
-            <button type="button" class="btn-batch" id="btnExportCSV" data-i18n="batch.btn.export">
-              📤 Export Enriched CSV
-            </button>
-            <button type="button" class="copy-results-btn" id="btnPrintReport" data-i18n="calc.shell.printReport">
-              🖨️ PDF Report
-            </button>
-            <button type="button" class="copy-results-btn btn-lead-sheets" id="btnOpenSheetsModal" data-i18n="calc.shell.getSheets">
-              📊 Google Sheets Template
-            </button>
-            <button type="button" class="btn-batch" id="btnClearBatch" style="color:#ef4444;" data-i18n="batch.btn.clear">
-              🗑️ Clear
-            </button>
-          </div>
+      <div class="fin-hud-bar">
+        <div class="fin-hud-status">
+          <span class="fin-hud-dot"></span>
+          <span>LIVE ENGINE &middot; 2026 RATES</span>
         </div>
+        <span class="calc-name">ttcalc://terminal/batch-matrix</span>
+        <span class="calc-badge" data-i18n="calc.shell.badge">November 2026 Verified</span>
+      </div>
 
         <!-- BFCM 2026 Promo Discount Stress Test Bar -->
         <div class="batch-bfcm-bar" id="batchBfcmBar">
@@ -242,14 +215,14 @@
   </div>
   <div class="wrap footer-cols">
     <div class="footer-col">
-      <h4 data-i18n="footer.calculators">Calculators</h4>
+      <h4 data-i18n="footer.tools">Tools</h4>
       <ul>
         <li><a href="/tools/tiktok-fee-calculator/" data-i18n="nav.fee">Fee Calculator</a></li>
-        <li><a href="/tools/tiktok-profit-calculator/" data-i18n="nav.profit">Profit Calculator</a></li>
-        <li><a href="/tools/tiktok-roas-calculator/" data-i18n="nav.roas">ROAS Calculator</a></li>
-        <li><a href="/tools/tiktok-batch-calculator/" data-i18n="nav.batch">Batch Calculator</a></li>
-        <li><a href="/tools/tiktok-landed-cost-calculator/" data-i18n="tools.lnd.h1">Landed Cost Calculator</a></li>
-        <li><a href="/tools/tiktok-vs-amazon/" data-i18n="nav.vsAmazon">vs Amazon FBA</a></li>
+        <li><a href="/tools/tiktok-profit-calculator/" data-i18n="footer.profit">Profit Calculator</a></li>
+        <li><a href="/tools/tiktok-roas-calculator/" data-i18n="footer.roas">ROAS Calculator</a></li>
+        <li><a href="/tools/tiktok-vs-amazon/" data-i18n="footer.vsAmazon">TikTok vs Amazon</a></li>
+        <li><a href="/tools/tiktok-landed-cost-calculator/" data-i18n="footer.landed">Landed Cost Calculator</a></li>
+        <li><a href="/tools/tiktok-batch-calculator/" data-i18n="footer.batch">Multi-SKU Batch Calculator</a></li>
       </ul>
     </div>
     <div class="footer-col">

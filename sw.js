@@ -7,10 +7,9 @@
  *   - other same-origin static assets (css/images/fonts/manifest):
  *     stale-while-revalidate - serve instantly, refresh in the background.
  *   - never touched: cross-origin requests (cross-origin frames, analytics),
- *     /ads/ sandbox frames, non-GET, embed views.
  */
 
-var VERSION = 'v2026-10-08';
+var VERSION = 'v2026-10-29-ttcalc2';
 var RUNTIME = 'ttcalc-rt-' + VERSION;
 
 self.addEventListener('install', function (e) {
@@ -19,6 +18,7 @@ self.addEventListener('install', function (e) {
     // translations.js is intentionally absent (195 KB, network-first anyway).
     return Promise.allSettled([
       '/assets/css/site.css',
+      '/assets/css/design-tokens.css',
       '/assets/js/rates.js',
       '/assets/js/fbt-rates.js'
     ].map(function (u) { return cache.add(u); }));
@@ -41,7 +41,7 @@ self.addEventListener('fetch', function (e) {
 
   var url = new URL(req.url);
   if (url.origin !== location.origin) return;        // Third-party / GA: untouched
-  if (url.pathname.indexOf('/ads/') === 0) return;   // ad frames: never cached
+  // ads removed in ttcalc 2.0
   if (url.search.indexOf('embed=1') !== -1) return;  // widget views: untouched
 
   var isNav = req.mode === 'navigate';

@@ -2818,6 +2818,8 @@ window.TTCALC_I18N = {
     // Footer
     'footer.desc': '免费TikTok Shop计算器和卖家工具。独立项目，与TikTok或字节跳动无关。',
     'footer.tools': '工具',
+    'footer.batch': '多 SKU 批量计算器',
+    'footer.landed': '到岸成本与关税雷达',
     'footer.learn': '学习',
     'footer.site': '网站',
     'footer.profit': '利润计算器',
