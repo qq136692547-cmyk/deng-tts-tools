@@ -17,6 +17,82 @@
     }, 200);
   }
 
+  
+  // BFCM Promotion Discount Simulator State
+  var bfcmDiscountPct = 10;
+
+  function updateBfcmSim(sale, revenue, effectiveProfit, cogs, referralRate, creatorPct, adsPct, nonResellableRate, returnRate, returnHandlingFee, fbt, txnFee, ship, inboundShip, storageFee, shipCharged) {
+    var pEl = get('bfcmPrice'), profitEl = get('bfcmProfit'), surgeEl = get('bfcmSurge'), verdictEl = get('bfcmVerdict'), verdictTextEl = get('bfcmVerdictText');
+    if (!pEl || !profitEl || !surgeEl) return;
+
+    if (sale <= 0) {
+      pEl.textContent = '$0.00';
+      profitEl.textContent = '$0.00';
+      surgeEl.textContent = '+0.0%';
+      return;
+    }
+
+    var discRate = bfcmDiscountPct / 100;
+    var discSale = sale * (1 - discRate);
+    var discRevenue = discSale + shipCharged;
+
+    var discReferral = discRevenue * (referralRate / 100);
+    var discCreator  = discSale * creatorPct;
+    var discAds      = discSale * adsPct;
+    var discProfitBase = discRevenue - (discReferral + fbt + txnFee) - discCreator - cogs - ship - inboundShip - storageFee - discAds;
+
+    var discRefundAdmin = Math.min(discReferral * R.refundAdminRate, R.refundAdminCap);
+    var returnCost = cogs * nonResellableRate;
+    var discReturnFee = discRefundAdmin * returnRate;
+    var returnHandling = returnHandlingFee * returnRate;
+    var discEffProfit = discProfitBase - returnCost - discReturnFee - returnHandling;
+
+    pEl.textContent = fmt(discSale);
+    profitEl.textContent = fmt(discEffProfit);
+
+    if (effectiveProfit <= 0) {
+      surgeEl.textContent = 'N/A';
+      if (verdictEl && verdictTextEl) {
+        verdictEl.className = 'bfcm-verdict verdict-danger';
+        verdictTextEl.innerHTML = T('bfcm.sim.vBaseLoss', '⚠️ Baseline product is already zero or negative margin. Cutting prices will directly multiply store losses.');
+      }
+      return;
+    }
+
+    if (discEffProfit <= 0) {
+      surgeEl.textContent = '∞ (Loss)';
+      surgeEl.style.color = '#ef4444';
+      if (verdictEl && verdictTextEl) {
+        verdictEl.className = 'bfcm-verdict verdict-danger';
+        verdictTextEl.innerHTML = T('bfcm.sim.vDiscLoss', '🚨 <strong>Margin Collapsed</strong>: At {0}% off, your unit profit drops to {1}. No amount of volume can break even — every sale loses money!')
+          .replace('{0}', bfcmDiscountPct)
+          .replace('{1}', fmt(discEffProfit));
+      }
+      return;
+    }
+
+    surgeEl.style.color = '';
+    var requiredMult = effectiveProfit / discEffProfit;
+    var surgePct = (requiredMult - 1) * 100;
+    surgeEl.textContent = '+' + surgePct.toFixed(1) + '%';
+
+    if (verdictEl && verdictTextEl) {
+      if (surgePct > 150) {
+        verdictEl.className = 'bfcm-verdict verdict-warning';
+        verdictTextEl.innerHTML = T('bfcm.sim.vHighSurge', '⚠️ <strong>High Volume Risk</strong>: Requires a <strong>+{0}%</strong> order surge to make regular dollar profit. Verify FBT stock capacity before running!')
+          .replace('{0}', surgePct.toFixed(1));
+      } else if (surgePct <= 50) {
+        verdictEl.className = 'bfcm-verdict verdict-safe';
+        verdictTextEl.innerHTML = T('bfcm.sim.vViable', '✅ <strong>Viable BFCM Promo</strong>: A <strong>+{0}%</strong> sales surge is easily achievable in BFCM traffic. Great campaign pick!')
+          .replace('{0}', surgePct.toFixed(1));
+      } else {
+        verdictEl.className = 'bfcm-verdict';
+        verdictTextEl.innerHTML = T('bfcm.sim.vModerate', '💡 <strong>Moderate Sensitivity</strong>: Requires a <strong>+{0}%</strong> order increase. Monitor ad spend and creator affiliate rates closely.')
+          .replace('{0}', surgePct.toFixed(1));
+      }
+    }
+  }
+
   function calc() {
     var sale       = num(get('sale').value);
     var cogs       = num(get('cogs').value);
@@ -142,6 +218,9 @@
     if (wiseEl) wiseEl.textContent = '-' + fmt(wiseLoss) + ' / mo';
     if (savedEl) savedEl.textContent = '+' + fmt(saved) + ' / mo';
 
+    
+    // Update Phase 4 BFCM Discount Breakeven Simulator
+    updateBfcmSim(sale, revenue, effectiveProfit, cogs, referralRate, creatorPct, adsPct, nonResellableRate, returnRate, returnHandlingFee, fbt, txnFee, ship, inboundShip, storageFee, shipCharged);
     announce(T('calc.js.profitAnnounce', 'Effective profit {0}, margin {1}%.')
       .replace('{0}', fmt(effectiveProfit)).replace('{1}', margin.toFixed(1)));
   }

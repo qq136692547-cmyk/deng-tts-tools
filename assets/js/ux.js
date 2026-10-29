@@ -3,6 +3,11 @@
 (function () {
   'use strict';
 
+  // Immediately tag document if loaded in iframe embed mode (?embed=1)
+  if (/[?&]embed=1/.test(window.location.search)) {
+    document.documentElement.classList.add('embed-mode');
+  }
+
   // Panel copy built in JS goes through the shared dictionary when it is
   // available (i18n.js loads before this file).
   function T(key, fallback) { return window.ttcalcT ? window.ttcalcT(key, fallback) : fallback; }
@@ -475,6 +480,19 @@
     });
   }
 
+  // ---- Embed Mode Attribution & Setup ----
+  function initEmbedMode() {
+    if (!/[?&]embed=1/.test(window.location.search)) return;
+    document.documentElement.classList.add('embed-mode');
+    if (!document.querySelector('.embed-footer-badge')) {
+      var badge = document.createElement('div');
+      badge.className = 'embed-footer-badge';
+      badge.innerHTML = '<a href="https://ttcalc.shop" target="_blank" rel="noopener">⚡ Powered by <strong>TTCalc.shop</strong> (Nov 2026 Rates)</a>';
+      var calcWindow = document.querySelector('.calc-window') || document.querySelector('main') || document.body;
+      calcWindow.appendChild(badge);
+    }
+  }
+
   function init() {
     initCountUp();
     initScrollReveal();
@@ -482,6 +500,7 @@
     initSaleGuard();
     initStickyResult();
     initPrintAndLeadModal();
+    initEmbedMode();
     // Next frame: workspace.js loads after ux.js and fills inputs from the
     // URL, so reading values synchronously here would capture the defaults.
     requestAnimationFrame(syncNextstepLinks);

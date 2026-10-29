@@ -1470,3 +1470,216 @@ html.consent-open body { padding-bottom: 84px; }
   border: 1px solid rgba(16, 185, 129, 0.18);
   border-radius: 6px;
 }
+
+
+/* Phase 4: Embed Mode adjustments */
+.embed-mode .sticky-mini-hud,
+.embed-mode .sheets-modal { display: none !important; }
+
+/* Embed Attribution Footer Link */
+.embed-footer-badge {
+  text-align: right;
+  padding: 10px 14px;
+  font-size: 11px;
+  color: var(--ink-dim, #71717a);
+  margin-top: var(--s-3);
+  border-top: 1px dashed var(--line, #27272a);
+}
+.embed-footer-badge a {
+  color: var(--brand, #00d26a);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+.embed-footer-badge a:hover {
+  color: var(--brand-glow, #10b981);
+  text-decoration: underline;
+}
+
+/* Phase 4: BFCM Discount Breakeven Simulator */
+.bfcm-discount-sim {
+  margin: var(--s-3) 0 var(--s-4);
+  background: var(--surface-soft, #1e293b);
+  border: 1px solid var(--line, #334155);
+  border-radius: var(--r-md, 8px);
+  padding: 16px;
+}
+.bfcm-sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.bfcm-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink, #f8fafc);
+}
+.bfcm-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+.bfcm-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-dim, #94a3b8);
+  margin-bottom: 12px;
+}
+.bfcm-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.bfcm-presets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.bfcm-presets .preset-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--line, #334155);
+  background: var(--surface, #0f172a);
+  color: var(--ink-dim, #94a3b8);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.bfcm-presets .preset-pill:hover {
+  border-color: var(--brand, #00d26a);
+  color: var(--ink, #fff);
+}
+.bfcm-presets .preset-pill.active {
+  background: var(--brand, #00d26a);
+  border-color: var(--brand, #00d26a);
+  color: #000;
+  font-weight: 700;
+}
+.bfcm-custom-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--ink-dim, #94a3b8);
+}
+.bfcm-custom-input input {
+  width: 50px;
+  padding: 3px 6px;
+  font-size: 12px;
+  background: var(--surface, #0f172a);
+  border: 1px solid var(--line, #334155);
+  border-radius: 4px;
+  color: var(--ink, #fff);
+  text-align: center;
+}
+.bfcm-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+@media (max-width: 480px) {
+  .bfcm-kpi-grid { grid-template-columns: 1fr; }
+}
+.bfcm-kpi-card {
+  background: var(--surface, #0f172a);
+  border: 1px solid var(--line, #334155);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.bfcm-kpi-card .kpi-label {
+  font-size: 11px;
+  color: var(--ink-dim, #94a3b8);
+  margin-bottom: 4px;
+}
+.bfcm-kpi-card .kpi-val {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink, #fff);
+}
+.bfcm-kpi-card .kpi-val.highlight {
+  color: #eab308;
+}
+.bfcm-verdict {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+  color: var(--ink, #f1f5f9);
+}
+.bfcm-verdict.verdict-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left-color: #ef4444;
+  color: #fca5a5;
+}
+.bfcm-verdict.verdict-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left-color: #f59e0b;
+  color: #fde68a;
+}
+.bfcm-verdict.verdict-safe {
+  background: rgba(16, 185, 129, 0.1);
+  border-left-color: #10b981;
+  color: #a7f3d0;
+}
+
+/* Phase 4: Batch BFCM Stress Bar & Buttons */
+.batch-bfcm-bar {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--r-md, 8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.btn-bfcm-stress {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--line, #334155);
+  background: var(--surface, #0f172a);
+  color: var(--ink-dim, #94a3b8);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-bfcm-stress:hover {
+  border-color: #ef4444;
+  color: var(--ink, #fff);
+}
+.btn-bfcm-stress.active {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+  font-weight: 700;
+}
+.batch-row-bfcm-loss {
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+.batch-row-bfcm-loss:hover {
+  background: rgba(239, 68, 68, 0.18) !important;
+}

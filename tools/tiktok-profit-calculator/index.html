@@ -361,6 +361,50 @@
           </div>
         </div>
 
+        <!-- BFCM 2026 Promotion Discount Breakeven Simulator -->
+        <div class="bfcm-discount-sim" id="bfcmDiscountSim">
+          <div class="bfcm-sim-header">
+            <div class="bfcm-title-wrap">
+              <span class="bfcm-icon">🏷️</span>
+              <strong data-i18n="bfcm.sim.title">BFCM 2026 Promo Discount &amp; Breakeven Simulator</strong>
+            </div>
+            <span class="bfcm-badge" data-i18n="bfcm.sim.badge">BFCM Anti-Loss</span>
+          </div>
+          <p class="bfcm-desc" data-i18n="bfcm.sim.desc">
+            Planning a Black Friday / Cyber Monday price cut? Calculate the exact sales volume surge required to maintain your baseline dollar profit before slashing prices.
+          </p>
+          <div class="bfcm-controls">
+            <div class="bfcm-presets" id="bfcmPresets">
+              <button type="button" class="preset-pill active" data-discount="10">10% Off</button>
+              <button type="button" class="preset-pill" data-discount="15">15% Off</button>
+              <button type="button" class="preset-pill" data-discount="20">20% Off</button>
+              <button type="button" class="preset-pill" data-discount="25">25% Off</button>
+            </div>
+            <div class="bfcm-custom-input">
+              <span data-i18n="bfcm.sim.custom">Custom:</span>
+              <input type="number" id="bfcmCustomPct" min="1" max="80" value="10" step="1" aria-label="Custom Discount Percent" />
+              <span>%</span>
+            </div>
+          </div>
+          <div class="bfcm-kpi-grid">
+            <div class="bfcm-kpi-card">
+              <span class="kpi-label" data-i18n="bfcm.sim.discPrice">Discounted Price</span>
+              <span class="kpi-val" id="bfcmPrice">$26.99</span>
+            </div>
+            <div class="bfcm-kpi-card">
+              <span class="kpi-label" data-i18n="bfcm.sim.newProfit">New Unit Profit</span>
+              <span class="kpi-val" id="bfcmProfit">$7.01</span>
+            </div>
+            <div class="bfcm-kpi-card">
+              <span class="kpi-label" data-i18n="bfcm.sim.requiredSurge">Required Volume Surge</span>
+              <span class="kpi-val highlight" id="bfcmSurge">+40.0%</span>
+            </div>
+          </div>
+          <div class="bfcm-verdict" id="bfcmVerdict">
+            <span class="verdict-icon">💡</span>
+            <span class="verdict-text" id="bfcmVerdictText">A +40.0% order volume increase is required to maintain your baseline dollar profit at 10% off.</span>
+          </div>
+        </div>
           <div class="calc-affiliate-box">
             <div class="calc-affiliate-badge">
               <span class="calc-affiliate-icon">★</span>

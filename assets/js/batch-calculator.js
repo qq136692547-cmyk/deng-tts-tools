@@ -70,6 +70,7 @@
   ];
 
   var currentCatalog = [];
+  var bfcmStressPct = 0;
 
   function calculateItem(item) {
     var price = Math.max(0, parseFloat(item.price) || 0);
@@ -129,6 +130,9 @@
 
     return {
       sku: item.sku || 'SKU-00',
+      rawPrice: rawPrice,
+      discApplied: disc,
+      isBfcmLoss: (disc > 0 && netProfit <= 0),
       name: item.name || 'Product',
       price: price,
       cogs: cogs,
@@ -165,11 +169,12 @@
       var calc = calculateItem(rawItem);
       calculatedList.push(calc);
 
-      html += '<tr data-idx="' + idx + '">';
+      var rowClass = calc.isBfcmLoss ? 'batch-row-bfcm-loss' : '';
+      html += '<tr data-idx="' + idx + '" class="' + rowClass + '">';
       html += '<td class="col-center">' + (idx + 1) + '</td>';
       html += '<td><input type="text" class="table-input sku-input" value="' + escapeHtml(calc.sku) + '" data-field="sku" /></td>';
       html += '<td><input type="text" class="table-input name-input" value="' + escapeHtml(calc.name) + '" data-field="name" /></td>';
-      html += '<td><input type="number" step="0.01" class="table-input num-input" value="' + calc.price.toFixed(2) + '" data-field="price" /></td>';
+      html += '<td><input type="number" step="0.01" class="table-input num-input" value="' + calc.rawPrice.toFixed(2) + '" data-field="price" />' + (calc.discApplied > 0 ? '<div style="font-size:10px; color:#ef4444; font-weight:600;">-' + calc.discApplied + '%: ' + money(calc.price) + '</div>' : '') + '</td>';
       html += '<td><input type="number" step="0.01" class="table-input num-input" value="' + calc.cogs.toFixed(2) + '" data-field="cogs" /></td>';
       html += '<td><input type="number" step="0.1" class="table-input num-input" value="' + calc.weightOz.toFixed(1) + '" data-field="weightOz" /></td>';
       html += '<td><input type="number" step="1" class="table-input num-input" value="' + calc.commPct.toFixed(0) + '" data-field="commPct" />%</td>';
@@ -208,12 +213,16 @@
     var safeCount = 0;
     var riskCount = 0;
 
+    var bfcmLossCount = 0;
     list.forEach(function (c) {
       // Assuming catalog baseline: 50 units projected per SKU
       var assumedUnits = 50;
       totalRev += c.price * assumedUnits;
       totalProfit += c.netProfit * assumedUnits;
-      if (c.netProfit > 0 && c.breakEvenROAS <= 3.5) {
+      if (c.netProfit <= 0) {
+        riskCount++;
+        if (c.discApplied > 0) bfcmLossCount++;
+      } else if (c.breakEvenROAS <= 3.5) {
         safeCount++;
       } else {
         riskCount++;
@@ -233,7 +242,11 @@
       marginEl.className = 'kpi-val ' + (blendedMargin >= 18 ? 'text-green' : (blendedMargin >= 10 ? 'text-yellow' : 'text-red'));
     }
     if (healthEl) {
-      healthEl.innerHTML = '<span class="text-green">' + safeCount + ' Safe</span> / <span class="text-red">' + riskCount + ' At Risk</span>';
+      if (bfcmStressPct > 0) {
+        healthEl.innerHTML = '<span class="text-red">🚨 ' + bfcmLossCount + ' SKUs Lose Money at -' + bfcmStressPct + '%</span>';
+      } else {
+        healthEl.innerHTML = '<span class="text-green">' + safeCount + ' Safe</span> / <span class="text-red">' + riskCount + ' At Risk</span>';
+      }
     }
   }
 
@@ -419,6 +432,18 @@
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
+
+  
+    // Phase 4: Wire BFCM Stress Test Buttons
+    var stressButtons = document.querySelectorAll('.btn-bfcm-stress');
+    stressButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        stressButtons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        bfcmStressPct = parseInt(btn.getAttribute('data-stress'), 10) || 0;
+        renderTable();
+      });
+    });
 
   function init() {
     // 1. Load Demo Button
