@@ -115,6 +115,9 @@
       <span data-i18n-html="eyebrow.landedCost" class="eyebrow"><span class="dot"></span> <span>Import costs &middot; 2026</span></span>
       <h1 data-i18n="tools.lnd.h1">TikTok Shop Landed Cost Calculator</h1>
       <p class="subtitle" data-i18n="tools.lnd.lede">Price the import before the platform. Duty layers, freight and entry fees down to a per-unit landed cost &mdash; because de minimis is gone for every country.</p>
+      <div style="background:var(--c-surface-subtle,#1e293b); border:1px solid var(--c-border,#334155); border-left:4px solid #f59e0b; padding:12px 16px; border-radius:8px; margin-top:var(--s-3); font-size:0.9rem; text-align:left;">
+        <strong>⏰ November 9 Tariff Alert:</strong> 178 Section 301 China tariff exclusions expire on <strong>November 9, 2026 at 23:59 EST</strong>, returning duties to 7.5% or 25%. <a href="/blog/tiktok-shop-section-301-tariff-exclusions-expiring-2026/" style="color:var(--c-accent,#38bdf8); text-decoration:underline; font-weight:600;">Read the full landed cost impact &amp; SKU guide &rarr;</a>
+      </div>
     </div>
 
     <div class="calc-window">
@@ -124,6 +127,19 @@
         <span class="calc-badge" data-i18n="lnd.badge">2026 tariff stack</span>
       </div>
       <div class="calc-body">
+        <div class="calc-workspace">
+          <div class="workspace-head">
+            <span class="workspace-title" data-i18n="calc.shell.workspaceTitle">My products &middot; saved on this device</span>
+            <span class="workspace-actions">
+              <label for="wsName" class="sr-only" data-i18n="calc.shell.productName">Product name</label>
+              <input type="text" id="wsName" placeholder="Name (auto)" data-i18n-placeholder="calc.shell.namePlaceholder" maxlength="60" autocomplete="off" />
+              <button type="button" class="copy-results-btn" id="wsSave" data-i18n="calc.shell.save">Save</button>
+              <button type="button" class="copy-results-btn" id="wsLink" data-i18n="calc.shell.copyLink">Copy link</button>
+            </span>
+          </div>
+          <div class="workspace-list" id="wsList"></div>
+        </div>
+
         <section class="calc-inputs">
           <h2 data-i18n="calc.shell.inputs">Inputs</h2>
 
@@ -256,6 +272,18 @@
       </div>
     </section>
 
+    <section style="margin-top:var(--s-7);" id="embed">
+      <div class="section-header">
+        <h2 data-i18n="tools.fee.h.embed">Embed this calculator</h2>
+        <span class="section-tag" data-i18n="seclabel.08embed">08 / embed</span>
+      </div>
+      <p class="section-lede" data-i18n="tools.fee.embed">Free to place on your own site, no attribution required. Width is 100% fluid, fits any column &ge; 320px.</p>
+      <div class="embed-box">
+        <textarea readonly rows="4" onclick="this.select(); if(window.ttcalcTrackEvent)ttcalcTrackEvent('embed_code_copy',{tool:'landed-cost-calculator'});">&lt;iframe src="https://ttcalc.shop/tools/tiktok-landed-cost-calculator/?embed=1" style="width:100%;height:850px;border:none;border-radius:12px;overflow:hidden;" loading="lazy" title="TikTok Shop Landed Cost Calculator"&gt;&lt;/iframe&gt;</textarea>
+        <p class="embed-code-note" data-i18n-html="tools.fee.embedNote">Adjust the <code>height</code> to suit your layout. The embed uses <code>postMessage</code> to resize automatically on supporting hosts.</p>
+      </div>
+    </section>
+
     <section>
       <div class="section-header">
         <h2 data-i18n="section.keepGoing">Keep going</h2>
@@ -263,6 +291,7 @@
       </div>
       <div class="tool-prose">
         <ul>
+          <li><a href="/blog/tiktok-shop-section-301-tariff-exclusions-expiring-2026/"><strong>178 Section 301 Tariff Exclusions Expiring (Nov 9, 2026)</strong></a> &mdash; full impact analysis on Chinese import duties, FBT margins, and what sellers must execute before the cutoff.</li>
           <li data-i18n-html="lnd.rel1"><a href="/tools/tiktok-fee-calculator/">TikTok Shop Fee Calculator</a> &mdash; once the unit is on the shelf, price the platform: referral, FBT, creator commission, returns.</li>
           <li data-i18n-html="lnd.rel2"><a href="/tools/tiktok-profit-calculator/">Profit Calculator</a> &mdash; landed cost plus the full fee stack, down to net profit per unit.</li>
           <li data-i18n-html="lnd.rel3"><a href="/fee-schedule/">TikTok Shop fee schedule</a> &mdash; every fulfillment and storage tier with effective dates.</li>
@@ -331,6 +360,7 @@
 </footer>
 
 <script defer src="/assets/js/landed-cost.js"></script>
+<script defer src="/assets/js/workspace.js"></script>
 <script defer src="/assets/js/consent.js"></script>
 <script defer src="/assets/js/translations.js"></script>
 <script defer src="/assets/js/i18n.js"></script>
