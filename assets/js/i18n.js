@@ -63,6 +63,13 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       var original = originalContent.get(el);
+
+      // Architectural Guardrail (TTCalc 2.0): Prevent wiping out child DOM trees
+      if (el.children && el.children.length > 0) {
+        console.warn('[i18n Guardrail] Prevented container textContent overwrite on parent node with ' + el.children.length + ' children. Key: ' + key, el);
+        return;
+      }
+
       if (dict[key] !== undefined) {
         el.textContent = dict[key];
       } else if (lang === 'en' && original) {

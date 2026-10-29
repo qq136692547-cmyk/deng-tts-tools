@@ -188,6 +188,32 @@
     get('r_return_fee').textContent         = '-' + fmt(returnFee);
     get('r_return_handling').textContent    = '-' + fmt(returnHandling);
     get('r_eff_profit').textContent         = fmt(effectiveProfit);
+
+    // TTCalc 2.0 Verdict Hero Card Sync
+    var vProfitEl = get('v_eff_profit');
+    if (vProfitEl) {
+      vProfitEl.textContent = fmt(effectiveProfit);
+      if (effectiveProfit < 0) {
+        vProfitEl.style.color = 'var(--tint-danger-text, #f87171)';
+      } else if (margin < 15) {
+        vProfitEl.style.color = 'var(--tint-warning-text, #fbbf24)';
+      } else {
+        vProfitEl.style.color = 'var(--tint-success-text, #34d399)';
+      }
+    }
+    var vBadgeEl = get('v_margin_badge');
+    if (vBadgeEl) {
+      if (effectiveProfit <= 0) {
+        vBadgeEl.className = 'fin-badge fin-badge--danger';
+        vBadgeEl.textContent = margin.toFixed(1) + '% ' + T('verdict.deficit', 'Deficit');
+      } else if (margin < 15) {
+        vBadgeEl.className = 'fin-badge fin-badge--warning';
+        vBadgeEl.textContent = margin.toFixed(1) + '% ' + T('verdict.fragile', 'Fragile Margin');
+      } else {
+        vBadgeEl.className = 'fin-badge fin-badge--success';
+        vBadgeEl.textContent = margin.toFixed(1) + '% ' + T('verdict.healthy', 'Healthy Margin');
+      }
+    }
     get('r_monthly_revenue').textContent    = fmt(monthlyRevenue);
     get('r_monthly_profit').textContent     = fmt(monthlyProfit);
     get('r_monthly_returns').textContent    = T('calc.js.units', '{0} units')

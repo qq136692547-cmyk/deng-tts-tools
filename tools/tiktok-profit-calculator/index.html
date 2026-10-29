@@ -14,6 +14,8 @@
 <meta property="og:site_name" content="TTCalc" />
 <meta property="og:image" content="https://ttcalc.shop/assets/images/og-default.jpg" />
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="preload" href="/assets/css/design-tokens.css" as="style" />
+<link rel="stylesheet" href="/assets/css/design-tokens.css" />
 <link rel="preload" href="/assets/css/site.css" as="style" />
 <script>if(/[?&]embed=1/.test(location.search))document.documentElement.classList.add('embed-mode');</script>
 <link rel="stylesheet" href="/assets/css/site.css" />
@@ -118,6 +120,7 @@
 <meta name="twitter:description" content="Real net profit per unit after all TikTok fees, COGS, and shipping. Includes FBT, creator commissions, ad spend, and returns.">
 <meta name="twitter:image" content="https://ttcalc.shop/assets/images/og-default.jpg">
   <link rel="manifest" href="/manifest.webmanifest" />
+<meta name="theme-color" content="#08090a" />
 </head>
 <body class="tool-calc">
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
@@ -155,10 +158,13 @@
       </div>
 
     <div class="calc-window">
-      <div class="calc-titlebar">
-        <div class="traffic"><span></span><span></span><span></span></div>
-        <span class="calc-name">ttcalc &mdash; profit-calculator.js</span>
-        <span class="calc-badge" data-i18n="calc.shell.badge">2026 rates</span>
+      <div class="fin-hud-bar">
+        <div class="fin-hud-status">
+          <span class="fin-hud-dot"></span>
+          <span>LIVE ENGINE &middot; 2026 RATES</span>
+        </div>
+        <span class="calc-name">ttcalc://terminal/profit-os</span>
+        <span class="calc-badge" data-i18n="calc.shell.badge">November 2026 Verified</span>
       </div>
       <div class="calc-body">
         <div class="calc-workspace">
@@ -309,6 +315,19 @@
             <button type="button" class="copy-results-btn btn-lead-sheets" id="btnOpenSheetsModal" data-i18n="calc.shell.getSheets">📊 Google Sheets Workbook</button>
           </div>
 
+          <!-- TTCalc 2.0 Sticky Verdict Hero Card -->
+          <div class="verdict-hero-card" id="verdictHeroCard">
+            <div class="verdict-hero-label" data-i18n="calc.row.effectiveProfit">Effective Net Profit</div>
+            <div class="verdict-hero-stat">
+              <span class="verdict-hero-num" id="v_eff_profit">$9.81</span>
+              <span class="verdict-hero-unit">/ unit</span>
+            </div>
+            <div class="verdict-hero-badge-wrap">
+              <span class="fin-badge fin-badge--success" id="v_margin_badge">32.7% Healthy Margin</span>
+              <span class="verdict-hero-sub">After all fees &amp; returns</span>
+            </div>
+          </div>
+
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.salePrice">Sale price</span><span class="val" id="r_sale">$29.99</span></div>
           <div class="calc-result-row" id="row_ship_charged"><span class="lbl" data-i18n="calc.row.shipCharged">+ Shipping charged to buyer</span><span class="val" id="r_ship_charged">$0.00</span></div>
           <div class="calc-result-row"><span class="lbl" id="r_tts_fees_lbl">&#8722; TikTok fees (6% + FBT)</span><span class="val" id="r_tts_fees">&#8722;$6.32</span></div>
@@ -331,7 +350,34 @@
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyRevenue">Monthly revenue</span><span class="val" id="r_monthly_revenue">$2999.00</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyProfit">Monthly profit</span><span class="val" id="r_monthly_profit">$980.61</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyReturns">Monthly returns</span><span class="val" id="r_monthly_returns">5 units</span></div>
-                            <div class="payout-spread-sim" id="payoutSpreadSim">
+                            <div class="calc-affiliate-box">
+            <div class="calc-affiliate-badge">
+              <span class="calc-affiliate-icon">★</span>
+              <span data-i18n="tools.profit.affBadge">Sourcing & Demand Check</span>
+            </div>
+            <p class="calc-affiliate-text" data-i18n="tools.profit.affText">
+              Before committing capital to inventory, verify 7-day sales velocity and real shop margins on FastMoss.
+            </p>
+            <div class="calc-affiliate-breakeven" id="calcAffBreakEven">
+              <span class="be-tag" data-i18n="aff.be.tag">SaaS Break-Even Math</span>
+              <p class="be-text" id="beMathText">At <strong>$9.81/unit</strong> profit, FastMoss ($44.10/mo with 10% off code) pays for itself in just <strong>5 sales/month</strong> (Kalodata: <strong>6 sales</strong>).</p>
+            </div>
+            <a class="calc-affiliate-btn" href="https://www.fastmoss.com/dashboard?refCode=PC0491" target="_blank" rel="sponsored noopener">
+              <span data-i18n="tools.profit.affBtn">★ Validate Product Demand on FastMoss (Code: PC0491)</span>
+              <span class="calc-affiliate-arrow">&#8594;</span>
+            </a>
+            <span class="calc-affiliate-disc" data-i18n="calc.aff.disclosure">★ Partner disclosure: Free trial with code PC0491. We may earn a commission if you subscribe.</span>
+          </div>
+
+          <p class="source-note rate-version" data-i18n-html="tools.profit.sourceLine">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
+        </section>
+        <p class="sr-only" role="status" aria-live="polite" id="calcSummary"></p>
+      </div>
+    </div>
+
+    <!-- TTCalc 2.0 Analytical Deck: Full-width stress & payout simulators -->
+    <section class="analytical-deck" id="analyticalDeck" aria-label="Deep Analysis & Stress Sandboxes">
+      <div class="payout-spread-sim" id="payoutSpreadSim">
           <div class="payout-sim-header" id="payoutSimToggle" role="button" tabindex="0">
             <span class="sim-icon">💳</span>
             <span class="sim-title" data-i18n="payout.sim.title">Monthly FX &amp; Payout Spread Simulator</span>
@@ -405,30 +451,7 @@
             <span class="verdict-text" id="bfcmVerdictText">A +40.0% order volume increase is required to maintain your baseline dollar profit at 10% off.</span>
           </div>
         </div>
-          <div class="calc-affiliate-box">
-            <div class="calc-affiliate-badge">
-              <span class="calc-affiliate-icon">★</span>
-              <span data-i18n="tools.profit.affBadge">Sourcing & Demand Check</span>
-            </div>
-            <p class="calc-affiliate-text" data-i18n="tools.profit.affText">
-              Before committing capital to inventory, verify 7-day sales velocity and real shop margins on FastMoss.
-            </p>
-            <div class="calc-affiliate-breakeven" id="calcAffBreakEven">
-              <span class="be-tag" data-i18n="aff.be.tag">SaaS Break-Even Math</span>
-              <p class="be-text" id="beMathText">At <strong>$9.81/unit</strong> profit, FastMoss ($44.10/mo with 10% off code) pays for itself in just <strong>5 sales/month</strong> (Kalodata: <strong>6 sales</strong>).</p>
-            </div>
-            <a class="calc-affiliate-btn" href="https://www.fastmoss.com/dashboard?refCode=PC0491" target="_blank" rel="sponsored noopener">
-              <span data-i18n="tools.profit.affBtn">★ Validate Product Demand on FastMoss (Code: PC0491)</span>
-              <span class="calc-affiliate-arrow">&#8594;</span>
-            </a>
-            <span class="calc-affiliate-disc" data-i18n="calc.aff.disclosure">★ Partner disclosure: Free trial with code PC0491. We may earn a commission if you subscribe.</span>
-          </div>
-
-          <p class="source-note rate-version" data-i18n-html="tools.profit.sourceLine">Referral fee effective 2024-04-01 &middot; FBT rate card effective 2026-07-13 &middot; last checked by hand 2026-09-29 &middot; Sources: <a href="https://seller.tiktokglobalshop.com/university/essay?knowledge_id=140687984494338&amp;role=1&amp;shop_region=US" target="_blank" rel="noopener">US commission policy</a>, <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=3507056320268087" target="_blank" rel="noopener">FBT rate card</a></p>
-        </section>
-        <p class="sr-only" role="status" aria-live="polite" id="calcSummary"></p>
-      </div>
-    </div>
+    </section>
 
     <div class="quick-answer">
       <p class="quick-answer-label" data-i18n="tools.profit.quickLabel">Quick answer</p>

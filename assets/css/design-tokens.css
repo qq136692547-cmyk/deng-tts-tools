@@ -1,0 +1,377 @@
+/* ==========================================================================
+   TTCalc Cyber-Fintech Design System Tokens (DESIGN.md v2.0)
+   Standards: Linear.app (Dark Depth) · Stripe (Financial Clarity) · Mercury (Trust)
+   ========================================================================== */
+
+:root {
+  /* 1. Surface Elevation Ladder (Luminance Hierarchy) */
+  --bg-canvas: #08090a;
+  --bg-panel: #0f1115;
+  --bg-surface: #161920;
+  --bg-elevated: #1c2029;
+  --bg-hover: #222733;
+
+  /* 2. Specular Borders */
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-specular: rgba(255, 255, 255, 0.14);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-focus: #38bdf8;
+
+  /* 3. Off-White Text Hierarchy (Anti-Halation Ink) */
+  --text-display: #f7f8f8;
+  --text-primary: #d0d6e0;
+  --text-muted: #8a8f98;
+  --text-dim: #565b66;
+  --text-inverse: #08090a;
+
+  /* 4. Desaturated Semantic State Tokens (The Desaturation Rule) */
+  --tint-success-bg: rgba(16, 185, 129, 0.12);
+  --tint-success-text: #34d399;
+  --tint-success-border: rgba(16, 185, 129, 0.28);
+
+  --tint-warning-bg: rgba(245, 158, 11, 0.12);
+  --tint-warning-text: #fbbf24;
+  --tint-warning-border: rgba(245, 158, 11, 0.28);
+
+  --tint-danger-bg: rgba(239, 68, 68, 0.12);
+  --tint-danger-text: #f87171;
+  --tint-danger-border: rgba(239, 68, 68, 0.28);
+
+  --tint-accent-bg: rgba(56, 189, 248, 0.12);
+  --tint-accent-text: #38bdf8;
+  --tint-accent-border: rgba(56, 189, 248, 0.28);
+
+  /* 5. Typography Stacks */
+  --font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, monospace;
+
+  /* 6. Spacing Scale (8pt System) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* 7. Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  /* 8. Shadows & Highlights */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+  --shadow-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+
+  /* Compatibility Aliases with Existing CSS */
+  --bg: var(--bg-canvas);
+  --surface: var(--bg-panel);
+  --surface-soft: var(--bg-surface);
+  --paper: var(--bg-canvas);
+  --paper-deep: var(--bg-panel);
+  --card: var(--bg-panel);
+  --ink: var(--text-display);
+  --ink-soft: var(--text-primary);
+  --ink-dim: var(--text-muted);
+  --muted: var(--text-muted);
+  --line: var(--border-hairline);
+  --line-soft: var(--border-subtle);
+  --accent: var(--tint-accent-text);
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+}
+
+/* Base Body Application */
+html, body {
+  background-color: var(--bg-canvas) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Tabular Figures for Financial Elements */
+input[type="number"],
+.tabular-nums,
+.stat-val,
+.kpi-val,
+.verdict-number,
+.calc-result-val,
+table td.col-num {
+  font-family: var(--font-mono) !important;
+  font-variant-numeric: tabular-nums lining-nums !important;
+  font-feature-settings: "tnum" 1, "cv01" 1, "ss03" 1 !important;
+}
+
+/* Focus Ring */
+:focus-visible {
+  outline: none !important;
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 1px var(--border-focus), 0 0 16px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* ==========================================================================
+   FinTech HUD & Chrome Replacement (No macOS traffic lights)
+   ========================================================================== */
+.fin-hud-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-hairline);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-specular);
+}
+
+.fin-hud-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  color: var(--tint-success-text);
+}
+
+.fin-hud-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tint-success-text);
+  box-shadow: 0 0 8px var(--tint-success-text);
+}
+
+/* ==========================================================================
+   Desaturated Status Badges
+   ========================================================================== */
+.fin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.fin-badge--success {
+  background: var(--tint-success-bg);
+  color: var(--tint-success-text);
+  border-color: var(--tint-success-border);
+}
+
+.fin-badge--warning {
+  background: var(--tint-warning-bg);
+  color: var(--tint-warning-text);
+  border-color: var(--tint-warning-border);
+}
+
+.fin-badge--danger {
+  background: var(--tint-danger-bg);
+  color: var(--tint-danger-text);
+  border-color: var(--tint-danger-border);
+}
+
+.fin-badge--accent {
+  background: var(--tint-accent-bg);
+  color: var(--tint-accent-text);
+  border-color: var(--tint-accent-border);
+}
+
+/* ==========================================================================
+   Print Overrides (Zero Black Ink Waste)
+   ========================================================================== */
+@media print {
+  :root {
+    --bg-canvas: #ffffff !important;
+    --bg-panel: #ffffff !important;
+    --bg-surface: #f8fafc !important;
+    --text-display: #090a0f !important;
+    --text-primary: #1e293b !important;
+    --text-muted: #64748b !important;
+    --border-hairline: #e2e8f0 !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #090a0f !important;
+  }
+
+  .site-header,
+  .site-footer,
+  .v5-strip,
+  .v5-actions,
+  .calc-actions,
+  .modal-backdrop {
+    display: none !important;
+  }
+
+  .fin-card,
+  .calc-window,
+  .split-pane-right {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+  }
+}
+
+/* ==========================================================================
+   TTCalc 2.0 Split-Pane & Analytical Deck Rules
+   ========================================================================== */
+.calc-window {
+  max-width: 1140px !important;
+  margin: 0 auto 36px !important;
+  background: var(--bg-panel, #0f1115) !important;
+  border: 1px solid var(--border-specular, rgba(255, 255, 255, 0.12)) !important;
+  border-radius: var(--radius-lg, 14px) !important;
+  box-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
+  overflow: visible !important;
+}
+
+.calc-body {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) !important;
+  gap: 0 !important;
+  align-items: start !important;
+}
+
+@media (min-width: 900px) {
+  .calc-results {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 84px !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%) !important;
+  }
+}
+
+@media (max-width: 899px) {
+  .calc-body {
+    grid-template-columns: 1fr !important;
+  }
+  .calc-inputs {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-hairline) !important;
+  }
+}
+
+/* Verdict Hero Card */
+.verdict-hero-card {
+  padding: 18px 20px !important;
+  margin-bottom: 18px !important;
+  background: var(--bg-surface, #161920) !important;
+  border: 1px solid var(--border-specular, rgba(255, 255, 255, 0.12)) !important;
+  border-radius: var(--radius-md, 10px) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+}
+
+.verdict-hero-label {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 6px !important;
+}
+
+.verdict-hero-stat {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+.verdict-hero-num {
+  font-family: var(--font-mono) !important;
+  font-variant-numeric: tabular-nums !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  color: #34d399;
+  letter-spacing: -0.02em !important;
+}
+
+.verdict-hero-unit {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  color: var(--text-muted) !important;
+}
+
+.verdict-hero-badge-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+.verdict-hero-sub {
+  font-size: 12px !important;
+  color: var(--text-dim, #565b66) !important;
+}
+
+/* Analytical Deck below Calc Window */
+.analytical-deck {
+  max-width: 1140px !important;
+  margin: 40px auto 60px !important;
+  padding: 0 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+}
+
+.analytical-deck .bfcm-discount-sim,
+.analytical-deck .payout-spread-sim {
+  background: var(--bg-panel, #0f1115) !important;
+  border: 1px solid var(--border-hairline, rgba(255, 255, 255, 0.08)) !important;
+  border-radius: var(--radius-lg, 14px) !important;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
+  padding: 24px 28px !important;
+}
+
+/* Dark Affiliate Box */
+.calc-affiliate-box {
+  background: var(--bg-surface, #161920) !important;
+  border: 1px solid var(--border-hairline, rgba(255, 255, 255, 0.08)) !important;
+  border-radius: var(--radius-md, 10px) !important;
+  padding: 18px 20px !important;
+  margin-top: 18px !important;
+}
+
+.calc-affiliate-badge {
+  color: #38bdf8 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+.calc-affiliate-btn {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  color: #38bdf8 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+.calc-affiliate-btn:hover {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  color: #fff !important;
+}

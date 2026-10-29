@@ -2,6 +2,9 @@
 window.TTCALC_I18N = {
   en: {},
   zh: {
+    'verdict.deficit': '利润击穿 (Deficit)',
+    'verdict.fragile': '薄利高危 (Fragile)',
+    'verdict.healthy': '健康良品 (Healthy)',
     'bfcm.sim.title': '黑五网一 (BFCM 2026) 大促打折保本测算器',
     'bfcm.sim.badge': '黑五防亏损保护',
     'bfcm.sim.desc': '计划在黑五网一大促期间降价冲单？在打折前精确测算维持原有净利绝对额所必须达到的单量暴增倍数，严防打折自杀。',
