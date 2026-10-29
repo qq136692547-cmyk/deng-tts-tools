@@ -225,7 +225,49 @@
 
   <p data-i18n="payout.p.amortise">Indicative ranges, since bank pricing is not published in a comparable form. The important structural point is that the fixed portion ($15&ndash;$50 plus intermediaries) amortises as transfers get larger, while the spread does not. Above roughly $10,000 the spread is the whole story &mdash; which is why a provider that publishes its rate beats a bank that does not, even when the visible fee looks similar.</p>
 
-  <h2 id="fixed-vs-percentage" data-i18n="payout.h2.breakeven">Fixed fee vs percentage fee: find your break-even</h2>
+  
+    <div class="interactive-widget" id="payoutCalcWidget">
+      <div class="iw-header">
+        <span class="iw-badge" data-i18n="payout.iw.badge">Interactive Payout Tool</span>
+        <h3 class="iw-title" data-i18n="payout.iw.title">Live Exchange Rate &amp; Wire Spread Simulator</h3>
+        <p class="iw-desc" data-i18n="payout.iw.desc">Compare the hidden currency conversion and wire charges between payout routes at your exact store volume.</p>
+      </div>
+      <div class="iw-form">
+        <div class="iw-field">
+          <label for="pw_volume" data-i18n="payout.iw.lblVol">Monthly Store Payout Volume (USD)</label>
+          <input type="number" id="pw_volume" value="12000" min="500" step="500" />
+        </div>
+      </div>
+      <div class="iw-results">
+        <div class="iw-matrix">
+          <div class="iw-matrix-card">
+            <div class="iw-matrix-lbl">Bank Wire / Standard (~1.8%)</div>
+            <div class="iw-matrix-val" id="pw_wire_loss" style="color:#f87171;">-$216.00 / mo</div>
+          </div>
+          <div class="iw-matrix-card">
+            <div class="iw-matrix-lbl">Payoneer (~1.2% FX markup)</div>
+            <div class="iw-matrix-val" id="pw_payo_loss" style="color:#fbbf24;">-$144.00 / mo</div>
+          </div>
+          <div class="iw-matrix-card iw-matrix-card--highlight">
+            <div class="iw-matrix-lbl">Wise Business (~0.45% FX)</div>
+            <div class="iw-matrix-val" id="pw_wise_loss" style="color:#4ade80;">-$54.00 / mo</div>
+          </div>
+        </div>
+        <div class="iw-verdict" id="pw_verdict">
+          <strong>Net Cashflow Advantage:</strong> By receiving payouts into a low-spread multi-currency account (such as Wise Business) instead of traditional wire transfers, you retain an extra <strong>+$162.00/mo ($1,944.00/year)</strong> in net margin.
+        </div>
+      </div>
+      <div class="iw-cta-wrap">
+        <a class="calc-affiliate-btn" href="https://wise.com" target="_blank" rel="sponsored noopener" style="margin:0;padding:10px 18px;">
+          Open Wise Business Account ★
+        </a>
+        <a href="/tools/tiktok-profit-calculator/" class="sim-link" style="font-size:12px;">
+          Test with your product unit economics in Profit Calculator &rarr;
+        </a>
+      </div>
+    </div>
+
+    <h2 id="fixed-vs-percentage" data-i18n="payout.h2.breakeven">Fixed fee vs percentage fee: find your break-even</h2>
 
   <p data-i18n="payout.p.beIntro">This is the calculation most sellers skip, and it decides the answer for your business rather than in general:</p>
 
@@ -380,5 +422,32 @@
 <script defer src="/assets/js/consent.js"></script>
 <script defer src="/assets/js/translations.js"></script>
 <script defer src="/assets/js/i18n.js"></script>
+
+<script>
+(function() {
+  function fmt(n) { return '$' + n.toFixed(2); }
+  function calcPayout() {
+    var vol = parseFloat(document.getElementById('pw_volume').value) || 0;
+    var wire = vol * 0.018;
+    var payo = vol * 0.012;
+    var wise = vol * 0.0045;
+    var savedMo = wire - wise;
+    var savedYr = savedMo * 12;
+    
+    document.getElementById('pw_wire_loss').textContent = '-' + fmt(wire) + ' / mo';
+    document.getElementById('pw_payo_loss').textContent = '-' + fmt(payo) + ' / mo';
+    document.getElementById('pw_wise_loss').textContent = '-' + fmt(wise) + ' / mo';
+    
+    document.getElementById('pw_verdict').innerHTML = '<strong>Net Cashflow Advantage:</strong> By receiving payouts into a low-spread multi-currency account (such as Wise Business) instead of traditional wire transfers, you retain an extra <strong>+' + fmt(savedMo) + '/mo (' + fmt(savedYr) + '/year)</strong> in net margin.';
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var el = document.getElementById('pw_volume');
+    if (el) el.addEventListener('input', calcPayout);
+    calcPayout();
+  });
+})();
+</script>
+
 </body>
 </html>

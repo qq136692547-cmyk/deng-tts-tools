@@ -109,6 +109,21 @@
     else { status = T('calc.roas.status.at', 'At break-even'); st.classList.remove('good', 'bad'); }
     st.textContent = status;
 
+        // SaaS Break-even math update
+    var beEl = get('beMathText');
+    if (beEl) {
+      if (netProfit > 0) {
+        var fmOrders = Math.ceil(44.10 / netProfit);
+        var kaloOrders = Math.ceil(59.90 / netProfit);
+        beEl.innerHTML = T('calc.js.beRoasPositive', 'At <strong>{0}/unit</strong> corrected net profit, FastMoss ad tracking ($44.10/mo with code) pays for itself in <strong>{1} orders/month</strong> (Kalodata: <strong>{2} orders</strong>).')
+          .replace('{0}', fmt(netProfit))
+          .replace('{1}', fmOrders)
+          .replace('{2}', kaloOrders);
+      } else {
+        beEl.innerHTML = T('calc.js.beNegative', '⚠️ Net profit is currently negative. Track winning creative hooks on FastMoss before scaling GMV Max ad budget.');
+      }
+    }
+
     announce(T('calc.roas.announce', 'Net profit {0} ({1}%), {2}.')
       .replace('{0}', fmt(netProfit)).replace('{1}', netMargin.toFixed(1)).replace('{2}', status));
   }

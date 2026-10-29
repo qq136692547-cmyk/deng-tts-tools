@@ -314,7 +314,37 @@
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyRevenue">Monthly revenue</span><span class="val" id="r_monthly_revenue">$2999.00</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyProfit">Monthly profit</span><span class="val" id="r_monthly_profit">$980.61</span></div>
           <div class="calc-result-row"><span class="lbl" data-i18n="calc.row.monthlyReturns">Monthly returns</span><span class="val" id="r_monthly_returns">5 units</span></div>
-                    <div class="calc-affiliate-box">
+                            <div class="payout-spread-sim" id="payoutSpreadSim">
+          <div class="payout-sim-header" id="payoutSimToggle" role="button" tabindex="0">
+            <span class="sim-icon">💳</span>
+            <span class="sim-title" data-i18n="payout.sim.title">Monthly FX &amp; Payout Spread Simulator</span>
+            <span class="sim-toggle-pill" id="simTogglePill" data-i18n="payout.sim.toggle">Show ▾</span>
+          </div>
+          <div class="payout-sim-body" id="payoutSimBody" style="display:none;">
+            <p class="sim-desc" data-i18n="payout.sim.desc">TikTok Shop settles in USD. High-spread payout channels (wire fees or standard PayPal ~1.8% hidden spread) eat substantial cashflow at scale vs transparent FX (Wise / low-fee ACH ~0.45%):</p>
+            <div class="sim-grid">
+              <div class="sim-card sim-card--loss">
+                <span class="sim-card-label" data-i18n="payout.sim.std">Standard Wire / High FX (1.8%)</span>
+                <span class="sim-card-val" id="simStdLoss">-$53.98 / mo</span>
+              </div>
+              <div class="sim-card sim-card--wise">
+                <span class="sim-card-label" data-i18n="payout.sim.wise">Optimized FX (Wise ~0.45%)</span>
+                <span class="sim-card-val" id="simWiseLoss">-$13.50 / mo</span>
+              </div>
+              <div class="sim-card sim-card--saved">
+                <span class="sim-card-label" data-i18n="payout.sim.saved">Monthly Cashflow Saved</span>
+                <span class="sim-card-val" id="simSaved">+$40.48 / mo</span>
+              </div>
+            </div>
+            <div class="sim-footer">
+              <a href="/blog/tiktok-shop-payout-methods-payoneer-vs-wise-2026/" class="sim-link" data-i18n="payout.sim.link">
+                Read full 2026 payout &amp; exchange rate spread analysis &#8594;
+              </a>
+            </div>
+          </div>
+        </div>
+
+          <div class="calc-affiliate-box">
             <div class="calc-affiliate-badge">
               <span class="calc-affiliate-icon">★</span>
               <span data-i18n="tools.profit.affBadge">Sourcing & Demand Check</span>
@@ -322,6 +352,10 @@
             <p class="calc-affiliate-text" data-i18n="tools.profit.affText">
               Before committing capital to inventory, verify 7-day sales velocity and real shop margins on FastMoss.
             </p>
+            <div class="calc-affiliate-breakeven" id="calcAffBreakEven">
+              <span class="be-tag" data-i18n="aff.be.tag">SaaS Break-Even Math</span>
+              <p class="be-text" id="beMathText">At <strong>$9.81/unit</strong> profit, FastMoss ($44.10/mo with 10% off code) pays for itself in just <strong>5 sales/month</strong> (Kalodata: <strong>6 sales</strong>).</p>
+            </div>
             <a class="calc-affiliate-btn" href="https://www.fastmoss.com/dashboard?refCode=PC0491" target="_blank" rel="sponsored noopener">
               <span data-i18n="tools.profit.affBtn">★ Validate Product Demand on FastMoss (Code: PC0491)</span>
               <span class="calc-affiliate-arrow">&#8594;</span>

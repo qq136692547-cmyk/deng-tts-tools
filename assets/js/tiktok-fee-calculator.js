@@ -86,6 +86,22 @@
     if (raRow && raRow.style) raRow.style.display = showReturns ? '' : 'none';
     if (rhRow && rhRow.style) rhRow.style.display = showReturns ? '' : 'none';
 
+        // SaaS Break-even math update
+    var beEl = $id('beMathText');
+    if (beEl) {
+      var estProfit = netAfterReturns - (revenue * 0.35); // standard 35% COGS benchmark
+      if (estProfit > 0) {
+        var fmOrders = Math.ceil(44.10 / estProfit);
+        var kaloOrders = Math.ceil(59.90 / estProfit);
+        beEl.innerHTML = T('calc.js.bePositive', 'At <strong>{0}/unit</strong> estimated profit, FastMoss ($44.10/mo with 10% off code) pays for itself in just <strong>{1} sales/month</strong> (Kalodata: <strong>{2} sales</strong>).')
+          .replace('{0}', fmt(estProfit))
+          .replace('{1}', fmOrders)
+          .replace('{2}', kaloOrders);
+      } else {
+        beEl.innerHTML = T('calc.js.beNegative', '⚠️ Net margin is currently zero or negative. Run product research on FastMoss to source items with >35% margin before buying stock.');
+      }
+    }
+
     announce(T('calc.js.feeAnnounce', 'Total TikTok Shop fees {0} ({1}%), payout {2}.')
       .replace('{0}', fmt(platformFees)).replace('{1}', pct.toFixed(1)).replace('{2}', fmt(payout)));
   }

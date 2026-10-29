@@ -4430,5 +4430,21 @@ window.TTCALC_I18N = {
     'ru.li.nov1b': '<strong>区域分仓费（TX Hub Placement Fee）</strong>：发往德州中心等特定入库分仓的备货按每件 $0.20 计入分仓处置成本。',
     'ru.li.nov1c': '<strong>退货处理与退仓移除</strong>：买家退货免检每件 $0.70、质检每件 $1.00；退仓移除运费（Exit Inventory Shipping）确认按标准每件 $0.70 执行。',
     'ru.p.nov1b': 'TTCalc 全站 9 大计算工具已全面核准并生效截至 2026 年 11 月 1 日的最新费率。',
+
+    /* Phase 1: Mini-HUD, SaaS Break-Even & Payout Simulator */
+    'hud.details': '明细',
+    'hud.tapTip': '点击平滑滚动至完整财务测算表',
+    'aff.be.tag': 'SaaS 回本测算',
+    'calc.js.bePositive': '按单件净利 <strong>{0}</strong> 计算，订阅 FastMoss (折后 $44.10/月) 仅需每月出单 <strong>{1} 件</strong> 即可收回软件成本（Kalodata 仅需 <strong>{2} 件</strong>）。',
+    'calc.js.beNegative': '⚠️ 当前单件净利为负或保本。建议先利用 FastMoss 选品功能筛选毛利率 >35% 的潜力爆品再启动备货。',
+    'calc.js.beFeePositive': '按行业基准 35% 供应链成本（约单件到手净利 <strong>{0}</strong>）估算，订阅 FastMoss (折后 $44.10/月) 仅需每月出单约 <strong>{1} 件</strong> 即可回本。',
+    'calc.js.beRoasPositive': '按单件净利 <strong>{0}</strong> 计算，订阅 FastMoss 广告与投流监控（折后 $44.10/月）仅需每月多成交 <strong>{1} 单</strong> 即可收回软件成本。',
+    'payout.sim.title': '月度结汇汇损与提现到手模拟器',
+    'payout.sim.toggle': '展开测算 ▾',
+    'payout.sim.desc': 'TikTok Shop 美区按美金结算。若使用传统电汇或高汇损渠道（约 1.8% 隐形汇差与手续费），随流水放大将吞噬巨额利润；对比透明合规结汇（如 Wise ~0.45%）：',
+    'payout.sim.std': '传统电汇 / 高汇损渠道 (1.8%)',
+    'payout.sim.wise': '低费率优化结汇 (Wise ~0.45%)',
+    'payout.sim.saved': '每月实打实少扣美金',
+    'payout.sim.link': '查看 2026 美区店铺回款渠道与汇损深度对比报告 →',
 }
 };

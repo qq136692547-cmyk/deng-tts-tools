@@ -117,6 +117,31 @@
     get('r_monthly_returns').textContent    = T('calc.js.units', '{0} units')
       .replace('{0}', monthlyReturns);
 
+        // SaaS Break-even math update
+    var beEl = get('beMathText');
+    if (beEl) {
+      var eff = effectiveProfit > 0 ? effectiveProfit : profit;
+      if (eff > 0) {
+        var fmOrders = Math.ceil(44.10 / eff);
+        var kaloOrders = Math.ceil(59.90 / eff);
+        beEl.innerHTML = T('calc.js.bePositive', 'At <strong>{0}/unit</strong> net profit, FastMoss ($44.10/mo with 10% off code) pays for itself in just <strong>{1} sales/month</strong> (Kalodata: <strong>{2} sales</strong>).')
+          .replace('{0}', fmt(eff))
+          .replace('{1}', fmOrders)
+          .replace('{2}', kaloOrders);
+      } else {
+        beEl.innerHTML = T('calc.js.beNegative', '⚠️ Net margin is currently zero or negative. Run product research on FastMoss to source items with >35% margin before buying stock.');
+      }
+    }
+
+    // Monthly Payout Spread Simulator update
+    var stdLoss = monthlyRevenue * 0.018;
+    var wiseLoss = monthlyRevenue * 0.0045;
+    var saved = stdLoss - wiseLoss;
+    var stdEl = get('simStdLoss'), wiseEl = get('simWiseLoss'), savedEl = get('simSaved');
+    if (stdEl) stdEl.textContent = '-' + fmt(stdLoss) + ' / mo';
+    if (wiseEl) wiseEl.textContent = '-' + fmt(wiseLoss) + ' / mo';
+    if (savedEl) savedEl.textContent = '+' + fmt(saved) + ' / mo';
+
     announce(T('calc.js.profitAnnounce', 'Effective profit {0}, margin {1}%.')
       .replace('{0}', fmt(effectiveProfit)).replace('{1}', margin.toFixed(1)));
   }
@@ -124,7 +149,19 @@
   document.addEventListener('DOMContentLoaded', function () {
     ['sale','cogs','ship','shipCharged','category','creator','ads','returnRate','returnHandlingFee','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
       var el = get(id); if (el) el.addEventListener('input', function () {
-        calc();
+            var simToggle = get('payoutSimToggle');
+    if (simToggle) {
+      simToggle.addEventListener('click', function () {
+        var body = get('payoutSimBody');
+        var pill = get('simTogglePill');
+        if (!body) return;
+        var isHidden = body.style.display === 'none';
+        body.style.display = isHidden ? 'block' : 'none';
+        if (pill) pill.innerHTML = isHidden ? T('payout.sim.hide', 'Hide ▴') : T('payout.sim.toggle', 'Show ▾');
+      });
+    }
+
+    calc();
         if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-profit');
       });
     });

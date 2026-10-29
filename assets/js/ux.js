@@ -248,27 +248,40 @@
     if (!panel) return;
     var bar = document.createElement('div');
     bar.className = 'sticky-result';
-    // Duplicated panel content; assistive tech reads the real panel instead.
     bar.setAttribute('aria-hidden', 'true');
+    bar.setAttribute('role', 'button');
+    bar.setAttribute('tabindex', '0');
+    bar.title = T('hud.tapTip', 'Tap to jump to full breakdown');
+
+    // Clicking anywhere on the bar smoothly scrolls to results
+    bar.addEventListener('click', function () {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
     document.body.appendChild(bar);
 
     function pickRows() {
-      var rows = panel.querySelectorAll('.calc-result-row');
-      var visible = [];
-      for (var i = 0; i < rows.length; i++) {
-        var r = rows[i];
-        if (r.offsetParent === null) continue; // hidden row (e.g. the $0.00 txn line)
-        var l = r.querySelector('.lbl'), v = r.querySelector('.val');
-        if (!l || !v) continue;
-        visible.push(r);
-      }
+      // Prioritize primary seller metrics
+      var preferred = ['#r_eff_profit', '#r_profit', '#r_take_home', '#r_roi_margin', '#r_margin', '#r_eff_rate', '#r_be_roas', '#r_corr_roas', '#r_diff', '#r_tts_fees', '#r_monthly_profit'];
       var picks = [];
-      for (var j = visible.length - 1; j >= 0 && picks.length < 3; j--) {
-        var r2 = visible[j];
-        var txt = r2.querySelector('.lbl').textContent.trim();
-        if (r2.classList.contains('highlight') || txt.charAt(0) === '=') picks.unshift(r2);
+      for (var p = 0; p < preferred.length; p++) {
+        var el = panel.querySelector(preferred[p]);
+        if (el) {
+          var row = el.closest('.calc-result-row');
+          if (row && row.offsetParent !== null && picks.indexOf(row) === -1) {
+            picks.push(row);
+            if (picks.length >= 3) break;
+          }
+        }
       }
-      if (!picks.length) picks = visible.slice(-2);
+      if (picks.length < 2) {
+        var rows = panel.querySelectorAll('.calc-result-row');
+        for (var i = rows.length - 1; i >= 0 && picks.length < 3; i--) {
+          var r = rows[i];
+          if (r.offsetParent === null) continue;
+          if (picks.indexOf(r) === -1) picks.push(r);
+        }
+      }
       return picks;
     }
 
@@ -276,18 +289,30 @@
       var picks = pickRows();
       if (!picks.length) { bar.classList.remove('is-on'); return; }
       bar.textContent = '';
+
+      var metricsWrap = document.createElement('div');
+      metricsWrap.className = 'sr-metrics';
+
       for (var i = 0; i < picks.length; i++) {
         var item = document.createElement('span');
         item.className = 'sr-item';
         var k = document.createElement('span');
         k.className = 'sr-k';
-        k.textContent = picks[i].querySelector('.lbl').textContent.trim().replace(/^[=\u2212-]\s*/, '');
-        var v = document.createElement('span');
-        v.className = 'sr-v';
-        v.textContent = picks[i].querySelector('.val').textContent.trim();
-        item.appendChild(k); item.appendChild(v);
-        bar.appendChild(item);
+        var l = picks[i].querySelector('.lbl') || picks[i].querySelector('span');
+        var v = picks[i].querySelector('.val') || picks[i].querySelectorAll('span')[1];
+        k.textContent = l ? l.textContent.trim().replace(/^[=−-]\s*/, '') : '';
+        var vSpan = document.createElement('span');
+        vSpan.className = 'sr-v';
+        vSpan.textContent = v ? v.textContent.trim() : '';
+        item.appendChild(k); item.appendChild(vSpan);
+        metricsWrap.appendChild(item);
       }
+      bar.appendChild(metricsWrap);
+
+      var act = document.createElement('span');
+      act.className = 'sr-action';
+      act.innerHTML = '<span class="sr-act-txt">' + T('hud.details', 'Details') + '</span> <span class="sr-arrow">&uarr;</span>';
+      bar.appendChild(act);
     }
 
     var tick = false;
@@ -295,7 +320,6 @@
       tick = false;
       var r = panel.getBoundingClientRect();
       var onScreen = r.bottom > 0 && r.top < (window.innerHeight || 800);
-      // Lift the bar above the consent banner while that is open.
       var consent = document.querySelector('.consent-bar.is-open');
       bar.style.bottom = consent ? Math.round(consent.getBoundingClientRect().height) + 'px' : '';
       if (onScreen || document.documentElement.classList.contains('embed-mode')) {

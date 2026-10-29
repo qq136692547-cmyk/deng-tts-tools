@@ -722,21 +722,135 @@ html.consent-open body { padding-bottom: 84px; }
    On phones the results panel sits ~1 viewport below the inputs; this bar
    keeps the key totals pinned to the bottom edge while the real panel is
    off-screen. Hidden on desktop and in embed mode (ux.js guards both). */
+/* Phase 1: Mobile Sticky Mini-HUD */
 .sticky-result {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 880;
-  display: flex; gap: 12px; align-items: stretch;
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-  background: var(--surface); border-top: 1px solid var(--line);
-  box-shadow: 0 -10px 30px -20px rgba(0, 0, 0, .4);
-  transform: translateY(110%);
-  transition: transform .25s var(--ease);
+  display: flex; gap: 8px; align-items: center; justify-content: space-between;
+  padding: 8px 14px calc(8px + env(safe-area-inset-bottom));
+  background: rgba(16, 20, 26, 0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+  transform: translateY(115%);
+  transition: transform .25s var(--ease), background .2s ease;
   font-family: var(--font-mono);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
+.sticky-result:active { background: rgba(24, 30, 40, 0.98); }
 .sticky-result.is-on { transform: translateY(0); }
-.sticky-result .sr-item { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.sticky-result .sr-k { font-size: 11px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sticky-result .sr-v { font-size: 14.5px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sticky-result .sr-metrics { display: flex; gap: 10px; align-items: center; flex: 1 1 auto; min-width: 0; }
+.sticky-result .sr-item { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.sticky-result .sr-k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sticky-result .sr-v { font-size: 13.5px; font-weight: 700; color: #4ade80; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sticky-result .sr-action { flex: 0 0 auto; display: flex; align-items: center; gap: 4px; padding: 5px 9px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--primary); white-space: nowrap; font-family: var(--font-body); }
+.sticky-result .sr-arrow { font-size: 12px; line-height: 1; }
 @media (min-width: 641px) { .sticky-result { display: none !important; } }
+
+/* Phase 1: SaaS Break-Even Widget */
+.calc-affiliate-breakeven {
+  margin: 12px 0 14px;
+  padding: 10px 14px;
+  background: rgba(0, 242, 254, 0.06);
+  border: 1px solid rgba(0, 242, 254, 0.22);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+.calc-affiliate-breakeven .be-tag {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.calc-affiliate-breakeven .be-text {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #e2e8f0;
+  margin: 0;
+}
+.calc-affiliate-breakeven .be-text strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Phase 1: Monthly Payout Spread Simulator */
+.payout-spread-sim {
+  margin-top: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+.payout-sim-header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+.payout-sim-header:hover { background: rgba(255, 255, 255, 0.07); }
+.payout-sim-header .sim-icon { font-size: 16px; margin-right: 8px; }
+.payout-sim-header .sim-title { font-size: 13.5px; font-weight: 600; color: #fff; flex: 1 1 auto; }
+.payout-sim-header .sim-toggle-pill { font-size: 11px; font-weight: 600; color: var(--primary); background: rgba(255, 255, 255, 0.08); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.15); }
+.payout-sim-body { padding: 14px 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.payout-sim-body .sim-desc { font-size: 12px; line-height: 1.45; color: var(--ink-soft); margin-bottom: 12px; }
+.sim-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+@media (max-width: 580px) { .sim-grid { grid-template-columns: 1fr; gap: 8px; } }
+.sim-card { padding: 10px 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 3px; text-align: center; }
+.sim-card--loss { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); }
+.sim-card--wise { background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); }
+.sim-card--saved { background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.3); }
+.sim-card-label { font-size: 10.5px; font-weight: 600; color: var(--ink-soft); }
+.sim-card-val { font-size: 14px; font-weight: 700; font-family: var(--font-mono); }
+.sim-card--loss .sim-card-val { color: #f87171; }
+.sim-card--wise .sim-card-val { color: #60a5fa; }
+.sim-card--saved .sim-card-val { color: #4ade80; font-size: 15px; }
+.sim-footer { text-align: right; margin-top: 6px; }
+.sim-link { font-size: 11.5px; color: var(--primary); text-decoration: underline; }
+
+/* Phase 1: Interactive Money Page Widgets */
+.interactive-widget {
+  margin: var(--s-5) 0;
+  padding: var(--s-5);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+.iw-header { margin-bottom: 16px; }
+.iw-badge { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #00f2fe; background: rgba(0, 242, 254, 0.12); padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; }
+.iw-title { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 4px; }
+.iw-desc { font-size: 13px; color: var(--ink-soft); margin: 0; line-height: 1.45; }
+.iw-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px; background: rgba(0, 0, 0, 0.2); padding: 14px; border-radius: 8px; }
+.iw-field { display: flex; flex-direction: column; gap: 5px; }
+.iw-field label { font-size: 11.5px; font-weight: 600; color: var(--ink-soft); }
+.iw-field input, .iw-field select { padding: 8px 10px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 6px; color: #fff; font-size: 14px; font-family: var(--font-mono); }
+.iw-results { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 14px; margin-bottom: 16px; }
+.iw-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+@media (max-width: 600px) { .iw-matrix { grid-template-columns: 1fr; } }
+.iw-matrix-card { padding: 10px; background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; text-align: center; }
+.iw-matrix-card--highlight { border-color: rgba(0, 242, 254, 0.4); background: rgba(0, 242, 254, 0.06); }
+.iw-matrix-lbl { font-size: 11px; color: var(--ink-soft); margin-bottom: 4px; }
+.iw-matrix-val { font-size: 16px; font-weight: 700; font-family: var(--font-mono); color: #fff; }
+.iw-matrix-card--highlight .iw-matrix-val { color: #00f2fe; }
+.iw-verdict { padding: 10px 14px; background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.25); border-radius: 6px; font-size: 13px; line-height: 1.5; color: #d1fae5; }
+.iw-verdict strong { color: #34d399; }
+.iw-cta-wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 8px; }
+.iw-coupon-box { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-soft); }
+.iw-code { background: rgba(255, 255, 255, 0.1); padding: 3px 8px; border-radius: 4px; font-family: var(--font-mono); font-weight: 700; color: #38bdf8; border: 1px dashed rgba(56, 189, 248, 0.4); cursor: pointer; }
+
 
 /* iOS Safari zooms the viewport when an input takes focus at font-size < 16px.
    Platform-level fix, so platform-level force: every control gets >= 16px on
