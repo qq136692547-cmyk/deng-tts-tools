@@ -63,8 +63,5 @@ Allow: /
 Allow: /blog/
 Allow: /tools/
 Allow: /assets/
-# Inactive directory: kept out of search results
-# 更长的路径匹配优先，所以这条 Disallow 会压过上面的 Allow: /。
-Disallow: /ads/
 
 Sitemap: https://ttcalc.shop/sitemap.xml
