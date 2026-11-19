@@ -122,10 +122,12 @@
 
     state = read();
     if (state && typeof state.ads === 'boolean') { apply(state); return; }
-    // No stored choice yet. In opt-out regions the ads start now and the banner
-    // serves as the notice, with reject able to take them back down. Everywhere
-    // else the banner is the gate it has always been.
-    // Zero ads: no frames to load
+    // No stored choice yet. In opt-out (row) regions, anonymous analytics starts now
+    // and the banner serves as notice, with reject able to take it back down.
+    // In strict regions (EU/UK), analytics remains strictly opt-in until explicit consent.
+    if (region() === 'row') {
+      apply({ ads: false, analytics: true, ts: Date.now(), v: 2, default: true });
+    }
     show();
   }
 
