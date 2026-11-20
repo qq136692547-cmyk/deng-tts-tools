@@ -59,6 +59,9 @@
 /go/fastmoss   https://www.fastmoss.com/dashboard?refCode=PC0491  302
 /go/kalodata   https://www.kalodata.com/                          302
 /go/discount   /fastmoss-discount/                                301
+/go/wise       https://wise.com/                                  302
+/go/payoneer   https://www.payoneer.com/                          302
+/go/worldfirst https://www.worldfirst.com/                        302
 
 # 动态规则放最后（Pages 要求 static 在前、dynamic 在后）
 /worker/*           /404  301

@@ -4556,6 +4556,11 @@ window.TTCALC_I18N = {
     'payout.sim.wise': '低费率优化结汇 (Wise ~0.45%)',
     'payout.sim.saved': '每月实打实少扣美金',
     'payout.sim.link': '查看 2026 美区店铺回款渠道与汇损深度对比报告 →',
+    'payout.cta.wise': '开立 Wise 商业多币种账户',
+    'payout.cta.payo': '开立 Payoneer 派安盈账户',
+    'payout.iw.btnWise': '开立 Wise 商业多币种账户 ★',
+    'payout.iw.btnPayo': '开立 Payoneer 派安盈账户 ★',
+    'payout.iw.linkProfit': '在利润计算器中测算单件净利与提现留存 →',
 
     /* Phase 2: GMV Max Stress Heatmap, Sample Seeding & Lead Modal */
     'calc.shell.printReport': '🖨️ 打印/PDF立项报告',

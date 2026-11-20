@@ -1810,3 +1810,50 @@ html.consent-open body { padding-bottom: 84px; }
 .batch-row-bfcm-loss:hover {
   background: rgba(239, 68, 68, 0.18) !important;
 }
+
+/* Pillar 2: Payout & FX CPA Action Bar */
+.payout-sim-cta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.payout-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.btn-payout-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.btn-payout-wise {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+.btn-payout-wise:hover {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: #4ade80;
+}
+.btn-payout-payo {
+  background: rgba(255, 107, 0, 0.15);
+  color: #ff8533;
+  border: 1px solid rgba(255, 107, 0, 0.35);
+}
+.btn-payout-payo:hover {
+  background: rgba(255, 107, 0, 0.25);
+  border-color: #ff8533;
+}
