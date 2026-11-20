@@ -89,7 +89,7 @@
         // SaaS Break-even math update
     var beEl = $id('beMathText');
     if (beEl) {
-      var estProfit = netAfterReturns - (revenue * 0.35); // standard 35% COGS benchmark
+      var estProfit = netAfterReturns - (total * 0.35); // standard 35% COGS benchmark
       if (estProfit > 0) {
         var fmOrders = Math.ceil(44.10 / estProfit);
         var kaloOrders = Math.ceil(59.90 / estProfit);

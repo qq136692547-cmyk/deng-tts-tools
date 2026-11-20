@@ -9,7 +9,7 @@
  *   - never touched: cross-origin requests (cross-origin frames, analytics),
  */
 
-var VERSION = 'v2026-10-29-ttcalc2';
+var VERSION = 'v2026-11-20-ttcalc3';
 var RUNTIME = 'ttcalc-rt-' + VERSION;
 
 self.addEventListener('install', function (e) {
@@ -49,7 +49,7 @@ self.addEventListener('fetch', function (e) {
 
   if (isNav || isSiteJs) {
     e.respondWith(
-      fetch(req).then(function (resp) {
+      fetch(req, { cache: 'no-cache' }).catch(function () { return fetch(req); }).then(function (resp) {
         if (resp && resp.ok) {
           var copy = resp.clone();
           caches.open(RUNTIME).then(function (c) { c.put(req, copy); });

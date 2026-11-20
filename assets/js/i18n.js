@@ -5,7 +5,10 @@
   // The EN dictionary is intentionally empty: original text is captured from the DOM and
   // restored on switch-back. If content with data-i18n is injected via JS after load,
   // call captureOriginals() again before applying translations.
-  var translations = window.TTCALC_I18N || {};
+  function getDict(lang) {
+    var t = window.TTCALC_I18N || {};
+    return t[lang];
+  }
   var originalContent = new Map();
 
   function captureOriginals() {
@@ -58,8 +61,15 @@
   }
 
   function applyTranslations(lang) {
-    var dict = translations[lang];
-    if (!dict) return;
+    var dict = getDict(lang);
+    if (!dict) {
+      if (lang === 'zh') {
+        setTimeout(function () {
+          if (document.documentElement.lang === 'zh') applyTranslations('zh');
+        }, 150);
+      }
+      return;
+    }
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       var original = originalContent.get(el);
@@ -118,7 +128,7 @@
   // filled in by the caller, so the template can sit in the dictionary verbatim.
   window.ttcalcT = function (key, fallback) {
     var lang = document.documentElement.lang || 'en';
-    var dict = translations[lang] || {};
+    var dict = getDict(lang) || {};
     if (lang === 'zh' && dict[key] !== undefined) return dict[key];
     return fallback;
   };
@@ -164,6 +174,12 @@
         setLang('zh');
         updateBtn('zh');
       }
+    }
+  });
+
+  window.addEventListener('load', function () {
+    if ((document.documentElement.lang || getLang()) === 'zh') {
+      applyTranslations('zh');
     }
   });
 })();
