@@ -55,5 +55,10 @@
 /blog/tiktok-shop-vs-amazon-fba/               /blog/tiktok-shop-vs-amazon-fba-2026/           301
 /blog/tiktok-shop-vs-amazon-fba                /blog/tiktok-shop-vs-amazon-fba-2026/           301
 
+# Affiliate & Partner Forwarding (TTCalc 2.0 Centralized Routes)
+/go/fastmoss   https://www.fastmoss.com/dashboard?refCode=PC0491  302
+/go/kalodata   https://www.kalodata.com/                          302
+/go/discount   /fastmoss-discount/                                301
+
 # 动态规则放最后（Pages 要求 static 在前、dynamic 在后）
 /worker/*           /404  301

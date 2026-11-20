@@ -814,6 +814,100 @@ html.consent-open body { padding-bottom: 84px; }
   font-weight: 700;
 }
 
+/* Batch Mode: SaaS Catalog Optimization Card */
+.batch-aff-banner {
+  margin: 20px 0 24px;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.08) 0%, rgba(79, 70, 229, 0.08) 100%);
+  border: 1px solid rgba(0, 242, 254, 0.28);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 768px) {
+  .batch-aff-banner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    padding: 16px;
+    gap: 14px;
+  }
+}
+.batch-aff-content {
+  flex: 1;
+  min-width: 0;
+}
+.batch-aff-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.14);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.batch-aff-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.batch-aff-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #94a3b8;
+  margin: 0;
+}
+.batch-aff-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .batch-aff-action {
+    align-items: stretch;
+  }
+}
+.batch-aff-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  color: #08090a;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+.batch-aff-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 242, 254, 0.35);
+  color: #000;
+}
+.batch-aff-note {
+  font-size: 11px;
+  color: #64748b;
+  text-align: right;
+}
+@media (max-width: 768px) {
+  .batch-aff-note {
+    text-align: center;
+  }
+}
+
 /* Phase 1: Monthly Payout Spread Simulator */
 .payout-spread-sim {
   margin-top: 18px;
