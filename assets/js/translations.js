@@ -4869,5 +4869,9 @@ window.TTCALC_I18N = {
     'sponsor.replyTime': '来信请注明您的产品官网、意向合作形态与排期。我们通常在 24 小时内回复。',
     'contact.sponsorH': '商务合作与品牌赞助',
     'contact.sponsorP': '希望推广您的出海 SaaS、ERP、跨境物流或支付结汇平台？请参阅我们的 <a href="/sponsor/">媒体资料包与赞助刊例 (Media Kit)</a>。',
+
+    // --- Pillar 4: Commercial Master Workbook ---
+    'lead.modal.buyGumroad': '⭐ 需要商业授权与离线 Excel 完整版？直接前往 Gumroad 购买 ($19) →',
+    'lead.modal.buyLifetime': '⭐ 在 Gumroad 获取完整商业授权与离线 Excel 母表 ($19) →',
   }
 };
