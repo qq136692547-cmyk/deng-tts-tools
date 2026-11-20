@@ -54,6 +54,10 @@
 - [TikTok Shop First Sale Playbook 2026](https://ttcalc.shop/blog/tiktok-shop-first-sale-playbook-2026/): Registration docs, first-product selection, real 2026 fee math, listing and content that converts, and a first-30-days checklist for new sellers.
 - [Profit Per Unit Guide](https://ttcalc.shop/blog/tiktok-shop-profit-per-unit-2026/): The complete profit-per-unit formula for 2026 — worked examples at three price points, with and without creator commissions.
 - [TikTok Shop Product Research Guide](https://ttcalc.shop/blog/tiktok-shop-product-research-2026/): A repeatable 4-step framework to identify winning products before they trend, using free tools and demand signals.
+- [178 Section 301 Exclusions Extended to January 9, 2027](https://ttcalc.shop/blog/section-301-exclusions-extended-january-2027/): USTR extended all 178 Section 301 China exclusions through January 9, 2027, not November 9, 2026. The primary notice, the two HTS headings, and how to re-run landed cost with the duty rates you enter yourself.
+- [FBT for 16–150 lb Products: The November 1, 2026 Rate Card](https://ttcalc.shop/blog/tiktok-shop-fbt-large-item-tiers-november-2026/): TikTok Shop expanded FBT to 16–150 lb on November 1, 2026. What changed, which figures we could not independently verify, and how to model a heavy SKU using rates you enter yourself.
+- [TikTok Shop Fee Increase (August 2026)](https://ttcalc.shop/blog/tiktok-shop-fee-increase-august-2026/): Reports say the US referral fee went from 6% to 8% on August 4, 2026. TikTok's own rate table still lists 6%. The evidence, the margin math at both rates, and how to check yours.
+- [TikTok Shop Vietnam Logistics Operating Fee](https://ttcalc.shop/blog/tiktok-shop-vietnam-logistics-fee-2026/): Surcharge on parcels over 10kg from Oct 12, 2026 (3,000–65,000 VND per parcel). Rules, exemptions, refund policy, and steps to prepare.
 
 ## About
 
