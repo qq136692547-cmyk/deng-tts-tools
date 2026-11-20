@@ -252,9 +252,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['sale','cogs','ship','shipCharged','category','creator','ads','returnRate','returnHandlingFee','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
-      var el = get(id); if (el) el.addEventListener('input', function () {
-            var simToggle = get('payoutSimToggle');
+    var simToggle = get('payoutSimToggle');
     if (simToggle) {
       simToggle.addEventListener('click', function () {
         var body = get('payoutSimBody');
@@ -266,9 +264,14 @@
       });
     }
 
-    calc();
-        if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-profit');
-      });
+    ['sale','cogs','ship','shipCharged','category','creator','ads','returnRate','returnHandlingFee','monthlyUnits','fbtTier','fbtUnits','inboundShip','storageFee','resellRate'].forEach(function (id) {
+      var el = get(id);
+      if (el) {
+        el.addEventListener('input', function () {
+          calc();
+          if (window.ttcalcTrackCalculator) window.ttcalcTrackCalculator('tiktok-profit');
+        });
+      }
     });
     calc();
   });
