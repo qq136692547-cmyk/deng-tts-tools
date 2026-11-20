@@ -4833,7 +4833,7 @@ window.TTCALC_I18N = {
     'crm.p.ctaHeading': '在启动达人寄样前，精确测算你的佣金承载上限与样品保本门槛。',
     'crm.p.related': '相关阅读：<a href="/blog/best-tiktok-shop-ad-spy-tools-2026/">2026 最佳 TikTok 广告间谍工具评测</a> —— 掌握爆款素材投流迭代；以及 <a href="/blog/tiktok-shop-how-to-set-creator-commission-2026/">如何科学制定达人佣金比例</a> 掌握样品摊薄核算。',
     'crm.sourceNote': '工具价格与功能参数基于 2026 年 11 月官方公开资料与实测核验，第三方估算数据已注明。最后由 L.D. Studio 于 2026 年 11 月 20 日独立复核。',
-    'crm.prev': '← 2026 年最佳 TikTok 广告谍报与投流素材工具评测：爆款素材与竞品情报深度解析'
+    'crm.prev': '← 2026 年最佳 TikTok 广告谍报与投流素材工具评测：爆款素材与竞品情报深度解析',
 
     // --- Pillar 3: Sponsor & Media Kit ---
     'footer.sponsor': '商务赞助与刊例',
