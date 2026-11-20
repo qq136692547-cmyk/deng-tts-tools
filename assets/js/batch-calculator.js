@@ -73,7 +73,9 @@
   var bfcmStressPct = 0;
 
   function calculateItem(item) {
-    var price = Math.max(0, parseFloat(item.price) || 0);
+    var rawPrice = Math.max(0, parseFloat(item.price) || 0);
+    var disc = bfcmStressPct || 0;
+    var price = disc > 0 ? rawPrice * (1 - disc / 100) : rawPrice;
     var cogs = Math.max(0, parseFloat(item.cogs) || 0);
     var weightOz = Math.max(0.1, parseFloat(item.weightOz) || 4);
     var commPct = Math.max(0, parseFloat(item.commPct) || 0);
