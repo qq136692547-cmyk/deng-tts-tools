@@ -148,6 +148,24 @@
             <button type="button" class="btn-bfcm-stress" data-stress="20">20% Off</button>
           </div>
         </div>
+
+        <!-- Batch Action Toolbar -->
+        <div class="batch-toolbar" style="margin:14px 0 10px 0;">
+          <div class="batch-toolbar-left">
+            <button type="button" class="btn-batch" id="btnLoadDemo" data-i18n="batch.btn.demo">⚡ Load 10 Demo SKUs</button>
+            <button type="button" class="btn-batch" id="btnAddRow" data-i18n="batch.btn.addRow">+ Add SKU Row</button>
+            <label class="btn-batch" style="cursor:pointer; margin-bottom:0;">
+              <span data-i18n="batch.btn.upload">Upload Catalog CSV</span>
+              <input type="file" id="csvFileInput" accept=".csv" style="display:none;" />
+            </label>
+            <button type="button" class="btn-batch" id="btnDownloadTemplate" data-i18n="batch.btn.template">📁 Download CSV Template</button>
+          </div>
+          <div class="batch-toolbar-right">
+            <button type="button" class="btn-batch" id="btnExportCSV" data-i18n="batch.btn.export">📤 Export Enriched CSV</button>
+            <button type="button" class="btn-batch" id="btnClearBatch" data-i18n="batch.btn.clear" style="color:var(--c-risk,#ef4444);">🗑️ Clear Table</button>
+          </div>
+        </div>
+
         <!-- Table Container -->
         <div class="batch-table-container">
           <table class="batch-table">
@@ -295,7 +313,7 @@
 
 <script defer src="/assets/js/rates.js"></script>
 <script defer src="/assets/js/fbt-rates.js"></script>
-<script defer src="/assets/js/batch-calculator.js"></script>
+<script defer src="/assets/js/batch-calculator.js?v=20261121"></script>
 <script defer src="/assets/js/consent.js"></script>
 <script defer src="/assets/js/translations.js?v=20261120b"></script>
 <script defer src="/assets/js/i18n.js?v=20261120b"></script>
