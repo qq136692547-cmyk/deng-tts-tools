@@ -4682,7 +4682,6 @@ window.TTCALC_I18N = {
     'spy.p.related': '相关阅读：<a href="/blog/best-tiktok-shop-product-research-tools-2026/">2026 最佳 TikTok Shop 选品工具评测</a> —— 各阶段工具选用指南；以及 <a href="/blog/tiktok-shop-gmv-max-2026/">GMV Max 投流起量指南</a> 掌握科学预算架构与扩量实战。',
     'spy.sourceNote': '工具价格与参数信息基于 2026 年 11 月公开价格方案与官方文档整理核验，第三方估算数据已注明。最后由 L.D. Studio 于 2026 年 11 月 20 日独立复核。',
     'spy.prev': '← 2026 年最好的 TikTok Shop 选品研究工具：每个阶段该用什么',
-}
     /* Creator CRM Tools (2026) */
     'bi.read11.crm': '2026-11-20 · 11 分钟阅读',
     'bi.desc.crm': '横向评测 2026 年 5 大主流 TikTok Shop 达人与分销 CRM 工具（FastMoss、Kalodata、EchoTik、Modash、InsTrack）。深度解析官方后台私信为何在周跟进超 20 人时必然崩溃、样品流转履约率提升秘诀，以及每月 $99 软件费的真实财务回本模型。',
@@ -4825,6 +4824,6 @@ window.TTCALC_I18N = {
     'crm.p.ctaHeading': '在启动达人寄样前，精确测算你的佣金承载上限与样品保本门槛。',
     'crm.p.related': '相关阅读：<a href="/blog/best-tiktok-shop-ad-spy-tools-2026/">2026 最佳 TikTok 广告间谍工具评测</a> —— 掌握爆款素材投流迭代；以及 <a href="/blog/tiktok-shop-how-to-set-creator-commission-2026/">如何科学制定达人佣金比例</a> 掌握样品摊薄核算。',
     'crm.sourceNote': '工具价格与功能参数基于 2026 年 11 月官方公开资料与实测核验，第三方估算数据已注明。最后由 L.D. Studio 于 2026 年 11 月 20 日独立复核。',
-    'crm.prev': '← 2026 年最佳 TikTok 广告谍报与投流素材工具评测：爆款素材与竞品情报深度解析',
-
+    'crm.prev': '← 2026 年最佳 TikTok 广告谍报与投流素材工具评测：爆款素材与竞品情报深度解析'
+  }
 };
