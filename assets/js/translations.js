@@ -4879,5 +4879,6 @@ window.TTCALC_I18N = {
     // --- Pillar 4: Commercial Master Workbook ---
     'lead.modal.buyGumroad': '⭐ 需要商业授权与离线 Excel 完整版？直接前往 Gumroad 购买 ($19) →',
     'lead.modal.buyLifetime': '⭐ 在 Gumroad 获取完整商业授权与离线 Excel 母表 ($19) →',
+    'payout.disclosure': '披露声明：上方合作开户链接可能为 TTCalc 带来联盟佣金，且不会增加您的任何费用。详见 <a href="/affiliate-disclosure/">联盟披露政策</a>。',
   }
 };
