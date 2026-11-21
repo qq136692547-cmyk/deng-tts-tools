@@ -34,7 +34,7 @@ window.FBT_EXIT_SHIPPING_FEE = 0.70; // Inventory Removal / Exit Shipping Fee pe
 window.FBT_RETURN_HANDLING_STD = 0.70; // Customer return without inspection
 window.FBT_RETURN_HANDLING_INSP = 1.00; // Customer return with inspection
 window.FBT_RATE_EFFECTIVE = '2026-11-01';
-window.FBT_RATE_VERIFIED = '2026-11-01';
+window.FBT_RATE_VERIFIED = '2026-11-21';
 
 // FBT storage fees, USD per cubic foot PER DAY (not per month).
 // Source: Seller Center Knowledge Base 3507056320268087
