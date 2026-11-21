@@ -24,11 +24,11 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Privacy Policy — TTCalc",
-  "description": "How TTCalc handles calculator inputs, AI photo generation, Google sign-in, and anonymous analytics with a 100% zero-ad policy.",
+  "description": "How TTCalc handles local calculator inputs, optional starter-CSV email submissions, and anonymous analytics with a 100% zero-ad policy.",
   "url": "https://ttcalc.shop/privacy/",
   "inLanguage": "en",
   "isPartOf": { "@type": "WebSite", "name": "TTCalc", "url": "https://ttcalc.shop/" },
-  "dateModified": "2026-09-28"
+  "dateModified": "2026-11-21"
 }
 </script>
 
@@ -73,22 +73,19 @@
 <main id="main" class="container" style="padding:var(--s-7) 0; max-width:780px;">
   <span data-i18n="eyebrow.privacy" class="eyebrow">Privacy</span>
   <h1 data-i18n="privacy.h1">Privacy Policy</h1>
-  <p><em data-i18n="privacy.updated">Last updated: 2026-09-28.</em></p>
+  <p><em data-i18n="privacy.updated">Last updated: 2026-11-21.</em></p>
 
   <h2 data-i18n="privacy.h.summary">Summary</h2>
-  <p data-i18n="privacy.summary.p">TTCalc calculators process the data you enter locally in your browser. Other features, including AI photo generation, Google sign-in, and analytics, use backend and third-party services.</p>
+  <p data-i18n="privacy.summary.p">TTCalc calculators process the financial data you enter locally in your browser with no account required. Optional features — such as submitting your email to download our free 10-SKU starter CSV or opting into anonymous analytics — use Cloudflare Workers KV and Google Analytics 4 as described below.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.local">Local calculators</h2>
   <p data-i18n="privacy.local.p">Financial inputs such as sale price, COGS, fees, weights, ad spend, and expected returns are processed in your browser. TTCalc does not require an account or send calculator inputs to its backend.</p>
 
-  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.ai">AI photo generation</h2>
-  <p data-i18n="privacy.ai.p">When you use the AI product photo tool, your prompt and any image you provide are sent through TTCalc's Cloudflare Worker to an image-generation service. The Worker checks daily quota limits. Anonymous quotas are keyed by IP; signed-in quotas are keyed by a Google account identifier. No email address, phone number, full name, or raw JWT is used as a quota key.</p>
-
-  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.signin">Google sign-in</h2>
-  <p data-i18n="privacy.signin.p">Optional Google sign-in lets us distinguish your personal photo quota from the shared anonymous quota. Google sends a verified identity token to TTCalc's Worker. The signed session is stored locally in your browser. You can sign out at any time.</p>
+  <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.leads">Optional email template downloads (Cloudflare KV)</h2>
+  <p data-i18n-html="privacy.leads.p">All calculators work without submitting an email address. Only when you voluntarily submit your email in the free 10-SKU starter CSV download modal does TTCalc send your email and source tool page path to our <code>/api/lead</code> endpoint and store it in Cloudflare Workers KV along with request metadata (IP address, country/city from Cloudflare headers, user agent, referer, and timestamp). We never send your email address or financial inputs to Google Analytics 4. You may request deletion of your stored email at any time by contacting <a href="mailto:qq136692547@gmail.com">qq136692547@gmail.com</a> or opening an issue in our GitHub repository.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.analytics">Analytics</h2>
-  <p data-i18n="privacy.analytics.p">TTCalc uses Google Analytics 4 to measure aggregate page views, tool usage, referrers, and conversion events. We do not send calculator financial inputs, generated prompts, or images to GA4.</p>
+  <p data-i18n="privacy.analytics.p">TTCalc uses opt-in Google Analytics 4 to measure aggregate page views, tool usage, referrers, and outbound link events. We do not send calculator financial inputs or email addresses to GA4.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.affH">Affiliate links</h2>
   <p data-i18n-html="privacy.affP">Affiliate links</p>
@@ -103,9 +100,8 @@
       <tr><th data-i18n="privacy.th.provider">Provider</th><th data-i18n="privacy.th.role">Role</th><th data-i18n="privacy.th.data">Data it processes</th></tr>
     </thead>
     <tbody>
-      <tr><td data-i18n="privacy.t1.name">Cloudflare, Inc.</td><td data-i18n="privacy.t1.role">Hosting, CDN, and the Worker that proxies photo requests</td><td data-i18n="privacy.t1.data">Request metadata (IP address, user agent, requested URL). On photo-tool requests, the prompt and any image you submit.</td></tr>
-      <tr><td data-i18n="privacy.t2.name">Google LLC</td><td data-i18n="privacy.t2.role">Optional sign-in; Google Analytics 4</td><td data-i18n="privacy.t2.data">An identity token on sign-in. Aggregate page views, referrers, and conversion events. No calculator inputs, prompts, or images.</td></tr>
-      <tr><td data-i18n="privacy.t3.name">Image-generation provider</td><td data-i18n="privacy.t3.role">Renders the product photo you ask for</td><td data-i18n="privacy.t3.data">The prompt and image submitted to the photo tool, for the duration of the request.</td></tr></tr>
+      <tr><td data-i18n="privacy.t1.name">Cloudflare, Inc.</td><td data-i18n="privacy.t1.role">Hosting, CDN, and Cloudflare Workers KV lead storage</td><td data-i18n="privacy.t1.data">Request metadata (IP address, country/city, user agent, referer, requested URL) and, only if you submit the optional starter CSV form, the email address and source tool path you provide.</td></tr>
+      <tr><td data-i18n="privacy.t2.name">Google LLC</td><td data-i18n="privacy.t2.role">Opt-in Google Analytics 4</td><td data-i18n="privacy.t2.data">Aggregate page views, referrers, and anonymized interaction events (loaded only after consent). No PII, email addresses, or calculator inputs.</td></tr>
     </tbody>
   </table>
   <p data-i18n="privacy.third.p2">TTCalc does not sell your personal data, does not share calculator inputs with any of the parties above, and does not run an advertising profile of its own.</p>
@@ -119,11 +115,11 @@
   <p data-i18n-html="privacy.transfer.p2"><strong>What TTCalc does not claim.</strong> TTCalc is not itself a participant in the Data Privacy Framework. We do not self-certify under it, and we cannot extend a certification we do not hold. The two bullets above describe frameworks our processors are certified under — that is the transfer mechanism our data flows actually depend on, and describing it as our own certification would be inaccurate.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.retention">Data retention</h2>
-  <p data-i18n="privacy.retention.p">Calculator inputs are not stored — they stay in your browser tab and are discarded when you close it. Photo-generation quotas are counters with no associated content: anonymous counters expire daily, and signed-in counters persist only as long as your local session. Generated images are not retained by TTCalc after delivery. Analytics data follows Google Analytics 4 retention settings.</p>
+  <p data-i18n="privacy.retention.p">Calculator inputs are not stored — they stay in your browser tab and are discarded when you close it. Optional email submissions for the free starter CSV are retained in Cloudflare Workers KV until you request deletion via email or a GitHub issue. Analytics data follows Google Analytics 4 retention settings.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.rights">Your rights</h2>
-  <p data-i18n="privacy.rights.p1">Depending on where you live, you may have the right to access, correct, delete, or export personal data about you, and to object to or restrict certain processing (for example, rights under the GDPR in the EU/UK, or the CCPA/CPRA in California). Because TTCalc holds no account database and no stored calculator data, there is usually nothing to export or delete beyond what your browser holds locally — clearing site data in your browser removes your local session and preferences.</p>
-  <p data-i18n-html="privacy.rights.p2">To make a request, or to ask what data a specific feature touched, open an issue at the <a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" target="_blank" rel="noopener">project repository</a>. TTCalc does not knowingly discriminate against users who exercise privacy rights.</p>
+  <p data-i18n="privacy.rights.p1">Depending on where you live, you may have the right to access, correct, delete, or export personal data about you, and to object to or restrict certain processing (for example, rights under the GDPR in the EU/UK, or the CCPA/CPRA in California). TTCalc holds no user accounts or stored calculator inputs; if you submitted an email in the optional starter CSV modal, you can request access or deletion at any time. Clearing site data in your browser also removes your local language and consent preferences.</p>
+  <p data-i18n-html="privacy.rights.p2">To make a deletion or data request, email <a href="mailto:qq136692547@gmail.com">qq136692547@gmail.com</a> or open an issue at the <a href="https://github.com/qq136692547-cmyk/deng-tts-tools/issues" target="_blank" rel="noopener">project repository</a>. TTCalc does not knowingly discriminate against users who exercise privacy rights.</p>
   <p data-i18n-html="privacy.rights.p3">Withdrawing consent is not a request you have to send us: the <a href="/privacy/#cookies">Cookie settings</a> control in the footer withdraws it directly, and the effect is immediate.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.complain">How to complain</h2>
@@ -132,7 +128,7 @@
   <p data-i18n="privacy.complain.p3">Where data was received by one of our processors under the Data Privacy Framework, you may also raise the complaint directly with that processor. Both Cloudflare and Google publish an independent dispute-resolution process for DPF complaints, and that route is available to you whether or not you have contacted us first.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.children">Children's privacy</h2>
-  <p data-i18n="privacy.children.p">TTCalc is a business tool intended for sellers aged 18 and over. It is not directed at children, and TTCalc does not knowingly collect personal data from anyone under 16. If you believe a child has submitted data through the photo tool, contact us through the repository above and we will remove it.</p>
+  <p data-i18n="privacy.children.p">TTCalc is a business tool intended for sellers aged 18 and over. It is not directed at children, and TTCalc does not knowingly collect personal data from anyone under 16. If you believe a child has submitted an email or other data through our site, contact us via email or the repository above and we will remove it.</p>
 
   <h2 style="margin-top:var(--s-5);" data-i18n="privacy.h.cookies">Cookies and your consent choice</h2>
   <p data-i18n="privacy.cookies.p1">Cookies and similar technologies on TTCalc come from two places: the site's own stored preferences (your language choice and your consent record, both kept strictly in your browser only) and Google Analytics anonymous measurement.</p>
@@ -177,6 +173,7 @@
     <li><a href="/fee-schedule/" data-i18n="footer.feeSchedule">Fee schedule</a></li>
     <li><a href="mailto:qq136692547@gmail.com" data-i18n="footer.email">Email</a></li>
     <li><a href="/contact/" data-i18n="footer.contact">Contact</a></li>
+    <li><a href="/sponsor/" data-i18n="footer.sponsor">Sponsor / Media Kit</a></li>
     <li><a href="/affiliate-disclosure/" data-i18n="footer.affiliate">Affiliate disclosure</a></li>
       </ul>
     </div>
@@ -196,8 +193,9 @@
     <span class="links"><a href="/terms/" data-i18n="footer.terms">Terms</a> <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> <a href="/privacy/#cookies" data-i18n="footer.cookieSettings">Cookie settings</a><a href="https://github.com/qq136692547-cmyk/deng-tts-tools" data-i18n="footer.source">Source</a></span>
   </p>
 </footer>
-<script defer src="/assets/js/consent.js"></script>
-<script defer src="/assets/js/translations.js"></script>
-<script defer src="/assets/js/i18n.js"></script>
+<script defer src="/assets/js/consent.js?v=20261121e"></script>
+<script defer src="/assets/js/translations.js?v=20261121e"></script>
+<script defer src="/assets/js/i18n.js?v=20261121e"></script>
+<script defer src="/assets/js/ux.js?v=20261121e"></script>
 </body>
 </html>

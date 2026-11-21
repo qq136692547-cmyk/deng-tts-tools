@@ -227,6 +227,26 @@
     });
   });
 
+  // Monetization & sponsor inquiry outbound click tracking
+  document.addEventListener('click', function (event) {
+    if (!event.target || !event.target.closest || !window.ttcalcTrackEvent) return;
+    var monLink = event.target.closest('a[href^="/go/"], a[rel~="sponsored"]');
+    if (monLink && !monLink.hasAttribute('data-cross-site')) {
+      var href = monLink.getAttribute('href') || '';
+      window.ttcalcTrackEvent('monetization_outbound_click', {
+        target_route: href,
+        link_url: monLink.href,
+        page_path: window.location.pathname
+      });
+    }
+    var mailLink = event.target.closest('a[href^="mailto:"]');
+    if (mailLink) {
+      window.ttcalcTrackEvent('sponsor_inquiry_click', {
+        page_path: window.location.pathname
+      });
+    }
+  });
+
   window.ttcalcTrackEvent = function (name, params) {
     if (typeof window.gtag !== 'function') return;
     var payload = Object.assign({ source_type: crossSource() }, params || {});
@@ -353,7 +373,7 @@
   function generateMasterCsvContent() {
     var rows = [
       '# ==============================================================================',
-      '# TTCalc.shop — TikTok Shop Master Unit Economics & Multi-SKU Workbook 2026',
+      '# TTCalc.shop — TikTok Shop Free 10-SKU Starter & FBT Rate Card 2026',
       '# Official Rate Card: November 1, 2026 | 100% In-Browser Privacy Verified',
       '# ==============================================================================',
       '',
@@ -406,7 +426,7 @@
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'TTCalc_Master_Profit_OS_2026_Workbook.csv';
+    a.download = 'TTCalc_Free_10SKU_Starter_2026.csv';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -447,26 +467,40 @@
 
     var form = document.getElementById('leadSheetsForm');
     var successBox = document.getElementById('leadSuccessBox');
+    var errorBox = document.getElementById('leadErrorBox');
+    var submitBtn = document.getElementById('btnSubmitLead');
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        var email = (document.getElementById('leadEmail').value || '').trim();
-        if (email) {
-          try { localStorage.setItem('ttcalc_lead_email', email); } catch (err) {}
-          
-          // Submit to Cloudflare Pages API
-          try {
-            fetch('/api/lead', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email: email, tool: window.location.pathname })
-            }).catch(function () {});
-          } catch (e) {}
+        var emailInput = document.getElementById('leadEmail');
+        var email = (emailInput && emailInput.value ? emailInput.value : '').trim();
+        if (!email) return;
 
+        if (errorBox) {
+          errorBox.style.display = 'none';
+          errorBox.textContent = '';
+        }
+        if (submitBtn) submitBtn.disabled = true;
+
+        fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, tool: window.location.pathname })
+        }).then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          try { localStorage.setItem('ttcalc_lead_email', email); } catch (err) {}
           form.style.display = 'none';
           if (successBox) successBox.style.display = 'block';
-          if (window.ttcalcTrackEvent) window.ttcalcTrackEvent('lead_generated', { email: email });
-        }
+          if (window.ttcalcTrackEvent) {
+            window.ttcalcTrackEvent('lead_generated', { tool: window.location.pathname });
+          }
+        }).catch(function () {
+          if (submitBtn) submitBtn.disabled = false;
+          if (errorBox) {
+            errorBox.textContent = T('lead.modal.error', 'Submission failed. Please try again in a moment.');
+            errorBox.style.display = 'block';
+          }
+        });
       });
     }
 
